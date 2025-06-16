@@ -48,6 +48,7 @@ export class Transactions {
      * @throws {@link KardApi.UnauthorizedError}
      * @throws {@link KardApi.InternalServerError}
      * @throws {@link KardApi.InvalidRequest}
+     * @throws {@link KardApi.ConflictError}
      *
      * @example
      *     await client.transactions.createIncomingTransactions("{organizationId}", {
@@ -153,7 +154,7 @@ export class Transactions {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "kard-sdk",
-                "X-Fern-SDK-Version": "0.0.52791",
+                "X-Fern-SDK-Version": "0.0.55174",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -188,6 +189,11 @@ export class Transactions {
                     );
                 case 400:
                     throw new KardApi.InvalidRequest(
+                        _response.error.body as KardApi.ErrorResponse,
+                        _response.rawResponse,
+                    );
+                case 409:
+                    throw new KardApi.ConflictError(
                         _response.error.body as KardApi.ErrorResponse,
                         _response.rawResponse,
                     );

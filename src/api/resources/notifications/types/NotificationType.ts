@@ -8,10 +8,10 @@ export type NotificationType =
     | "validTransaction"
     | "failedTransaction"
     | "clawback"
-    | "offerCreated"
-    | "merchantCreated"
-    | "locationCreated"
-    | "userOfferCreated"
+    | "offer"
+    | "merchant"
+    | "location"
+    | "userOffer"
     | "auditUpdate";
 export const NotificationType = {
     EarnedRewardApproved: "earnedRewardApproved",
@@ -19,9 +19,9 @@ export const NotificationType = {
     ValidTransaction: "validTransaction",
     FailedTransaction: "failedTransaction",
     Clawback: "clawback",
-    OfferCreated: "offerCreated",
-    MerchantCreated: "merchantCreated",
-    LocationCreated: "locationCreated",
-    UserOfferCreated: "userOfferCreated",
+    Offer: "offer",
+    Merchant: "merchant",
+    Location: "location",
+    UserOffer: "userOffer",
     AuditUpdate: "auditUpdate",
 } as const;

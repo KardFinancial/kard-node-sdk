@@ -189,7 +189,7 @@ import * as KardApi from "../../../index.js";
  * @example
  *     {
  *         data: {
- *             type: "userOfferCreated",
+ *             type: "userOffer",
  *             id: "d80a6f28-1b24-4d65-9e42-e1cf3379bc98",
  *             attributes: {
  *                 status: KardApi.UserOfferStatus.Active,
@@ -216,7 +216,7 @@ import * as KardApi from "../../../index.js";
  * @example
  *     {
  *         data: {
- *             type: "locationCreated",
+ *             type: "location",
  *             id: "d80a6f28-1b24-4d65-9e42-e1cf3379bc98",
  *             attributes: {
  *                 name: "Worlds Greatest Chicken",
@@ -301,7 +301,7 @@ import * as KardApi from "../../../index.js";
  * @example
  *     {
  *         data: {
- *             type: "offerCreated",
+ *             type: "offer",
  *             id: "d80a6f28-1b24-4d65-9e42-e1cf3379bc98",
  *             attributes: {
  *                 name: "some offer",
@@ -366,7 +366,7 @@ import * as KardApi from "../../../index.js";
  * @example
  *     {
  *         data: {
- *             type: "merchantCreated",
+ *             type: "merchant",
  *             id: "d80a6f28-1b24-4d65-9e42-e1cf3379bc98",
  *             attributes: {
  *                 name: "some merchant",

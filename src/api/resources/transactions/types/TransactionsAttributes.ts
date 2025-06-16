@@ -36,9 +36,9 @@ export interface TransactionsAttributes {
     /** PAN entry mode (usually a 2 digit numeric code) */
     panEntryMode?: string;
     /** Bank identification number (BIN). Must be a valid BIN of 6 digits. If over 6 digits, please send first 6. */
-    cardBIN?: string;
-    /** Card last four digits. <b>Note, this field is REQUIRED for matching purposes.</b> */
-    cardLastFour?: string;
+    cardBIN: string;
+    /** Card last four digits. */
+    cardLastFour: string;
     /** Transaction approval code */
     authorizationCode?: string;
     /** Retrieval Reference Number */
@@ -50,7 +50,7 @@ export interface TransactionsAttributes {
     /** The direction in which the funds flow - DEBIT or CREDIT */
     direction: KardApi.DirectionType;
     /** The type of payment involved in the transaction. */
-    paymentType: KardApi.PaymentType;
+    paymentType: KardApi.TransactionPaymentType;
     /** The card network associated with the transaction */
     cardNetwork?: KardApi.CardNetwork;
     /** The transaction ID */

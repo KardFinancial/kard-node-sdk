@@ -11,6 +11,7 @@ export * from "./Merchant.js";
 export * from "./AuditStatus.js";
 export * from "./TransactionStatus.js";
 export * from "./PaymentType.js";
+export * from "./TransactionPaymentType.js";
 export * from "./DirectionType.js";
 export * from "./States.js";
 export * from "./CardNetwork.js";

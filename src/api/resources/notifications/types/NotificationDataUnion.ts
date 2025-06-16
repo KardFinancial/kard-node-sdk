@@ -10,10 +10,10 @@ export type NotificationDataUnion =
     | KardApi.NotificationDataUnion.ValidTransaction
     | KardApi.NotificationDataUnion.FailedTransaction
     | KardApi.NotificationDataUnion.Clawback
-    | KardApi.NotificationDataUnion.OfferCreated
-    | KardApi.NotificationDataUnion.MerchantCreated
-    | KardApi.NotificationDataUnion.LocationCreated
-    | KardApi.NotificationDataUnion.UserOfferCreated
+    | KardApi.NotificationDataUnion.Offer
+    | KardApi.NotificationDataUnion.Merchant
+    | KardApi.NotificationDataUnion.Location
+    | KardApi.NotificationDataUnion.UserOffer
     | KardApi.NotificationDataUnion.AuditUpdate;
 
 export namespace NotificationDataUnion {
@@ -37,20 +37,20 @@ export namespace NotificationDataUnion {
         type: "clawback";
     }
 
-    export interface OfferCreated extends KardApi.WebhookOfferData {
-        type: "offerCreated";
+    export interface Offer extends KardApi.WebhookOfferData {
+        type: "offer";
     }
 
-    export interface MerchantCreated extends KardApi.WebhookMerchantData {
-        type: "merchantCreated";
+    export interface Merchant extends KardApi.WebhookMerchantData {
+        type: "merchant";
     }
 
-    export interface LocationCreated extends KardApi.WebhookLocationsData {
-        type: "locationCreated";
+    export interface Location extends KardApi.WebhookLocationsData {
+        type: "location";
     }
 
-    export interface UserOfferCreated extends KardApi.WebhookUserOfferData {
-        type: "userOfferCreated";
+    export interface UserOffer extends KardApi.WebhookUserOfferData {
+        type: "userOffer";
     }
 
     export interface AuditUpdate extends KardApi.AuditUpdateData {

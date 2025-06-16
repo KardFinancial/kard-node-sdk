@@ -17,7 +17,7 @@ import * as KardApi from "../../../index.js";
  *                     subtotal: 800,
  *                     currency: "USD",
  *                     direction: KardApi.DirectionType.Debit,
- *                     paymentType: KardApi.PaymentType.Card,
+ *                     paymentType: KardApi.TransactionPaymentType.Card,
  *                     description: "ADVANCEAUTO",
  *                     description2: "ADVANCEAUTO",
  *                     mcc: "1234",
