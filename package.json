@@ -1,6 +1,6 @@
 {
-    "name": "kard-sdk",
-    "version": "0.0.1",
+    "name": "@kard-financial/sdk",
+    "version": "0.0.55247",
     "private": false,
     "repository": "https://github.com/KardFinancial/kard-node-sdk",
     "type": "commonjs",

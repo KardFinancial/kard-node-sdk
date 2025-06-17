@@ -1,14 +1,14 @@
 # Kard TypeScript Library
 
 [![fern shield](https://img.shields.io/badge/%F0%9F%8C%BF-Built%20with%20Fern-brightgreen)](https://buildwithfern.com?utm_source=github&utm_medium=github&utm_campaign=readme&utm_source=https%3A%2F%2Fgithub.com%2FKardFinancial%2Fkard-node-sdk)
-[![npm shield](https://img.shields.io/npm/v/kard-sdk)](https://www.npmjs.com/package/kard-sdk)
+[![npm shield](https://img.shields.io/npm/v/@kard-financial/sdk)](https://www.npmjs.com/package/@kard-financial/sdk)
 
 The Kard TypeScript library provides convenient access to the Kard API from TypeScript.
 
 ## Installation
 
 ```sh
-npm i -s kard-sdk
+npm i -s @kard-financial/sdk
 ```
 
 ## Reference
@@ -20,7 +20,7 @@ A full reference for this library is available [here](https://github.com/KardFin
 Instantiate and use the client with the following:
 
 ```typescript
-import { KardApiClient } from "kard-sdk";
+import { KardApiClient } from "@kard-financial/sdk";
 
 const client = new KardApiClient({ token: "YOUR_TOKEN" });
 await client.attributions.createAttributionEvents("{organizationId}", "{userId}", {
@@ -53,7 +53,7 @@ The SDK exports all request and response types as TypeScript interfaces. Simply 
 following namespace:
 
 ```typescript
-import { KardApi } from "kard-sdk";
+import { KardApi } from "@kard-financial/sdk";
 
 const request: KardApi.GetOffersByUserRequest = {
     ...
@@ -66,7 +66,7 @@ When the API returns a non-success status code (4xx or 5xx response), a subclass
 will be thrown.
 
 ```typescript
-import { KardApiError } from "kard-sdk";
+import { KardApiError } from "@kard-financial/sdk";
 
 try {
     await client.attributions.createAttributionEvents(...);
@@ -166,7 +166,7 @@ The SDK provides a way for you to customize the underlying HTTP client / Fetch f
 unsupported environment, this provides a way for you to break glass and ensure the SDK works.
 
 ```typescript
-import { KardApiClient } from "kard-sdk";
+import { KardApiClient } from "@kard-financial/sdk";
 
 const client = new KardApiClient({
     ...

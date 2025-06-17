@@ -94,9 +94,8 @@ export class Attributions {
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
-                "X-Fern-SDK-Name": "kard-sdk",
-                "X-Fern-SDK-Version": "0.0.1",
-                "User-Agent": "kard-sdk/0.0.1",
+                "X-Fern-SDK-Name": "@kard-financial/sdk",
+                "X-Fern-SDK-Version": "0.0.55247",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
