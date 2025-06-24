@@ -46,7 +46,7 @@ export class Attributions {
      * @throws {@link KardApi.InvalidRequest}
      *
      * @example
-     *     await client.attributions.createAttributionEvents("{organizationId}", "{userId}", {
+     *     await client.attributions.createAttributionEvents("organization-123", "user-123", {
      *         data: [{
      *                 type: "offerAttribution",
      *                 attributes: {

@@ -51,7 +51,7 @@ export class Transactions {
      * @throws {@link KardApi.ConflictError}
      *
      * @example
-     *     await client.transactions.createIncomingTransactions("{organizationId}", {
+     *     await client.transactions.createIncomingTransactions("organization-123", {
      *         data: [{
      *                 type: "transaction",
      *                 id: "309rjfoincor3icno3rind093cdow3jciwjdwcm",
@@ -92,7 +92,7 @@ export class Transactions {
      *     })
      *
      * @example
-     *     await client.transactions.createIncomingTransactions("{organizationId}", {
+     *     await client.transactions.createIncomingTransactions("organization-123", {
      *         data: [{
      *                 type: "matchedTransaction",
      *                 id: "soduinfwoer82498h248h298heo2eic",

@@ -33,7 +33,7 @@ export interface TransactionsAttributes {
     merchant?: KardApi.Merchant;
     /** Whether card was present at time of transaction */
     cardPresence?: string;
-    /** PAN entry mode (usually a 2 digit numeric code) */
+    /** PAN entry mode */
     panEntryMode?: string;
     /** Bank identification number (BIN). Must be a valid BIN of 6 digits. If over 6 digits, please send first 6. */
     cardBIN: string;

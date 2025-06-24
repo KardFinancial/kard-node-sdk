@@ -45,7 +45,7 @@ export class Notifications {
      * @throws {@link KardApi.ConflictError}
      *
      * @example
-     *     await client.notifications.createSubscriptions("{organizationId}", {
+     *     await client.notifications.createSubscriptions("organization-123", {
      *         data: [{
      *                 type: "subscription",
      *                 attributes: {

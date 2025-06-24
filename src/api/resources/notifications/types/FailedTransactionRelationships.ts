@@ -5,7 +5,6 @@
 import * as KardApi from "../../../index.js";
 
 export interface FailedTransactionRelationships {
-    merchant: KardApi.RelationshipSingle;
     user: KardApi.RelationshipSingle;
     offer: KardApi.RelationshipSingle;
     transaction: KardApi.RelationshipSingle;

@@ -48,7 +48,7 @@ export class Users {
      * @throws {@link KardApi.ConflictError}
      *
      * @example
-     *     await client.users.createUsers("{organizationId}", {
+     *     await client.users.createUsers("organization-123", {
      *         data: [{
      *                 type: "user",
      *                 id: "1234567890",
@@ -172,7 +172,7 @@ export class Users {
      * @throws {@link KardApi.DoesNotExistError}
      *
      * @example
-     *     await client.users.updateUser("{organizationId}", "{userId}", {
+     *     await client.users.updateUser("organization-123", "user-123", {
      *         data: {
      *             type: "user",
      *             id: "1234567890",
@@ -292,7 +292,7 @@ export class Users {
      * @throws {@link KardApi.DoesNotExistError}
      *
      * @example
-     *     await client.users.deleteUser("{organizationId}", "{userId}")
+     *     await client.users.deleteUser("organization-123", "user-123")
      */
     public deleteUser(
         organizationId: KardApi.OrganizationId,
@@ -399,7 +399,7 @@ export class Users {
      * @throws {@link KardApi.DoesNotExistError}
      *
      * @example
-     *     await client.users.getUserById("{organizationId}", "{userId}")
+     *     await client.users.getUserById("organization-123", "user-123")
      */
     public getUserById(
         organizationId: KardApi.OrganizationId,

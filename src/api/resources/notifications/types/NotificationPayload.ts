@@ -118,12 +118,6 @@ import * as KardApi from "../../../index.js";
  *                 cardProductId: "card_product_123"
  *             },
  *             relationships: {
- *                 merchant: {
- *                     data: {
- *                         type: "merchant",
- *                         id: "merchantId001"
- *                     }
- *                 },
  *                 user: {
  *                     data: {
  *                         type: "user",
@@ -158,12 +152,6 @@ import * as KardApi from "../../../index.js";
  *                 cardProductId: "card_product_123"
  *             },
  *             relationships: {
- *                 merchant: {
- *                     data: {
- *                         type: "merchant",
- *                         id: "merchantId001"
- *                     }
- *                 },
  *                 user: {
  *                     data: {
  *                         type: "user",

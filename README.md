@@ -23,7 +23,7 @@ Instantiate and use the client with the following:
 import { KardApiClient } from "@kard-financial/sdk";
 
 const client = new KardApiClient({ token: "YOUR_TOKEN" });
-await client.attributions.createAttributionEvents("{organizationId}", "{userId}", {
+await client.attributions.createAttributionEvents("organization-123", "user-123", {
     data: [
         {
             type: "offerAttribution",

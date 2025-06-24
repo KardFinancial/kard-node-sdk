@@ -50,7 +50,7 @@ export class Eligibility {
      * @throws {@link KardApi.UnauthorizedError}
      *
      * @example
-     *     await client.eligibility.getOffersByUser("{organizationId}", "{userId}", {
+     *     await client.eligibility.getOffersByUser("organization-123", "user-123", {
      *         "page[size]": 1,
      *         "filter[isTargeted]": true,
      *         sort: "-startDate"
@@ -223,7 +223,7 @@ export class Eligibility {
      * @throws {@link KardApi.UnauthorizedError}
      *
      * @example
-     *     await client.eligibility.getLocationsByUser("{organizationId}", "{userId}", {
+     *     await client.eligibility.getLocationsByUser("organization-123", "user-123", {
      *         "page[size]": 1,
      *         "filter[latitude]": 39.9419429,
      *         "filter[longitude]": -75.1446869,

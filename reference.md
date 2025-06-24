@@ -32,7 +32,7 @@ Call this endpoint to send attribution events made by a single enrolled user for
 <dd>
 
 ```typescript
-await client.attributions.createAttributionEvents("{organizationId}", "{userId}", {
+await client.attributions.createAttributionEvents("organization-123", "user-123", {
     data: [
         {
             type: "offerAttribution",
@@ -138,7 +138,7 @@ can be found by calling the [Get Eligible Locations](/2024-10-01/api/eligibility
 <dd>
 
 ```typescript
-await client.eligibility.getOffersByUser("{organizationId}", "{userId}", {
+await client.eligibility.getOffersByUser("organization-123", "user-123", {
     "page[size]": 1,
     "filter[isTargeted]": true,
     sort: "-startDate",
@@ -227,7 +227,7 @@ pattern.<br/>
 <dd>
 
 ```typescript
-await client.eligibility.getLocationsByUser("{organizationId}", "{userId}", {
+await client.eligibility.getLocationsByUser("organization-123", "user-123", {
     "page[size]": 1,
     "filter[latitude]": 39.9419429,
     "filter[longitude]": -75.1446869,
@@ -315,7 +315,7 @@ Call this endpoint to subscribe to notification events.<br/>
 <dd>
 
 ```typescript
-await client.notifications.createSubscriptions("{organizationId}", {
+await client.notifications.createSubscriptions("organization-123", {
     data: [
         {
             type: "subscription",
@@ -406,7 +406,7 @@ Please use the correct type when calling the endpoint:
 <dd>
 
 ```typescript
-await client.transactions.createIncomingTransactions("{organizationId}", {
+await client.transactions.createIncomingTransactions("organization-123", {
     data: [
         {
             type: "transaction",
@@ -522,7 +522,7 @@ Call this endpoint to enroll a specified user into your rewards program.<br/>
 <dd>
 
 ```typescript
-await client.users.createUsers("{organizationId}", {
+await client.users.createUsers("organization-123", {
     data: [
         {
             type: "user",
@@ -606,7 +606,7 @@ Call this endpoint to update the details on a specified user.<br/>
 <dd>
 
 ```typescript
-await client.users.updateUser("{organizationId}", "{userId}", {
+await client.users.updateUser("organization-123", "user-123", {
     data: {
         type: "user",
         id: "1234567890",
@@ -696,7 +696,7 @@ Call this endpoint to delete a specified enrolled user from the rewards program 
 <dd>
 
 ```typescript
-await client.users.deleteUser("{organizationId}", "{userId}");
+await client.users.deleteUser("organization-123", "user-123");
 ```
 
 </dd>
@@ -769,7 +769,7 @@ Call this endpoint to fetch the details on a specified user.<br/>
 <dd>
 
 ```typescript
-await client.users.getUserById("{organizationId}", "{userId}");
+await client.users.getUserById("organization-123", "user-123");
 ```
 
 </dd>
