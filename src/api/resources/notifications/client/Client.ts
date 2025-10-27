@@ -4,9 +4,7 @@
 
 import * as environments from "../../../../environments.js";
 import * as core from "../../../../core/index.js";
-import * as KardApi from "../../../index.js";
-import urlJoin from "url-join";
-import * as errors from "../../../../errors/index.js";
+import { Subscriptions } from "../resources/subscriptions/client/Client.js";
 
 export declare namespace Notifications {
     export interface Options {
@@ -15,145 +13,14 @@ export declare namespace Notifications {
         baseUrl?: core.Supplier<string>;
         token: core.Supplier<core.BearerToken>;
     }
-
-    export interface RequestOptions {
-        /** The maximum time to wait for a response in seconds. */
-        timeoutInSeconds?: number;
-        /** The number of times to retry the request. Defaults to 2. */
-        maxRetries?: number;
-        /** A hook to abort the request. */
-        abortSignal?: AbortSignal;
-        /** Additional headers to include in the request. */
-        headers?: Record<string, string>;
-    }
 }
 
 export class Notifications {
+    protected _subscriptions: Subscriptions | undefined;
+
     constructor(protected readonly _options: Notifications.Options) {}
 
-    /**
-     * Call this endpoint to subscribe to notification events.<br/>
-     * <b>Required scopes:</b> `notifications:write`
-     *
-     * @param {KardApi.OrganizationId} organizationId
-     * @param {KardApi.SubscriptionRequestBody} request
-     * @param {Notifications.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @throws {@link KardApi.UnauthorizedError}
-     * @throws {@link KardApi.InternalServerError}
-     * @throws {@link KardApi.InvalidRequest}
-     * @throws {@link KardApi.ConflictError}
-     *
-     * @example
-     *     await client.notifications.createSubscriptions("organization-123", {
-     *         data: [{
-     *                 type: "subscription",
-     *                 attributes: {
-     *                     eventName: "earnedRewardApproved",
-     *                     webhookUrl: "https://webhookUrl.com/post",
-     *                     enabled: true
-     *                 }
-     *             }]
-     *     })
-     */
-    public createSubscriptions(
-        organizationId: KardApi.OrganizationId,
-        request: KardApi.SubscriptionRequestBody,
-        requestOptions?: Notifications.RequestOptions,
-    ): core.HttpResponsePromise<KardApi.CreateSubscriptionsResponseObject> {
-        return core.HttpResponsePromise.fromPromise(
-            this.__createSubscriptions(organizationId, request, requestOptions),
-        );
-    }
-
-    private async __createSubscriptions(
-        organizationId: KardApi.OrganizationId,
-        request: KardApi.SubscriptionRequestBody,
-        requestOptions?: Notifications.RequestOptions,
-    ): Promise<core.WithRawResponse<KardApi.CreateSubscriptionsResponseObject>> {
-        const _response = await core.fetcher({
-            url: urlJoin(
-                (await core.Supplier.get(this._options.baseUrl)) ??
-                    (await core.Supplier.get(this._options.environment)) ??
-                    environments.KardApiEnvironment.Production,
-                `/v2/issuers/${encodeURIComponent(organizationId)}/subscriptions`,
-            ),
-            method: "POST",
-            headers: {
-                Authorization: await this._getAuthorizationHeader(),
-                "X-Fern-Language": "JavaScript",
-                "X-Fern-SDK-Name": "@kard-financial/sdk",
-                "X-Fern-SDK-Version": "0.0.1",
-                "User-Agent": "@kard-financial/sdk/0.0.1",
-                "X-Fern-Runtime": core.RUNTIME.type,
-                "X-Fern-Runtime-Version": core.RUNTIME.version,
-                ...requestOptions?.headers,
-            },
-            contentType: "application/json",
-            requestType: "json",
-            body: request,
-            timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
-            maxRetries: requestOptions?.maxRetries,
-            abortSignal: requestOptions?.abortSignal,
-        });
-        if (_response.ok) {
-            return {
-                data: _response.body as KardApi.CreateSubscriptionsResponseObject,
-                rawResponse: _response.rawResponse,
-            };
-        }
-
-        if (_response.error.reason === "status-code") {
-            switch (_response.error.statusCode) {
-                case 401:
-                    throw new KardApi.UnauthorizedError(
-                        _response.error.body as KardApi.ErrorResponse,
-                        _response.rawResponse,
-                    );
-                case 500:
-                    throw new KardApi.InternalServerError(
-                        _response.error.body as KardApi.ErrorResponse,
-                        _response.rawResponse,
-                    );
-                case 400:
-                    throw new KardApi.InvalidRequest(
-                        _response.error.body as KardApi.ErrorResponse,
-                        _response.rawResponse,
-                    );
-                case 409:
-                    throw new KardApi.ConflictError(
-                        _response.error.body as KardApi.ErrorResponse,
-                        _response.rawResponse,
-                    );
-                default:
-                    throw new errors.KardApiError({
-                        statusCode: _response.error.statusCode,
-                        body: _response.error.body,
-                        rawResponse: _response.rawResponse,
-                    });
-            }
-        }
-
-        switch (_response.error.reason) {
-            case "non-json":
-                throw new errors.KardApiError({
-                    statusCode: _response.error.statusCode,
-                    body: _response.error.rawBody,
-                    rawResponse: _response.rawResponse,
-                });
-            case "timeout":
-                throw new errors.KardApiTimeoutError(
-                    "Timeout exceeded when calling POST /v2/issuers/{organizationId}/subscriptions.",
-                );
-            case "unknown":
-                throw new errors.KardApiError({
-                    message: _response.error.errorMessage,
-                    rawResponse: _response.rawResponse,
-                });
-        }
-    }
-
-    protected async _getAuthorizationHeader(): Promise<string> {
-        return `Bearer ${await core.Supplier.get(this._options.token)}`;
+    public get subscriptions(): Subscriptions {
+        return (this._subscriptions ??= new Subscriptions(this._options));
     }
 }

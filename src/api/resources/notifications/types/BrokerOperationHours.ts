@@ -6,7 +6,7 @@ import * as KardApi from "../../../index.js";
 
 export interface BrokerOperationHours {
     /** Operating hour periods by day of week */
-    periods: KardApi.BrokerOperationPeriod[];
+    periods?: KardApi.BrokerOperationPeriod[];
     /** Human-readable description of operating hours */
     weekdayText: string[];
 }

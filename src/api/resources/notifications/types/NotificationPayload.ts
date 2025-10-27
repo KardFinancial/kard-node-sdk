@@ -14,7 +14,7 @@ import * as KardApi from "../../../index.js";
  *                 message: "You have earned a 72 cent reward on your transaction at McDonald's",
  *                 name: "McDonald's",
  *                 commissionEarned: {
- *                     type: KardApi.CommissionEarnedType.Cents,
+ *                     type: KardApi.CommissionValueType.Cents,
  *                     value: 72
  *                 },
  *                 attributionUrl: "www.attribution.com/token",
@@ -76,8 +76,14 @@ import * as KardApi from "../../../index.js";
  *                 message: "Your transaction at Amazon has been validated successfully.",
  *                 name: "Amazon",
  *                 commissionEarned: {
- *                     type: KardApi.CommissionEarnedType.Cents,
- *                     value: 100
+ *                     issuer: {
+ *                         type: KardApi.CommissionValueType.Cents,
+ *                         value: 100
+ *                     },
+ *                     user: {
+ *                         type: KardApi.CommissionValueType.Cents,
+ *                         value: 320
+ *                     }
  *                 },
  *                 attributionUrl: "www.attribution.com/token",
  *                 surveyUrl: "www.survey.com",
@@ -178,23 +184,24 @@ import * as KardApi from "../../../index.js";
  *     {
  *         data: {
  *             type: "userOffer",
- *             id: "d80a6f28-1b24-4d65-9e42-e1cf3379bc98",
+ *             id: "some-user-offer-notification-id",
  *             attributes: {
  *                 status: KardApi.UserOfferStatus.Active,
- *                 updatedAt: "2024-12-13T00:00:00.000Z",
- *                 createdAt: "2024-12-13T00:00:00.000Z"
+ *                 createdAt: "2025-06-23T00:00:00Z",
+ *                 updatedAt: "2025-06-23T00:00:00Z",
+ *                 eventPriority: 1
  *             },
  *             relationships: {
- *                 user: {
- *                     data: {
- *                         type: "user",
- *                         id: "d80a6f28-1b24-4d65-9e42-e1cf3379bc98"
- *                     }
- *                 },
  *                 offer: {
  *                     data: {
  *                         type: "offer",
- *                         id: "5e27318c9b346f00087fbb5c"
+ *                         id: "restaurant-offer-id"
+ *                     }
+ *                 },
+ *                 user: {
+ *                     data: {
+ *                         type: "user",
+ *                         id: "user-123"
  *                     }
  *                 }
  *             }
@@ -205,9 +212,11 @@ import * as KardApi from "../../../index.js";
  *     {
  *         data: {
  *             type: "location",
- *             id: "d80a6f28-1b24-4d65-9e42-e1cf3379bc98",
+ *             id: "some-location-notification-id",
  *             attributes: {
- *                 name: "Worlds Greatest Chicken",
+ *                 locationId: "restaurant-location-id",
+ *                 name: "Local Restaurant",
+ *                 status: KardApi.LocationStatus.Active,
  *                 address: {
  *                     street: "120 Main St",
  *                     city: "Philadelphia",
@@ -267,19 +276,15 @@ import * as KardApi from "../../../index.js";
  *                             }
  *                         }],
  *                     weekdayText: ["Monday: 9:00 AM \u2013 5:00 PM", "Tuesday: 9:00 AM \u2013 5:00 PM", "Wednesday: 9:00 AM \u2013 5:00 PM", "Thursday: 9:00 AM \u2013 5:00 PM", "Friday: 9:00 AM \u2013 5:00 PM", "Saturday: Closed", "Sunday: Closed"]
- *                 }
+ *                 },
+ *                 createdAt: "2025-06-22T00:00:00Z",
+ *                 updatedAt: "2025-06-22T00:00:00Z"
  *             },
  *             relationships: {
  *                 merchant: {
  *                     data: {
  *                         type: "merchant",
- *                         id: "5e27318c9b346f00087fbb5c"
- *                     }
- *                 },
- *                 location: {
- *                     data: {
- *                         type: "location",
- *                         id: "5e27318c9b346f00087fba8l"
+ *                         id: "restaurant-merchant-id"
  *                     }
  *                 }
  *             }
@@ -290,23 +295,33 @@ import * as KardApi from "../../../index.js";
  *     {
  *         data: {
  *             type: "offer",
- *             id: "d80a6f28-1b24-4d65-9e42-e1cf3379bc98",
+ *             id: "some-offer-notification-id",
  *             attributes: {
- *                 name: "some offer",
- *                 terms: "some terms",
+ *                 offerId: "restaurant-offer-id",
+ *                 offerType: KardApi.OfferType.StandardOffer,
+ *                 name: "Local Restaurant",
+ *                 terms: "This offer is valid for in-store purchases at participating locations and applies only to menu items as specified in the promotion details. Discounts cannot be combined with other promotions, applied to previous purchases, or redeemed for cash. The merchant reserves the right to modify or cancel the offer at any time without prior notice.",
  *                 status: KardApi.OfferStatus.Active,
  *                 purchaseChannel: [KardApi.BrokerPurchaseChannel.Instore, KardApi.BrokerPurchaseChannel.Online],
  *                 userReward: {
  *                     type: KardApi.BrokerRewardType.Percent,
- *                     value: 5.7
+ *                     value: 5
  *                 },
- *                 startDate: "2022-01-01T05:00:00Z",
- *                 expirationDate: "2022-01-01T05:00:00Z",
+ *                 startDate: "2025-06-23T00:00:00Z",
+ *                 expirationDate: "2025-07-10T00:00:00Z",
  *                 minRewardAmount: {
  *                     type: KardApi.BrokerAmountType.Cents,
- *                     value: 500
+ *                     value: 0
  *                 },
  *                 maxRewardAmount: {
+ *                     type: KardApi.BrokerAmountType.Cents,
+ *                     value: 2000
+ *                 },
+ *                 minUserRewardAmount: {
+ *                     type: KardApi.BrokerAmountType.Cents,
+ *                     value: 0
+ *                 },
+ *                 maxUserRewardAmount: {
  *                     type: KardApi.BrokerAmountType.Cents,
  *                     value: 2000
  *                 },
@@ -316,35 +331,19 @@ import * as KardApi from "../../../index.js";
  *                 },
  *                 maxTransactionAmount: {
  *                     type: KardApi.BrokerAmountType.Cents,
- *                     value: 2000
+ *                     value: 10000
  *                 },
+ *                 validMCCs: ["5812", "5813"],
  *                 maxRedemptions: 1,
- *                 isTargeted: true,
- *                 assets: [{
- *                         type: KardApi.BrokerAssetType.LogoImage,
- *                         url: "http://somelogoimageurl.com",
- *                         alt: "Logo Image URL"
- *                     }, {
- *                         type: KardApi.BrokerAssetType.BannerImage,
- *                         url: "http://somebannerimageurl.com",
- *                         alt: "Banner Image URL"
- *                     }],
- *                 websiteUrl: "http://someofferprovider.com",
- *                 description: "some description",
- *                 updatedAt: "2024-12-13T00:00:00.000Z",
- *                 createdAt: "2024-12-13T00:00:00.000Z"
+ *                 isTargeted: false,
+ *                 updatedAt: "2025-06-22T00:00:00Z",
+ *                 createdAt: "2025-06-22T00:00:00Z"
  *             },
  *             relationships: {
- *                 offer: {
- *                     data: {
- *                         type: "offer",
- *                         id: "5e27318c9b346f00087fbb5c"
- *                     }
- *                 },
  *                 merchant: {
  *                     data: {
  *                         type: "merchant",
- *                         id: "5e27318c9b346f00087fbb5c"
+ *                         id: "restaurant-merchant-id"
  *                     }
  *                 }
  *             }
@@ -355,26 +354,27 @@ import * as KardApi from "../../../index.js";
  *     {
  *         data: {
  *             type: "merchant",
- *             id: "d80a6f28-1b24-4d65-9e42-e1cf3379bc98",
+ *             id: "some-merchant-notification-id",
  *             attributes: {
- *                 name: "some merchant",
- *                 source: "NATIONAL",
- *                 description: "some description",
- *                 websiteURL: "https://test.com",
- *                 updatedAt: "2024-12-13T00:00:00.000Z",
- *                 createdAt: "2024-12-13T00:00:00.000Z"
+ *                 merchantId: "restaurant-merchant-id",
+ *                 name: "Local Restaurant",
+ *                 assets: [{
+ *                         type: KardApi.BrokerAssetType.LogoImage,
+ *                         url: "http://assets.getkard.com/logo/img",
+ *                         alt: "Restaurant Logo Image"
+ *                     }],
+ *                 websiteUrl: "https://www.example-restaurant.com",
+ *                 description: "A local restaurant offering delicious food and great dining experiences.",
+ *                 source: KardApi.MerchantSource.National,
+ *                 category: "Food & Beverage",
+ *                 updatedAt: "2025-06-22T00:00:00Z",
+ *                 createdAt: "2025-06-22T00:00:00Z"
  *             },
  *             relationships: {
- *                 merchant: {
- *                     data: {
- *                         type: "merchant",
- *                         id: "5e27318c9b346f00087fbb5c"
- *                     }
- *                 },
- *                 locations: {
+ *                 offer: {
  *                     data: [{
- *                             type: "location",
- *                             id: "5e27318c9b346f00087fbb5c"
+ *                             type: "offer",
+ *                             id: "restaurant-offer-id"
  *                         }]
  *                 }
  *             }
@@ -444,4 +444,5 @@ import * as KardApi from "../../../index.js";
  */
 export interface NotificationPayload {
     data: KardApi.NotificationDataUnion;
+    meta?: KardApi.NotificationMetadata;
 }

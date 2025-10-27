@@ -5,6 +5,5 @@
 import * as KardApi from "../../../index.js";
 
 export interface WebhookMerchantRelationships {
-    merchant: KardApi.RelationshipSingle;
-    locations: KardApi.RelationshipMultiple;
+    offer?: KardApi.RelationshipMultiple;
 }

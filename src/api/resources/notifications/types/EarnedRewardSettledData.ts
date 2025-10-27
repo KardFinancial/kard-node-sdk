@@ -7,6 +7,6 @@ import * as KardApi from "../../../index.js";
 export interface EarnedRewardSettledData {
     /** The internal ID of the notification */
     id: string;
-    attributes: KardApi.ValidTransactionAttributes;
+    attributes: KardApi.EarnedRewardSettledAttributes;
     relationships: KardApi.EarnedRewardRelationships;
 }

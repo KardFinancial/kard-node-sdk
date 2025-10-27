@@ -5,6 +5,10 @@
 import * as KardApi from "../../../index.js";
 
 export interface WebhookOfferAttributes {
+    /** The Kard offer ID */
+    offerId: string;
+    /** The type of kard platform offer (e.g., "standardOffer") */
+    offerType: KardApi.OfferType;
     /** The name of the offer */
     name: string;
     /** Terms and conditions for the offer */
@@ -23,20 +27,20 @@ export interface WebhookOfferAttributes {
     minRewardAmount?: KardApi.BrokerAmount;
     /** Maximum reward amount */
     maxRewardAmount?: KardApi.BrokerAmount;
+    /** Minimum user reward amount */
+    minUserRewardAmount?: KardApi.BrokerAmount;
+    /** Maximum user reward amount */
+    maxUserRewardAmount?: KardApi.BrokerAmount;
     /** Minimum transaction amount */
     minTransactionAmount?: KardApi.BrokerAmount;
     /** Maximum transaction amount */
     maxTransactionAmount?: KardApi.BrokerAmount;
     /** Maximum number of times the offer can be redeemed */
     maxRedemptions?: number;
+    /** Required MCCs to redeem the offer. If this is empty or not present no MCCs are required. */
+    validMCCs?: string[];
     /** Whether the offer is targeted to specific users */
     isTargeted: boolean;
-    /** Media assets associated with the offer */
-    assets: KardApi.BrokerAsset[];
-    /** URL of the merchant's website */
-    websiteUrl?: string;
-    /** Description of the offer */
-    description?: string;
     /** When the offer was last updated */
     updatedAt: string;
     /** When the offer was created */

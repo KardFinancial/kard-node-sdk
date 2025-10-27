@@ -5,5 +5,5 @@
 import * as KardApi from "../../../index.js";
 
 export interface ValidTransactionAttributes extends KardApi.RewardNotificationAttributes {
-    commissionEarned: KardApi.CommissionEarned;
+    commissionEarned: KardApi.ValidTransactionCommissionEarned;
 }

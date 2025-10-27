@@ -41,7 +41,14 @@ import * as KardApi from "../../../index.js";
  *                     acquirerReferenceNumber: "1234567890123456789012345678",
  *                     systemTraceAuditNumber: "333828",
  *                     transactionId: "2467de37-cbdc-416d-a359-75de87bfffb0",
- *                     cardProductId: "1234567890123456789012345678"
+ *                     cardProductId: "1234567890123456789012345678",
+ *                     processorMids: {
+ *                         processor: "VISA",
+ *                         mids: {
+ *                             vmid: "12345678901",
+ *                             vsid: "12345678"
+ *                         }
+ *                     }
  *                 }
  *             }]
  *     }
@@ -77,7 +84,44 @@ import * as KardApi from "../../../index.js";
  *                     systemTraceAuditNumber: "333828",
  *                     acquirerReferenceNumber: "1234567890123456789012345678",
  *                     transactionId: "2467de37-cbdc-416d-a359-75de87bfffb0",
- *                     cardProductId: "1234567890123456789012345678"
+ *                     cardProductId: "1234567890123456789012345678",
+ *                     orderId: "23q49807iklasdf238904",
+ *                     receiptMedium: KardApi.ReceiptMediumType.Electronic
+ *                 }
+ *             }]
+ *     }
+ *
+ * @example
+ *     {
+ *         data: [{
+ *                 type: "matchedTransaction",
+ *                 id: "unknown_payment_txn_12345",
+ *                 attributes: {
+ *                     userId: "6FHt5b6Fnp0qdomMEy5AN6PXcSJIeX69",
+ *                     amount: 2500,
+ *                     subtotal: 2000,
+ *                     description: "ONLINE STORE PURCHASE",
+ *                     authorizationDate: "2021-07-02T17:47:06Z",
+ *                     paymentType: KardApi.PaymentType.Unknown,
+ *                     matchedOfferId: "5eb2d4a39ce24e00081488c4",
+ *                     direction: KardApi.DirectionType.Debit,
+ *                     merchant: {
+ *                         id: "98765432109876543",
+ *                         name: "ONLINE STORE",
+ *                         addrStreet: "456 Web St",
+ *                         addrCity: "Online City",
+ *                         addrState: KardApi.States.Ca,
+ *                         addrZipcode: "90210",
+ *                         addrCountry: "United States"
+ *                     },
+ *                     cardLastFour: "7890",
+ *                     authorizationCode: "5678",
+ *                     retrievalReferenceNumber: "200804333919",
+ *                     systemTraceAuditNumber: "444939",
+ *                     acquirerReferenceNumber: "9876543210987654321098765432",
+ *                     transactionId: "unknown-txn-4567-efgh-ijkl-mnop-qrstuvwxyz01",
+ *                     orderId: "online_order_789012",
+ *                     receiptMedium: KardApi.ReceiptMediumType.Electronic
  *                 }
  *             }]
  *     }

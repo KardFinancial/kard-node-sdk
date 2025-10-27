@@ -15,7 +15,7 @@ export interface MatchedTransactionsAttributes {
     description: string;
     /** Timestamp for transaction event. Date string should be in ISO format i.e.`'YYYY-MM-DDThh:mm:ss.sTZD'` where TZD = time zone designator (Z or +hh:mm or -hh:mm) i.e. `1994-11-05T08:15:30-05:00 OR 1994-11-05T08:15:30Z` */
     authorizationDate: string;
-    /** The ID of the Kard offer that the transaction matched to. If this field is omitted, the transaction will be treated as not matched to any Kard offer. This field **must** be omitted  when `paymentType` is `UNKNOWN`. */
+    /** The ID of the Kard offer to which the transaction was matched. If this field is omitted, the transaction will be considered unmatched to any Kard offer. This field **must** be omitted when the `paymentType` is `UNKNOWN` and neither an orderId nor a `cardLastFour` is supplied. */
     matchedOfferId?: string;
     /** The unique Kard location ID where the transaction took place. This field **must** be omitted  when `paymentType` is `UNKNOWN`. */
     matchedLocationId?: string;
@@ -25,7 +25,7 @@ export interface MatchedTransactionsAttributes {
     paymentType: KardApi.PaymentType;
     /** Bank identification number (BIN). Must be a valid BIN of 6 digits. If over 6 digits, please send first 6. This field **must** be omitted when `paymentType` is `CASH` or `UNKNOWN`. */
     cardBIN?: string;
-    /** Card last four digits. This field is **required** when `paymentType` is `CARD` and and `matchedOfferId` is provided. It **must** be omitted when `paymentType` is `CASH` or `UNKNOWN`. */
+    /** Card last four digits. This field is **required** when `paymentType` is `CARD` and `matchedOfferId` is provided. It **must** be omitted when `paymentType` is `CASH`. */
     cardLastFour?: string;
     /** Transaction approval code */
     authorizationCode?: string;
@@ -43,4 +43,8 @@ export interface MatchedTransactionsAttributes {
     transactionId: string;
     /** The card product ID associated with the transaction. This field **must** be omitted when `paymentType` is `CASH` or `UNKNOWN`. */
     cardProductId?: string;
+    /** The unique identifier for an online order linked to this transaction. */
+    orderId?: string;
+    /** Indicates the format of the receipt from which the transaction is derived. */
+    receiptMedium?: KardApi.ReceiptMediumType;
 }

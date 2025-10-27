@@ -11,4 +11,6 @@ export interface WebhookUserOfferAttributes {
     updatedAt: string;
     /** When the user offer was created */
     createdAt: string;
+    /** The priority of the notification event. This will be a number between 1-10 with 1 being the highest priority. */
+    eventPriority: number;
 }

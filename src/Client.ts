@@ -4,8 +4,6 @@
 
 import * as environments from "./environments.js";
 import * as core from "./core/index.js";
-import { Attributions } from "./api/resources/attributions/client/Client.js";
-import { Eligibility } from "./api/resources/eligibility/client/Client.js";
 import { Notifications } from "./api/resources/notifications/client/Client.js";
 import { Transactions } from "./api/resources/transactions/client/Client.js";
 import { Users } from "./api/resources/users/client/Client.js";
@@ -31,21 +29,11 @@ export declare namespace KardApiClient {
 }
 
 export class KardApiClient {
-    protected _attributions: Attributions | undefined;
-    protected _eligibility: Eligibility | undefined;
     protected _notifications: Notifications | undefined;
     protected _transactions: Transactions | undefined;
     protected _users: Users | undefined;
 
     constructor(protected readonly _options: KardApiClient.Options) {}
-
-    public get attributions(): Attributions {
-        return (this._attributions ??= new Attributions(this._options));
-    }
-
-    public get eligibility(): Eligibility {
-        return (this._eligibility ??= new Eligibility(this._options));
-    }
 
     public get notifications(): Notifications {
         return (this._notifications ??= new Notifications(this._options));

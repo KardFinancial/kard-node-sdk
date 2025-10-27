@@ -57,4 +57,8 @@ export interface TransactionsAttributes {
     transactionId: string;
     /** The card product ID associated with the transaction */
     cardProductId?: string;
+    /** The zip code of the user who made the transaction */
+    userZipCode?: string;
+    /** Network specific merchant IDs (MIDs) associated with the transaction */
+    processorMids?: KardApi.ProcessorMid;
 }

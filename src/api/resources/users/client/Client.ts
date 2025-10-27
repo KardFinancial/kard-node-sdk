@@ -7,6 +7,8 @@ import * as core from "../../../../core/index.js";
 import * as KardApi from "../../../index.js";
 import urlJoin from "url-join";
 import * as errors from "../../../../errors/index.js";
+import { Attributions } from "../resources/attributions/client/Client.js";
+import { Rewards } from "../resources/rewards/client/Client.js";
 
 export declare namespace Users {
     export interface Options {
@@ -29,7 +31,18 @@ export declare namespace Users {
 }
 
 export class Users {
+    protected _attributions: Attributions | undefined;
+    protected _rewards: Rewards | undefined;
+
     constructor(protected readonly _options: Users.Options) {}
+
+    public get attributions(): Attributions {
+        return (this._attributions ??= new Attributions(this._options));
+    }
+
+    public get rewards(): Rewards {
+        return (this._rewards ??= new Rewards(this._options));
+    }
 
     /**
      * Call this endpoint to enroll a specified user into your rewards program.<br/>
@@ -48,7 +61,7 @@ export class Users {
      * @throws {@link KardApi.ConflictError}
      *
      * @example
-     *     await client.users.createUsers("organization-123", {
+     *     await client.users.create("organization-123", {
      *         data: [{
      *                 type: "user",
      *                 id: "1234567890",
@@ -59,15 +72,15 @@ export class Users {
      *             }]
      *     })
      */
-    public createUsers(
+    public create(
         organizationId: KardApi.OrganizationId,
         request: KardApi.CreateUsersObject,
         requestOptions?: Users.RequestOptions,
     ): core.HttpResponsePromise<KardApi.CreateUsersObject> {
-        return core.HttpResponsePromise.fromPromise(this.__createUsers(organizationId, request, requestOptions));
+        return core.HttpResponsePromise.fromPromise(this.__create(organizationId, request, requestOptions));
     }
 
-    private async __createUsers(
+    private async __create(
         organizationId: KardApi.OrganizationId,
         request: KardApi.CreateUsersObject,
         requestOptions?: Users.RequestOptions,
@@ -77,15 +90,15 @@ export class Users {
                 (await core.Supplier.get(this._options.baseUrl)) ??
                     (await core.Supplier.get(this._options.environment)) ??
                     environments.KardApiEnvironment.Production,
-                `/v2/issuers/${encodeURIComponent(organizationId)}/users`,
+                `v2/issuers/${encodeURIComponent(organizationId)}/users`,
             ),
             method: "POST",
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@kard-financial/sdk",
-                "X-Fern-SDK-Version": "0.0.1",
-                "User-Agent": "@kard-financial/sdk/0.0.1",
+                "X-Fern-SDK-Version": "0.0.2",
+                "User-Agent": "@kard-financial/sdk/0.0.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -172,7 +185,7 @@ export class Users {
      * @throws {@link KardApi.DoesNotExistError}
      *
      * @example
-     *     await client.users.updateUser("organization-123", "user-123", {
+     *     await client.users.update("organization-123", "user-123", {
      *         data: {
      *             type: "user",
      *             id: "1234567890",
@@ -183,16 +196,16 @@ export class Users {
      *         }
      *     })
      */
-    public updateUser(
+    public update(
         organizationId: KardApi.OrganizationId,
         userId: KardApi.UserId,
         request: KardApi.UpdateUserObject,
         requestOptions?: Users.RequestOptions,
     ): core.HttpResponsePromise<KardApi.UpdateUserObject> {
-        return core.HttpResponsePromise.fromPromise(this.__updateUser(organizationId, userId, request, requestOptions));
+        return core.HttpResponsePromise.fromPromise(this.__update(organizationId, userId, request, requestOptions));
     }
 
-    private async __updateUser(
+    private async __update(
         organizationId: KardApi.OrganizationId,
         userId: KardApi.UserId,
         request: KardApi.UpdateUserObject,
@@ -203,15 +216,15 @@ export class Users {
                 (await core.Supplier.get(this._options.baseUrl)) ??
                     (await core.Supplier.get(this._options.environment)) ??
                     environments.KardApiEnvironment.Production,
-                `/v2/issuers/${encodeURIComponent(organizationId)}/users/${encodeURIComponent(userId)}`,
+                `v2/issuers/${encodeURIComponent(organizationId)}/users/${encodeURIComponent(userId)}`,
             ),
             method: "PUT",
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@kard-financial/sdk",
-                "X-Fern-SDK-Version": "0.0.1",
-                "User-Agent": "@kard-financial/sdk/0.0.1",
+                "X-Fern-SDK-Version": "0.0.2",
+                "User-Agent": "@kard-financial/sdk/0.0.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -278,7 +291,7 @@ export class Users {
     }
 
     /**
-     * Call this endpoint to delete a specified enrolled user from the rewards program and Kard's system. Users can be re-enrolled into rewards by calling the [Create User](/2024-10-01/api/users/create-users) endpoint using the same `id` from before.<br/>
+     * Call this endpoint to delete a specified enrolled user from the rewards program and Kard's system. Users can be re-enrolled into rewards by calling the [Create User](/2024-10-01/api/users/create) endpoint using the same `id` from before.<br/>
      *
      * <b>Required scopes:</b> `user:delete`
      *
@@ -292,17 +305,17 @@ export class Users {
      * @throws {@link KardApi.DoesNotExistError}
      *
      * @example
-     *     await client.users.deleteUser("organization-123", "user-123")
+     *     await client.users.delete("organization-123", "user-123")
      */
-    public deleteUser(
+    public delete(
         organizationId: KardApi.OrganizationId,
         userId: KardApi.UserId,
         requestOptions?: Users.RequestOptions,
     ): core.HttpResponsePromise<KardApi.DeleteUserResponseObject> {
-        return core.HttpResponsePromise.fromPromise(this.__deleteUser(organizationId, userId, requestOptions));
+        return core.HttpResponsePromise.fromPromise(this.__delete(organizationId, userId, requestOptions));
     }
 
-    private async __deleteUser(
+    private async __delete(
         organizationId: KardApi.OrganizationId,
         userId: KardApi.UserId,
         requestOptions?: Users.RequestOptions,
@@ -312,15 +325,15 @@ export class Users {
                 (await core.Supplier.get(this._options.baseUrl)) ??
                     (await core.Supplier.get(this._options.environment)) ??
                     environments.KardApiEnvironment.Production,
-                `/v2/issuers/${encodeURIComponent(organizationId)}/users/${encodeURIComponent(userId)}`,
+                `v2/issuers/${encodeURIComponent(organizationId)}/users/${encodeURIComponent(userId)}`,
             ),
             method: "DELETE",
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@kard-financial/sdk",
-                "X-Fern-SDK-Version": "0.0.1",
-                "User-Agent": "@kard-financial/sdk/0.0.1",
+                "X-Fern-SDK-Version": "0.0.2",
+                "User-Agent": "@kard-financial/sdk/0.0.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -399,17 +412,17 @@ export class Users {
      * @throws {@link KardApi.DoesNotExistError}
      *
      * @example
-     *     await client.users.getUserById("organization-123", "user-123")
+     *     await client.users.get("organization-123", "user-123")
      */
-    public getUserById(
+    public get(
         organizationId: KardApi.OrganizationId,
         userId: KardApi.UserId,
         requestOptions?: Users.RequestOptions,
     ): core.HttpResponsePromise<KardApi.UpdateUserObject> {
-        return core.HttpResponsePromise.fromPromise(this.__getUserById(organizationId, userId, requestOptions));
+        return core.HttpResponsePromise.fromPromise(this.__get(organizationId, userId, requestOptions));
     }
 
-    private async __getUserById(
+    private async __get(
         organizationId: KardApi.OrganizationId,
         userId: KardApi.UserId,
         requestOptions?: Users.RequestOptions,
@@ -419,15 +432,15 @@ export class Users {
                 (await core.Supplier.get(this._options.baseUrl)) ??
                     (await core.Supplier.get(this._options.environment)) ??
                     environments.KardApiEnvironment.Production,
-                `/v2/issuers/${encodeURIComponent(organizationId)}/users/${encodeURIComponent(userId)}`,
+                `v2/issuers/${encodeURIComponent(organizationId)}/users/${encodeURIComponent(userId)}`,
             ),
             method: "GET",
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@kard-financial/sdk",
-                "X-Fern-SDK-Version": "0.0.1",
-                "User-Agent": "@kard-financial/sdk/0.0.1",
+                "X-Fern-SDK-Version": "0.0.2",
+                "User-Agent": "@kard-financial/sdk/0.0.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,

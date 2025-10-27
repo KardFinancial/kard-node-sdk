@@ -1,9 +1,5 @@
-export * as attributions from "./attributions/index.js";
-export * from "./attributions/types/index.js";
 export * as commons from "./commons/index.js";
 export * from "./commons/types/index.js";
-export * as eligibility from "./eligibility/index.js";
-export * from "./eligibility/types/index.js";
 export * as notifications from "./notifications/index.js";
 export * from "./notifications/types/index.js";
 export * as transactions from "./transactions/index.js";
@@ -13,4 +9,3 @@ export * from "./users/types/index.js";
 export * from "./commons/errors/index.js";
 export * from "./transactions/errors/index.js";
 export * from "./users/errors/index.js";
-export * from "./eligibility/client/requests/index.js";

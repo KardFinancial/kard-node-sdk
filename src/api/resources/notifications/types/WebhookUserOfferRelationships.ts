@@ -5,6 +5,6 @@
 import * as KardApi from "../../../index.js";
 
 export interface WebhookUserOfferRelationships {
-    user: KardApi.RelationshipSingle;
     offer: KardApi.RelationshipSingle;
+    user: KardApi.RelationshipSingle;
 }

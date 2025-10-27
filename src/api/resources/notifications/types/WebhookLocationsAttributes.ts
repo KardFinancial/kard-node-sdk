@@ -5,14 +5,22 @@
 import * as KardApi from "../../../index.js";
 
 export interface WebhookLocationsAttributes {
+    /** The Kard location ID */
+    locationId: string;
     /** The name of the location */
     name: string;
+    /** The status of the location */
+    status: KardApi.LocationStatus;
     /** The physical address of the location */
     address: KardApi.LocationAddress;
     /** The geographic coordinates of the location */
     coordinates: KardApi.LocationCoordinates;
     /** The phone number of the location */
-    phone?: string;
+    phone: string;
     /** The hours of operation for the location */
     operationHours: KardApi.BrokerOperationHours;
+    /** When the location was created */
+    createdAt: string;
+    /** When the location was last updated */
+    updatedAt: string;
 }
