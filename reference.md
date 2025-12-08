@@ -165,6 +165,59 @@ await client.attributions.internalGetAttributions("organizationId", "userId");
 </dl>
 </details>
 
+## Auth
+<details><summary><code>client.auth.<a href="/src/api/resources/auth/client/Client.ts">getToken</a>({ ...params }) -> KardApi.TokenResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.auth.getToken({
+    client_id: "client_id",
+    client_secret: "client_secret"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `KardApi.GetTokenRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `AuthClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 ## BillingAgent
 <details><summary><code>client.billingAgent.<a href="/src/api/resources/billingAgent/client/Client.ts">createIssuerReward</a>(issuerId, userId, { ...params }) -> KardApi.CreateIssuerRewardResponseObject</code></summary>
 <dl>

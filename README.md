@@ -22,7 +22,7 @@ Instantiate and use the client with the following:
 ```typescript
 import { KardApiClient } from "@kard-financial/sdk";
 
-const client = new KardApiClient({ token: "YOUR_TOKEN" });
+const client = new KardApiClient({ clientId: "YOUR_CLIENT_ID", clientSecret: "YOUR_CLIENT_SECRET" });
 await client.attributions.internalBulkCreateAttributions({
     data: [{
             type: "offerAttribution",
