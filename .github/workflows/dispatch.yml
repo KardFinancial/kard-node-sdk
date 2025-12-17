@@ -6,11 +6,6 @@ on:
     paths:
       - "README.md"
   workflow_dispatch:
-    inputs:
-      ref:
-        description: "Ref (branch, tag, or SHA) to sync README from"
-        required: false
-        default: "main"
 
 jobs:
   dispatch:
