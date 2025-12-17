@@ -18,7 +18,7 @@ jobs:
           TARGET_REPO: kard-core
           EVENT_TYPE: sdk-readme-updated
           SOURCE_REPO: kard-node-sdk
-          SOURCE_REF: ${{ inputs.ref || github.ref_name }}
+          SOURCE_REF: ${{ github.ref_name }}
           SOURCE_SHA: ${{ github.sha }}
           SDK_ID: node-sdk
         run: |
