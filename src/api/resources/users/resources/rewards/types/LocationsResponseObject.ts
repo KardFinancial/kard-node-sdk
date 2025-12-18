@@ -124,11 +124,11 @@ import type * as KardApi from "../../../../../index.js";
  *                     maxRedemptions: 1,
  *                     isTargeted: true,
  *                     assets: [{
- *                             type: "LOGO_IMAGE",
+ *                             type: "IMG_VIEW",
  *                             url: "http://assets.getkard.com/logo/img?attribution-tokens",
  *                             alt: "Worlds Greatest Chicken Logo Image"
  *                         }, {
- *                             type: "BANNER_IMAGE",
+ *                             type: "BANNER_VIEW",
  *                             url: "http://assets.getkard.com/banner/img?attribution-tokens",
  *                             alt: "Worlds Greatest Chicken Banner Image"
  *                         }],
