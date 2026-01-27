@@ -8,6 +8,7 @@ import * as environments from "../../../../environments.js";
 import * as errors from "../../../../errors/index.js";
 import * as KardApi from "../../../index.js";
 import { AttributionsClient } from "../resources/attributions/client/Client.js";
+import { AuthClient } from "../resources/auth/client/Client.js";
 import { RewardsClient } from "../resources/rewards/client/Client.js";
 import { UploadsClient } from "../resources/uploads/client/Client.js";
 
@@ -20,6 +21,7 @@ export declare namespace UsersClient {
 export class UsersClient {
     protected readonly _options: NormalizedClientOptionsWithAuth<UsersClient.Options>;
     protected _attributions: AttributionsClient | undefined;
+    protected _auth: AuthClient | undefined;
     protected _rewards: RewardsClient | undefined;
     protected _uploads: UploadsClient | undefined;
 
@@ -29,6 +31,10 @@ export class UsersClient {
 
     public get attributions(): AttributionsClient {
         return (this._attributions ??= new AttributionsClient(this._options));
+    }
+
+    public get auth(): AuthClient {
+        return (this._auth ??= new AuthClient(this._options));
     }
 
     public get rewards(): RewardsClient {

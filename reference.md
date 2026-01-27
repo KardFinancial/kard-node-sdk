@@ -1240,6 +1240,78 @@ await client.users.attributions.create("organization-123", "user-123", {
 </dl>
 </details>
 
+## Webview Authentication
+<details><summary><code>client.users.auth.<a href="/src/api/resources/users/resources/auth/client/Client.ts">getWebviewToken</a>(organizationId, userId) -> KardApi.WebviewTokenResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Retrieves an OAuth token for webview authentication.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.users.auth.getWebviewToken("organization-123", "user-123");
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**organizationId:** `KardApi.OrganizationId` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**userId:** `KardApi.UserId` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `AuthClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 ## Rewards
 <details><summary><code>client.users.rewards.<a href="/src/api/resources/users/resources/rewards/client/Client.ts">offers</a>(organizationId, userId, { ...params }) -> KardApi.OffersResponseObject</code></summary>
 <dl>
