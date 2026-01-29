@@ -1240,7 +1240,7 @@ await client.users.attributions.create("organization-123", "user-123", {
 </dl>
 </details>
 
-## Webview Authentication
+## Webview
 <details><summary><code>client.users.auth.<a href="/src/api/resources/users/resources/auth/client/Client.ts">getWebviewToken</a>(organizationId, userId) -> KardApi.WebviewTokenResponse</code></summary>
 <dl>
 <dd>
