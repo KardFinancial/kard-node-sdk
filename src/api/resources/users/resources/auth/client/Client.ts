@@ -32,21 +32,21 @@ export class AuthClient {
      * @throws {@link KardApi.UnauthorizedError}
      *
      * @example
-     *     await client.users.auth.getWebviewToken("organization-123", "user-123")
+     *     await client.users.auth.getWebViewToken("organization-123", "user-123")
      */
-    public getWebviewToken(
+    public getWebViewToken(
         organizationId: KardApi.OrganizationId,
         userId: KardApi.UserId,
         requestOptions?: AuthClient.RequestOptions,
-    ): core.HttpResponsePromise<KardApi.users.WebviewTokenResponse> {
-        return core.HttpResponsePromise.fromPromise(this.__getWebviewToken(organizationId, userId, requestOptions));
+    ): core.HttpResponsePromise<KardApi.users.WebViewTokenResponse> {
+        return core.HttpResponsePromise.fromPromise(this.__getWebViewToken(organizationId, userId, requestOptions));
     }
 
-    private async __getWebviewToken(
+    private async __getWebViewToken(
         organizationId: KardApi.OrganizationId,
         userId: KardApi.UserId,
         requestOptions?: AuthClient.RequestOptions,
-    ): Promise<core.WithRawResponse<KardApi.users.WebviewTokenResponse>> {
+    ): Promise<core.WithRawResponse<KardApi.users.WebViewTokenResponse>> {
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -70,7 +70,7 @@ export class AuthClient {
             logging: this._options.logging,
         });
         if (_response.ok) {
-            return { data: _response.body as KardApi.users.WebviewTokenResponse, rawResponse: _response.rawResponse };
+            return { data: _response.body as KardApi.users.WebViewTokenResponse, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {

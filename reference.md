@@ -1240,8 +1240,8 @@ await client.users.attributions.create("organization-123", "user-123", {
 </dl>
 </details>
 
-## Webview
-<details><summary><code>client.users.auth.<a href="/src/api/resources/users/resources/auth/client/Client.ts">getWebviewToken</a>(organizationId, userId) -> KardApi.WebviewTokenResponse</code></summary>
+## WebView
+<details><summary><code>client.users.auth.<a href="/src/api/resources/users/resources/auth/client/Client.ts">getWebViewToken</a>(organizationId, userId) -> KardApi.WebViewTokenResponse</code></summary>
 <dl>
 <dd>
 
@@ -1268,7 +1268,7 @@ Retrieves an OAuth token for webview authentication.
 <dd>
 
 ```typescript
-await client.users.auth.getWebviewToken("organization-123", "user-123");
+await client.users.auth.getWebViewToken("organization-123", "user-123");
 
 ```
 </dd>

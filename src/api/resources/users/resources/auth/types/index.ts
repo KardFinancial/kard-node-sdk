@@ -1,1 +1,1 @@
-export * from "./WebviewTokenResponse.js";
+export * from "./WebViewTokenResponse.js";
