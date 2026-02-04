@@ -1,3 +1,15 @@
+## 2.2.0 - 2026-02-04
+* feat: add support for core banking transaction type
+* Add new transaction type `coreTransaction` to handle transactions from core banking systems with limited card-level data. This allows integration with banking systems that don't provide full transaction details available from card processors.
+* Key changes:
+* Add `coreTransaction` type to transaction union types
+* Create CoreTransactionRequest, CoreTransactionAttributes, and CoreMerchant interfaces
+* Add FinancialInstitution type with RSSD ID and name fields
+* Update documentation to describe three transaction types: transaction, matchedTransaction, and coreTransaction
+* Add comprehensive code examples for the new core transaction type
+* Update timestamp documentation to explicitly mention ISO 8601 format standard
+* 🌿 Generated with Fern
+
 ## 2.1.0 - 2026-02-04
 * feat: add UI component support for offers and locations
 * Add support for UI components in offer and location endpoints through a new
