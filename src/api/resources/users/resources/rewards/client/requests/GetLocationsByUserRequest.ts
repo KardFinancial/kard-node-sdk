@@ -28,4 +28,6 @@ export interface GetLocationsByUserRequest {
     sort?: KardApi.users.LocationSortOptions | KardApi.users.LocationSortOptions[];
     /** CSV list of included resources in the response (e.g "offers,categories"). Allowed values are `offers` and `categories`. */
     include?: string | string[];
+    /** UI component types to include in included offers. Valid values are shortDescription, longDescription, cta, tags, and detailTags. */
+    supportedComponents?: KardApi.users.ComponentType | KardApi.users.ComponentType[];
 }
