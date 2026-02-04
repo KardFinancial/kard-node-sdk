@@ -70,6 +70,7 @@ export class RewardsClient {
             "filter[isTargeted]": filterIsTargeted,
             sort,
             include,
+            supportedComponents,
         } = request;
         const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
         if (pageSize != null) {
@@ -109,6 +110,14 @@ export class RewardsClient {
                 _queryParams.include = include.map((item) => item);
             } else {
                 _queryParams.include = include;
+            }
+        }
+
+        if (supportedComponents != null) {
+            if (Array.isArray(supportedComponents)) {
+                _queryParams.supportedComponents = supportedComponents.map((item) => item);
+            } else {
+                _queryParams.supportedComponents = supportedComponents;
             }
         }
 
@@ -250,6 +259,7 @@ export class RewardsClient {
             "filter[radius]": filterRadius,
             sort,
             include,
+            supportedComponents,
         } = request;
         const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
         if (pageSize != null) {
@@ -309,6 +319,14 @@ export class RewardsClient {
                 _queryParams.include = include.map((item) => item);
             } else {
                 _queryParams.include = include;
+            }
+        }
+
+        if (supportedComponents != null) {
+            if (Array.isArray(supportedComponents)) {
+                _queryParams.supportedComponents = supportedComponents.map((item) => item);
+            } else {
+                _queryParams.supportedComponents = supportedComponents;
             }
         }
 

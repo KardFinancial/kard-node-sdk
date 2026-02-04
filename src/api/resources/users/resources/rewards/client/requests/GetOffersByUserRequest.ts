@@ -21,4 +21,6 @@ export interface GetOffersByUserRequest {
     sort?: KardApi.users.OfferSortOptions | KardApi.users.OfferSortOptions[];
     /** CSV list of included resources in the response (e.g "categories"). Allowed value is `categories`. */
     include?: string | string[];
+    /** UI component types to include in the response. Valid values are shortDescription, longDescription, cta, tags, and detailTags. */
+    supportedComponents?: KardApi.users.ComponentType | KardApi.users.ComponentType[];
 }

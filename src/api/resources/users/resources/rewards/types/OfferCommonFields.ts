@@ -31,4 +31,6 @@ export interface OfferCommonFields {
     websiteUrl?: string;
     /** Description of the offer */
     description?: string;
+    /** UI component data for the offer, returned when supportedComponents query parameter is provided */
+    components?: KardApi.users.OfferComponents;
 }

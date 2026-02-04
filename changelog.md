@@ -1,3 +1,17 @@
+## 2.1.0 - 2026-02-04
+* feat: add UI component support for offers and locations
+* Add support for UI components in offer and location endpoints through a new
+* supportedComponents query parameter. This allows clients to request specific
+* UI component types and receive structured component data for rendering offers.
+* Key changes:
+* Add supportedComponents parameter to GetLocationsByUserRequest and GetOffersByUserRequest
+* Implement supportedComponents query parameter handling in client methods
+* Add ComponentType enum with shortDescription, longDescription, cta, tags, and detailTags
+* Add OfferComponents interface for structured UI component data
+* Add CtaComponent interface and ButtonStyle enum for call-to-action buttons
+* Add optional components field to OfferCommonFields for including UI component data
+* 🌿 Generated with Fern
+
 ## 2.0.0 - 2026-01-29
 * refactor: rename Webview to WebView for consistent casing
 * Update API naming convention to use proper camelCase for WebView across the codebase.
