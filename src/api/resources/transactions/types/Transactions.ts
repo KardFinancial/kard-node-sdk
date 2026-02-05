@@ -2,7 +2,10 @@
 
 import type * as KardApi from "../../../index.js";
 
-export type Transactions = KardApi.Transactions.Transaction | KardApi.Transactions.MatchedTransaction;
+export type Transactions =
+    | KardApi.Transactions.Transaction
+    | KardApi.Transactions.MatchedTransaction
+    | KardApi.Transactions.CoreTransaction;
 
 export namespace Transactions {
     export interface Transaction extends KardApi.TransactionsRequest {
@@ -11,5 +14,9 @@ export namespace Transactions {
 
     export interface MatchedTransaction extends KardApi.MatchedTransactionsRequest {
         type: "matchedTransaction";
+    }
+
+    export interface CoreTransaction extends KardApi.CoreTransactionRequest {
+        type: "coreTransaction";
     }
 }
