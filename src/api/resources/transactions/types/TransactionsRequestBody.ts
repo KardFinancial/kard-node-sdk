@@ -123,6 +123,32 @@ import type * as KardApi from "../../../index.js";
  *                 }
  *             }]
  *     }
+ *
+ * @example
+ *     {
+ *         data: [{
+ *                 type: "coreTransaction",
+ *                 id: "core_txn_98765432109876543210",
+ *                 attributes: {
+ *                     userId: "6FHt5b6Fnp0qdomMEy5AN6PXcSJIeX69",
+ *                     transactionId: "CORE-TXN-2024-001234",
+ *                     amount: 4599,
+ *                     currency: "USD",
+ *                     description: "WALMART SUPERCENTER",
+ *                     direction: KardApi.DirectionType.Debit,
+ *                     status: "SETTLED",
+ *                     settledDate: "2024-10-15T14:30:00Z",
+ *                     authorizationDate: "2024-10-15T14:25:00Z",
+ *                     financialInstitution: {
+ *                         rssdId: "852218",
+ *                         name: "First National Bank"
+ *                     },
+ *                     merchant: {
+ *                         addrZipcode: "75001"
+ *                     }
+ *                 }
+ *             }]
+ *     }
  */
 export interface TransactionsRequestBody {
     /**
@@ -130,6 +156,7 @@ export interface TransactionsRequestBody {
      * Use `type` to distinguish between the two:
      * - `transaction`: For transactions requiring processing and matching by the Kard system.
      * - `matchedTransaction`: For pre-matched transactions that need validation on match by the Kard system.
+     * - `coreTransaction`: For transactions from core banking systems with limited card-level data.
      */
     data: KardApi.Transactions[];
 }
