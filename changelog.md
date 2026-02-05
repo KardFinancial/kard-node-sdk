@@ -1,3 +1,15 @@
+## 2.2.0 - 2026-02-05
+* feat: add core transaction support and offer activation endpoint
+* Add support for core banking transaction type with limited card-level data alongside the existing transaction and matched transaction types. Also introduce new offer activation endpoint for user attribution events.
+* Key changes:
+* Add coreTransaction type with CoreTransactionAttributes, FinancialInstitution, and CoreMerchant types
+* Update transaction endpoints to support third transaction type from core banking systems
+* Add users.attributions.activate() endpoint for recording offer activation events
+* Update documentation to clarify ISO 8601 timestamp format requirements
+* Add new EventCode.ACTIVATE and OfferMedium.CTA enum values
+* Remove references to deprecated includeLocal query parameter in location endpoints
+* 🌿 Generated with Fern
+
 ## 2.1.0 - 2026-02-04
 * feat: add UI component support for offers and locations
 * Add support for UI components in offer and location endpoints through a new

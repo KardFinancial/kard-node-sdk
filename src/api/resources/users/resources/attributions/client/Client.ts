@@ -160,4 +160,134 @@ export class AttributionsClient {
                 });
         }
     }
+
+    /**
+     * Record when a user activates an offer. Creates an attribution event with eventCode=ACTIVATE and medium=CTA.
+     * Optionally include the offer data by passing `include=offer`.
+     *
+     * @param {KardApi.OrganizationId} organizationId
+     * @param {KardApi.UserId} userId
+     * @param {string} offerId - The unique identifier of the offer being activated
+     * @param {KardApi.users.ActivateOfferRequest} request
+     * @param {AttributionsClient.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @throws {@link KardApi.UnauthorizedError}
+     * @throws {@link KardApi.InternalServerError}
+     * @throws {@link KardApi.InvalidRequest}
+     *
+     * @example
+     *     await client.users.attributions.activate("organization-123", "user-123", "offer-456")
+     */
+    public activate(
+        organizationId: KardApi.OrganizationId,
+        userId: KardApi.UserId,
+        offerId: string,
+        request: KardApi.users.ActivateOfferRequest = {},
+        requestOptions?: AttributionsClient.RequestOptions,
+    ): core.HttpResponsePromise<KardApi.users.ActivateOfferResponse> {
+        return core.HttpResponsePromise.fromPromise(
+            this.__activate(organizationId, userId, offerId, request, requestOptions),
+        );
+    }
+
+    private async __activate(
+        organizationId: KardApi.OrganizationId,
+        userId: KardApi.UserId,
+        offerId: string,
+        request: KardApi.users.ActivateOfferRequest = {},
+        requestOptions?: AttributionsClient.RequestOptions,
+    ): Promise<core.WithRawResponse<KardApi.users.ActivateOfferResponse>> {
+        const { supportedComponents, include } = request;
+        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
+        if (supportedComponents != null) {
+            if (Array.isArray(supportedComponents)) {
+                _queryParams.supportedComponents = supportedComponents.map((item) => item);
+            } else {
+                _queryParams.supportedComponents = supportedComponents;
+            }
+        }
+
+        if (include != null) {
+            if (Array.isArray(include)) {
+                _queryParams.include = include.map((item) => item);
+            } else {
+                _queryParams.include = include;
+            }
+        }
+
+        const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
+        const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
+            _authRequest.headers,
+            this._options?.headers,
+            requestOptions?.headers,
+        );
+        const _response = await core.fetcher({
+            url: core.url.join(
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.KardApiEnvironment.Production,
+                `/v2/issuers/${core.url.encodePathParam(organizationId)}/users/${core.url.encodePathParam(userId)}/offers/${core.url.encodePathParam(offerId)}/activate`,
+            ),
+            method: "POST",
+            headers: _headers,
+            queryParameters: { ..._queryParams, ...requestOptions?.queryParams },
+            timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
+            maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
+            fetchFn: this._options?.fetch,
+            logging: this._options.logging,
+        });
+        if (_response.ok) {
+            return { data: _response.body as KardApi.users.ActivateOfferResponse, rawResponse: _response.rawResponse };
+        }
+
+        if (_response.error.reason === "status-code") {
+            switch (_response.error.statusCode) {
+                case 401:
+                    throw new KardApi.UnauthorizedError(
+                        _response.error.body as KardApi.ErrorResponse,
+                        _response.rawResponse,
+                    );
+                case 500:
+                    throw new KardApi.InternalServerError(
+                        _response.error.body as KardApi.ErrorResponse,
+                        _response.rawResponse,
+                    );
+                case 400:
+                    throw new KardApi.InvalidRequest(
+                        _response.error.body as KardApi.ErrorResponse,
+                        _response.rawResponse,
+                    );
+                default:
+                    throw new errors.KardApiError({
+                        statusCode: _response.error.statusCode,
+                        body: _response.error.body,
+                        rawResponse: _response.rawResponse,
+                    });
+            }
+        }
+
+        switch (_response.error.reason) {
+            case "non-json":
+                throw new errors.KardApiError({
+                    statusCode: _response.error.statusCode,
+                    body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
+                });
+            case "body-is-null":
+                throw new errors.KardApiError({
+                    statusCode: _response.error.statusCode,
+                    rawResponse: _response.rawResponse,
+                });
+            case "timeout":
+                throw new errors.KardApiTimeoutError(
+                    "Timeout exceeded when calling POST /v2/issuers/{organizationId}/users/{userId}/offers/{offerId}/activate.",
+                );
+            case "unknown":
+                throw new errors.KardApiError({
+                    message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
+                });
+        }
+    }
 }

@@ -448,7 +448,8 @@ await client.ping.ping();
 Call this endpoint to send all transactions made by all your enrolled users in your rewards program. The request body will depend on the transaction type.<br/>
 Please use the correct type when calling the endpoint:
 - `transaction`: These incoming transactions will be processed and matched by the Kard system. Learn more about the [Transaction CLO Matching](https://github.com/kard-financial/kard-postman#c-transaction-clo-matching) flow here.
-- `matchedTransaction`: For pre-matched transactions that need validation on match by the Kard system.<br/>
+- `matchedTransaction`: For pre-matched transactions that need validation on match by the Kard system.
+- `coreTransaction`: For transactions from core banking systems with limited card-level data.<br/>
 
 <b>Required scopes:</b> `transaction:write`<br/>
 <b>Note:</b> `Maximum of 500 transactions can be created per request`.
@@ -1240,6 +1241,94 @@ await client.users.attributions.create("organization-123", "user-123", {
 </dl>
 </details>
 
+<details><summary><code>client.users.attributions.<a href="/src/api/resources/users/resources/attributions/client/Client.ts">activate</a>(organizationId, userId, offerId, { ...params }) -> KardApi.ActivateOfferResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Record when a user activates an offer. Creates an attribution event with eventCode=ACTIVATE and medium=CTA.
+Optionally include the offer data by passing `include=offer`.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.users.attributions.activate("organization-123", "user-123", "offer-456");
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**organizationId:** `KardApi.OrganizationId` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**userId:** `KardApi.UserId` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**offerId:** `string` — The unique identifier of the offer being activated
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `KardApi.users.ActivateOfferRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `AttributionsClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 ## WebView
 <details><summary><code>client.users.auth.<a href="/src/api/resources/users/resources/auth/client/Client.ts">getWebViewToken</a>(organizationId, userId) -> KardApi.WebViewTokenResponse</code></summary>
 <dl>
@@ -1327,8 +1416,7 @@ await client.users.auth.getWebViewToken("organization-123", "user-123");
 
 Retrieve national brand offers that a specified user is eligible for. Call this endpoint to build out your
 [targeted offers UX experience](/2024-10-01/api/getting-started#b-discover-a-lapsed-customer-clo). Local offers details
-can be found by calling the [Get Eligible Locations](/2024-10-01/api/rewards/locations) endpoint with the
-`includeLocal` query parameter.<br/>
+can be found by calling the [Get Eligible Locations](/2024-10-01/api/rewards/locations).<br/>
 <b>Required scopes:</b> `rewards:read`
 </dd>
 </dl>
@@ -1412,8 +1500,7 @@ await client.users.rewards.offers("organization-123", "user-123", {
 <dl>
 <dd>
 
-Retrieve national and local geographic locations that a specified user has eligible in-store offers at. To
-include local locations, add the `includeLocal` query parameter to your api call. Use this endpoint to build
+Retrieve national and local geographic locations that a specified user has eligible in-store offers at. Use this endpoint to build
 out your [map-specific UX experiences](/2024-10-01/api/getting-started#c-discover-clos-near-you-map-view). Please note
 that Longitude and Latitude fields are prioritized over State, City and Zipcode and are the recommended search
 pattern.<br/>

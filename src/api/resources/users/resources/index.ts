@@ -1,3 +1,4 @@
+export * from "./attributions/client/requests/index.js";
 export * as attributions from "./attributions/index.js";
 export * from "./attributions/types/index.js";
 export * as auth from "./auth/index.js";
