@@ -1,3 +1,14 @@
+## 2.2.1 - 2026-02-05
+* fix: correct API endpoint path for offer activation
+* Update the offer activation endpoint URL to include the correct path segment.
+* The endpoint was missing '/attributions' in the path, which has been added
+* to ensure proper routing to the attributions service.
+* Key changes:
+* Fix endpoint path from /users/{userId}/offers/ to /users/{userId}/attributions/offers/
+* Update corresponding timeout error message to reflect correct endpoint path
+* Ensure API calls are routed to the proper attributions service
+* 🌿 Generated with Fern
+
 ## 2.2.0 - 2026-02-05
 * feat: add core transaction support and offer activation endpoint
 * Add support for core banking transaction type with limited card-level data alongside the existing transaction and matched transaction types. Also introduce new offer activation endpoint for user attribution events.
