@@ -1,3 +1,19 @@
+## 2.2.0 - 2026-02-05
+* feat: add support for core banking system transactions
+* This commit introduces a new transaction type called `coreTransaction` to support transactions from core banking systems that have limited card-level data. This enhancement expands the API's transaction handling capabilities to accommodate different financial system architectures while maintaining backward compatibility.
+* The new core transaction type includes specialized attributes optimized for core banking data including financial institution details, simplified merchant information, and standardized status handling. All transactions of this type are processed as SETTLED status with proper authorization and settlement timestamps.
+* Key changes:
+* Add new `coreTransaction` type to transaction processing system
+* Introduce CoreTransactionRequest, CoreTransactionAttributes, and supporting types
+* Add FinancialInstitution interface with RSSD ID and name fields
+* Create CoreMerchant interface for simplified merchant data (zip code only)
+* Update Transactions union type to include CoreTransaction variant
+* Add comprehensive example usage for core transaction creation
+* Update API documentation to reference new transaction type
+* Standardize timestamp format descriptions to ISO 8601 across all transaction types
+* Clean up documentation references to deprecated includeLocal parameter
+* 🌿 Generated with Fern
+
 ## 2.1.0 - 2026-02-04
 * feat: add UI component support for offers and locations
 * Add support for UI components in offer and location endpoints through a new
