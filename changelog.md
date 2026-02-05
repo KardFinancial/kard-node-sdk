@@ -1,3 +1,16 @@
+## 2.2.0 - 2026-02-05
+* feat: add support for core banking transaction type
+* Add a new coreTransaction type to support transactions from core banking systems with limited card-level data. This extends the existing transaction processing capabilities to handle transactions that don't have full card-level details but still need to be processed through the Kard system.
+* Key changes:
+* Add new coreTransaction type alongside existing transaction and matchedTransaction types
+* Introduce CoreTransactionRequest with required fields for core banking data
+* Create CoreTransactionAttributes interface with userId, transactionId, amount, currency, description, direction, status, settledDate, authorizationDate, financialInstitution, and merchant fields
+* Add FinancialInstitution interface with rssdId and name properties
+* Add CoreMerchant interface with addrZipcode property for merchant location data
+* Update documentation and examples to show usage of the new core transaction type
+* Standardize date format documentation to consistently reference ISO 8601 format
+* 🌿 Generated with Fern
+
 ## 2.1.0 - 2026-02-04
 * feat: add UI component support for offers and locations
 * Add support for UI components in offer and location endpoints through a new
