@@ -1,3 +1,12 @@
+## 2.2.2 - 2026-02-06
+* fix: correct API endpoint path in attribution activation
+* Remove incorrect "/attributions" segment from the offer activation endpoint URL to match the correct API specification. This fixes the endpoint path from `/v2/issuers/{organizationId}/users/{userId}/attributions/offers/{offerId}/activate` to `/v2/issuers/{organizationId}/users/{userId}/offers/{offerId}/activate`.
+* Key changes:
+* Remove "/attributions" from offer activation endpoint URL
+* Update timeout error message to reflect corrected endpoint path
+* Ensure API calls target the proper endpoint structure
+* 🌿 Generated with Fern
+
 ## 2.2.1 - 2026-02-05
 * fix: correct API endpoint path for offer activation
 * Update the offer activation endpoint URL to include the correct path segment.

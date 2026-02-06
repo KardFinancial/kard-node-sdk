@@ -226,7 +226,7 @@ export class AttributionsClient {
                 (await core.Supplier.get(this._options.baseUrl)) ??
                     (await core.Supplier.get(this._options.environment)) ??
                     environments.KardApiEnvironment.Production,
-                `/v2/issuers/${core.url.encodePathParam(organizationId)}/users/${core.url.encodePathParam(userId)}/attributions/offers/${core.url.encodePathParam(offerId)}/activate`,
+                `/v2/issuers/${core.url.encodePathParam(organizationId)}/users/${core.url.encodePathParam(userId)}/offers/${core.url.encodePathParam(offerId)}/activate`,
             ),
             method: "POST",
             headers: _headers,
@@ -281,7 +281,7 @@ export class AttributionsClient {
                 });
             case "timeout":
                 throw new errors.KardApiTimeoutError(
-                    "Timeout exceeded when calling POST /v2/issuers/{organizationId}/users/{userId}/attributions/offers/{offerId}/activate.",
+                    "Timeout exceeded when calling POST /v2/issuers/{organizationId}/users/{userId}/offers/{offerId}/activate.",
                 );
             case "unknown":
                 throw new errors.KardApiError({
