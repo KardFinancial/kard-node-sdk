@@ -10,4 +10,6 @@ export interface CtaComponent {
     buttonText: string;
     /** Style of the button */
     buttonStyle: KardApi.users.ButtonStyle;
+    /** Action to perform when the button is clicked */
+    action?: KardApi.users.CtaAction;
 }

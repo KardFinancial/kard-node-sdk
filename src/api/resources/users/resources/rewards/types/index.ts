@@ -11,6 +11,7 @@ export * from "./CategoryRelationshipObject.js";
 export * from "./Commission.js";
 export * from "./ComponentType.js";
 export * from "./Coordinates.js";
+export * from "./CtaAction.js";
 export * from "./CtaComponent.js";
 export * from "./EligibilityLocationAddress.js";
 export * from "./EligibilityLocationIncluded.js";

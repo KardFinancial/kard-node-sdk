@@ -1,3 +1,12 @@
+## 2.3.0 - 2026-02-06
+* feat: add action configuration support to CTA components
+* Add new CtaAction interface to define configurable button actions for CTA components. This enhancement allows buttons to specify custom HTTP endpoints and methods to be called when clicked, providing greater flexibility in user interaction handling.
+* Key changes:
+* Add CtaAction interface with url and method properties for HTTP action configuration
+* Add optional action property to CtaComponent interface to support custom button behaviors
+* Export new CtaAction type in the rewards module index
+* 🌿 Generated with Fern
+
 ## 2.2.2 - 2026-02-06
 * fix: correct API endpoint path in attribution activation
 * Remove incorrect "/attributions" segment from the offer activation endpoint URL to match the correct API specification. This fixes the endpoint path from `/v2/issuers/{organizationId}/users/{userId}/attributions/offers/{offerId}/activate` to `/v2/issuers/{organizationId}/users/{userId}/offers/{offerId}/activate`.
