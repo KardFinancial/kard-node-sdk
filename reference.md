@@ -1884,3 +1884,79 @@ await client.users.uploads.update("organization-123", "user-123", "upload-123", 
 </dd>
 </dl>
 </details>
+
+## Custom Helper Functions
+### hem
+
+**Import:** `import { normalizeEmail, generateHEM } from "@kard-financial/sdk/helpers/hem";`
+
+<details><summary><code><a href="/src/helpers/hem.ts">normalizeEmail(raw: string): string</a></code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+Normalize an email address for Hashed Email (HEM) generation.
+Follows UID2/LiveRamp industry standards:
+- Remove all whitespace
+- Lowercase
+- Gmail/Googlemail only: remove dots from local-part, strip '+' suffix
+- Canonicalize googlemail.com → gmail.com
+
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+```typescript
+import { normalizeEmail } from "@kard-financial/sdk/helpers/hem";
+
+const result = normalizeEmail(/* raw: string */);
+```
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code><a href="/src/helpers/hem.ts">generateHEM(raw: string): string</a></code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+Generate a Hashed Email (HEM) from a raw email address.
+Returns the lowercase hex SHA-256 digest of the normalized, UTF-8-encoded email.
+
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+```typescript
+import { generateHEM } from "@kard-financial/sdk/helpers/hem";
+
+const result = generateHEM(/* raw: string */);
+```
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
