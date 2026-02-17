@@ -1,3 +1,14 @@
+## 3.0.0 - 2026-02-17
+* refactor: simplify transaction attributes structure
+* Streamlines transaction data model by replacing complex nested objects with direct property access. This change improves API usability and reduces data structure complexity while maintaining essential financial institution information.
+* Key changes:
+* Replace nested financialInstitution object with direct financialInstitutionName string property
+* Remove CoreMerchant interface and associated merchant property
+* Remove FinancialInstitution interface (rssdId no longer exposed)
+* Update documentation examples to reflect simplified structure
+* Clean up exports to remove unused types
+* 🌿 Generated with Fern
+
 ## 2.3.0 - 2026-02-06
 * feat: add action configuration support to CTA components
 * Add new CtaAction interface to define configurable button actions for CTA components. This enhancement allows buttons to specify custom HTTP endpoints and methods to be called when clicked, providing greater flexibility in user interaction handling.

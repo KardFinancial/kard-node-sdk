@@ -177,13 +177,7 @@ export class TransactionsClient {
      *                     status: "SETTLED",
      *                     settledDate: "2024-10-15T14:30:00Z",
      *                     authorizationDate: "2024-10-15T14:25:00Z",
-     *                     financialInstitution: {
-     *                         rssdId: "852218",
-     *                         name: "First National Bank"
-     *                     },
-     *                     merchant: {
-     *                         addrZipcode: "75001"
-     *                     }
+     *                     financialInstitutionName: "First National Bank"
      *                 }
      *             }]
      *     })
