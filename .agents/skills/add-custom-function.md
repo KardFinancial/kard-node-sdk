@@ -46,15 +46,26 @@ src/<feature>.ts
 tests/unit/<feature>
 ```
 
-### 4. Do NOT modify these Fern-managed files
+### 4. Exports
+
+Custom functions are **not** re-exported from the package's main entry point. Do not modify these Fern-managed files to add exports:
 
 - `src/index.ts` — Fern overwrites this on regeneration
 - `package.json` — Fern overwrites this on regeneration
 - Any file under `src/api/`, `src/core/`, `src/errors/`, `src/auth/`
 
+Instead, consumers import directly from the module path:
+
+```ts
+import { myFunction } from "@kard-financial/sdk/src/<feature>";
+```
+
+If the function is internal-only (used by other custom code but not exposed to consumers), do not add an `export` keyword — keep it as a local function within the file.
+
 ### 5. Verify
 
-Run `pnpm build` and `pnpm test` to confirm:
+Run `pnpm check`, `pnpm build`, and `pnpm test` to confirm:
+- Formatting and linting pass (biome)
 - TypeScript compilation succeeds for both CJS and ESM
 - All tests pass (existing and new)
 
