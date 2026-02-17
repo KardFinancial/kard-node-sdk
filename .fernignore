@@ -1,5 +1,8 @@
 # Specify files that shouldn't be modified by Fern
 .github/workflows/changelog-dispatch.yml
 changelog.md
-src/hem.ts
+src/helpers
 tests/unit/hem
+scripts/patch-custom-exports.js
+scripts/patch-custom-reference.js
+.githooks

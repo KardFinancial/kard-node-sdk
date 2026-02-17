@@ -1,5 +1,5 @@
 import { readFileSync } from "fs";
-import { normalizeEmail, generateHEM } from "../../../src/hem";
+import { normalizeEmail, generateHEM } from "../../../src/helpers/hem";
 
 interface TestVector {
     name: string;
