@@ -1,6 +1,6 @@
 {
     "name": "@kard-financial/sdk",
-    "version": "3.2.1",
+    "version": "3.2.2",
     "private": false,
     "repository": "github:KardFinancial/kard-node-sdk",
     "type": "commonjs",
@@ -72,5 +72,12 @@
     "engines": {
         "node": ">=18.0.0"
     },
-    "sideEffects": false
+    "sideEffects": false,
+    "typesVersions": {
+        "*": {
+            "helpers/hem": [
+                "dist/cjs/helpers/hem.d.ts"
+            ]
+        }
+    }
 }

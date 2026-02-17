@@ -49,6 +49,18 @@ Object.assign(newExports, customExports);
 
 pkg.exports = newExports;
 
+// Build typesVersions so TypeScript/VS Code IntelliSense discovers subpath exports
+const typesVersionsEntries = {};
+for (const name of helperFiles) {
+    typesVersionsEntries[`helpers/${name}`] = [`dist/cjs/helpers/${name}.d.ts`];
+}
+
+if (Object.keys(typesVersionsEntries).length > 0) {
+    pkg.typesVersions = { "*": typesVersionsEntries };
+} else {
+    delete pkg.typesVersions;
+}
+
 fs.writeFileSync(PKG_PATH, JSON.stringify(pkg, null, 4) + "\n");
 
 if (helperFiles.length > 0) {
