@@ -1,3 +1,15 @@
+## 4.0.0 - 2026-02-17
+* refactor: remove agent skills and custom HEM helper function
+* This change removes agent-specific documentation and the custom HEM helper functionality,
+* simplifying the SDK by removing non-core features. The changes affect documentation,
+* configuration, and custom helper exports.
+* Key changes:
+* Delete agent skills documentation and symlink in .agents/ and .claude/
+* Remove HEM helper function exports from package.json
+* Clean up .gitignore by removing .claude directory exclusions
+* Remove custom helper functions documentation from reference.md
+* 🌿 Generated with Fern
+
 ## 3.0.0 - 2026-02-17
 * refactor: simplify transaction attributes structure
 * Streamlines transaction data model by replacing complex nested objects with direct property access. This change improves API usability and reduces data structure complexity while maintaining essential financial institution information.
