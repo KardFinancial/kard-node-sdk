@@ -1,5 +1,5 @@
 import { readFileSync } from "fs";
-import { normalizeEmail, generateHEM } from "../../../src/helpers/hem";
+import { generateHEM } from "../../../src/helpers/hem";
 
 interface TestVector {
     name: string;
@@ -14,28 +14,20 @@ const vectors: TestVector[] = JSON.parse(
 );
 
 describe("HEM", () => {
-    describe("normalizeEmail", () => {
-        for (const v of vectors) {
-            it(`normalizes: ${v.name}`, () => {
-                expect(normalizeEmail(v.input)).toBe(v.normalized);
-            });
-        }
-    });
-
-    describe("normalizeEmail validation", () => {
-        it.each(["", " ", "@", "user", "user@", "@domain.com", "a@b@c.com"])(
-            "rejects invalid email: %j",
-            (input) => {
-                expect(() => normalizeEmail(input)).toThrow(TypeError);
-            },
-        );
-    });
-
     describe("generateHEM", () => {
         for (const v of vectors) {
             it(`generates correct SHA-256 hex: ${v.name}`, () => {
                 expect(generateHEM(v.input)).toBe(v.sha256_hex);
             });
         }
+    });
+
+    describe("generateHEM validation", () => {
+        it.each(["", " ", "@", "user", "user@", "@domain.com", "a@b@c.com"])(
+            "rejects invalid email: %j",
+            (input) => {
+                expect(() => generateHEM(input)).toThrow(TypeError);
+            },
+        );
     });
 });

@@ -1888,9 +1888,9 @@ await client.users.uploads.update("organization-123", "user-123", "upload-123", 
 ## Custom Helper Functions
 ### hem
 
-**Import:** `import { normalizeEmail, generateHEM } from "@kard-financial/sdk/helpers/hem";`
+**Import:** `import { generateHEM } from "@kard-financial/sdk/helpers/hem";`
 
-<details><summary><code><a href="/src/helpers/hem.ts">normalizeEmail(raw: string): string</a></code></summary>
+<details><summary><code><a href="/src/helpers/hem.ts">generateHEM(raw: string): string</a></code></summary>
 <dl>
 <dd>
 
@@ -1905,37 +1905,22 @@ Follows UID2/LiveRamp industry standards:
 - Lowercase
 - Gmail/Googlemail only: remove dots from local-part, strip '+' suffix
 - Canonicalize googlemail.com → gmail.com
-
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-```typescript
-import { normalizeEmail } from "@kard-financial/sdk/helpers/hem";
-
-const result = normalizeEmail(/* raw: string */);
-```
-
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code><a href="/src/helpers/hem.ts">generateHEM(raw: string): string</a></code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
+/
+function normalizeEmail(raw: string): string {
+const email = raw.replace(/\s/g, "").toLowerCase();
+const atIndex = email.indexOf("@");
+if (atIndex < 1 || atIndex !== email.lastIndexOf("@") || atIndex === email.length - 1) {
+throw new TypeError(`Invalid email address: ${JSON.stringify(raw)}`);
+}
+const localPart = email.slice(0, atIndex);
+const domain = email.slice(atIndex + 1);
+if (GMAIL_DOMAINS.has(domain)) {
+const base = localPart.split("+")[0].replace(/\./g, "");
+return `${base}@gmail.com`;
+}
+return `${localPart}@${domain}`;
+}
+/**
 Generate a Hashed Email (HEM) from a raw email address.
 Returns the lowercase hex SHA-256 digest of the normalized, UTF-8-encoded email.
 

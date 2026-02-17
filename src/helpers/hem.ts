@@ -11,7 +11,7 @@ const GMAIL_DOMAINS = new Set(["gmail.com", "googlemail.com"]);
  * - Gmail/Googlemail only: remove dots from local-part, strip '+' suffix
  * - Canonicalize googlemail.com → gmail.com
  */
-export function normalizeEmail(raw: string): string {
+function normalizeEmail(raw: string): string {
     const email = raw.replace(/\s/g, "").toLowerCase();
     const atIndex = email.indexOf("@");
     if (atIndex < 1 || atIndex !== email.lastIndexOf("@") || atIndex === email.length - 1) {
