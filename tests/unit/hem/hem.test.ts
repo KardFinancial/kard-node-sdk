@@ -22,6 +22,15 @@ describe("HEM", () => {
         }
     });
 
+    describe("normalizeEmail validation", () => {
+        it.each(["", " ", "@", "user", "user@", "@domain.com", "a@b@c.com"])(
+            "rejects invalid email: %j",
+            (input) => {
+                expect(() => normalizeEmail(input)).toThrow(TypeError);
+            },
+        );
+    });
+
     describe("generateHEM", () => {
         for (const v of vectors) {
             it(`generates correct SHA-256 hex: ${v.name}`, () => {

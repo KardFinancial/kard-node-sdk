@@ -13,8 +13,13 @@ const GMAIL_DOMAINS = new Set(["gmail.com", "googlemail.com"]);
  */
 export function normalizeEmail(raw: string): string {
     const email = raw.replace(/\s/g, "").toLowerCase();
-    const [localPart, ...domainParts] = email.split("@");
-    let domain = domainParts.join("@"); // preserves malformed addresses with multiple @
+    const atIndex = email.indexOf("@");
+    if (atIndex < 1 || atIndex !== email.lastIndexOf("@") || atIndex === email.length - 1) {
+        throw new TypeError(`Invalid email address: ${JSON.stringify(raw)}`);
+    }
+
+    const localPart = email.slice(0, atIndex);
+    const domain = email.slice(atIndex + 1);
 
     if (GMAIL_DOMAINS.has(domain)) {
         const base = localPart.split("+")[0].replace(/\./g, "");
