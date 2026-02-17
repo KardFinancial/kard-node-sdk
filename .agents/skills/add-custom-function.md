@@ -23,7 +23,17 @@ Place the implementation in `src/<feature>.ts`.
 
 - Add input validation that throws `TypeError` for invalid inputs
 - Add JSDoc comments to all exported functions
-- Only use Node.js built-in modules (this SDK has zero production dependencies)
+- Prefer Node.js built-in modules (this SDK currently has zero production dependencies)
+- If an external dependency is required, do **not** modify `package.json` directly — Fern overwrites it. Instead, add the dependency via `generators.yml` in the Fern config:
+
+```yaml
+- name: fernapi/fern-typescript-sdk
+  config:
+    extraDependencies:
+      lodash-es: '1.0.0'
+    extraDevDependencies:
+      "@types/lodash-es": '1.0.0'
+```
 
 ### 2. Create the test directory
 
