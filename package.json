@@ -1,6 +1,6 @@
 {
     "name": "@kard-financial/sdk",
-    "version": "4.1.0",
+    "version": "4.1.1",
     "private": false,
     "repository": "github:KardFinancial/kard-node-sdk",
     "type": "commonjs",
@@ -21,7 +21,7 @@
             "default": "./dist/cjs/index.js"
         },
         "./package.json": "./package.json",
-        "./src/helpers/hem.ts": {
+        "./helpers/hem": {
             "types": "./dist/cjs/helpers/hem.d.ts",
             "import": {
                 "types": "./dist/esm/helpers/hem.d.mts",

@@ -1,3 +1,15 @@
+## 4.1.1 - 2026-02-18
+* refactor: update package export path for helpers module
+* Refactor the package exports to use a cleaner path for the helpers module,
+* changing from "./src/helpers/hem.ts" to "./helpers/hem". This simplifies
+* the import path for consumers while maintaining full TypeScript support
+* and compatibility with both CommonJS and ESM module systems.
+* Key changes:
+* Update export path from "./src/helpers/hem.ts" to "./helpers/hem" in package.json
+* Update corresponding export path in .fern/metadata.json configuration
+* Maintain all existing type definitions and module format support
+* 🌿 Generated with Fern
+
 ## 4.1.0 - 2026-02-18
 * feat: add package export for HEM helper module
 * Add new package export configuration to expose the HEM (hash email) helper
