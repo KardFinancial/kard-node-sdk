@@ -1,3 +1,16 @@
+## 4.1.0 - 2026-02-18
+* feat: add package export for HEM helper module
+* Add new package export configuration to expose the HEM (hash email) helper
+* utility. This enhancement provides developers with direct access to the HEM
+* functionality through a dedicated export path, improving the SDK's usability
+* for email hashing operations.
+* Key changes:
+* Add export configuration for src/helpers/hem.ts in package.json
+* Configure dual module support (ESM/CommonJS) for HEM helper
+* Update Fern generator metadata to include new package export config
+* Clean up .gitignore by removing unnecessary Claude-related entries
+* 🌿 Generated with Fern
+
 ## 4.0.1 - 2026-02-18
 * chore: update Fern CLI version to 3.79.2
 * This change updates the Fern CLI version in the metadata configuration from 3.29.0 to 3.79.2, bringing the project up to date with the latest tooling improvements and bug fixes.
