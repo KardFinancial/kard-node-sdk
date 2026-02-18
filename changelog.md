@@ -1,3 +1,12 @@
+## 4.0.1 - 2026-02-18
+* chore: update Fern CLI version to 3.79.2
+* This change updates the Fern CLI version in the metadata configuration from 3.29.0 to 3.79.2, bringing the project up to date with the latest tooling improvements and bug fixes.
+* Key changes:
+* Update cliVersion from 3.29.0 to 3.79.2 in .fern/metadata.json
+* Maintain compatibility with existing generator configuration
+* Ensure access to latest Fern CLI features and stability improvements
+* 🌿 Generated with Fern
+
 ## 4.0.0 - 2026-02-17
 * refactor: remove agent skills and custom HEM helper function
 * This change removes agent-specific documentation and the custom HEM helper functionality,
