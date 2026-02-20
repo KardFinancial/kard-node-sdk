@@ -1,3 +1,11 @@
+## 4.1.2 - 2026-02-20
+* chore: downgrade Fern CLI version to 3.76.0
+* Update the CLI version from 3.79.2 to 3.76.0 in the metadata configuration. This change may be due to compatibility requirements or rolling back to a stable version.
+* Key changes:
+* Downgrade cliVersion from 3.79.2 to 3.76.0 in .fern/metadata.json
+* Maintain existing generator configuration and versions
+* 🌿 Generated with Fern
+
 ## 4.1.1 - 2026-02-18
 * refactor: update package export path for helpers module
 * Refactor the package exports to use a cleaner path for the helpers module,
