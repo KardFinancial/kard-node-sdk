@@ -4,6 +4,7 @@
 export const ComponentType = {
     ShortDescription: "shortDescription",
     LongDescription: "longDescription",
+    BaseReward: "baseReward",
     Cta: "cta",
     Tags: "tags",
     DetailTags: "detailTags",

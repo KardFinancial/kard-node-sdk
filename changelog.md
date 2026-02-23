@@ -1,3 +1,12 @@
+## 4.2.0 - 2026-02-23
+* feat: add baseReward component type and field to offer components
+* This change introduces a new "BaseReward" component type and corresponding baseReward field to the OfferComponents interface. This enhancement provides better structure for displaying formatted reward information in offer components.
+* Key changes:
+* Add "BaseReward" component type to ComponentType enum
+* Add optional baseReward field to OfferComponents interface
+* Include documentation for the new baseReward field as "Formatted reward string"
+* 🌿 Generated with Fern
+
 ## 4.1.2 - 2026-02-20
 * chore: downgrade Fern CLI version to 3.76.0
 * Update the CLI version from 3.79.2 to 3.76.0 in the metadata configuration. This change may be due to compatibility requirements or rolling back to a stable version.

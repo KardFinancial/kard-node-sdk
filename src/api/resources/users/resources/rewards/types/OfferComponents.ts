@@ -10,6 +10,8 @@ export interface OfferComponents {
     shortDescription?: string;
     /** Long description for the offer */
     longDescription?: string;
+    /** Formatted reward string */
+    baseReward?: string;
     /** Call-to-action button component */
     cta?: KardApi.users.CtaComponent;
     /** Tags for the offer */
