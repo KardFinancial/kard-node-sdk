@@ -5,5 +5,6 @@ export const EventCode = {
     Impression: "IMPRESSION",
     View: "VIEW",
     Activate: "ACTIVATE",
+    Boost: "BOOST",
 } as const;
 export type EventCode = (typeof EventCode)[keyof typeof EventCode];

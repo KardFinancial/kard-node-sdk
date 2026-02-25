@@ -1,3 +1,14 @@
+## 4.3.0 - 2026-02-25
+* feat: add boost offer functionality to users attributions API
+* Introduce a new boost method in the AttributionsClient that allows recording when a user boosts an offer. This creates attribution events with eventCode=BOOST and medium=CTA, enabling tracking of user engagement with promotional content.
+* Key changes:
+* Add boost method to AttributionsClient with full error handling and documentation
+* Create BoostOfferRequest and BoostOfferResponse type definitions with attributes support
+* Extend EventCode enum to include "BOOST" for attribution tracking
+* Add support for optional offer data inclusion via include parameter
+* Update API documentation with usage examples and parameter descriptions
+* 🌿 Generated with Fern
+
 ## 4.2.1 - 2026-02-25
 * chore: update Fern CLI version
 * Update the Fern CLI version from 3.76.0 to 3.88.1 in the metadata configuration. This internal tooling update ensures the project uses the latest CLI features and improvements.

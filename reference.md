@@ -1329,6 +1329,94 @@ await client.users.attributions.activate("organization-123", "user-123", "offer-
 </dl>
 </details>
 
+<details><summary><code>client.users.attributions.<a href="/src/api/resources/users/resources/attributions/client/Client.ts">boost</a>(organizationId, userId, offerId, { ...params }) -> KardApi.BoostOfferResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Record when a user boosts an offer. Creates an attribution event with eventCode=BOOST and medium=CTA.
+Optionally include the offer data by passing `include=offer`.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.users.attributions.boost("organization-123", "user-123", "offer-456");
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**organizationId:** `KardApi.OrganizationId` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**userId:** `KardApi.UserId` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**offerId:** `string` — The unique identifier of the offer being boosted
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `KardApi.users.BoostOfferRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `AttributionsClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 ## WebView
 <details><summary><code>client.users.auth.<a href="/src/api/resources/users/resources/auth/client/Client.ts">getWebViewToken</a>(organizationId, userId) -> KardApi.WebViewTokenResponse</code></summary>
 <dl>
