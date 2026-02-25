@@ -1,3 +1,12 @@
+## 4.2.1 - 2026-02-25
+* chore: update Fern CLI version
+* Update the Fern CLI version from 3.76.0 to 3.88.1 in the metadata configuration. This internal tooling update ensures the project uses the latest CLI features and improvements.
+* Key changes:
+* Bump cliVersion from 3.76.0 to 3.88.1 in .fern/metadata.json
+* Keep generator configuration unchanged
+* Maintain compatibility with existing generator versions
+* 🌿 Generated with Fern
+
 ## 4.2.0 - 2026-02-23
 * feat: add baseReward component type and field to offer components
 * This change introduces a new "BaseReward" component type and corresponding baseReward field to the OfferComponents interface. This enhancement provides better structure for displaying formatted reward information in offer components.
