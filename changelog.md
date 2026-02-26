@@ -1,3 +1,12 @@
+## 4.3.1 - 2026-02-26
+* chore: update Fern CLI version to 3.90.4
+* This commit updates the Fern CLI version used in the project metadata from 3.88.1 to 3.90.4, bringing the project up to date with the latest CLI improvements and bug fixes.
+* Key changes:
+* Update cliVersion from 3.88.1 to 3.90.4 in .fern/metadata.json
+* Maintain compatibility with existing generator configuration
+* Ensure project uses latest Fern CLI capabilities
+* 🌿 Generated with Fern
+
 ## 4.3.0 - 2026-02-25
 * feat: add boost offer functionality to users attributions API
 * Introduce a new boost method in the AttributionsClient that allows recording when a user boosts an offer. This creates attribution events with eventCode=BOOST and medium=CTA, enabling tracking of user engagement with promotional content.
