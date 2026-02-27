@@ -1,3 +1,12 @@
+## 4.3.2 - 2026-02-27
+* chore: update Fern CLI version
+* Updates the Fern CLI version from 3.90.4 to 3.93.2 in the metadata configuration. This is a routine maintenance update that brings the project up to date with the latest CLI tooling improvements and bug fixes.
+* Key changes:
+* Update cliVersion from 3.90.4 to 3.93.2 in .fern/metadata.json
+* Maintain compatibility with existing generator configurations
+* Ensure project stays current with Fern toolchain updates
+* 🌿 Generated with Fern
+
 ## 4.3.1 - 2026-02-26
 * chore: update Fern CLI version to 3.90.4
 * This commit updates the Fern CLI version used in the project metadata from 3.88.1 to 3.90.4, bringing the project up to date with the latest CLI improvements and bug fixes.
