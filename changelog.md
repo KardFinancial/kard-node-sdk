@@ -1,3 +1,12 @@
+## 4.4.0 - 2026-03-02
+* feat: add optional startIcon field to CtaComponent
+* Add support for displaying icons on CTA buttons by introducing an optional startIcon field to the CtaComponent interface. This enhancement allows for more visually appealing and intuitive button designs while maintaining backward compatibility.
+* Key changes:
+* Add optional startIcon field of type string to CtaComponent interface
+* Include JSDoc documentation for the new field
+* Maintain backward compatibility with existing implementations
+* 🌿 Generated with Fern
+
 ## 4.3.2 - 2026-02-27
 * chore: update Fern CLI version
 * Updates the Fern CLI version from 3.90.4 to 3.93.2 in the metadata configuration. This is a routine maintenance update that brings the project up to date with the latest CLI tooling improvements and bug fixes.

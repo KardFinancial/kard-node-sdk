@@ -50,8 +50,8 @@ export function normalizeClientOptions<T extends BaseClientOptions>(options: T):
         {
             "X-Fern-Language": "JavaScript",
             "X-Fern-SDK-Name": "@kard-financial/sdk",
-            "X-Fern-SDK-Version": "4.3.2",
-            "User-Agent": "@kard-financial/sdk/4.3.2",
+            "X-Fern-SDK-Version": "4.4.0",
+            "User-Agent": "@kard-financial/sdk/4.4.0",
             "X-Fern-Runtime": core.RUNTIME.type,
             "X-Fern-Runtime-Version": core.RUNTIME.version,
         },
