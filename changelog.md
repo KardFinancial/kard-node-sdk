@@ -1,3 +1,14 @@
+## 4.6.0 - 2026-03-03
+* feat: add file processing result notification type
+* This change extends the notification system to support file processing results, enabling the API to notify clients when file processing operations complete.
+* Key changes:
+* Add FileProcessingResult to NotificationType enum
+* Create FileResultData interface with id and attributes fields
+* Extend NotificationDataUnion to include FileProcessingResult type
+* Add optional errors field to NotificationPayload for error handling
+* Include comprehensive documentation example for file processing notifications
+* 🌿 Generated with Fern
+
 ## 4.5.0 - 2026-03-03
 * feat: add FinancialInstitutionName enum type for structured institution names
 * Replace string-based financial institution names with a strongly-typed enum containing

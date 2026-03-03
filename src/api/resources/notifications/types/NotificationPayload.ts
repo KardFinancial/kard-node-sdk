@@ -439,8 +439,23 @@ import type * as KardApi from "../../../index.js";
  *             }
  *         }
  *     }
+ *
+ * @example
+ *     {
+ *         data: {
+ *             type: "fileProcessingResult",
+ *             id: "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+ *             attributes: {
+ *                 fileName: "incomingTxns_2026-06-23.jsonl",
+ *                 lastModified: "2026-06-23T12:00:00Z",
+ *                 sentAt: "2026-06-23T12:05:00Z",
+ *                 downloadUrl: "https://example.com/processed/incomingTxns_2026-06-23.csv"
+ *             }
+ *         }
+ *     }
  */
 export interface NotificationPayload {
     data: KardApi.NotificationDataUnion;
     meta?: KardApi.NotificationMetadata;
+    errors?: KardApi.ErrorObject[];
 }

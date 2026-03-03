@@ -12,7 +12,8 @@ export type NotificationDataUnion =
     | KardApi.NotificationDataUnion.Merchant
     | KardApi.NotificationDataUnion.Location
     | KardApi.NotificationDataUnion.UserOffer
-    | KardApi.NotificationDataUnion.AuditUpdate;
+    | KardApi.NotificationDataUnion.AuditUpdate
+    | KardApi.NotificationDataUnion.FileProcessingResult;
 
 export namespace NotificationDataUnion {
     export interface EarnedRewardApproved extends KardApi.EarnedRewardApprovedData {
@@ -53,5 +54,9 @@ export namespace NotificationDataUnion {
 
     export interface AuditUpdate extends KardApi.AuditUpdateData {
         type: "auditUpdate";
+    }
+
+    export interface FileProcessingResult extends KardApi.FileResultData {
+        type: "fileProcessingResult";
     }
 }

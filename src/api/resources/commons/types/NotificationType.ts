@@ -11,5 +11,6 @@ export const NotificationType = {
     Location: "location",
     UserOffer: "userOffer",
     AuditUpdate: "auditUpdate",
+    FileProcessingResult: "fileProcessingResult",
 } as const;
 export type NotificationType = (typeof NotificationType)[keyof typeof NotificationType];

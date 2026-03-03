@@ -19,6 +19,7 @@ export * from "./EarnedRewardSettledData.js";
 export * from "./FailedTransactionAttributes.js";
 export * from "./FailedTransactionData.js";
 export * from "./FailedTransactionRelationships.js";
+export * from "./FileResultData.js";
 export * from "./LocationAddress.js";
 export * from "./LocationCoordinates.js";
 export * from "./LocationStatus.js";
