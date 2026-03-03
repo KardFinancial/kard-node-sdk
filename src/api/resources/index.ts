@@ -5,7 +5,6 @@ export * from "./commons/errors/index.js";
 export * as commons from "./commons/index.js";
 export * from "./commons/types/index.js";
 export * from "./files/client/requests/index.js";
-export * from "./files/errors/index.js";
 export * as files from "./files/index.js";
 export * from "./files/types/index.js";
 export * as notifications from "./notifications/index.js";

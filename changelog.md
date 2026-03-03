@@ -1,3 +1,14 @@
+## 4.7.0 - 2026-03-03
+* feat: add bulk transaction upload URL generation
+* Add new createBulkTransactionsUploadUrl method to enable bulk file uploads for transactions. This method generates up to 10 presigned PUT URLs for uploading JSONL transaction files (up to 5GB each) directly to storage, with 15-minute expiration times. Files can be uploaded as plain JSONL or gzip-compressed format.
+* Key changes:
+* Add createBulkTransactionsUploadUrl method to TransactionsClient
+* Create new type definitions for file upload request/response handling
+* Move ForbiddenError from files module to commons for shared usage
+* Clean up module exports by removing files-specific error exports
+* Add comprehensive documentation and usage examples
+* 🌿 Generated with Fern
+
 ## 4.6.0 - 2026-03-03
 * feat: add file processing result notification type
 * This change extends the notification system to support file processing results, enabling the API to notify clients when file processing operations complete.

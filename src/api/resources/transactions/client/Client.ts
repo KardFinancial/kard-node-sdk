@@ -548,6 +548,137 @@ export class TransactionsClient {
     }
 
     /**
+     * Generates up to 10 presigned PUT URLs for uploading JSONL transaction files (up to 5GB each) directly
+     * to storage. Each URL is valid for 15 minutes. Use the returned URL to upload the file via an HTTP PUT request with the
+     * binary file content as the body. If a URL expires before the upload completes, you must request a new one.
+     * Files can be uploaded as plain JSONL or as a gzip-compressed file.
+     * Only `coreTransaction` type is supported for bulk file uploads.
+     * <b>Required scopes:</b> `transaction:write`
+     *
+     * @param {KardApi.OrganizationId} organizationId
+     * @param {KardApi.CreateFileUploadRequestBody} request
+     * @param {TransactionsClient.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @throws {@link KardApi.ForbiddenError}
+     * @throws {@link KardApi.UnauthorizedError}
+     * @throws {@link KardApi.InvalidRequest}
+     * @throws {@link KardApi.InternalServerError}
+     *
+     * @example
+     *     await client.transactions.createBulkTransactionsUploadUrl("organization-123", {
+     *         data: [{
+     *                 type: "incomingTransactionsFile",
+     *                 attributes: {
+     *                     filename: "transaction_12345.jsonl"
+     *                 }
+     *             }, {
+     *                 type: "incomingTransactionsFile",
+     *                 attributes: {
+     *                     filename: "transaction_67890.jsonl"
+     *                 }
+     *             }]
+     *     })
+     */
+    public createBulkTransactionsUploadUrl(
+        organizationId: KardApi.OrganizationId,
+        request: KardApi.CreateFileUploadRequestBody,
+        requestOptions?: TransactionsClient.RequestOptions,
+    ): core.HttpResponsePromise<KardApi.CreateFileUploadUrlResponse> {
+        return core.HttpResponsePromise.fromPromise(
+            this.__createBulkTransactionsUploadUrl(organizationId, request, requestOptions),
+        );
+    }
+
+    private async __createBulkTransactionsUploadUrl(
+        organizationId: KardApi.OrganizationId,
+        request: KardApi.CreateFileUploadRequestBody,
+        requestOptions?: TransactionsClient.RequestOptions,
+    ): Promise<core.WithRawResponse<KardApi.CreateFileUploadUrlResponse>> {
+        const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
+        const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
+            _authRequest.headers,
+            this._options?.headers,
+            requestOptions?.headers,
+        );
+        const _response = await core.fetcher({
+            url: core.url.join(
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.KardApiEnvironment.Production,
+                `/v2/issuers/${core.url.encodePathParam(organizationId)}/transactions/upload`,
+            ),
+            method: "POST",
+            headers: _headers,
+            contentType: "application/json",
+            queryParameters: requestOptions?.queryParams,
+            requestType: "json",
+            body: request,
+            timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
+            maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
+            fetchFn: this._options?.fetch,
+            logging: this._options.logging,
+        });
+        if (_response.ok) {
+            return { data: _response.body as KardApi.CreateFileUploadUrlResponse, rawResponse: _response.rawResponse };
+        }
+
+        if (_response.error.reason === "status-code") {
+            switch (_response.error.statusCode) {
+                case 403:
+                    throw new KardApi.ForbiddenError(
+                        _response.error.body as KardApi.ErrorResponse,
+                        _response.rawResponse,
+                    );
+                case 401:
+                    throw new KardApi.UnauthorizedError(
+                        _response.error.body as KardApi.ErrorResponse,
+                        _response.rawResponse,
+                    );
+                case 400:
+                    throw new KardApi.InvalidRequest(
+                        _response.error.body as KardApi.ErrorResponse,
+                        _response.rawResponse,
+                    );
+                case 500:
+                    throw new KardApi.InternalServerError(
+                        _response.error.body as KardApi.ErrorResponse,
+                        _response.rawResponse,
+                    );
+                default:
+                    throw new errors.KardApiError({
+                        statusCode: _response.error.statusCode,
+                        body: _response.error.body,
+                        rawResponse: _response.rawResponse,
+                    });
+            }
+        }
+
+        switch (_response.error.reason) {
+            case "non-json":
+                throw new errors.KardApiError({
+                    statusCode: _response.error.statusCode,
+                    body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
+                });
+            case "body-is-null":
+                throw new errors.KardApiError({
+                    statusCode: _response.error.statusCode,
+                    rawResponse: _response.rawResponse,
+                });
+            case "timeout":
+                throw new errors.KardApiTimeoutError(
+                    "Timeout exceeded when calling POST /v2/issuers/{organizationId}/transactions/upload.",
+                );
+            case "unknown":
+                throw new errors.KardApiError({
+                    message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
+                });
+        }
+    }
+
+    /**
      * Retrieve rewarded transaction history for a specific user. Returns only SETTLED transactions within the last 12 months.
      * <br/>
      * <b>Required scopes:</b> `transaction:read`

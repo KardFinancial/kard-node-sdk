@@ -728,6 +728,94 @@ await client.transactions.createAudits("organization-123", "user-123", {
 </dl>
 </details>
 
+<details><summary><code>client.transactions.<a href="/src/api/resources/transactions/client/Client.ts">createBulkTransactionsUploadUrl</a>(organizationId, { ...params }) -> KardApi.CreateFileUploadUrlResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Generates up to 10 presigned PUT URLs for uploading JSONL transaction files (up to 5GB each) directly
+to storage. Each URL is valid for 15 minutes. Use the returned URL to upload the file via an HTTP PUT request with the
+binary file content as the body. If a URL expires before the upload completes, you must request a new one.
+Files can be uploaded as plain JSONL or as a gzip-compressed file.
+Only `coreTransaction` type is supported for bulk file uploads.
+<b>Required scopes:</b> `transaction:write`
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.transactions.createBulkTransactionsUploadUrl("organization-123", {
+    data: [{
+            type: "incomingTransactionsFile",
+            attributes: {
+                filename: "transaction_12345.jsonl"
+            }
+        }, {
+            type: "incomingTransactionsFile",
+            attributes: {
+                filename: "transaction_67890.jsonl"
+            }
+        }]
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**organizationId:** `KardApi.OrganizationId` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `KardApi.CreateFileUploadRequestBody` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `TransactionsClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.transactions.<a href="/src/api/resources/transactions/client/Client.ts">getEarnedRewards</a>(organizationId, userId, { ...params }) -> KardApi.GetEarnedRewardsResponse</code></summary>
 <dl>
 <dd>
