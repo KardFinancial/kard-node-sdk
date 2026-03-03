@@ -13,6 +13,7 @@ export * from "./CreateAuditRequestDataUnion.js";
 export * from "./CreateAuditResponseBody.js";
 export * from "./CreateAuditResponseDataUnion.js";
 export * from "./DirectionType.js";
+export * from "./FinancialInstitutionName.js";
 export * from "./FraudulentTransactionAttributes.js";
 export * from "./FraudulentTransactionData.js";
 export * from "./FraudulentTransactionObject.js";

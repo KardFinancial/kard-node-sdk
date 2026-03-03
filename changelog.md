@@ -1,3 +1,15 @@
+## 4.5.0 - 2026-03-03
+* feat: add FinancialInstitutionName enum type for structured institution names
+* Replace string-based financial institution names with a strongly-typed enum containing
+* predefined bank and credit union names. This improves type safety and ensures consistent
+* naming across the API.
+* Key changes:
+* Add FinancialInstitutionName enum with 37 predefined financial institutions
+* Replace string type with FinancialInstitutionName enum in CoreTransactionAttributes
+* Update documentation examples to use enum values instead of string literals
+* Export new FinancialInstitutionName type from transactions module
+* 🌿 Generated with Fern
+
 ## 4.4.0 - 2026-03-02
 * feat: add optional startIcon field to CtaComponent
 * Add support for displaying icons on CTA buttons by introducing an optional startIcon field to the CtaComponent interface. This enhancement allows for more visually appealing and intuitive button designs while maintaining backward compatibility.

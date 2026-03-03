@@ -177,7 +177,7 @@ export class TransactionsClient {
      *                     status: "SETTLED",
      *                     settledDate: "2024-10-15T14:30:00Z",
      *                     authorizationDate: "2024-10-15T14:25:00Z",
-     *                     financialInstitutionName: "First National Bank"
+     *                     financialInstitutionName: "First Financial Bank"
      *                 }
      *             }]
      *     })
