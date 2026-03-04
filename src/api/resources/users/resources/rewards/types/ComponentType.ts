@@ -5,8 +5,10 @@ export const ComponentType = {
     ShortDescription: "shortDescription",
     LongDescription: "longDescription",
     BaseReward: "baseReward",
+    BoostedReward: "boostedReward",
     Cta: "cta",
     Tags: "tags",
     DetailTags: "detailTags",
+    LogoFlare: "logoFlare",
 } as const;
 export type ComponentType = (typeof ComponentType)[keyof typeof ComponentType];

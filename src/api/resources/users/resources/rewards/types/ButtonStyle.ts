@@ -3,6 +3,7 @@
 /** Available button styles for CTA components */
 export const ButtonStyle = {
     Primary: "PRIMARY",
+    Secondary: "SECONDARY",
     Disabled: "DISABLED",
 } as const;
 export type ButtonStyle = (typeof ButtonStyle)[keyof typeof ButtonStyle];

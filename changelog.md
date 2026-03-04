@@ -1,3 +1,16 @@
+## 4.8.0 - 2026-03-04
+* feat: add logo flare support and expand component options
+* Enhance the offers API with logo flare functionality for better visual customization of offer displays. The logo flare system provides flexible styling options including border colors, badge positioning, and icon support.
+* Key changes:
+* Add LogoFlare interface with border color and optional badge configuration
+* Add LogoFlareBadge interface with icon and position properties
+* Add LogoFlareBorderColor and LogoFlareBadgePosition enums for styling options
+* Add "SECONDARY" option to ButtonStyle enum for additional CTA button styles
+* Add "boostedReward" and "logoFlare" component types to ComponentType enum
+* Add boostedReward and logoFlare fields to OfferComponents interface
+* Update documentation comments to be more concise for supportedComponents parameters
+* 🌿 Generated with Fern
+
 ## 4.7.0 - 2026-03-03
 * feat: add bulk transaction upload URL generation
 * Add new createBulkTransactionsUploadUrl method to enable bulk file uploads for transactions. This method generates up to 10 presigned PUT URLs for uploading JSONL transaction files (up to 5GB each) directly to storage, with 15-minute expiration times. Files can be uploaded as plain JSONL or gzip-compressed format.

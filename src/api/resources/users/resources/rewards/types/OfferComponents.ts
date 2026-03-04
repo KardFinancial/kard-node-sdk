@@ -12,10 +12,14 @@ export interface OfferComponents {
     longDescription?: string;
     /** Formatted reward string */
     baseReward?: string;
+    /** Formatted boosted reward string */
+    boostedReward?: string;
     /** Call-to-action button component */
     cta?: KardApi.users.CtaComponent;
     /** Tags for the offer */
     tags?: string[];
     /** Detail tags for the offer */
     detailTags?: string[];
+    /** Logo flare configuration for the offer */
+    logoFlare?: KardApi.users.LogoFlare;
 }
