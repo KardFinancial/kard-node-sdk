@@ -1,3 +1,6 @@
+## 4.8.0 - 2026-03-09
+* The `GetOffersByUserRequest` now supports a new optional `filter[search]` parameter for case-insensitive filtering of offers by merchant name.
+
 ## 4.7.2 - 2026-03-09
 * fix: correct API endpoint URL for transaction uploads
 * Updates the transactions upload endpoint from `/transactions/upload` to `/transactions/uploads` to match the correct API specification. This fixes potential 404 errors when uploading transaction data.

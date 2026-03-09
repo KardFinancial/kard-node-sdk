@@ -14,6 +14,8 @@ export interface GetOffersByUserRequest {
     "page[size]"?: number;
     "page[after]"?: string;
     "page[before]"?: string;
+    /** Case-insensitive search string to filter offers by merchant name */
+    "filter[search]"?: string;
     "filter[purchaseChannel]"?: KardApi.PurchaseChannel[];
     "filter[category]"?: KardApi.CategoryOption;
     "filter[isTargeted]"?: boolean;

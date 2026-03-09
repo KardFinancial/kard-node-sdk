@@ -64,6 +64,7 @@ export class RewardsClient {
             "page[size]": pageSize,
             "page[after]": pageAfter,
             "page[before]": pageBefore,
+            "filter[search]": filterSearch,
             "filter[purchaseChannel]": filterPurchaseChannel,
             "filter[category]": filterCategory,
             "filter[isTargeted]": filterIsTargeted,
@@ -82,6 +83,10 @@ export class RewardsClient {
 
         if (pageBefore != null) {
             _queryParams["page[before]"] = pageBefore;
+        }
+
+        if (filterSearch != null) {
+            _queryParams["filter[search]"] = filterSearch;
         }
 
         if (filterPurchaseChannel != null) {
