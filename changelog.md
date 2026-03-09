@@ -1,3 +1,12 @@
+## 4.7.2 - 2026-03-09
+* fix: correct API endpoint URL for transaction uploads
+* Updates the transactions upload endpoint from `/transactions/upload` to `/transactions/uploads` to match the correct API specification. This fixes potential 404 errors when uploading transaction data.
+* Key changes:
+* Updated POST endpoint URL in TransactionsClient.upload method
+* Corrected timeout error message to reflect proper endpoint path
+* Ensures API calls reach the correct server endpoint
+* 🌿 Generated with Fern
+
 ## 4.8.0 - 2026-03-04
 * feat: add logo flare support and expand component options
 * Enhance the offers API with logo flare functionality for better visual customization of offer displays. The logo flare system provides flexible styling options including border colors, badge positioning, and icon support.

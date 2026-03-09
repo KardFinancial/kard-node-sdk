@@ -605,7 +605,7 @@ export class TransactionsClient {
                 (await core.Supplier.get(this._options.baseUrl)) ??
                     (await core.Supplier.get(this._options.environment)) ??
                     environments.KardApiEnvironment.Production,
-                `/v2/issuers/${core.url.encodePathParam(organizationId)}/transactions/upload`,
+                `/v2/issuers/${core.url.encodePathParam(organizationId)}/transactions/uploads`,
             ),
             method: "POST",
             headers: _headers,
@@ -668,7 +668,7 @@ export class TransactionsClient {
                 });
             case "timeout":
                 throw new errors.KardApiTimeoutError(
-                    "Timeout exceeded when calling POST /v2/issuers/{organizationId}/transactions/upload.",
+                    "Timeout exceeded when calling POST /v2/issuers/{organizationId}/transactions/uploads.",
                 );
             case "unknown":
                 throw new errors.KardApiError({
