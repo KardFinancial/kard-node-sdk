@@ -19,7 +19,6 @@ export * from "./CreateFileUploadUrlResponse.js";
 export * from "./DirectionType.js";
 export * from "./FileUploadUrlAttributes.js";
 export * from "./FileUploadUrlData.js";
-export * from "./FinancialInstitutionName.js";
 export * from "./FraudulentTransactionAttributes.js";
 export * from "./FraudulentTransactionData.js";
 export * from "./FraudulentTransactionObject.js";
