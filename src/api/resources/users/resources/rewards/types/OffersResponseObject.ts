@@ -76,6 +76,21 @@ import type * as KardApi from "../../../../../index.js";
  *         links: {
  *             self: "/v2/issuers/{organizationId}/users/{userId}/offers?page[size]=1?sort=-startDate",
  *             next: "/v2/issuers/{organizationId}/users/{userId}/offers?page[after]=NDMyNzQyODI3OTQw&page[size]=1?&sort=-startDate"
+ *         },
+ *         meta: {
+ *             availableCategories: [{
+ *                     type: "category",
+ *                     id: "65920081b524d126068de24a",
+ *                     attributes: {
+ *                         name: KardApi.CategoryOption.FoodBeverage
+ *                     }
+ *                 }, {
+ *                     type: "category",
+ *                     id: "65920081b524d126068de24c",
+ *                     attributes: {
+ *                         name: KardApi.CategoryOption.DepartmentStores
+ *                     }
+ *                 }]
  *         }
  *     }
  */
@@ -83,4 +98,5 @@ export interface OffersResponseObject {
     data: KardApi.users.OfferDataUnion[];
     links: KardApi.Links;
     included?: KardApi.users.EligibilityOfferIncluded[];
+    meta?: KardApi.users.OffersMeta;
 }

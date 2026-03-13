@@ -31,6 +31,7 @@ export * from "./OfferComponents.js";
 export * from "./OfferDataUnion.js";
 export * from "./OfferRelationship.js";
 export * from "./OfferSortOptions.js";
+export * from "./OffersMeta.js";
 export * from "./OffersResponseObject.js";
 export * from "./OperationHours.js";
 export * from "./OperationPeriod.js";

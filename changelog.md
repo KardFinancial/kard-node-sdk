@@ -1,3 +1,6 @@
+## 4.10.0 - 2026-03-13
+* The offers response object now includes an optional metadata field that provides information about the full result set across all pages, including all distinct categories available in the filtered results.
+
 ## 4.8.0 - 2026-03-09
 * The `GetOffersByUserRequest` now supports a new optional `filter[search]` parameter for case-insensitive filtering of offers by merchant name.
 
