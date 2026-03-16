@@ -1,3 +1,6 @@
+## 5.1.0 - 2026-03-16
+* The SDK now supports a new ProgressBar component type in the rewards system. The ProgressBar interface allows tracking offer redemption progress with configurable display options including segmented progress bars and custom labels.
+
 ## 5.0.0 - 2026-03-13
 * The `financialInstitutionName` field in transaction objects has been changed from a restricted enum to an open string type. Existing code using `FinancialInstitutionName` enum constants must be updated to use string literals instead (e.g., replace `KardApi.FinancialInstitutionName.FirstFinancialBank` with `"First Financial Bank"`).
 

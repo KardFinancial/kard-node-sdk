@@ -22,4 +22,6 @@ export interface OfferComponents {
     detailTags?: string[];
     /** Logo flare configuration for the offer */
     logoFlare?: KardApi.users.LogoFlare;
+    /** Progress bar component for tracking offer redemptions */
+    progressBar?: KardApi.users.ProgressBar;
 }

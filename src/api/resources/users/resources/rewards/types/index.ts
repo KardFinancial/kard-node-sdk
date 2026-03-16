@@ -36,6 +36,7 @@ export * from "./OffersResponseObject.js";
 export * from "./OperationHours.js";
 export * from "./OperationPeriod.js";
 export * from "./OperationTime.js";
+export * from "./ProgressBar.js";
 export * from "./StandardOffer.js";
 export * from "./StandardOfferCore.js";
 export * from "./StandardOfferFields.js";

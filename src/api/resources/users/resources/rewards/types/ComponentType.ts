@@ -10,5 +10,6 @@ export const ComponentType = {
     Tags: "tags",
     DetailTags: "detailTags",
     LogoFlare: "logoFlare",
+    ProgressBar: "progressBar",
 } as const;
 export type ComponentType = (typeof ComponentType)[keyof typeof ComponentType];
