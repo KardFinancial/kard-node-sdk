@@ -22,7 +22,7 @@ Instantiate and use the client with the following:
 ```typescript
 import { KardApiClient } from "@kard-financial/sdk";
 
-const client = new KardApiClient({ clientId: "YOUR_CLIENT_ID", clientSecret: "YOUR_CLIENT_SECRET" });
+const client = new KardApiClient({ clientId: "YOUR_CLIENT_ID", clientSecret: "YOUR_CLIENT_SECRET", xKardTargetIssuer: "YOUR_X_KARD_TARGET_ISSUER" });
 await client.users.create("organization-123", {
     data: [{
             type: "user",

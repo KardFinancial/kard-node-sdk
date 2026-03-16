@@ -1,3 +1,6 @@
+## 5.2.0 - 2026-03-16
+* New optional `xKardTargetIssuer` parameter available on client configuration and individual request options to override the X-Kard-Target-Issuer header. This enables dynamic targeting of different issuers within the Kard platform.
+
 ## 5.1.0 - 2026-03-16
 * The SDK now supports a new ProgressBar component type in the rewards system. The ProgressBar interface allows tracking offer redemption progress with configurable display options including segmented progress bars and custom labels.
 
