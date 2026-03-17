@@ -1,3 +1,6 @@
+## 5.3.0 - 2026-03-17
+* The ProgressBar interface now includes an optional `segmentIcon` property that allows customization of SVG icons for each segment when the progress bar is displayed in segmented mode.
+
 ## 5.2.0 - 2026-03-16
 * New optional `xKardTargetIssuer` parameter available on client configuration and individual request options to override the X-Kard-Target-Issuer header. This enables dynamic targeting of different issuers within the Kard platform.
 

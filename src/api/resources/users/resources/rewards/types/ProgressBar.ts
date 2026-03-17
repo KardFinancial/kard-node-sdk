@@ -12,4 +12,6 @@ export interface ProgressBar {
     label: string;
     /** Whether the progress bar should be displayed as segmented */
     segmented: boolean;
+    /** SVG icon to use for each segment when the progress bar is segmented */
+    segmentIcon?: string;
 }
