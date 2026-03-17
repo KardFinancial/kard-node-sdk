@@ -1,3 +1,6 @@
+## 6.0.0 - 2026-03-17
+* The ProgressBar interface now includes a required `labels` property that allows configuration of text labels around progress bars in different view layouts. This breaking change enables more flexible progress bar presentation but requires existing code to provide label configuration.
+
 ## 5.3.0 - 2026-03-17
 * The ProgressBar interface now includes an optional `segmentIcon` property that allows customization of SVG icons for each segment when the progress bar is displayed in segmented mode.
 
