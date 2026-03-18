@@ -1,3 +1,6 @@
+## 7.0.0 - 2026-03-18
+* The progress bar configuration API has been restructured for better layout organization. The `ProgressBarLabel` and `ProgressBarLabelPosition` types have been removed and replaced with `ProgressBarLabelPair` which uses `left` and `right` properties. The `ProgressBar.segmentIcon` field has been replaced with a `segments` field that provides layout-specific segment configuration. Update your code to use the new paired label structure and segments configuration object.
+
 ## 6.0.0 - 2026-03-17
 * The ProgressBar interface now includes a required `labels` property that allows configuration of text labels around progress bars in different view layouts. This breaking change enables more flexible progress bar presentation but requires existing code to provide label configuration.
 

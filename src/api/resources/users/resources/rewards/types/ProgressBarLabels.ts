@@ -7,7 +7,7 @@ import type * as KardApi from "../../../../../index.js";
  */
 export interface ProgressBarLabels {
     /** Label configuration for the details view */
-    details: KardApi.users.ProgressBarLabel;
+    details?: KardApi.users.ProgressBarLabelPair;
     /** Label configuration for the default view */
-    default: KardApi.users.ProgressBarLabel;
+    default: KardApi.users.ProgressBarLabelPair;
 }
