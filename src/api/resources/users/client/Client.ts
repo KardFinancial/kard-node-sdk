@@ -68,7 +68,12 @@ export class UsersClient {
      *                 id: "1234567890",
      *                 attributes: {
      *                     zipCode: "11238",
-     *                     enrolledRewards: ["CARDLINKED"]
+     *                     enrolledRewards: ["CARDLINKED"],
+     *                     email: "user@example.com",
+     *                     hashedEmail: "a94a8fe5ccb19ba61c4c0873d391e987982fbbd3e2d8a5b76e45a1d4c4e2e3a1",
+     *                     phoneNumber: "+14155552671",
+     *                     birthYear: "1990",
+     *                     historicalTransactionsSent: true
      *                 }
      *             }]
      *     })
@@ -200,7 +205,11 @@ export class UsersClient {
      *             id: "1234567890",
      *             attributes: {
      *                 zipCode: "11238",
-     *                 enrolledRewards: ["CARDLINKED"]
+     *                 enrolledRewards: ["CARDLINKED"],
+     *                 email: "user@example.com",
+     *                 hashedEmail: "a94a8fe5ccb19ba61c4c0873d391e987982fbbd3e2d8a5b76e45a1d4c4e2e3a1",
+     *                 phoneNumber: "+14155552671",
+     *                 birthYear: "1990"
      *             }
      *         }
      *     })
@@ -210,7 +219,7 @@ export class UsersClient {
         userId: KardApi.UserId,
         request: KardApi.UpdateUserObject,
         requestOptions?: UsersClient.RequestOptions,
-    ): core.HttpResponsePromise<KardApi.UpdateUserObject> {
+    ): core.HttpResponsePromise<KardApi.UserResponseObject> {
         return core.HttpResponsePromise.fromPromise(this.__update(organizationId, userId, request, requestOptions));
     }
 
@@ -219,7 +228,7 @@ export class UsersClient {
         userId: KardApi.UserId,
         request: KardApi.UpdateUserObject,
         requestOptions?: UsersClient.RequestOptions,
-    ): Promise<core.WithRawResponse<KardApi.UpdateUserObject>> {
+    ): Promise<core.WithRawResponse<KardApi.UserResponseObject>> {
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -249,7 +258,7 @@ export class UsersClient {
             logging: this._options.logging,
         });
         if (_response.ok) {
-            return { data: _response.body as KardApi.UpdateUserObject, rawResponse: _response.rawResponse };
+            return { data: _response.body as KardApi.UserResponseObject, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
@@ -441,7 +450,7 @@ export class UsersClient {
         organizationId: KardApi.OrganizationId,
         userId: KardApi.UserId,
         requestOptions?: UsersClient.RequestOptions,
-    ): core.HttpResponsePromise<KardApi.UpdateUserObject> {
+    ): core.HttpResponsePromise<KardApi.UserResponseObject> {
         return core.HttpResponsePromise.fromPromise(this.__get(organizationId, userId, requestOptions));
     }
 
@@ -449,7 +458,7 @@ export class UsersClient {
         organizationId: KardApi.OrganizationId,
         userId: KardApi.UserId,
         requestOptions?: UsersClient.RequestOptions,
-    ): Promise<core.WithRawResponse<KardApi.UpdateUserObject>> {
+    ): Promise<core.WithRawResponse<KardApi.UserResponseObject>> {
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -476,7 +485,7 @@ export class UsersClient {
             logging: this._options.logging,
         });
         if (_response.ok) {
-            return { data: _response.body as KardApi.UpdateUserObject, rawResponse: _response.rawResponse };
+            return { data: _response.body as KardApi.UserResponseObject, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {

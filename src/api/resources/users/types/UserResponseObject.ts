@@ -14,11 +14,12 @@ import type * as KardApi from "../../../index.js";
  *                 email: "user@example.com",
  *                 hashedEmail: "a94a8fe5ccb19ba61c4c0873d391e987982fbbd3e2d8a5b76e45a1d4c4e2e3a1",
  *                 phoneNumber: "+14155552671",
- *                 birthYear: "1990"
+ *                 birthYear: "1990",
+ *                 historicalTransactionsSent: true
  *             }
  *         }
  *     }
  */
-export interface UpdateUserObject {
-    data: KardApi.UpdateUserRequestDataUnion;
+export interface UserResponseObject {
+    data: KardApi.UserRequestDataUnion;
 }

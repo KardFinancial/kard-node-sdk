@@ -2,7 +2,7 @@
 
 import type * as KardApi from "../../../index.js";
 
-export interface UserRequestAttributes {
+export interface UpdateUserRequestAttributes {
     /** Rewards programs to enroll the user in. If an empty array is supplied, the user will not be enrolled in any programs. */
     enrolledRewards: KardApi.EnrolledRewardsType[];
     /** Zipcode of user */
@@ -15,6 +15,4 @@ export interface UserRequestAttributes {
     phoneNumber?: string;
     /** Birth year of user */
     birthYear?: string;
-    /** Indicates whether historical transactions have been sent for this user */
-    historicalTransactionsSent?: boolean;
 }

@@ -1,3 +1,6 @@
+## 8.0.0 - 2026-03-18
+* The user update and get methods now return `UserResponseObject` instead of `UpdateUserObject`. Existing code calling these methods will need to update type annotations and potentially handle the new response structure. The SDK also introduces new specialized types for user update requests (`UpdateUserRequestDataUnion`) and adds support for a `historicalTransactionsSent` attribute.
+
 ## 7.0.0 - 2026-03-18
 * The progress bar configuration API has been restructured for better layout organization. The `ProgressBarLabel` and `ProgressBarLabelPosition` types have been removed and replaced with `ProgressBarLabelPair` which uses `left` and `right` properties. The `ProgressBar.segmentIcon` field has been replaced with a `segments` field that provides layout-specific segment configuration. Update your code to use the new paired label structure and segments configuration object.
 

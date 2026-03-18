@@ -938,7 +938,12 @@ await client.users.create("organization-123", {
             id: "1234567890",
             attributes: {
                 zipCode: "11238",
-                enrolledRewards: ["CARDLINKED"]
+                enrolledRewards: ["CARDLINKED"],
+                email: "user@example.com",
+                hashedEmail: "a94a8fe5ccb19ba61c4c0873d391e987982fbbd3e2d8a5b76e45a1d4c4e2e3a1",
+                phoneNumber: "+14155552671",
+                birthYear: "1990",
+                historicalTransactionsSent: true
             }
         }]
 });
@@ -985,7 +990,7 @@ await client.users.create("organization-123", {
 </dl>
 </details>
 
-<details><summary><code>client.users.<a href="/src/api/resources/users/client/Client.ts">update</a>(organizationId, userId, { ...params }) -> KardApi.UpdateUserObject</code></summary>
+<details><summary><code>client.users.<a href="/src/api/resources/users/client/Client.ts">update</a>(organizationId, userId, { ...params }) -> KardApi.UserResponseObject</code></summary>
 <dl>
 <dd>
 
@@ -1020,7 +1025,11 @@ await client.users.update("organization-123", "user-123", {
         id: "1234567890",
         attributes: {
             zipCode: "11238",
-            enrolledRewards: ["CARDLINKED"]
+            enrolledRewards: ["CARDLINKED"],
+            email: "user@example.com",
+            hashedEmail: "a94a8fe5ccb19ba61c4c0873d391e987982fbbd3e2d8a5b76e45a1d4c4e2e3a1",
+            phoneNumber: "+14155552671",
+            birthYear: "1990"
         }
     }
 });
@@ -1148,7 +1157,7 @@ await client.users.delete("organization-123", "user-123");
 </dl>
 </details>
 
-<details><summary><code>client.users.<a href="/src/api/resources/users/client/Client.ts">get</a>(organizationId, userId) -> KardApi.UpdateUserObject</code></summary>
+<details><summary><code>client.users.<a href="/src/api/resources/users/client/Client.ts">get</a>(organizationId, userId) -> KardApi.UserResponseObject</code></summary>
 <dl>
 <dd>
 
