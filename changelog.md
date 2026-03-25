@@ -1,3 +1,6 @@
+## 8.1.0 - 2026-03-25
+* The CoreTransactionAttributes interface now includes an optional `cardLastFour` property that provides the last four digits of the card used for transactions.
+
 ## 8.0.0 - 2026-03-18
 * The user update and get methods now return `UserResponseObject` instead of `UpdateUserObject`. Existing code calling these methods will need to update type annotations and potentially handle the new response structure. The SDK also introduces new specialized types for user update requests (`UpdateUserRequestDataUnion`) and adds support for a `historicalTransactionsSent` attribute.
 

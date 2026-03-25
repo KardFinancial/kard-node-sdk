@@ -23,4 +23,6 @@ export interface CoreTransactionAttributes {
     authorizationDate: string;
     /** Name of the financial institution */
     financialInstitutionName: string;
+    /** Last four digits of the card used for the transaction. */
+    cardLastFour?: string;
 }
