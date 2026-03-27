@@ -11,8 +11,6 @@ export interface BaseClientOptions {
     baseUrl?: core.Supplier<string>;
     clientId?: core.Supplier<string>;
     clientSecret?: core.Supplier<string>;
-    /** Override the X-Kard-Target-Issuer header */
-    xKardTargetIssuer?: core.Supplier<string | undefined>;
     /** Additional headers to include in requests. */
     headers?: Record<string, string | core.Supplier<string | null | undefined> | null | undefined>;
     /** The default maximum time to wait for a response in seconds. */
@@ -32,8 +30,6 @@ export interface BaseRequestOptions {
     maxRetries?: number;
     /** A hook to abort the request. */
     abortSignal?: AbortSignal;
-    /** Override the X-Kard-Target-Issuer header */
-    xKardTargetIssuer?: string | undefined;
     /** Additional query string parameters to include in the request. */
     queryParams?: Record<string, unknown>;
     /** Additional headers to include in the request. */
@@ -54,11 +50,10 @@ export function normalizeClientOptions<T extends BaseClientOptions>(options: T):
         {
             "X-Fern-Language": "JavaScript",
             "X-Fern-SDK-Name": "@kard-financial/sdk",
-            "X-Fern-SDK-Version": "8.1.0",
-            "User-Agent": "@kard-financial/sdk/8.1.0",
+            "X-Fern-SDK-Version": "9.0.0",
+            "User-Agent": "@kard-financial/sdk/9.0.0",
             "X-Fern-Runtime": core.RUNTIME.type,
             "X-Fern-Runtime-Version": core.RUNTIME.version,
-            "X-Kard-Target-Issuer": options?.xKardTargetIssuer,
         },
         options?.headers,
     );

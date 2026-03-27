@@ -1,3 +1,6 @@
+## 9.0.0 - 2026-03-27
+* The X-Kard-Target-Issuer header configuration has been moved from client initialization options to a request-specific field. For token requests, pass the X-Kard-Target-Issuer value directly in the GetTokenRequest object instead of the client options or request options.
+
 ## 8.1.0 - 2026-03-25
 * The CoreTransactionAttributes interface now includes an optional `cardLastFour` property that provides the last four digits of the card used for transactions.
 

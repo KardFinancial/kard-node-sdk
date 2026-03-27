@@ -42,10 +42,11 @@ export class AuthClient {
         request: KardApi.GetTokenRequest,
         requestOptions?: AuthClient.RequestOptions,
     ): Promise<core.WithRawResponse<KardApi.TokenResponse>> {
+        const { "X-Kard-Target-Issuer": xKardTargetIssuer, ..._body } = request;
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             this._options?.headers,
             mergeOnlyDefinedHeaders({
-                "X-Kard-Target-Issuer": requestOptions?.xKardTargetIssuer ?? this._options?.xKardTargetIssuer,
+                "X-Kard-Target-Issuer": xKardTargetIssuer != null ? xKardTargetIssuer : undefined,
             }),
             requestOptions?.headers,
         );
@@ -61,7 +62,7 @@ export class AuthClient {
             contentType: "application/json",
             queryParameters: requestOptions?.queryParams,
             requestType: "json",
-            body: request,
+            body: _body,
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
             maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
             abortSignal: requestOptions?.abortSignal,

@@ -8,6 +8,8 @@
  *     }
  */
 export interface GetTokenRequest {
+    /** (Beta) Target issuer ID for partners managing multiple issuers on the Kard platform. When set, the auth token will be scoped to this specific issuer. Required if you manage more than one issuer; omit if you operate a single issuer integration. */
+    "X-Kard-Target-Issuer"?: string;
     client_id: string;
     client_secret: string;
 }
