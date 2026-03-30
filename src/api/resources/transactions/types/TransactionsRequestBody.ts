@@ -139,7 +139,8 @@ import type * as KardApi from "../../../index.js";
  *                     status: "SETTLED",
  *                     settledDate: "2024-10-15T14:30:00Z",
  *                     authorizationDate: "2024-10-15T14:25:00Z",
- *                     financialInstitutionName: "west union bank"
+ *                     financialInstitutionName: "west union bank",
+ *                     cardLastFours: ["4321"]
  *                 }
  *             }]
  *     }

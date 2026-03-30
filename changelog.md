@@ -1,3 +1,6 @@
+## 10.0.0 - 2026-03-30
+* The `cardLastFour` property in `CoreTransactionAttributes` has been replaced with `cardLastFours` as an array of strings. Existing code accessing `cardLastFour` will need to be updated to use `cardLastFours[0]` for the first card number, or handle the array appropriately when multiple candidate cards are provided.
+
 ## 9.0.0 - 2026-03-27
 * The X-Kard-Target-Issuer header configuration has been moved from client initialization options to a request-specific field. For token requests, pass the X-Kard-Target-Issuer value directly in the GetTokenRequest object instead of the client options or request options.
 
