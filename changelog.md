@@ -1,3 +1,15 @@
+## 10.0.1 - 2026-04-01
+* docs: update example message in NotificationPayload
+* Update the example notification message string in the
+* NotificationPayload type documentation to reflect the latest
+* wording used for earned reward notifications.
+* Key changes:
+* Replaced the example `message` value in the `NotificationPayload`
+* JSDoc from "You have earned a 72 cent reward..." to the updated
+* "Thanks for shopping at McDonald's! We're checking to see if your
+* purchase qualifies for cash back."
+* 🌿 Generated with Fern
+
 ## 10.0.0 - 2026-03-30
 * The `cardLastFour` property in `CoreTransactionAttributes` has been replaced with `cardLastFours` as an array of strings. Existing code accessing `cardLastFour` will need to be updated to use `cardLastFours[0]` for the first card number, or handle the array appropriately when multiple candidate cards are provided.
 

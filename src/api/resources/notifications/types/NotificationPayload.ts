@@ -42,7 +42,7 @@ import type * as KardApi from "../../../index.js";
  *             type: "earnedRewardApproved",
  *             id: "d80a6f28-1b24-4d65-9e42-e1cf3379bc98",
  *             attributes: {
- *                 message: "You have earned a 72 cent reward on your transaction at McDonald's",
+ *                 message: "Thanks for shopping at McDonald's! We're checking to see if your purchase qualifies for cash back.",
  *                 name: "McDonald's",
  *                 attributionUrl: "www.attribution.com/token",
  *                 surveyUrl: "www.survey.com",
