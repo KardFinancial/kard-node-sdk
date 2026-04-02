@@ -21,8 +21,10 @@ export interface CoreTransactionAttributes {
     settledDate: string;
     /** Timestamp for transaction authorization. Date string should be in ISO 8601 format i.e.'YYYY-MM-DDThh:mm:ss.sTZD' where TZD = time zone designator (Z or +hh:mm or -hh:mm) i.e. 1994-11-05T08:15:30-05:00 OR 1994-11-05T08:15:30Z */
     authorizationDate: string;
-    /** Name of the financial institution */
+    /** Deprecated. Use `financialInstitutionId` instead. Name of the financial institution. */
     financialInstitutionName: string;
+    /** Unique identifier of the financial institution */
+    financialInstitutionId?: string;
     /** Last four digits of the card(s) that may have been used for the transaction. When the issuer cannot determine which specific card was used, multiple values are provided as candidates. */
     cardLastFours?: string[];
 }

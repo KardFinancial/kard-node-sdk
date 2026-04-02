@@ -1,3 +1,6 @@
+## 10.1.0 - 2026-04-02
+* The `CoreTransactionAttributes` type now includes an optional `financialInstitutionId` field, providing a unique identifier for the financial institution associated with a transaction. The `financialInstitutionName` field has been deprecated in favor of `financialInstitutionId`.
+
 ## 10.0.1 - 2026-04-01
 * docs: update example message in NotificationPayload
 * Update the example notification message string in the
