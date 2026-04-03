@@ -1,3 +1,15 @@
+## 11.0.1 - 2026-04-03
+* docs: remove deprecated financialInstitutionName from examples
+* Remove the deprecated `financialInstitutionName` field from JSDoc
+* example snippets in the transactions client and request body type.
+* This reflects the ongoing deprecation of `financialInstitutionName`
+* in favor of `financialInstitutionId` and keeps documentation
+* consistent with the current recommended API usage.
+* Key changes:
+* Removed `financialInstitutionName` from the example in `TransactionsClient` JSDoc
+* Removed `financialInstitutionName` from the example in `TransactionsRequestBody` JSDoc
+* 🌿 Generated with Fern
+
 ## 11.0.0 - 2026-04-03
 * The `financialInstitutionName` field in `CoreTransactionAttributes` is now optional (`string | undefined`), down from a previously required `string`. This reflects its deprecation in favor of `financialInstitutionId`. Existing code that accesses `financialInstitutionName` without an `undefined` check will need to be updated — for example, replace `attrs.financialInstitutionName.toUpperCase()` with `attrs.financialInstitutionName?.toUpperCase()`.
 
