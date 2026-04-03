@@ -1,3 +1,6 @@
+## 11.0.0 - 2026-04-03
+* The `financialInstitutionName` field in `CoreTransactionAttributes` is now optional (`string | undefined`), down from a previously required `string`. This reflects its deprecation in favor of `financialInstitutionId`. Existing code that accesses `financialInstitutionName` without an `undefined` check will need to be updated — for example, replace `attrs.financialInstitutionName.toUpperCase()` with `attrs.financialInstitutionName?.toUpperCase()`.
+
 ## 10.1.0 - 2026-04-02
 * The `CoreTransactionAttributes` type now includes an optional `financialInstitutionId` field, providing a unique identifier for the financial institution associated with a transaction. The `financialInstitutionName` field has been deprecated in favor of `financialInstitutionId`.
 
