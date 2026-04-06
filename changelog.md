@@ -1,3 +1,6 @@
+## 12.0.0 - 2026-04-06
+* The `offer`, `merchant`, `location`, and `userOffer` notification types have been removed from the SDK. The `NotificationType` enum no longer includes `Offer`, `Merchant`, `Location`, or `UserOffer` values, and the corresponding variants have been removed from `NotificationDataUnion`. All associated exported types — including `WebhookOfferData`, `WebhookMerchantData`, `WebhookLocationsData`, `WebhookUserOfferData`, `BrokerAmount`, `BrokerAsset`, `BrokerReward`, `LocationAddress`, `LocationCoordinates`, `TimePeriod`, `OfferStatus`, `OfferType`, `UserOfferStatus`, `MerchantSource`, `LocationStatus`, and related enums — have also been removed. Update any code that references these types or handles these notification variants.
+
 ## 11.0.1 - 2026-04-03
 * docs: remove deprecated financialInstitutionName from examples
 * Remove the deprecated `financialInstitutionName` field from JSDoc

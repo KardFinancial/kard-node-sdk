@@ -6,10 +6,6 @@ export const NotificationType = {
     ValidTransaction: "validTransaction",
     FailedTransaction: "failedTransaction",
     Clawback: "clawback",
-    Offer: "offer",
-    Merchant: "merchant",
-    Location: "location",
-    UserOffer: "userOffer",
     AuditUpdate: "auditUpdate",
     FileProcessingResult: "fileProcessingResult",
 } as const;
