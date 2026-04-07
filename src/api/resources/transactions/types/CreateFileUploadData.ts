@@ -3,6 +3,6 @@
 import type * as KardApi from "../../../index.js";
 
 export interface CreateFileUploadData {
-    type: "incomingTransactionsFile";
+    type: KardApi.FileUploadType;
     attributes: KardApi.CreateFileUploadAttributes;
 }

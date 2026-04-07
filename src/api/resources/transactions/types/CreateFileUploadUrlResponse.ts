@@ -6,14 +6,14 @@ import type * as KardApi from "../../../index.js";
  * @example
  *     {
  *         data: [{
- *                 type: "incomingTransactionsFile",
+ *                 type: KardApi.FileUploadType.IncomingTransactionsFile,
  *                 id: "2NxKz7TYmqVH8UrjGP1xK3hF2gs",
  *                 attributes: {
  *                     url: "https://s3.amazonaws.com/bucket/key1?X-Amz-Algorithm=...",
  *                     expiresIn: 900
  *                 }
  *             }, {
- *                 type: "incomingTransactionsFile",
+ *                 type: KardApi.FileUploadType.IncomingTransactionsFile,
  *                 id: "3PqLa8UZnrWI9VskHQ2yL4iG3ht",
  *                 attributes: {
  *                     url: "https://s3.amazonaws.com/bucket/key2?X-Amz-Algorithm=...",

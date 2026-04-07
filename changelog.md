@@ -1,3 +1,6 @@
+## 12.1.0 - 2026-04-07
+* The SDK now exports a `FileUploadType` enum (`IncomingTransactionsFile`, `HistoricalTransactionsFile`) to represent the category of transaction file being uploaded. The `type` field on `CreateFileUploadData` and `FileUploadUrlData` has been widened to accept any `FileUploadType` value, enabling uploads of historical/back-filled transaction data in addition to real-time incoming transactions.
+
 ## 12.0.0 - 2026-04-06
 * The `offer`, `merchant`, `location`, and `userOffer` notification types have been removed from the SDK. The `NotificationType` enum no longer includes `Offer`, `Merchant`, `Location`, or `UserOffer` values, and the corresponding variants have been removed from `NotificationDataUnion`. All associated exported types — including `WebhookOfferData`, `WebhookMerchantData`, `WebhookLocationsData`, `WebhookUserOfferData`, `BrokerAmount`, `BrokerAsset`, `BrokerReward`, `LocationAddress`, `LocationCoordinates`, `TimePeriod`, `OfferStatus`, `OfferType`, `UserOfferStatus`, `MerchantSource`, `LocationStatus`, and related enums — have also been removed. Update any code that references these types or handles these notification variants.
 

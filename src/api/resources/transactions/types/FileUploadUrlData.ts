@@ -3,7 +3,7 @@
 import type * as KardApi from "../../../index.js";
 
 export interface FileUploadUrlData {
-    type: "incomingTransactionsFile";
+    type: KardApi.FileUploadType;
     /** Upload session ID for traceability */
     id: string;
     attributes: KardApi.FileUploadUrlAttributes;
