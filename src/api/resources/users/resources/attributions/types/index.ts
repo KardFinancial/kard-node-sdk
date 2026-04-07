@@ -3,6 +3,8 @@ export * from "./ActivateOfferIncludeOption.js";
 export * from "./ActivateOfferResponse.js";
 export * from "./ActivateOfferResponseAttributes.js";
 export * from "./ActivateOfferResponseData.js";
+export * from "./AttributionFilter.js";
+export * from "./AttributionState.js";
 export * from "./BoostOfferIncluded.js";
 export * from "./BoostOfferIncludeOption.js";
 export * from "./BoostOfferResponse.js";

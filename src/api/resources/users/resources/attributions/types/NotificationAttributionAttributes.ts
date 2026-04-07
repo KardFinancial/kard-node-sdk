@@ -12,4 +12,6 @@ export interface NotificationAttributionAttributes {
      * Must be in ISO 8601 format (e.g., "2025-01-01T00:00:00Z").
      */
     eventDate: string;
+    /** Placement context for the attribution event */
+    state?: KardApi.users.AttributionState;
 }

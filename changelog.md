@@ -1,3 +1,6 @@
+## 12.2.0 - 2026-04-07
+* The SDK now exports two new types, `AttributionFilter` and `AttributionState`, to represent placement context for attribution events. The `NotificationAttributionAttributes` and `OfferAttributionAttributes` interfaces gain a new optional `state` field of type `AttributionState`, which carries the rank position and active filters present when a user viewed an offer.
+
 ## 12.1.0 - 2026-04-07
 * The SDK now exports a `FileUploadType` enum (`IncomingTransactionsFile`, `HistoricalTransactionsFile`) to represent the category of transaction file being uploaded. The `type` field on `CreateFileUploadData` and `FileUploadUrlData` has been widened to accept any `FileUploadType` value, enabling uploads of historical/back-filled transaction data in addition to real-time incoming transactions.
 
