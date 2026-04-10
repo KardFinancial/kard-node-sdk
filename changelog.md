@@ -1,3 +1,6 @@
+## 12.3.0 - 2026-04-10
+* The `getEarnedRewards` method now accepts an optional `include` parameter, allowing callers to request related resources such as merchant and offer data in a single response. Pass a comma-separated string (e.g. `"merchant,offer"`) via the `include` field on `GetEarnedRewardsRequest`.
+
 ## 12.2.1 - 2026-04-10
 * refactor: move CardNetwork type from transactions to commons
 * The `CardNetwork` enum has been relocated from

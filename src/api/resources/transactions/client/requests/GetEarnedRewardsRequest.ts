@@ -3,7 +3,8 @@
 /**
  * @example
  *     {
- *         "page[size]": 10
+ *         "page[size]": 10,
+ *         include: "merchant,offer"
  *     }
  */
 export interface GetEarnedRewardsRequest {
@@ -13,4 +14,6 @@ export interface GetEarnedRewardsRequest {
     "page[before]"?: string;
     /** Number of results per page */
     "page[size]"?: number;
+    /** Comma-separated list of related resources to include in the response. Supported values are `merchant` and `offer`. */
+    include?: string;
 }

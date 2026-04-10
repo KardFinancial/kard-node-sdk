@@ -698,7 +698,8 @@ export class TransactionsClient {
      *
      * @example
      *     await client.transactions.getEarnedRewards("org-123", "user-456", {
-     *         "page[size]": 10
+     *         "page[size]": 10,
+     *         include: "merchant,offer"
      *     })
      */
     public getEarnedRewards(
@@ -718,7 +719,7 @@ export class TransactionsClient {
         request: KardApi.GetEarnedRewardsRequest = {},
         requestOptions?: TransactionsClient.RequestOptions,
     ): Promise<core.WithRawResponse<KardApi.GetEarnedRewardsResponse>> {
-        const { "page[after]": pageAfter, "page[before]": pageBefore, "page[size]": pageSize } = request;
+        const { "page[after]": pageAfter, "page[before]": pageBefore, "page[size]": pageSize, include } = request;
         const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
         if (pageAfter != null) {
             _queryParams["page[after]"] = pageAfter;
@@ -730,6 +731,10 @@ export class TransactionsClient {
 
         if (pageSize != null) {
             _queryParams["page[size]"] = pageSize.toString();
+        }
+
+        if (include != null) {
+            _queryParams.include = include;
         }
 
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();

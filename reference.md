@@ -848,7 +848,8 @@ Retrieve rewarded transaction history for a specific user. Returns only SETTLED 
 
 ```typescript
 await client.transactions.getEarnedRewards("org-123", "user-456", {
-    "page[size]": 10
+    "page[size]": 10,
+    include: "merchant,offer"
 });
 
 ```
