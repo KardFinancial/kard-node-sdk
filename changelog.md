@@ -1,3 +1,16 @@
+## 12.2.1 - 2026-04-10
+* refactor: move CardNetwork type from transactions to commons
+* The `CardNetwork` enum has been relocated from
+* `src/api/resources/transactions/types/` to
+* `src/api/resources/commons/types/` and is now re-exported from the
+* commons index. The transactions index no longer exports it directly.
+* Key changes:
+* Moved `CardNetwork` definition to `commons/types/CardNetwork.ts`
+* Added `CardNetwork` export to `commons/types/index.ts`
+* Removed `CardNetwork` re-export from `transactions/types/index.ts`
+* Added JSDoc comment describing supported card networks
+* 🌿 Generated with Fern
+
 ## 12.2.0 - 2026-04-07
 * The SDK now exports two new types, `AttributionFilter` and `AttributionState`, to represent placement context for attribution events. The `NotificationAttributionAttributes` and `OfferAttributionAttributes` interfaces gain a new optional `state` field of type `AttributionState`, which carries the rank position and active filters present when a user viewed an offer.
 

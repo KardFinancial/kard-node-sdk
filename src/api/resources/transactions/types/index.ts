@@ -3,7 +3,6 @@ export * from "./AuditRequestData.js";
 export * from "./AuditResponseAttributes.js";
 export * from "./AuditResponseData.js";
 export * from "./AuditStatus.js";
-export * from "./CardNetwork.js";
 export * from "./CommissionEarnedDetails.js";
 export * from "./CoreTransactionAttributes.js";
 export * from "./CoreTransactionRequest.js";
