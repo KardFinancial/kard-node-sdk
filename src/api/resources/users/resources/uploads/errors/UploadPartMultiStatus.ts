@@ -12,6 +12,11 @@ export class UploadPartMultiStatus extends errors.KardApiError {
             body: body,
             rawResponse: rawResponse,
         });
-        Object.setPrototypeOf(this, UploadPartMultiStatus.prototype);
+        Object.setPrototypeOf(this, new.target.prototype);
+        if (Error.captureStackTrace) {
+            Error.captureStackTrace(this, this.constructor);
+        }
+
+        this.name = this.constructor.name;
     }
 }

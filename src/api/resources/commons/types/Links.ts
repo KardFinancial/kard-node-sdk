@@ -5,6 +5,6 @@
  */
 export interface Links {
     self: string;
-    prev?: string;
-    next?: string;
+    prev?: string | undefined;
+    next?: string | undefined;
 }

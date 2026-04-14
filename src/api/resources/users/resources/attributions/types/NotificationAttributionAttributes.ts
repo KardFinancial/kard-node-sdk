@@ -13,5 +13,5 @@ export interface NotificationAttributionAttributes {
      */
     eventDate: string;
     /** Placement context for the attribution event */
-    state?: KardApi.users.AttributionState;
+    state?: KardApi.users.AttributionState | undefined;
 }

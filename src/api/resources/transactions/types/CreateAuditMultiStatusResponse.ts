@@ -3,5 +3,5 @@
 import type * as KardApi from "../../../index.js";
 
 export interface CreateAuditMultiStatusResponse extends KardApi.ErrorResponse {
-    data?: KardApi.CreateAuditResponseDataUnion[];
+    data?: KardApi.CreateAuditResponseDataUnion[] | undefined;
 }

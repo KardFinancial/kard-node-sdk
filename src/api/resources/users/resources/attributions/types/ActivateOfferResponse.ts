@@ -19,5 +19,5 @@ import type * as KardApi from "../../../../../index.js";
  */
 export interface ActivateOfferResponse {
     data: KardApi.users.ActivateOfferResponseData;
-    included?: KardApi.users.ActivateOfferIncluded[];
+    included?: KardApi.users.ActivateOfferIncluded[] | undefined;
 }

@@ -8,41 +8,41 @@ export interface MatchedTransactionsAttributes {
     /** Transaction amount in cents */
     amount: number;
     /** The base amount in cents excluding additional charges (such as tips, taxes, and other fees). */
-    subtotal?: number;
+    subtotal?: number | undefined;
     /** Description of transaction - usually includes merchant and other key details on transaction */
     description: string;
     /** Timestamp for transaction event. Date string should be in ISO 8601 format i.e.`'YYYY-MM-DDThh:mm:ss.sTZD'` where TZD = time zone designator (Z or +hh:mm or -hh:mm) i.e. `1994-11-05T08:15:30-05:00 OR 1994-11-05T08:15:30Z` */
     authorizationDate: string;
     /** The ID of the Kard offer to which the transaction was matched. If this field is omitted, the transaction will be considered unmatched to any Kard offer. This field **must** be omitted when the `paymentType` is `UNKNOWN` and neither an orderId nor a `cardLastFour` is supplied. */
-    matchedOfferId?: string;
+    matchedOfferId?: string | undefined;
     /** The unique Kard location ID where the transaction took place. This field **must** be omitted  when `paymentType` is `UNKNOWN`. */
-    matchedLocationId?: string;
+    matchedLocationId?: string | undefined;
     /** Merchant details */
-    merchant?: KardApi.Merchant;
+    merchant?: KardApi.Merchant | undefined;
     /** The type of payment involved in the transaction. */
     paymentType: KardApi.PaymentType;
     /** Bank identification number (BIN). Must be a valid BIN of 6 digits. If over 6 digits, please send first 6. This field **must** be omitted when `paymentType` is `CASH` or `UNKNOWN`. */
-    cardBIN?: string;
+    cardBIN?: string | undefined;
     /** Card last four digits. This field is **required** when `paymentType` is `CARD` and `matchedOfferId` is provided. It **must** be omitted when `paymentType` is `CASH`. */
-    cardLastFour?: string;
+    cardLastFour?: string | undefined;
     /** Transaction approval code */
-    authorizationCode?: string;
+    authorizationCode?: string | undefined;
     /** Retrieval Reference Number */
-    retrievalReferenceNumber?: string;
+    retrievalReferenceNumber?: string | undefined;
     /** System Trace Audit Number */
-    systemTraceAuditNumber?: string;
+    systemTraceAuditNumber?: string | undefined;
     /** Acquirer Reference Number */
-    acquirerReferenceNumber?: string;
+    acquirerReferenceNumber?: string | undefined;
     /** The direction in which the funds flow - DEBIT or CREDIT */
     direction: KardApi.DirectionType;
     /** The card network associated with the transaction. This field **must** be omitted when `paymentType` is `CASH` or `UNKNOWN`. */
-    cardNetwork?: KardApi.CardNetwork;
+    cardNetwork?: KardApi.CardNetwork | undefined;
     /** The transaction ID */
     transactionId: string;
     /** The card product ID associated with the transaction. This field **must** be omitted when `paymentType` is `CASH` or `UNKNOWN`. */
-    cardProductId?: string;
+    cardProductId?: string | undefined;
     /** The unique identifier for an online order linked to this transaction. */
-    orderId?: string;
+    orderId?: string | undefined;
     /** Indicates the format of the receipt from which the transaction is derived. */
-    receiptMedium?: KardApi.ReceiptMediumType;
+    receiptMedium?: KardApi.ReceiptMediumType | undefined;
 }

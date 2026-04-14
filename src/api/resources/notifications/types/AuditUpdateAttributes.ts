@@ -39,9 +39,9 @@ export interface AuditUpdateAttributes {
      *   <li>`9005` : Transaction not captured</li>
      * </ul>
      */
-    resolutionCode?: number;
+    resolutionCode?: number | undefined;
     /** The resolution description; field is available when audit is status CLOSED */
-    resolutionDescription?: string;
+    resolutionDescription?: string | undefined;
     /** The resolution timestamp of when the audit was marked as status CLOSED in ISO format; available when audit is closed. */
-    resolutionTimeStamp?: string;
+    resolutionTimeStamp?: string | undefined;
 }

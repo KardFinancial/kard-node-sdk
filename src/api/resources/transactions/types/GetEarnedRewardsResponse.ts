@@ -84,5 +84,5 @@ export interface GetEarnedRewardsResponse {
     data: KardApi.RewardedTransactionUnion[];
     links: KardApi.Links;
     /** Additional resources referenced in the response */
-    included?: KardApi.TransactionIncludedResource[];
+    included?: KardApi.TransactionIncludedResource[] | undefined;
 }

@@ -1,3 +1,18 @@
+## 12.4.0 - 2026-04-14
+* ## [12.4.0] - 2025
+* ### Changed
+* **`BaseClientOptions`** — refactored to compose auth credentials via `OAuthAuthProvider.AuthOptions` instead of top-level `clientId` and `clientSecret` fields; update options objects to conform to the new intersection type.
+* ### Added
+* **`KardApiClient.fetch()`** — passthrough method for making arbitrary HTTP requests that automatically inherit the client's configured authentication, retry, logging, and timeout settings.
+* **`OAuthTokenOverrideAuthProvider`** — new auth provider that accepts a pre-issued bearer token directly as an alternative to the client-credentials flow.
+* **`OAuthAuthProvider.createInstance()`** — factory method that automatically selects the appropriate auth provider based on supplied options, along with new exported types `OAuthAuthProvider.ClientCredentials`, `OAuthAuthProvider.TokenOverride`, and `OAuthAuthProvider.AuthOptions`.
+* **`makePassthroughRequest`** function and **`PassthroughRequest`** namespace — exported from the SDK core to allow arbitrary HTTP requests that inherit the client's auth, base URL, retry logic, and logging.
+* **`KardApiError`** and **`KardApiTimeoutError`** — now expose an optional `cause` property and correctly capture stack traces for easier root-cause tracing.
+* **`Fetcher.TimeoutError`** and **`Fetcher.UnknownError`** — now include an optional `cause` field exposing the underlying error for improved debugging and error chaining.
+* ### Fixed
+* **`UploadPartMultiStatus`** — now correctly sets its prototype chain using `new.target.prototype` and captures a proper stack trace, ensuring `instanceof` checks and stack traces work reliably in transpiled environments.
+* **`BasicAuth`** — credentials are now optional; encoding is skipped when both `username` and `password` are empty strings, preventing malformed `Authorization` headers.
+
 ## 12.3.0 - 2026-04-10
 * The `getEarnedRewards` method now accepts an optional `include` parameter, allowing callers to request related resources such as merchant and offer data in a single response. Pass a comma-separated string (e.g. `"merchant,offer"`) via the `include` field on `GetEarnedRewardsRequest`.
 

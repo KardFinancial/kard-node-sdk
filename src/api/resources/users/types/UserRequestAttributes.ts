@@ -6,15 +6,15 @@ export interface UserRequestAttributes {
     /** Rewards programs to enroll the user in. If an empty array is supplied, the user will not be enrolled in any programs. */
     enrolledRewards: KardApi.EnrolledRewardsType[];
     /** Zipcode of user */
-    zipCode?: string;
+    zipCode?: string | undefined;
     /** Email address of user */
-    email?: string;
+    email?: string | undefined;
     /** Hashed email address of user (using SHA-256) */
-    hashedEmail?: string;
+    hashedEmail?: string | undefined;
     /** Phone number of user in E.164 format */
-    phoneNumber?: string;
+    phoneNumber?: string | undefined;
     /** Birth year of user */
-    birthYear?: string;
+    birthYear?: string | undefined;
     /** Indicates whether historical transactions have been sent for this user */
-    historicalTransactionsSent?: boolean;
+    historicalTransactionsSent?: boolean | undefined;
 }

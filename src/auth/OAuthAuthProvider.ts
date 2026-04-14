@@ -5,35 +5,80 @@ import type { BaseClientOptions } from "../BaseClient.js";
 import * as core from "../core/index.js";
 import * as errors from "../errors/index.js";
 
-export namespace OAuthAuthProvider {
-    export interface Options extends BaseClientOptions {}
-}
+const CLIENT_ID_PARAM = "clientId" as const;
+const CLIENT_SECRET_PARAM = "clientSecret" as const;
+const TOKEN_PARAM = "token" as const;
+const ENV_CLIENT_ID = "KARD_CLIENT_ID" as const;
+const ENV_CLIENT_SECRET = "KARD_CLIENT_SECRET" as const;
+const CLIENT_ID_REQUIRED_ERROR_MESSAGE =
+    `${CLIENT_ID_PARAM} is required; either pass it as an argument or set the ${ENV_CLIENT_ID} environment variable` as const;
+const CLIENT_SECRET_REQUIRED_ERROR_MESSAGE =
+    `${CLIENT_SECRET_PARAM} is required; either pass it as an argument or set the ${ENV_CLIENT_SECRET} environment variable` as const;
+const TOKEN_PARAM_REQUIRED_ERROR_MESSAGE = `${TOKEN_PARAM} is required. Please provide it in options.` as const;
+const BUFFER_IN_MINUTES = 2 as const;
 
 export class OAuthAuthProvider implements core.AuthProvider {
-    private readonly BUFFER_IN_MINUTES: number = 2;
-    private readonly _clientId: core.Supplier<string> | undefined;
-    private readonly _clientSecret: core.Supplier<string> | undefined;
-    private readonly _authClient: AuthClient;
-    private _accessToken: string | undefined;
-    private _expiresAt: Date;
-    private _refreshPromise: Promise<string> | undefined;
+    private readonly options: BaseClientOptions & OAuthAuthProvider.ClientCredentials;
+    private readonly authClient: AuthClient;
+    private accessToken: string | undefined;
+    private expiresAt: Date;
+    private refreshPromise: Promise<string> | undefined;
 
-    constructor(options: OAuthAuthProvider.Options) {
-        this._clientId = options.clientId;
-        this._clientSecret = options.clientSecret;
-        this._authClient = new AuthClient(options);
-        this._expiresAt = new Date();
+    constructor(options: OAuthAuthProvider.Options & OAuthAuthProvider.ClientCredentials) {
+        this.options = options;
+        this.authClient = new AuthClient(options);
+        this.expiresAt = new Date();
     }
 
-    public static canCreate(options: OAuthAuthProvider.Options): boolean {
+    public static canCreate(options?: Partial<OAuthAuthProvider.ClientCredentials & BaseClientOptions>): boolean {
         return (
-            (options.clientId != null || process.env?.KARD_CLIENT_ID != null) &&
-            (options.clientSecret != null || process.env?.KARD_CLIENT_SECRET != null)
+            (options?.[CLIENT_ID_PARAM] != null || process.env?.[ENV_CLIENT_ID] != null) &&
+            (options?.[CLIENT_SECRET_PARAM] != null || process.env?.[ENV_CLIENT_SECRET] != null)
         );
     }
 
-    public async getAuthRequest(arg?: { endpointMetadata?: core.EndpointMetadata }): Promise<core.AuthRequest> {
-        const token = await this.getToken(arg);
+    private async clientIdSupplier({
+        endpointMetadata,
+    }: {
+        endpointMetadata?: core.EndpointMetadata;
+    } = {}): Promise<string> {
+        const supplier = this.options[CLIENT_ID_PARAM];
+        if (supplier != null) {
+            return core.EndpointSupplier.get(supplier, { endpointMetadata });
+        }
+        const envClientId = process.env?.[ENV_CLIENT_ID];
+        if (envClientId != null) {
+            return envClientId;
+        }
+        throw new errors.KardApiError({
+            message: CLIENT_ID_REQUIRED_ERROR_MESSAGE,
+        });
+    }
+
+    private async clientSecretSupplier({
+        endpointMetadata,
+    }: {
+        endpointMetadata?: core.EndpointMetadata;
+    } = {}): Promise<string> {
+        const supplier = this.options[CLIENT_SECRET_PARAM];
+        if (supplier != null) {
+            return core.EndpointSupplier.get(supplier, { endpointMetadata });
+        }
+        const envClientSecret = process.env?.[ENV_CLIENT_SECRET];
+        if (envClientSecret != null) {
+            return envClientSecret;
+        }
+        throw new errors.KardApiError({
+            message: CLIENT_SECRET_REQUIRED_ERROR_MESSAGE,
+        });
+    }
+
+    public async getAuthRequest({
+        endpointMetadata,
+    }: {
+        endpointMetadata?: core.EndpointMetadata;
+    } = {}): Promise<core.AuthRequest> {
+        const token = await this.getToken({ endpointMetadata });
 
         return {
             headers: {
@@ -42,52 +87,97 @@ export class OAuthAuthProvider implements core.AuthProvider {
         };
     }
 
-    private async getToken(arg?: { endpointMetadata?: core.EndpointMetadata }): Promise<string> {
-        if (this._accessToken && this._expiresAt > new Date()) {
-            return this._accessToken;
+    private async getToken({ endpointMetadata }: { endpointMetadata?: core.EndpointMetadata } = {}): Promise<string> {
+        if (this.accessToken && this.expiresAt > new Date()) {
+            return this.accessToken;
         }
         // If a refresh is already in progress, return the existing promise
-        if (this._refreshPromise != null) {
-            return this._refreshPromise;
+        if (this.refreshPromise != null) {
+            return this.refreshPromise;
         }
-        return this.refresh(arg);
+        return this.refresh({ endpointMetadata });
     }
 
-    private async refresh(_arg?: { endpointMetadata?: core.EndpointMetadata }): Promise<string> {
-        this._refreshPromise = (async () => {
+    private async refresh({ endpointMetadata }: { endpointMetadata?: core.EndpointMetadata } = {}): Promise<string> {
+        this.refreshPromise = (async () => {
             try {
-                const clientId = (await core.Supplier.get(this._clientId)) ?? process.env?.KARD_CLIENT_ID;
-                if (clientId == null) {
-                    throw new errors.KardApiError({
-                        message:
-                            "clientId is required; either pass it as an argument or set the KARD_CLIENT_ID environment variable",
-                    });
-                }
-
-                const clientSecret = (await core.Supplier.get(this._clientSecret)) ?? process.env?.KARD_CLIENT_SECRET;
-                if (clientSecret == null) {
-                    throw new errors.KardApiError({
-                        message:
-                            "clientSecret is required; either pass it as an argument or set the KARD_CLIENT_SECRET environment variable",
-                    });
-                }
-                const tokenResponse = await this._authClient.getToken({
+                const clientId = await this.clientIdSupplier({ endpointMetadata });
+                const clientSecret = await this.clientSecretSupplier({ endpointMetadata });
+                const tokenResponse = await this.authClient.getToken({
                     client_id: clientId,
                     client_secret: clientSecret,
                 });
 
-                this._accessToken = tokenResponse.access_token;
-                this._expiresAt = this.getExpiresAt(tokenResponse.expires_in, this.BUFFER_IN_MINUTES);
-                return this._accessToken;
+                this.accessToken = tokenResponse.access_token;
+                this.expiresAt = this.getExpiresAt(tokenResponse.expires_in, BUFFER_IN_MINUTES);
+                return this.accessToken;
             } finally {
-                this._refreshPromise = undefined;
+                this.refreshPromise = undefined;
             }
         })();
-        return this._refreshPromise;
+        return this.refreshPromise;
     }
 
     private getExpiresAt(expiresInSeconds: number, bufferInMinutes: number): Date {
         const now = new Date();
         return new Date(now.getTime() + expiresInSeconds * 1000 - bufferInMinutes * 60 * 1000);
+    }
+}
+
+export class OAuthTokenOverrideAuthProvider implements core.AuthProvider {
+    private readonly options: OAuthAuthProvider.TokenOverride;
+
+    constructor(options: OAuthAuthProvider.TokenOverride) {
+        this.options = options;
+    }
+
+    public static canCreate(
+        options?: Partial<OAuthAuthProvider.TokenOverride & BaseClientOptions>,
+    ): options is OAuthAuthProvider.TokenOverride {
+        return options?.[TOKEN_PARAM] != null;
+    }
+
+    public async getAuthRequest({
+        endpointMetadata,
+    }: {
+        endpointMetadata?: core.EndpointMetadata;
+    } = {}): Promise<core.AuthRequest> {
+        const token = this.options[TOKEN_PARAM];
+        if (token == null) {
+            throw new errors.KardApiError({
+                message: TOKEN_PARAM_REQUIRED_ERROR_MESSAGE,
+            });
+        }
+        return {
+            headers: {
+                Authorization: `Bearer ${await core.EndpointSupplier.get(token, { endpointMetadata })}`,
+            },
+        };
+    }
+}
+
+export namespace OAuthAuthProvider {
+    export const AUTH_SCHEME = "OAuthScheme" as const;
+    export const AUTH_CONFIG_ERROR_MESSAGE: string =
+        `Insufficient options to create OAuthAuthProvider. Please provide either '${CLIENT_ID_PARAM}' or '${ENV_CLIENT_ID}' env var and '${CLIENT_SECRET_PARAM}' or '${ENV_CLIENT_SECRET}' env var, or ${TOKEN_PARAM}.` as const;
+    export type ClientCredentials = {
+        [CLIENT_ID_PARAM]?: core.Supplier<string> | undefined;
+        [CLIENT_SECRET_PARAM]?: core.Supplier<string> | undefined;
+    };
+    export type TokenOverride = {
+        [TOKEN_PARAM]: core.Supplier<string>;
+    };
+    export type AuthOptions = ClientCredentials | TokenOverride;
+    export type Options = BaseClientOptions & AuthOptions;
+
+    export function createInstance(options: Options): core.AuthProvider {
+        if (OAuthTokenOverrideAuthProvider.canCreate(options)) {
+            return new OAuthTokenOverrideAuthProvider(options);
+        } else if (OAuthAuthProvider.canCreate(options)) {
+            return new OAuthAuthProvider(options);
+        }
+        throw new errors.KardApiError({
+            message: AUTH_CONFIG_ERROR_MESSAGE,
+        });
     }
 }

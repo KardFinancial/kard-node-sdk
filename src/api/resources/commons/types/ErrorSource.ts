@@ -2,9 +2,9 @@
 
 export interface ErrorSource {
     /** A JSON pointer to the value in the request document that caused the error */
-    pointer?: string;
+    pointer?: string | undefined;
     /** A string indicating which URI query parameter caused the error */
-    parameter?: string;
+    parameter?: string | undefined;
     /** A string indicating the name of a single request header which caused the error */
-    header?: string;
+    header?: string | undefined;
 }

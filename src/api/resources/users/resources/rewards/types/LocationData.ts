@@ -8,5 +8,5 @@ export interface LocationData {
     id: KardApi.MongoId;
     attributes: KardApi.users.LocationAttributes;
     /** Related resources to the offer */
-    relationships?: KardApi.users.LocationRelationships;
+    relationships?: KardApi.users.LocationRelationships | undefined;
 }

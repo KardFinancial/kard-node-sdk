@@ -5,7 +5,7 @@
  */
 export interface ProgressBarLabelPair {
     /** Text content for the left label */
-    left?: string;
+    left?: string | undefined;
     /** Text content for the right label */
-    right?: string;
+    right?: string | undefined;
 }

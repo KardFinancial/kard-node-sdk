@@ -7,7 +7,7 @@ import type * as KardApi from "../../../../../index.js";
  */
 export interface ProgressBarSegments {
     /** Segment configuration for the details view */
-    details?: KardApi.users.ProgressBarSegment;
+    details?: KardApi.users.ProgressBarSegment | undefined;
     /** Segment configuration for the default view */
     default: KardApi.users.ProgressBarSegment;
 }

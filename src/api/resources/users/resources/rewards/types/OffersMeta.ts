@@ -7,5 +7,5 @@ import type * as KardApi from "../../../../../index.js";
  */
 export interface OffersMeta {
     /** All distinct categories available across the entire filtered result set, not just the current page */
-    availableCategories?: KardApi.users.CategoryIncluded[];
+    availableCategories?: KardApi.users.CategoryIncluded[] | undefined;
 }

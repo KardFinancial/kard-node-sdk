@@ -145,5 +145,5 @@ import type * as KardApi from "../../../../../index.js";
 export interface LocationsResponseObject {
     data: KardApi.users.LocationData[];
     links: KardApi.Links;
-    included?: KardApi.users.EligibilityLocationIncluded[];
+    included?: KardApi.users.EligibilityLocationIncluded[] | undefined;
 }

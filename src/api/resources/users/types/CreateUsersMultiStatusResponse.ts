@@ -3,5 +3,5 @@
 import type * as KardApi from "../../../index.js";
 
 export interface CreateUsersMultiStatusResponse extends KardApi.ErrorResponse {
-    data?: KardApi.UserRequestDataUnion[];
+    data?: KardApi.UserRequestDataUnion[] | undefined;
 }

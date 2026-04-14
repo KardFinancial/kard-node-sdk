@@ -7,21 +7,21 @@ import type * as KardApi from "../../../../../index.js";
  */
 export interface OfferComponents {
     /** Short description for the offer */
-    shortDescription?: string;
+    shortDescription?: string | undefined;
     /** Long description for the offer */
-    longDescription?: string;
+    longDescription?: string | undefined;
     /** Formatted reward string */
-    baseReward?: string;
+    baseReward?: string | undefined;
     /** Formatted boosted reward string */
-    boostedReward?: string;
+    boostedReward?: string | undefined;
     /** Call-to-action button component */
-    cta?: KardApi.users.CtaComponent;
+    cta?: KardApi.users.CtaComponent | undefined;
     /** Tags for the offer */
-    tags?: string[];
+    tags?: string[] | undefined;
     /** Detail tags for the offer */
-    detailTags?: string[];
+    detailTags?: string[] | undefined;
     /** Logo flare configuration for the offer */
-    logoFlare?: KardApi.users.LogoFlare;
+    logoFlare?: KardApi.users.LogoFlare | undefined;
     /** Progress bar component for tracking offer redemptions */
-    progressBar?: KardApi.users.ProgressBar;
+    progressBar?: KardApi.users.ProgressBar | undefined;
 }

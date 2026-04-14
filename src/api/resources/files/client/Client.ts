@@ -5,11 +5,12 @@ import { type NormalizedClientOptionsWithAuth, normalizeClientOptionsWithAuth } 
 import { mergeHeaders } from "../../../../core/headers.js";
 import * as core from "../../../../core/index.js";
 import * as environments from "../../../../environments.js";
+import { handleNonStatusCodeError } from "../../../../errors/handleNonStatusCodeError.js";
 import * as errors from "../../../../errors/index.js";
 import * as KardApi from "../../../index.js";
 
 export declare namespace FilesClient {
-    export interface Options extends BaseClientOptions {}
+    export type Options = BaseClientOptions;
 
     export interface RequestOptions extends BaseRequestOptions {}
 }
@@ -67,39 +68,15 @@ export class FilesClient {
             "page[before]": pageBefore,
             sort,
         } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (filterDateFrom != null) {
-            _queryParams["filter[dateFrom]"] = filterDateFrom;
-        }
-
-        if (filterDateTo != null) {
-            _queryParams["filter[dateTo]"] = filterDateTo;
-        }
-
-        if (filterFileType != null) {
-            _queryParams["filter[fileType]"] = filterFileType;
-        }
-
-        if (pageSize != null) {
-            _queryParams["page[size]"] = pageSize.toString();
-        }
-
-        if (pageAfter != null) {
-            _queryParams["page[after]"] = pageAfter;
-        }
-
-        if (pageBefore != null) {
-            _queryParams["page[before]"] = pageBefore;
-        }
-
-        if (sort != null) {
-            if (Array.isArray(sort)) {
-                _queryParams.sort = sort.map((item) => item);
-            } else {
-                _queryParams.sort = sort;
-            }
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            "filter[dateFrom]": filterDateFrom,
+            "filter[dateTo]": filterDateTo,
+            "filter[fileType]": filterFileType != null ? filterFileType : undefined,
+            "page[size]": pageSize,
+            "page[after]": pageAfter,
+            "page[before]": pageBefore,
+            sort: Array.isArray(sort) ? sort.map((item) => item) : sort != null ? sort : undefined,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -157,27 +134,11 @@ export class FilesClient {
             }
         }
 
-        switch (_response.error.reason) {
-            case "non-json":
-                throw new errors.KardApiError({
-                    statusCode: _response.error.statusCode,
-                    body: _response.error.rawBody,
-                    rawResponse: _response.rawResponse,
-                });
-            case "body-is-null":
-                throw new errors.KardApiError({
-                    statusCode: _response.error.statusCode,
-                    rawResponse: _response.rawResponse,
-                });
-            case "timeout":
-                throw new errors.KardApiTimeoutError(
-                    "Timeout exceeded when calling GET /v2/issuers/{organizationId}/files/metadata.",
-                );
-            case "unknown":
-                throw new errors.KardApiError({
-                    message: _response.error.errorMessage,
-                    rawResponse: _response.rawResponse,
-                });
-        }
+        return handleNonStatusCodeError(
+            _response.error,
+            _response.rawResponse,
+            "GET",
+            "/v2/issuers/{organizationId}/files/metadata",
+        );
     }
 }

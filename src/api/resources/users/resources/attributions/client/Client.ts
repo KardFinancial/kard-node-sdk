@@ -5,11 +5,12 @@ import { type NormalizedClientOptionsWithAuth, normalizeClientOptionsWithAuth } 
 import { mergeHeaders } from "../../../../../../core/headers.js";
 import * as core from "../../../../../../core/index.js";
 import * as environments from "../../../../../../environments.js";
+import { handleNonStatusCodeError } from "../../../../../../errors/handleNonStatusCodeError.js";
 import * as errors from "../../../../../../errors/index.js";
 import * as KardApi from "../../../../../index.js";
 
 export declare namespace AttributionsClient {
-    export interface Options extends BaseClientOptions {}
+    export type Options = BaseClientOptions;
 
     export interface RequestOptions extends BaseRequestOptions {}
 }
@@ -137,28 +138,12 @@ export class AttributionsClient {
             }
         }
 
-        switch (_response.error.reason) {
-            case "non-json":
-                throw new errors.KardApiError({
-                    statusCode: _response.error.statusCode,
-                    body: _response.error.rawBody,
-                    rawResponse: _response.rawResponse,
-                });
-            case "body-is-null":
-                throw new errors.KardApiError({
-                    statusCode: _response.error.statusCode,
-                    rawResponse: _response.rawResponse,
-                });
-            case "timeout":
-                throw new errors.KardApiTimeoutError(
-                    "Timeout exceeded when calling POST /v2/issuers/{organizationId}/users/{userId}/attributions.",
-                );
-            case "unknown":
-                throw new errors.KardApiError({
-                    message: _response.error.errorMessage,
-                    rawResponse: _response.rawResponse,
-                });
-        }
+        return handleNonStatusCodeError(
+            _response.error,
+            _response.rawResponse,
+            "POST",
+            "/v2/issuers/{organizationId}/users/{userId}/attributions",
+        );
     }
 
     /**
@@ -198,23 +183,14 @@ export class AttributionsClient {
         requestOptions?: AttributionsClient.RequestOptions,
     ): Promise<core.WithRawResponse<KardApi.users.ActivateOfferResponse>> {
         const { supportedComponents, include } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (supportedComponents != null) {
-            if (Array.isArray(supportedComponents)) {
-                _queryParams.supportedComponents = supportedComponents.map((item) => item);
-            } else {
-                _queryParams.supportedComponents = supportedComponents;
-            }
-        }
-
-        if (include != null) {
-            if (Array.isArray(include)) {
-                _queryParams.include = include.map((item) => item);
-            } else {
-                _queryParams.include = include;
-            }
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            supportedComponents: Array.isArray(supportedComponents)
+                ? supportedComponents.map((item) => item)
+                : supportedComponents != null
+                  ? supportedComponents
+                  : undefined,
+            include: Array.isArray(include) ? include.map((item) => item) : include != null ? include : undefined,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -267,28 +243,12 @@ export class AttributionsClient {
             }
         }
 
-        switch (_response.error.reason) {
-            case "non-json":
-                throw new errors.KardApiError({
-                    statusCode: _response.error.statusCode,
-                    body: _response.error.rawBody,
-                    rawResponse: _response.rawResponse,
-                });
-            case "body-is-null":
-                throw new errors.KardApiError({
-                    statusCode: _response.error.statusCode,
-                    rawResponse: _response.rawResponse,
-                });
-            case "timeout":
-                throw new errors.KardApiTimeoutError(
-                    "Timeout exceeded when calling POST /v2/issuers/{organizationId}/users/{userId}/offers/{offerId}/activate.",
-                );
-            case "unknown":
-                throw new errors.KardApiError({
-                    message: _response.error.errorMessage,
-                    rawResponse: _response.rawResponse,
-                });
-        }
+        return handleNonStatusCodeError(
+            _response.error,
+            _response.rawResponse,
+            "POST",
+            "/v2/issuers/{organizationId}/users/{userId}/offers/{offerId}/activate",
+        );
     }
 
     /**
@@ -328,23 +288,14 @@ export class AttributionsClient {
         requestOptions?: AttributionsClient.RequestOptions,
     ): Promise<core.WithRawResponse<KardApi.users.BoostOfferResponse>> {
         const { supportedComponents, include } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (supportedComponents != null) {
-            if (Array.isArray(supportedComponents)) {
-                _queryParams.supportedComponents = supportedComponents.map((item) => item);
-            } else {
-                _queryParams.supportedComponents = supportedComponents;
-            }
-        }
-
-        if (include != null) {
-            if (Array.isArray(include)) {
-                _queryParams.include = include.map((item) => item);
-            } else {
-                _queryParams.include = include;
-            }
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            supportedComponents: Array.isArray(supportedComponents)
+                ? supportedComponents.map((item) => item)
+                : supportedComponents != null
+                  ? supportedComponents
+                  : undefined,
+            include: Array.isArray(include) ? include.map((item) => item) : include != null ? include : undefined,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -397,27 +348,11 @@ export class AttributionsClient {
             }
         }
 
-        switch (_response.error.reason) {
-            case "non-json":
-                throw new errors.KardApiError({
-                    statusCode: _response.error.statusCode,
-                    body: _response.error.rawBody,
-                    rawResponse: _response.rawResponse,
-                });
-            case "body-is-null":
-                throw new errors.KardApiError({
-                    statusCode: _response.error.statusCode,
-                    rawResponse: _response.rawResponse,
-                });
-            case "timeout":
-                throw new errors.KardApiTimeoutError(
-                    "Timeout exceeded when calling POST /v2/issuers/{organizationId}/users/{userId}/offers/{offerId}/boost.",
-                );
-            case "unknown":
-                throw new errors.KardApiError({
-                    message: _response.error.errorMessage,
-                    rawResponse: _response.rawResponse,
-                });
-        }
+        return handleNonStatusCodeError(
+            _response.error,
+            _response.rawResponse,
+            "POST",
+            "/v2/issuers/{organizationId}/users/{userId}/offers/{offerId}/boost",
+        );
     }
 }

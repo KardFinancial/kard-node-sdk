@@ -15,7 +15,7 @@ export interface ProgressBar {
     /** Whether the progress bar should be displayed as segmented */
     segmented: boolean;
     /** Segment configuration for the progress bar in different layouts */
-    segments?: KardApi.users.ProgressBarSegments;
+    segments?: KardApi.users.ProgressBarSegments | undefined;
     /** Labels to render around the progress bar in different layouts */
     labels: KardApi.users.ProgressBarLabels;
 }

@@ -3,5 +3,5 @@
 import type * as KardApi from "../../../../../index.js";
 
 export interface StandardOffer extends KardApi.users.StandardOfferCore {
-    relationships?: KardApi.users.EligibilityOfferRelationship;
+    relationships?: KardApi.users.EligibilityOfferRelationship | undefined;
 }

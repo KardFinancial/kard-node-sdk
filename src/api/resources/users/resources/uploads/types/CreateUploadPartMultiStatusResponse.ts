@@ -3,5 +3,5 @@
 import type * as KardApi from "../../../../../index.js";
 
 export interface CreateUploadPartMultiStatusResponse extends KardApi.ErrorResponse {
-    data?: KardApi.users.CreateUploadPartResponseDataUnion[];
+    data?: KardApi.users.CreateUploadPartResponseDataUnion[] | undefined;
 }

@@ -5,6 +5,28 @@
 
 The Kard TypeScript library provides convenient access to the Kard APIs from TypeScript.
 
+## Table of Contents
+
+- [Installation](#installation)
+- [Reference](#reference)
+- [Usage](#usage)
+- [Environments](#environments)
+- [Authentication](#authentication)
+- [Request and Response Types](#request-and-response-types)
+- [Exception Handling](#exception-handling)
+- [Advanced](#advanced)
+  - [Subpackage Exports](#subpackage-exports)
+  - [Additional Headers](#additional-headers)
+  - [Additional Query String Parameters](#additional-query-string-parameters)
+  - [Retries](#retries)
+  - [Timeouts](#timeouts)
+  - [Aborting Requests](#aborting-requests)
+  - [Access Raw Response Data](#access-raw-response-data)
+  - [Logging](#logging)
+  - [Custom Fetch](#custom-fetch)
+  - [Runtime Compatibility](#runtime-compatibility)
+- [Contributing](#contributing)
+
 ## Installation
 
 ```sh
@@ -40,7 +62,50 @@ await client.users.create("organization-123", {
 });
 ```
 
-## Request And Response Types
+## Environments
+
+This SDK allows you to configure different environments for API requests.
+
+```typescript
+import { KardApiClient, KardApiEnvironment } from "@kard-financial/sdk";
+
+const client = new KardApiClient({
+    environment: KardApiEnvironment.Production,
+});
+```
+
+## Authentication
+
+The SDK supports OAuth authentication with two options:
+
+**Option 1: OAuth Client Credentials Flow**
+
+Use this when you want the SDK to automatically handle OAuth token retrieval and refreshing:
+
+```typescript
+import { KardApiClient } from "@kard-financial/sdk";
+
+const client = new KardApiClient({
+    clientId: "YOUR_CLIENT_ID",
+    clientSecret: "YOUR_CLIENT_SECRET",
+    ...
+});
+```
+
+**Option 2: Token Override**
+
+Use this when you already have a valid bearer token and want to skip the OAuth flow:
+
+```typescript
+import { KardApiClient } from "@kard-financial/sdk";
+
+const client = new KardApiClient({
+    token: "my-pre-generated-bearer-token",
+    ...
+});
+```
+
+## Request and Response Types
 
 The SDK exports all request and response types as TypeScript interfaces. Simply import them with the
 following namespace:
@@ -75,11 +140,30 @@ try {
 
 ## Advanced
 
+### Subpackage Exports
+
+This SDK supports direct imports of subpackage clients, which allows JavaScript bundlers to tree-shake and include only the imported subpackage code. This results in much smaller bundle sizes.
+
+```typescript
+import { AuthClient } from '@kard-financial/sdk/auth';
+
+const client = new AuthClient({...});
+```
+
 ### Additional Headers
 
 If you would like to send additional headers as part of the request, use the `headers` request option.
 
 ```typescript
+import { KardApiClient } from "@kard-financial/sdk";
+
+const client = new KardApiClient({
+    ...
+    headers: {
+        'X-Custom-Header': 'custom value'
+    }
+});
+
 const response = await client.users.create(..., {
     headers: {
         'X-Custom-Header': 'custom value'
@@ -216,6 +300,26 @@ const logger: logging.ILogger = {
 </details>
 
 
+### Custom Fetch
+
+The SDK provides a low-level `fetch` method for making custom HTTP requests while still
+benefiting from SDK-level configuration like authentication, retries, timeouts, and logging.
+This is useful for calling API endpoints not yet supported in the SDK.
+
+```typescript
+const response = await client.fetch("/v1/custom/endpoint", {
+    method: "GET",
+}, {
+    timeoutInSeconds: 30,
+    maxRetries: 3,
+    headers: {
+        "X-Custom-Header": "custom-value",
+    },
+});
+
+const data = await response.json();
+```
+
 ### Runtime Compatibility
 
 
@@ -230,19 +334,6 @@ The SDK works in the following runtimes:
 - Bun 1.0+
 - React Native
 
-### Customizing Fetch Client
-
-The SDK provides a way for you to customize the underlying HTTP client / Fetch function. If you're running in an
-unsupported environment, this provides a way for you to break glass and ensure the SDK works.
-
-```typescript
-import { KardApiClient } from "@kard-financial/sdk";
-
-const client = new KardApiClient({
-    ...
-    fetcher: // provide your implementation here
-});
-```
 
 ## Contributing
 

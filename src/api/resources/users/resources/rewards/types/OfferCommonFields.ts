@@ -6,7 +6,7 @@ export interface OfferCommonFields {
     /** Terms and conditions on offer */
     terms: string;
     /** Maximum times cardholder can redeem offer, if applicable */
-    maxRedemptions?: number;
+    maxRedemptions?: number | undefined;
     /** Name of offer */
     name: string;
     purchaseChannel: KardApi.PurchaseChannel[];
@@ -20,17 +20,17 @@ export interface OfferCommonFields {
     /** True returns only targeted offers, false returns only non-targeted offers */
     isTargeted: boolean;
     /** Minimum Transaction Amount required to redeem offer, if available on offer */
-    minTransactionAmount?: KardApi.users.Amount;
+    minTransactionAmount?: KardApi.users.Amount | undefined;
     /** Maximum Transaction Amount allowed to redeem offer, if available on offer */
-    maxTransactionAmount?: KardApi.users.Amount;
+    maxTransactionAmount?: KardApi.users.Amount | undefined;
     /** Minimum Reward Amount, if available on offer */
-    minRewardAmount?: KardApi.users.Amount;
+    minRewardAmount?: KardApi.users.Amount | undefined;
     /** Maximum Reward Amount, if available on offer */
-    maxRewardAmount?: KardApi.users.Amount;
+    maxRewardAmount?: KardApi.users.Amount | undefined;
     /** URL to the website of the offer provider */
-    websiteUrl?: string;
+    websiteUrl?: string | undefined;
     /** Description of the offer */
-    description?: string;
+    description?: string | undefined;
     /** UI component data for the offer, returned when supportedComponents query parameter is provided */
-    components?: KardApi.users.OfferComponents;
+    components?: KardApi.users.OfferComponents | undefined;
 }

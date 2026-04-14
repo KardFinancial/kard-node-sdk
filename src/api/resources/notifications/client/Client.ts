@@ -5,7 +5,7 @@ import { type NormalizedClientOptionsWithAuth, normalizeClientOptionsWithAuth } 
 import { SubscriptionsClient } from "../resources/subscriptions/client/Client.js";
 
 export declare namespace NotificationsClient {
-    export interface Options extends BaseClientOptions {}
+    export type Options = BaseClientOptions;
 }
 
 export class NotificationsClient {

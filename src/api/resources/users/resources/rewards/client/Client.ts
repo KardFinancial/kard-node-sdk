@@ -6,11 +6,12 @@ import { mergeHeaders } from "../../../../../../core/headers.js";
 import * as core from "../../../../../../core/index.js";
 import { toJson } from "../../../../../../core/json.js";
 import * as environments from "../../../../../../environments.js";
+import { handleNonStatusCodeError } from "../../../../../../errors/handleNonStatusCodeError.js";
 import * as errors from "../../../../../../errors/index.js";
 import * as KardApi from "../../../../../index.js";
 
 export declare namespace RewardsClient {
-    export interface Options extends BaseClientOptions {}
+    export type Options = BaseClientOptions;
 
     export interface RequestOptions extends BaseRequestOptions {}
 }
@@ -72,59 +73,22 @@ export class RewardsClient {
             include,
             supportedComponents,
         } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (pageSize != null) {
-            _queryParams["page[size]"] = pageSize.toString();
-        }
-
-        if (pageAfter != null) {
-            _queryParams["page[after]"] = pageAfter;
-        }
-
-        if (pageBefore != null) {
-            _queryParams["page[before]"] = pageBefore;
-        }
-
-        if (filterSearch != null) {
-            _queryParams["filter[search]"] = filterSearch;
-        }
-
-        if (filterPurchaseChannel != null) {
-            _queryParams["filter[purchaseChannel]"] = toJson(filterPurchaseChannel);
-        }
-
-        if (filterCategory != null) {
-            _queryParams["filter[category]"] = filterCategory;
-        }
-
-        if (filterIsTargeted != null) {
-            _queryParams["filter[isTargeted]"] = filterIsTargeted.toString();
-        }
-
-        if (sort != null) {
-            if (Array.isArray(sort)) {
-                _queryParams.sort = sort.map((item) => item);
-            } else {
-                _queryParams.sort = sort;
-            }
-        }
-
-        if (include != null) {
-            if (Array.isArray(include)) {
-                _queryParams.include = include.map((item) => item);
-            } else {
-                _queryParams.include = include;
-            }
-        }
-
-        if (supportedComponents != null) {
-            if (Array.isArray(supportedComponents)) {
-                _queryParams.supportedComponents = supportedComponents.map((item) => item);
-            } else {
-                _queryParams.supportedComponents = supportedComponents;
-            }
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            "page[size]": pageSize,
+            "page[after]": pageAfter,
+            "page[before]": pageBefore,
+            "filter[search]": filterSearch,
+            "filter[purchaseChannel]": filterPurchaseChannel != null ? toJson(filterPurchaseChannel) : undefined,
+            "filter[category]": filterCategory != null ? filterCategory : undefined,
+            "filter[isTargeted]": filterIsTargeted,
+            sort: Array.isArray(sort) ? sort.map((item) => item) : sort != null ? sort : undefined,
+            include,
+            supportedComponents: Array.isArray(supportedComponents)
+                ? supportedComponents.map((item) => item)
+                : supportedComponents != null
+                  ? supportedComponents
+                  : undefined,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -182,28 +146,12 @@ export class RewardsClient {
             }
         }
 
-        switch (_response.error.reason) {
-            case "non-json":
-                throw new errors.KardApiError({
-                    statusCode: _response.error.statusCode,
-                    body: _response.error.rawBody,
-                    rawResponse: _response.rawResponse,
-                });
-            case "body-is-null":
-                throw new errors.KardApiError({
-                    statusCode: _response.error.statusCode,
-                    rawResponse: _response.rawResponse,
-                });
-            case "timeout":
-                throw new errors.KardApiTimeoutError(
-                    "Timeout exceeded when calling GET /v2/issuers/{organizationId}/users/{userId}/offers.",
-                );
-            case "unknown":
-                throw new errors.KardApiError({
-                    message: _response.error.errorMessage,
-                    rawResponse: _response.rawResponse,
-                });
-        }
+        return handleNonStatusCodeError(
+            _response.error,
+            _response.rawResponse,
+            "GET",
+            "/v2/issuers/{organizationId}/users/{userId}/offers",
+        );
     }
 
     /**
@@ -264,75 +212,26 @@ export class RewardsClient {
             include,
             supportedComponents,
         } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (pageSize != null) {
-            _queryParams["page[size]"] = pageSize.toString();
-        }
-
-        if (pageAfter != null) {
-            _queryParams["page[after]"] = pageAfter;
-        }
-
-        if (pageBefore != null) {
-            _queryParams["page[before]"] = pageBefore;
-        }
-
-        if (filterName != null) {
-            _queryParams["filter[name]"] = filterName;
-        }
-
-        if (filterCity != null) {
-            _queryParams["filter[city]"] = filterCity;
-        }
-
-        if (filterZipCode != null) {
-            _queryParams["filter[zipCode]"] = filterZipCode;
-        }
-
-        if (filterState != null) {
-            _queryParams["filter[state]"] = filterState;
-        }
-
-        if (filterCategory != null) {
-            _queryParams["filter[category]"] = filterCategory;
-        }
-
-        if (filterLongitude != null) {
-            _queryParams["filter[longitude]"] = filterLongitude.toString();
-        }
-
-        if (filterLatitude != null) {
-            _queryParams["filter[latitude]"] = filterLatitude.toString();
-        }
-
-        if (filterRadius != null) {
-            _queryParams["filter[radius]"] = filterRadius.toString();
-        }
-
-        if (sort != null) {
-            if (Array.isArray(sort)) {
-                _queryParams.sort = sort.map((item) => item);
-            } else {
-                _queryParams.sort = sort;
-            }
-        }
-
-        if (include != null) {
-            if (Array.isArray(include)) {
-                _queryParams.include = include.map((item) => item);
-            } else {
-                _queryParams.include = include;
-            }
-        }
-
-        if (supportedComponents != null) {
-            if (Array.isArray(supportedComponents)) {
-                _queryParams.supportedComponents = supportedComponents.map((item) => item);
-            } else {
-                _queryParams.supportedComponents = supportedComponents;
-            }
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            "page[size]": pageSize,
+            "page[after]": pageAfter,
+            "page[before]": pageBefore,
+            "filter[name]": filterName,
+            "filter[city]": filterCity,
+            "filter[zipCode]": filterZipCode,
+            "filter[state]": filterState != null ? filterState : undefined,
+            "filter[category]": filterCategory != null ? filterCategory : undefined,
+            "filter[longitude]": filterLongitude,
+            "filter[latitude]": filterLatitude,
+            "filter[radius]": filterRadius,
+            sort: Array.isArray(sort) ? sort.map((item) => item) : sort != null ? sort : undefined,
+            include,
+            supportedComponents: Array.isArray(supportedComponents)
+                ? supportedComponents.map((item) => item)
+                : supportedComponents != null
+                  ? supportedComponents
+                  : undefined,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -393,27 +292,11 @@ export class RewardsClient {
             }
         }
 
-        switch (_response.error.reason) {
-            case "non-json":
-                throw new errors.KardApiError({
-                    statusCode: _response.error.statusCode,
-                    body: _response.error.rawBody,
-                    rawResponse: _response.rawResponse,
-                });
-            case "body-is-null":
-                throw new errors.KardApiError({
-                    statusCode: _response.error.statusCode,
-                    rawResponse: _response.rawResponse,
-                });
-            case "timeout":
-                throw new errors.KardApiTimeoutError(
-                    "Timeout exceeded when calling GET /v2/issuers/{organizationId}/users/{userId}/locations.",
-                );
-            case "unknown":
-                throw new errors.KardApiError({
-                    message: _response.error.errorMessage,
-                    rawResponse: _response.rawResponse,
-                });
-        }
+        return handleNonStatusCodeError(
+            _response.error,
+            _response.rawResponse,
+            "GET",
+            "/v2/issuers/{organizationId}/users/{userId}/locations",
+        );
     }
 }

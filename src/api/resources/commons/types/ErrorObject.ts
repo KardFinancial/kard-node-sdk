@@ -10,7 +10,7 @@ export interface ErrorObject {
     /** Description of the specific occurance of the error */
     detail: string;
     /** An object containing a reference to the primary source of the error */
-    source?: KardApi.ErrorSource;
+    source?: KardApi.ErrorSource | undefined;
     /** The id of the resource which caused the error. Always returned for multi-status errors. */
-    id?: string;
+    id?: string | undefined;
 }

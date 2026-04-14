@@ -8,7 +8,7 @@ export interface TransactionsAttributes {
     /** Transaction amount in cents */
     amount: number;
     /** The base amount in cents excluding additional charges (such as tips, taxes, and other fees). */
-    subtotal?: number;
+    subtotal?: number | undefined;
     /** Transaction status */
     status: KardApi.TransactionStatus;
     /** Currency of transaction */
@@ -16,47 +16,47 @@ export interface TransactionsAttributes {
     /** Description of transaction - usually includes merchant and other key details on transaction */
     description: string;
     /** Description2 of transaction — usually includes other merchant identifying information */
-    description2?: string;
+    description2?: string | undefined;
     /** Merchant Category Code (usually a 4-digit numerical number). <b>Note, this field is REQUIRED for SOME national offers. We HIGHLY RECOMMEND sending this field as it will be required in the near future.</b> */
-    mcc?: string;
+    mcc?: string | undefined;
     /** Name of processor associated with transaction */
-    coreProviderId?: string;
+    coreProviderId?: string | undefined;
     /** Timestamp for <b>REVERSED, RETURNED, DECLINED</b> transaction events; <b>REQUIRED</b> for transactions with <b>REVERSED, RETURNED, DECLINED</b> status. Date string should be in ISO 8601 format i.e.`'YYYY-MM-DDThh:mm:ss.sTZD'` where TZD = time zone designator (Z or +hh:mm or -hh:mm) i.e. `1994-11-05T08:15:30-05:00` OR `1994-11-05T08:15:30Z` */
-    transactionDate?: string;
+    transactionDate?: string | undefined;
     /** Timestamp for <b>APPROVED</b> transaction event; <b>REQUIRED</b> for transactions with <b>APPROVED</b> status, and <b>HIGHLY RECOMMENDED</b> to include for transactions with a <b>SETTLED</b> status. Date string should be in ISO 8601 format i.e.`'YYYY-MM-DDThh:mm:ss.sTZD'` where TZD = time zone designator (Z or +hh:mm or -hh:mm) i.e. `1994-11-05T08:15:30-05:00 OR 1994-11-05T08:15:30Z` */
-    authorizationDate?: string;
+    authorizationDate?: string | undefined;
     /** Timestamp for <b>SETTLED</b> transaction event, <b>REQUIRED</b> for transactions with <b>SETTLED</b> status. Date string should be in ISO 8601 format i.e.`'YYYY-MM-DDThh:mm:ss.sTZD'` where TZD = time zone designator (Z or +hh:mm or -hh:mm) i.e. `1994-11-05T08:15:30-05:00` OR `1994-11-05T08:15:30Z` */
-    settledDate?: string;
+    settledDate?: string | undefined;
     /** Merchant details */
-    merchant?: KardApi.Merchant;
+    merchant?: KardApi.Merchant | undefined;
     /** Whether card was present at time of transaction */
-    cardPresence?: string;
+    cardPresence?: string | undefined;
     /** PAN entry mode */
-    panEntryMode?: string;
+    panEntryMode?: string | undefined;
     /** Bank identification number (BIN). Must be a valid BIN of 6 digits. If over 6 digits, please send first 6. */
     cardBIN: string;
     /** Card last four digits. */
     cardLastFour: string;
     /** Transaction approval code */
-    authorizationCode?: string;
+    authorizationCode?: string | undefined;
     /** Retrieval Reference Number */
-    retrievalReferenceNumber?: string;
+    retrievalReferenceNumber?: string | undefined;
     /** System Trace Audit Number */
-    systemTraceAuditNumber?: string;
+    systemTraceAuditNumber?: string | undefined;
     /** Acquirer Reference Number */
-    acquirerReferenceNumber?: string;
+    acquirerReferenceNumber?: string | undefined;
     /** The direction in which the funds flow - DEBIT or CREDIT */
     direction: KardApi.DirectionType;
     /** The type of payment involved in the transaction. */
     paymentType: KardApi.TransactionPaymentType;
     /** The card network associated with the transaction */
-    cardNetwork?: KardApi.CardNetwork;
+    cardNetwork?: KardApi.CardNetwork | undefined;
     /** The transaction ID */
     transactionId: string;
     /** The card product ID associated with the transaction */
-    cardProductId?: string;
+    cardProductId?: string | undefined;
     /** The zip code of the user who made the transaction */
-    userZipCode?: string;
+    userZipCode?: string | undefined;
     /** Network specific merchant IDs (MIDs) associated with the transaction */
-    processorMids?: KardApi.ProcessorMid;
+    processorMids?: KardApi.ProcessorMid | undefined;
 }

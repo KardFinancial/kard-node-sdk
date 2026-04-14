@@ -5,11 +5,12 @@ import { type NormalizedClientOptionsWithAuth, normalizeClientOptionsWithAuth } 
 import { mergeHeaders } from "../../../../../../core/headers.js";
 import * as core from "../../../../../../core/index.js";
 import * as environments from "../../../../../../environments.js";
+import { handleNonStatusCodeError } from "../../../../../../errors/handleNonStatusCodeError.js";
 import * as errors from "../../../../../../errors/index.js";
 import * as KardApi from "../../../../../index.js";
 
 export declare namespace SubscriptionsClient {
-    export interface Options extends BaseClientOptions {}
+    export type Options = BaseClientOptions;
 
     export interface RequestOptions extends BaseRequestOptions {}
 }
@@ -50,11 +51,9 @@ export class SubscriptionsClient {
         requestOptions?: SubscriptionsClient.RequestOptions,
     ): Promise<core.WithRawResponse<KardApi.notifications.SubscriptionsResponseObject>> {
         const { "filter[eventName]": filterEventName } = request;
-        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (filterEventName != null) {
-            _queryParams["filter[eventName]"] = filterEventName;
-        }
-
+        const _queryParams: Record<string, unknown> = {
+            "filter[eventName]": filterEventName != null ? filterEventName : undefined,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -110,28 +109,12 @@ export class SubscriptionsClient {
             }
         }
 
-        switch (_response.error.reason) {
-            case "non-json":
-                throw new errors.KardApiError({
-                    statusCode: _response.error.statusCode,
-                    body: _response.error.rawBody,
-                    rawResponse: _response.rawResponse,
-                });
-            case "body-is-null":
-                throw new errors.KardApiError({
-                    statusCode: _response.error.statusCode,
-                    rawResponse: _response.rawResponse,
-                });
-            case "timeout":
-                throw new errors.KardApiTimeoutError(
-                    "Timeout exceeded when calling GET /v2/issuers/{organizationId}/subscriptions.",
-                );
-            case "unknown":
-                throw new errors.KardApiError({
-                    message: _response.error.errorMessage,
-                    rawResponse: _response.rawResponse,
-                });
-        }
+        return handleNonStatusCodeError(
+            _response.error,
+            _response.rawResponse,
+            "GET",
+            "/v2/issuers/{organizationId}/subscriptions",
+        );
     }
 
     /**
@@ -235,28 +218,12 @@ export class SubscriptionsClient {
             }
         }
 
-        switch (_response.error.reason) {
-            case "non-json":
-                throw new errors.KardApiError({
-                    statusCode: _response.error.statusCode,
-                    body: _response.error.rawBody,
-                    rawResponse: _response.rawResponse,
-                });
-            case "body-is-null":
-                throw new errors.KardApiError({
-                    statusCode: _response.error.statusCode,
-                    rawResponse: _response.rawResponse,
-                });
-            case "timeout":
-                throw new errors.KardApiTimeoutError(
-                    "Timeout exceeded when calling POST /v2/issuers/{organizationId}/subscriptions.",
-                );
-            case "unknown":
-                throw new errors.KardApiError({
-                    message: _response.error.errorMessage,
-                    rawResponse: _response.rawResponse,
-                });
-        }
+        return handleNonStatusCodeError(
+            _response.error,
+            _response.rawResponse,
+            "POST",
+            "/v2/issuers/{organizationId}/subscriptions",
+        );
     }
 
     /**
@@ -365,27 +332,11 @@ export class SubscriptionsClient {
             }
         }
 
-        switch (_response.error.reason) {
-            case "non-json":
-                throw new errors.KardApiError({
-                    statusCode: _response.error.statusCode,
-                    body: _response.error.rawBody,
-                    rawResponse: _response.rawResponse,
-                });
-            case "body-is-null":
-                throw new errors.KardApiError({
-                    statusCode: _response.error.statusCode,
-                    rawResponse: _response.rawResponse,
-                });
-            case "timeout":
-                throw new errors.KardApiTimeoutError(
-                    "Timeout exceeded when calling PATCH /v2/issuers/{organizationId}/subscriptions/{subscriptionId}.",
-                );
-            case "unknown":
-                throw new errors.KardApiError({
-                    message: _response.error.errorMessage,
-                    rawResponse: _response.rawResponse,
-                });
-        }
+        return handleNonStatusCodeError(
+            _response.error,
+            _response.rawResponse,
+            "PATCH",
+            "/v2/issuers/{organizationId}/subscriptions/{subscriptionId}",
+        );
     }
 }

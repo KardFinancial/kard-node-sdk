@@ -8,7 +8,7 @@ export interface RewardNotificationAttributes {
     /** The attribution URL to track user's interactions with the notification */
     attributionUrl: string;
     /** Post experience survey URL, if available. This will be present for rewards associated with local offers. */
-    surveyUrl?: string;
+    surveyUrl?: string | undefined;
     /** The ID of the card product */
-    cardProductId?: string;
+    cardProductId?: string | undefined;
 }

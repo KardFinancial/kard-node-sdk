@@ -7,7 +7,7 @@ import type * as KardApi from "../../../../../index.js";
  */
 export interface ProgressBarSegment {
     /** SVG icon to use for each segment */
-    icon?: string;
+    icon?: string | undefined;
     /** Position of the segment within the layout */
     position: KardApi.users.ProgressBarSegmentPosition;
 }

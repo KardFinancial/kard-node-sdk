@@ -4,9 +4,9 @@ import type * as KardApi from "../../../../../index.js";
 
 export interface UpdateSubscriptionRequestAttributes {
     /** The name of the event for the subscription */
-    eventName?: KardApi.NotificationType;
+    eventName?: KardApi.NotificationType | undefined;
     /** The URL where notifications will be delivered */
-    webhookUrl?: string;
+    webhookUrl?: string | undefined;
     /** Indicates whether the subscription is active */
-    enabled?: boolean;
+    enabled?: boolean | undefined;
 }

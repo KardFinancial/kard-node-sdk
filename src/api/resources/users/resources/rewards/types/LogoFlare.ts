@@ -9,5 +9,5 @@ export interface LogoFlare {
     /** Border color style for the logo flare */
     borderColor: KardApi.users.LogoFlareBorderColor;
     /** Optional badge to display on the logo */
-    badge?: KardApi.users.LogoFlareBadge;
+    badge?: KardApi.users.LogoFlareBadge | undefined;
 }

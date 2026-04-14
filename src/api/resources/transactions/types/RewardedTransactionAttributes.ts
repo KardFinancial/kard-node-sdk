@@ -15,9 +15,9 @@ export interface RewardedTransactionAttributes {
     paidToIssuer: KardApi.PaymentStatus;
     commissionEarned: KardApi.CommissionEarnedDetails;
     /** Timestamp representing the month when the transaction has been paid out to issuer */
-    payoutTimestamp?: string;
+    payoutTimestamp?: string | undefined;
     /** Bank identification number (BIN). */
-    cardBIN?: string;
+    cardBIN?: string | undefined;
     /** Card last four digits. */
-    cardLastFour?: string;
+    cardLastFour?: string | undefined;
 }

@@ -11,7 +11,7 @@ export interface CtaComponent {
     /** Style of the button */
     buttonStyle: KardApi.users.ButtonStyle;
     /** Action to perform when the button is clicked */
-    action?: KardApi.users.CtaAction;
+    action?: KardApi.users.CtaAction | undefined;
     /** Icon identifier to display on the button */
-    startIcon?: string;
+    startIcon?: string | undefined;
 }

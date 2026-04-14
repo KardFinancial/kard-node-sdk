@@ -4,7 +4,7 @@ import type * as KardApi from "../../../../../index.js";
 
 export interface AttributionState {
     /** The position of the offer in the list shown to the user (1-indexed) */
-    rank?: number;
+    rank?: number | undefined;
     /** The active filters when the user saw the offer */
-    filters?: KardApi.users.AttributionFilter[];
+    filters?: KardApi.users.AttributionFilter[] | undefined;
 }

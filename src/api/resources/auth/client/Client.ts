@@ -5,11 +5,12 @@ import { type NormalizedClientOptions, normalizeClientOptions } from "../../../.
 import { mergeHeaders, mergeOnlyDefinedHeaders } from "../../../../core/headers.js";
 import * as core from "../../../../core/index.js";
 import * as environments from "../../../../environments.js";
+import { handleNonStatusCodeError } from "../../../../errors/handleNonStatusCodeError.js";
 import * as errors from "../../../../errors/index.js";
 import type * as KardApi from "../../../index.js";
 
 export declare namespace AuthClient {
-    export interface Options extends BaseClientOptions {}
+    export type Options = BaseClientOptions;
 
     export interface RequestOptions extends BaseRequestOptions {}
 }
@@ -45,9 +46,7 @@ export class AuthClient {
         const { "X-Kard-Target-Issuer": xKardTargetIssuer, ..._body } = request;
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             this._options?.headers,
-            mergeOnlyDefinedHeaders({
-                "X-Kard-Target-Issuer": xKardTargetIssuer != null ? xKardTargetIssuer : undefined,
-            }),
+            mergeOnlyDefinedHeaders({ "X-Kard-Target-Issuer": xKardTargetIssuer }),
             requestOptions?.headers,
         );
         const _response = await core.fetcher({
@@ -81,25 +80,6 @@ export class AuthClient {
             });
         }
 
-        switch (_response.error.reason) {
-            case "non-json":
-                throw new errors.KardApiError({
-                    statusCode: _response.error.statusCode,
-                    body: _response.error.rawBody,
-                    rawResponse: _response.rawResponse,
-                });
-            case "body-is-null":
-                throw new errors.KardApiError({
-                    statusCode: _response.error.statusCode,
-                    rawResponse: _response.rawResponse,
-                });
-            case "timeout":
-                throw new errors.KardApiTimeoutError("Timeout exceeded when calling POST /v2/auth/token.");
-            case "unknown":
-                throw new errors.KardApiError({
-                    message: _response.error.errorMessage,
-                    rawResponse: _response.rawResponse,
-                });
-        }
+        return handleNonStatusCodeError(_response.error, _response.rawResponse, "POST", "/v2/auth/token");
     }
 }

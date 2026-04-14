@@ -4,23 +4,23 @@ import type * as KardApi from "../../../index.js";
 
 export interface Merchant {
     /** Acquirer Merchant Identification Number (MID) — usually a 15 digit numerical identifier code. <b>Note, this field is REQUIRED for local offers. We HIGHLY RECOMMEND sending this field as it will be required in the near future.</b> */
-    id?: string;
+    id?: string | undefined;
     /** Merchant name associated with transaction */
     name: string;
     /** Merchant street address associated with transaction. */
-    addrStreet?: string;
+    addrStreet?: string | undefined;
     /** Merchant address city associated with transaction. */
-    addrCity?: string;
+    addrCity?: string | undefined;
     /** Merchant address state associated with transaction. */
-    addrState?: KardApi.States;
+    addrState?: KardApi.States | undefined;
     /** Merchant address zip code associated with transaction. */
-    addrZipcode?: string;
+    addrZipcode?: string | undefined;
     /** Merchant address country associated with transaction. */
-    addrCountry?: string;
+    addrCountry?: string | undefined;
     /** Merchant latitude geocoordinate associated with transaction. */
-    latitude?: string;
+    latitude?: string | undefined;
     /** Merchant longitude geocoordinate associated with transaction. */
-    longitude?: string;
+    longitude?: string | undefined;
     /** Merchant store ID where transaction originated from */
-    storeId?: string;
+    storeId?: string | undefined;
 }

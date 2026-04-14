@@ -255,6 +255,6 @@ import type * as KardApi from "../../../index.js";
  */
 export interface NotificationPayload {
     data: KardApi.NotificationDataUnion;
-    meta?: KardApi.NotificationMetadata;
-    errors?: KardApi.ErrorObject[];
+    meta?: KardApi.NotificationMetadata | undefined;
+    errors?: KardApi.ErrorObject[] | undefined;
 }

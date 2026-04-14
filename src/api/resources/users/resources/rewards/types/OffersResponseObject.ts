@@ -97,6 +97,6 @@ import type * as KardApi from "../../../../../index.js";
 export interface OffersResponseObject {
     data: KardApi.users.OfferDataUnion[];
     links: KardApi.Links;
-    included?: KardApi.users.EligibilityOfferIncluded[];
-    meta?: KardApi.users.OffersMeta;
+    included?: KardApi.users.EligibilityOfferIncluded[] | undefined;
+    meta?: KardApi.users.OffersMeta | undefined;
 }

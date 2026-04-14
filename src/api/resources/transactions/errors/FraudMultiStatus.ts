@@ -12,6 +12,11 @@ export class FraudMultiStatus extends errors.KardApiError {
             body: body,
             rawResponse: rawResponse,
         });
-        Object.setPrototypeOf(this, FraudMultiStatus.prototype);
+        Object.setPrototypeOf(this, new.target.prototype);
+        if (Error.captureStackTrace) {
+            Error.captureStackTrace(this, this.constructor);
+        }
+
+        this.name = this.constructor.name;
     }
 }

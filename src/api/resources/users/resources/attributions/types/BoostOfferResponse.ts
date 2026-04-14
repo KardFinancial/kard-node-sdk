@@ -19,5 +19,5 @@ import type * as KardApi from "../../../../../index.js";
  */
 export interface BoostOfferResponse {
     data: KardApi.users.BoostOfferResponseData;
-    included?: KardApi.users.BoostOfferIncluded[];
+    included?: KardApi.users.BoostOfferIncluded[] | undefined;
 }

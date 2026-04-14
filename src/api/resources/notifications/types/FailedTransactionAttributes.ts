@@ -8,5 +8,5 @@ export interface FailedTransactionAttributes {
     /** The name of the merchant */
     name: string;
     /** The ID of the card product */
-    cardProductId?: string;
+    cardProductId?: string | undefined;
 }
