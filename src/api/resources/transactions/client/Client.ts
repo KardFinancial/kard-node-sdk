@@ -617,7 +617,7 @@ export class TransactionsClient {
     }
 
     /**
-     * Retrieve rewarded transaction history for a specific user. Returns only SETTLED transactions within the last 12 months.
+     * Retrieve rewarded transaction history for a specific user. By default this returns only SETTLED transactions within the last 12 months.
      * <br/>
      * <b>Required scopes:</b> `transaction:read`
      * <br/>
@@ -636,6 +636,7 @@ export class TransactionsClient {
      * @example
      *     await client.transactions.getEarnedRewards("org-123", "user-456", {
      *         "page[size]": 10,
+     *         "filter[status]": "APPROVED,SETTLED",
      *         include: "merchant,offer"
      *     })
      */
@@ -656,11 +657,18 @@ export class TransactionsClient {
         request: KardApi.GetEarnedRewardsRequest = {},
         requestOptions?: TransactionsClient.RequestOptions,
     ): Promise<core.WithRawResponse<KardApi.GetEarnedRewardsResponse>> {
-        const { "page[after]": pageAfter, "page[before]": pageBefore, "page[size]": pageSize, include } = request;
+        const {
+            "page[after]": pageAfter,
+            "page[before]": pageBefore,
+            "page[size]": pageSize,
+            "filter[status]": filterStatus,
+            include,
+        } = request;
         const _queryParams: Record<string, unknown> = {
             "page[after]": pageAfter,
             "page[before]": pageBefore,
             "page[size]": pageSize,
+            "filter[status]": filterStatus,
             include,
         };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();

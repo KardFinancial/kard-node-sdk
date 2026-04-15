@@ -9,7 +9,7 @@ import type * as KardApi from "../../../index.js";
  *                 type: "rewardedTransaction",
  *                 id: "fcabf024-3870-41f3-9fbd-b43ea85a3d19",
  *                 attributes: {
- *                     status: KardApi.RewardedTransactionStatus.Settled,
+ *                     status: KardApi.RewardedTransactionStatus.Approved,
  *                     transactionId: "TXN-20241001-F21-127964",
  *                     transactionAmountInCents: 12796,
  *                     transactionTimestamp: "2024-10-01T01:36:57Z",
@@ -48,10 +48,56 @@ import type * as KardApi from "../../../index.js";
  *                         }
  *                     }
  *                 }
+ *             }, {
+ *                 type: "rewardedTransaction",
+ *                 id: "7bcbdb95-f3a5-4f56-a9be-4c25f313eb0a",
+ *                 attributes: {
+ *                     status: KardApi.RewardedTransactionStatus.Settled,
+ *                     transactionId: "TXN-20240928-TGT-778813",
+ *                     transactionAmountInCents: 8800,
+ *                     transactionTimestamp: "2024-09-28T14:11:22Z",
+ *                     paidToIssuer: KardApi.PaymentStatus.PaidInFull,
+ *                     payoutTimestamp: "2024-09-29T10:15:00Z",
+ *                     cardBIN: "123456",
+ *                     cardLastFour: "4321",
+ *                     commissionEarned: {
+ *                         issuer: {
+ *                             type: KardApi.CommissionValueType.Cents,
+ *                             value: 70
+ *                         },
+ *                         user: {
+ *                             type: KardApi.CommissionValueType.Cents,
+ *                             value: 220
+ *                         }
+ *                     }
+ *                 },
+ *                 relationships: {
+ *                     user: {
+ *                         data: {
+ *                             type: "user",
+ *                             id: "8c52423a-c319-44ee-8fc7-508e97b43892"
+ *                         }
+ *                     },
+ *                     merchant: {
+ *                         data: {
+ *                             type: "merchant",
+ *                             id: "5f3e2d1c40abc50008cc4821"
+ *                         }
+ *                     },
+ *                     offer: {
+ *                         data: {
+ *                             type: "offer",
+ *                             id: "OFF-TGT-ONLINE-2024Q4-002"
+ *                         }
+ *                     }
+ *                 }
  *             }],
  *         links: {
  *             self: "/v2/issuers/org-123/users/user-456/earned-rewards?page[size]=10",
  *             next: "/v2/issuers/org-123/users/user-456/earned-rewards?page[size]=10&page[after]=eyJpZCI6ImZjYWJmMDI0LTM4NzAtNDFmMy05ZmJkLWI0M2VhODVhM2QxOSIsInRzIjoiMjAyNC0xMC0wMVQwMTozNjo1N1oifQ=="
+ *         },
+ *         meta: {
+ *             lifetimeRewardsInCents: 540
  *         },
  *         included: [{
  *                 type: "merchant",
@@ -83,6 +129,8 @@ import type * as KardApi from "../../../index.js";
 export interface GetEarnedRewardsResponse {
     data: KardApi.RewardedTransactionUnion[];
     links: KardApi.Links;
+    /** Additional metadata for the earned rewards response. */
+    meta: KardApi.GetEarnedRewardsMeta;
     /** Additional resources referenced in the response */
     included?: KardApi.TransactionIncludedResource[] | undefined;
 }

@@ -1,3 +1,11 @@
+## 13.0.0 - 2026-04-15
+### Breaking Changes
+* **`GetEarnedRewardsResponse`** — now includes a required `meta` field of type `GetEarnedRewardsMeta`; any code that constructs this type (e.g. in tests or mocks) must add `meta: { lifetimeRewardsInCents: number }` to avoid compile errors.
+### Added
+* **`GetEarnedRewardsMeta`** — new interface exported from the transactions module containing `lifetimeRewardsInCents`, which reports the user's lifetime rewards total in cents across all matched transactions.
+* **`GetEarnedRewardsRequest["filter[status]"]`** — new optional parameter accepting a comma-separated string of statuses (e.g. `"APPROVED,SETTLED"`) to filter rewarded transaction results; defaults to `SETTLED` when omitted.
+* **`RewardedTransactionStatus.Approved`** — new `"APPROVED"` enum value added to `RewardedTransactionStatus`.
+
 ## 12.4.0 - 2026-04-14
 * ## [12.4.0] - 2025
 * ### Changed

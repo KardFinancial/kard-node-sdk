@@ -828,7 +828,7 @@ await client.transactions.createBulkTransactionsUploadUrl("organization-123", {
 <dl>
 <dd>
 
-Retrieve rewarded transaction history for a specific user. Returns only SETTLED transactions within the last 12 months.
+Retrieve rewarded transaction history for a specific user. By default this returns only SETTLED transactions within the last 12 months.
 <br/>
 <b>Required scopes:</b> `transaction:read`
 <br/>
@@ -849,6 +849,7 @@ Retrieve rewarded transaction history for a specific user. Returns only SETTLED 
 ```typescript
 await client.transactions.getEarnedRewards("org-123", "user-456", {
     "page[size]": 10,
+    "filter[status]": "APPROVED,SETTLED",
     include: "merchant,offer"
 });
 

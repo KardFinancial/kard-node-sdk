@@ -24,6 +24,7 @@ export * from "./FraudulentTransactionData.js";
 export * from "./FraudulentTransactionObject.js";
 export * from "./FraudulentTransactionRequestBody.js";
 export * from "./FraudulentTransactionResponse.js";
+export * from "./GetEarnedRewardsMeta.js";
 export * from "./GetEarnedRewardsResponse.js";
 export * from "./MatchedTransactionsAttributes.js";
 export * from "./MatchedTransactionsRequest.js";

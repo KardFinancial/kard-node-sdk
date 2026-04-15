@@ -4,6 +4,7 @@
  * @example
  *     {
  *         "page[size]": 10,
+ *         "filter[status]": "APPROVED,SETTLED",
  *         include: "merchant,offer"
  *     }
  */
@@ -14,6 +15,8 @@ export interface GetEarnedRewardsRequest {
     "page[before]"?: string;
     /** Number of results per page */
     "page[size]"?: number;
+    /** Comma-separated list of transaction statuses to return. Supported values are `APPROVED` and `SETTLED`. Defaults to `SETTLED` when omitted. */
+    "filter[status]"?: string;
     /** Comma-separated list of related resources to include in the response. Supported values are `merchant` and `offer`. */
     include?: string;
 }

@@ -1915,7 +1915,7 @@ describe("TransactionsClient", () => {
                     type: "rewardedTransaction",
                     id: "fcabf024-3870-41f3-9fbd-b43ea85a3d19",
                     attributes: {
-                        status: "SETTLED",
+                        status: "APPROVED",
                         transactionId: "TXN-20241001-F21-127964",
                         transactionAmountInCents: 12796,
                         transactionTimestamp: "2024-10-01T01:36:57Z",
@@ -1934,11 +1934,32 @@ describe("TransactionsClient", () => {
                         offer: { data: { type: "offer", id: "OFF-F21-INSTORE-2024Q4-001" } },
                     },
                 },
+                {
+                    type: "rewardedTransaction",
+                    id: "7bcbdb95-f3a5-4f56-a9be-4c25f313eb0a",
+                    attributes: {
+                        status: "SETTLED",
+                        transactionId: "TXN-20240928-TGT-778813",
+                        transactionAmountInCents: 8800,
+                        transactionTimestamp: "2024-09-28T14:11:22Z",
+                        paidToIssuer: "PAID_IN_FULL",
+                        payoutTimestamp: "2024-09-29T10:15:00Z",
+                        cardBIN: "123456",
+                        cardLastFour: "4321",
+                        commissionEarned: { issuer: { type: "cents", value: 70 }, user: { type: "cents", value: 220 } },
+                    },
+                    relationships: {
+                        user: { data: { type: "user", id: "8c52423a-c319-44ee-8fc7-508e97b43892" } },
+                        merchant: { data: { type: "merchant", id: "5f3e2d1c40abc50008cc4821" } },
+                        offer: { data: { type: "offer", id: "OFF-TGT-ONLINE-2024Q4-002" } },
+                    },
+                },
             ],
             links: {
                 self: "/v2/issuers/org-123/users/user-456/earned-rewards?page[size]=10",
                 next: "/v2/issuers/org-123/users/user-456/earned-rewards?page[size]=10&page[after]=eyJpZCI6ImZjYWJmMDI0LTM4NzAtNDFmMy05ZmJkLWI0M2VhODVhM2QxOSIsInRzIjoiMjAyNC0xMC0wMVQwMTozNjo1N1oifQ==",
             },
+            meta: { lifetimeRewardsInCents: 540 },
             included: [
                 { type: "merchant", id: "633ed2ab30dcb60009dd5699", attributes: { name: "Forever 21" } },
                 { type: "merchant", id: "5f3e2d1c40abc50008cc4821", attributes: { name: "Target" } },
@@ -1957,6 +1978,7 @@ describe("TransactionsClient", () => {
 
         const response = await client.transactions.getEarnedRewards("org-123", "user-456", {
             "page[size]": 10,
+            "filter[status]": "APPROVED,SETTLED",
             include: "merchant,offer",
         });
         expect(response).toEqual(rawResponseBody);
