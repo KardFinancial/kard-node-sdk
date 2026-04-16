@@ -1,6 +1,6 @@
 {
     "name": "@kard-financial/sdk",
-    "version": "14.0.0",
+    "version": "14.1.0",
     "private": false,
     "repository": {
         "type": "git",
@@ -65,6 +65,39 @@
                 "default": "./dist/cjs/api/resources/notifications/resources/subscriptions/exports.js"
             },
             "default": "./dist/cjs/api/resources/notifications/resources/subscriptions/exports.js"
+        },
+        "./organizations": {
+            "import": {
+                "types": "./dist/esm/api/resources/organizations/exports.d.mts",
+                "default": "./dist/esm/api/resources/organizations/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/organizations/exports.d.ts",
+                "default": "./dist/cjs/api/resources/organizations/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/organizations/exports.js"
+        },
+        "./organizations/children": {
+            "import": {
+                "types": "./dist/esm/api/resources/organizations/resources/children/exports.d.mts",
+                "default": "./dist/esm/api/resources/organizations/resources/children/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/organizations/resources/children/exports.d.ts",
+                "default": "./dist/cjs/api/resources/organizations/resources/children/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/organizations/resources/children/exports.js"
+        },
+        "./organizations/placements": {
+            "import": {
+                "types": "./dist/esm/api/resources/organizations/resources/placements/exports.d.mts",
+                "default": "./dist/esm/api/resources/organizations/resources/placements/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/organizations/resources/placements/exports.d.ts",
+                "default": "./dist/cjs/api/resources/organizations/resources/placements/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/organizations/resources/placements/exports.js"
         },
         "./ping": {
             "import": {

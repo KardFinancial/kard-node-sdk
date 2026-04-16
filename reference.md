@@ -376,6 +376,826 @@ await client.notifications.subscriptions.update("organization-123", "subscriptio
 </dl>
 </details>
 
+## Organizations
+<details><summary><code>client.organizations.<a href="/src/api/resources/organizations/client/Client.ts">get</a>(organizationId) -> KardApi.ExternalOrganizationResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Retrieve organization details for the authenticated issuer
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.organizations.get("organizationId");
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**organizationId:** `string` — Unique identifier of the organization (must match the authenticated issuer)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `OrganizationsClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## Children
+<details><summary><code>client.organizations.children.<a href="/src/api/resources/organizations/resources/children/client/Client.ts">list</a>(organizationId, { ...params }) -> KardApi.ChildOrganizationListResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List child organizations belonging to the authenticated issuer
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.organizations.children.list("organizationId");
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**organizationId:** `string` — Unique identifier of the parent organization
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `KardApi.organizations.ListChildrenRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `ChildrenClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.organizations.children.<a href="/src/api/resources/organizations/resources/children/client/Client.ts">create</a>(organizationId, { ...params }) -> KardApi.ExternalOrganizationResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a child organization by cloning the parent and overriding specified fields. An 8-digit numeric ID is generated automatically. The name is required, must be uppercase, and must not contain spaces.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.organizations.children.create("organizationId", {
+    data: {
+        type: "organization",
+        attributes: {
+            name: "name"
+        }
+    }
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**organizationId:** `string` — Unique identifier of the parent organization
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `KardApi.CreateChildRequestBody` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `ChildrenClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.organizations.children.<a href="/src/api/resources/organizations/resources/children/client/Client.ts">get</a>(organizationId, childId) -> KardApi.ExternalOrganizationResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Retrieve a specific child organization
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.organizations.children.get("organizationId", "childId");
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**organizationId:** `string` — Unique identifier of the parent organization
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**childId:** `string` — Unique identifier of the child organization
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `ChildrenClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.organizations.children.<a href="/src/api/resources/organizations/resources/children/client/Client.ts">update</a>(organizationId, childId, { ...params }) -> KardApi.ExternalOrganizationResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Update a child organization. Only the name can be changed.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.organizations.children.update("organizationId", "childId", {
+    data: {
+        type: "organization",
+        attributes: {}
+    }
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**organizationId:** `string` — Unique identifier of the parent organization
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**childId:** `string` — Unique identifier of the child organization
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `KardApi.UpdateChildRequestBody` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `ChildrenClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.organizations.children.<a href="/src/api/resources/organizations/resources/children/client/Client.ts">delete</a>(organizationId, childId) -> KardApi.DeleteResourceResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete a child organization
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.organizations.children.delete("organizationId", "childId");
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**organizationId:** `string` — Unique identifier of the parent organization
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**childId:** `string` — Unique identifier of the child organization
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `ChildrenClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## Placements
+<details><summary><code>client.organizations.placements.<a href="/src/api/resources/organizations/resources/placements/client/Client.ts">create</a>(organizationId, { ...params }) -> KardApi.PlacementFormatUnion</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a placement for the organization. Use type "placementMainPage" for main-page placements (requires name and availableSlots) or "placementPushNotification" for push-notification placements (requires name and cadence; availableSlots is automatically set to 1).
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.organizations.placements.create("org-123", {
+    data: {
+        type: "placementMainPage",
+        attributes: {
+            name: "Homepage Banner",
+            availableSlots: 5
+        }
+    }
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**organizationId:** `string` — Unique identifier of the organization
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `KardApi.CreatePlacementRequestBody` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `PlacementsClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.organizations.placements.<a href="/src/api/resources/organizations/resources/placements/client/Client.ts">list</a>(organizationId, { ...params }) -> KardApi.PlacementListResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List placements belonging to the authenticated organization
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.organizations.placements.list("organizationId");
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**organizationId:** `string` — Unique identifier of the organization
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `KardApi.organizations.ListPlacementsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `PlacementsClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.organizations.placements.<a href="/src/api/resources/organizations/resources/placements/client/Client.ts">get</a>(organizationId, placementId) -> KardApi.PlacementFormatUnion</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Retrieve a specific placement
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.organizations.placements.get("organizationId", "placementId");
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**organizationId:** `string` — Unique identifier of the organization
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**placementId:** `string` — Unique identifier of the placement (UUID v7)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `PlacementsClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.organizations.placements.<a href="/src/api/resources/organizations/resources/placements/client/Client.ts">update</a>(organizationId, placementId, { ...params }) -> KardApi.PlacementFormatUnion</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Replace a placement. All fields must be provided. Use type "placementMainPage" or "placementPushNotification" to set the placement kind. If the type is "placementPushNotification", availableSlots is automatically set to 1.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.organizations.placements.update("organizationId", "placementId", {
+    data: {
+        type: "placementMainPage",
+        attributes: {
+            name: "name",
+            availableSlots: 1
+        }
+    }
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**organizationId:** `string` — Unique identifier of the organization
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**placementId:** `string` — Unique identifier of the placement (UUID v7)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `KardApi.UpdatePlacementRequestBody` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `PlacementsClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.organizations.placements.<a href="/src/api/resources/organizations/resources/placements/client/Client.ts">delete</a>(organizationId, placementId) -> KardApi.DeleteResourceResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete a placement
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.organizations.placements.delete("organizationId", "placementId");
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**organizationId:** `string` — Unique identifier of the organization
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**placementId:** `string` — Unique identifier of the placement (UUID v7)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `PlacementsClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 ## Ping
 <details><summary><code>client.ping.<a href="/src/api/resources/ping/client/Client.ts">ping</a>() -> KardApi.PingResponseObject</code></summary>
 <dl>

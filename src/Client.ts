@@ -3,6 +3,7 @@
 import { AuthClient } from "./api/resources/auth/client/Client.js";
 import { FilesClient } from "./api/resources/files/client/Client.js";
 import { NotificationsClient } from "./api/resources/notifications/client/Client.js";
+import { OrganizationsClient } from "./api/resources/organizations/client/Client.js";
 import { PingClient } from "./api/resources/ping/client/Client.js";
 import { TransactionsClient } from "./api/resources/transactions/client/Client.js";
 import { UsersClient } from "./api/resources/users/client/Client.js";
@@ -21,6 +22,7 @@ export class KardApiClient {
     protected _auth: AuthClient | undefined;
     protected _files: FilesClient | undefined;
     protected _notifications: NotificationsClient | undefined;
+    protected _organizations: OrganizationsClient | undefined;
     protected _ping: PingClient | undefined;
     protected _transactions: TransactionsClient | undefined;
     protected _users: UsersClient | undefined;
@@ -39,6 +41,10 @@ export class KardApiClient {
 
     public get notifications(): NotificationsClient {
         return (this._notifications ??= new NotificationsClient(this._options));
+    }
+
+    public get organizations(): OrganizationsClient {
+        return (this._organizations ??= new OrganizationsClient(this._options));
     }
 
     public get ping(): PingClient {

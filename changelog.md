@@ -1,3 +1,11 @@
+## 14.1.0 - 2026-04-16
+### Added
+* **`KardApiClient.organizations`** — new lazy-initialized accessor exposing `OrganizationsClient` for managing organization resources tied to the authenticated issuer.
+* **`ChildrenClient`** — new sub-client at `client.organizations.children` supporting full lifecycle management of child organizations (list, create, get, update, delete) via paginated cursor-based endpoints.
+* **`PlacementsClient`** — new sub-client at `client.organizations.placements` supporting full CRUD operations for main-page and push-notification placement resources.
+* **New shared types** added across the `internalOrganizations` namespace including pagination, enrollment, placement, cadence, and external organization interfaces.
+* **Subpath exports** `./organizations`, `./organizations/children`, and `./organizations/placements` added to `package.json` for direct deep imports.
+
 ## 14.0.0 - 2026-04-16
 ### Breaking Changes
 * **`GetEarnedRewardsRequest["filter[status]"]`** — type changed from `string` to `KardApi.RewardedTransactionStatus`; callers passing raw strings such as `"APPROVED,SETTLED"` will get a compile error and must switch to a single `RewardedTransactionStatus` enum value (e.g. `RewardedTransactionStatus.Approved` or `RewardedTransactionStatus.Settled`).
