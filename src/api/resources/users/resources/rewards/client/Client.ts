@@ -155,6 +155,129 @@ export class RewardsClient {
     }
 
     /**
+     * Retrieve offers for a placement slot. Returns offers sorted by highest cash back,
+     * limited by the placement's available slots.<br/>
+     * <b>Required scopes:</b> `rewards:read`
+     *
+     * @param {KardApi.OrganizationId} organizationId
+     * @param {KardApi.UserId} userId
+     * @param {string} placementId
+     * @param {KardApi.users.GetOffersByPlacementRequest} request
+     * @param {RewardsClient.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @throws {@link KardApi.InternalServerError}
+     * @throws {@link KardApi.InvalidRequest}
+     * @throws {@link KardApi.DoesNotExistError}
+     * @throws {@link KardApi.UnauthorizedError}
+     *
+     * @example
+     *     await client.users.rewards.placementOffers("organizationId", "userId", "placementId")
+     */
+    public placementOffers(
+        organizationId: KardApi.OrganizationId,
+        userId: KardApi.UserId,
+        placementId: string,
+        request: KardApi.users.GetOffersByPlacementRequest = {},
+        requestOptions?: RewardsClient.RequestOptions,
+    ): core.HttpResponsePromise<KardApi.users.OffersResponseObject> {
+        return core.HttpResponsePromise.fromPromise(
+            this.__placementOffers(organizationId, userId, placementId, request, requestOptions),
+        );
+    }
+
+    private async __placementOffers(
+        organizationId: KardApi.OrganizationId,
+        userId: KardApi.UserId,
+        placementId: string,
+        request: KardApi.users.GetOffersByPlacementRequest = {},
+        requestOptions?: RewardsClient.RequestOptions,
+    ): Promise<core.WithRawResponse<KardApi.users.OffersResponseObject>> {
+        const {
+            "filter[search]": filterSearch,
+            "filter[purchaseChannel]": filterPurchaseChannel,
+            "filter[category]": filterCategory,
+            "filter[isTargeted]": filterIsTargeted,
+            include,
+            supportedComponents,
+        } = request;
+        const _queryParams: Record<string, unknown> = {
+            "filter[search]": filterSearch,
+            "filter[purchaseChannel]": filterPurchaseChannel != null ? toJson(filterPurchaseChannel) : undefined,
+            "filter[category]": filterCategory != null ? filterCategory : undefined,
+            "filter[isTargeted]": filterIsTargeted,
+            include,
+            supportedComponents: Array.isArray(supportedComponents)
+                ? supportedComponents.map((item) => item)
+                : supportedComponents != null
+                  ? supportedComponents
+                  : undefined,
+        };
+        const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
+        const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
+            _authRequest.headers,
+            this._options?.headers,
+            requestOptions?.headers,
+        );
+        const _response = await core.fetcher({
+            url: core.url.join(
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.KardApiEnvironment.Production,
+                `/v2/issuers/${core.url.encodePathParam(organizationId)}/users/${core.url.encodePathParam(userId)}/placements/${core.url.encodePathParam(placementId)}/offers`,
+            ),
+            method: "GET",
+            headers: _headers,
+            queryParameters: { ..._queryParams, ...requestOptions?.queryParams },
+            timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
+            maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
+            fetchFn: this._options?.fetch,
+            logging: this._options.logging,
+        });
+        if (_response.ok) {
+            return { data: _response.body as KardApi.users.OffersResponseObject, rawResponse: _response.rawResponse };
+        }
+
+        if (_response.error.reason === "status-code") {
+            switch (_response.error.statusCode) {
+                case 500:
+                    throw new KardApi.InternalServerError(
+                        _response.error.body as KardApi.ErrorResponse,
+                        _response.rawResponse,
+                    );
+                case 400:
+                    throw new KardApi.InvalidRequest(
+                        _response.error.body as KardApi.ErrorResponse,
+                        _response.rawResponse,
+                    );
+                case 404:
+                    throw new KardApi.DoesNotExistError(
+                        _response.error.body as KardApi.ErrorResponse,
+                        _response.rawResponse,
+                    );
+                case 401:
+                    throw new KardApi.UnauthorizedError(
+                        _response.error.body as KardApi.ErrorResponse,
+                        _response.rawResponse,
+                    );
+                default:
+                    throw new errors.KardApiError({
+                        statusCode: _response.error.statusCode,
+                        body: _response.error.body,
+                        rawResponse: _response.rawResponse,
+                    });
+            }
+        }
+
+        return handleNonStatusCodeError(
+            _response.error,
+            _response.rawResponse,
+            "GET",
+            "/v2/issuers/{organizationId}/users/{userId}/placements/{placementId}/offers",
+        );
+    }
+
+    /**
      * Retrieve national and local geographic locations that a specified user has eligible in-store offers at. Use this endpoint to build
      * out your [map-specific UX experiences](/2024-10-01/api/getting-started#c-discover-clos-near-you-map-view). Please note
      * that Longitude and Latitude fields are prioritized over State, City and Zipcode and are the recommended search

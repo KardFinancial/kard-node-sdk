@@ -2495,6 +2495,95 @@ await client.users.rewards.offers("organization-123", "user-123", {
 </dl>
 </details>
 
+<details><summary><code>client.users.rewards.<a href="/src/api/resources/users/resources/rewards/client/Client.ts">placementOffers</a>(organizationId, userId, placementId, { ...params }) -> KardApi.OffersResponseObject</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Retrieve offers for a placement slot. Returns offers sorted by highest cash back,
+limited by the placement's available slots.<br/>
+<b>Required scopes:</b> `rewards:read`
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.users.rewards.placementOffers("organizationId", "userId", "placementId");
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**organizationId:** `KardApi.OrganizationId` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**userId:** `KardApi.UserId` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**placementId:** `string` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `KardApi.users.GetOffersByPlacementRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RewardsClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.users.rewards.<a href="/src/api/resources/users/resources/rewards/client/Client.ts">locations</a>(organizationId, userId, { ...params }) -> KardApi.LocationsResponseObject</code></summary>
 <dl>
 <dd>

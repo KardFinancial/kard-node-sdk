@@ -1,3 +1,8 @@
+## 14.2.0 - 2026-04-16
+### Added
+* **`RewardsClient.placementOffers()`** — new method to retrieve offers for a placement slot, sorted by highest cash back and limited by the placement's available slots; maps to `GET /v2/issuers/{organizationId}/users/{userId}/placements/{placementId}/offers`.
+* **`GetOffersByPlacementRequest`** — new request interface with optional filters (`filter[search]`, `filter[purchaseChannel]`, `filter[category]`, `filter[isTargeted]`, `include`, `supportedComponents`) for the placement offers endpoint.
+
 ## 14.1.0 - 2026-04-16
 ### Added
 * **`KardApiClient.organizations`** — new lazy-initialized accessor exposing `OrganizationsClient` for managing organization resources tied to the authenticated issuer.
