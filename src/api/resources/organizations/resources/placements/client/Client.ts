@@ -158,6 +158,7 @@ export class PlacementsClient {
      *
      * @throws {@link KardApi.UnauthorizedError}
      * @throws {@link KardApi.ForbiddenError}
+     * @throws {@link KardApi.InvalidRequest}
      * @throws {@link KardApi.DoesNotExistError}
      * @throws {@link KardApi.InternalServerError}
      *
@@ -177,8 +178,15 @@ export class PlacementsClient {
         request: KardApi.organizations.ListPlacementsRequest = {},
         requestOptions?: PlacementsClient.RequestOptions,
     ): Promise<core.WithRawResponse<KardApi.organizations.PlacementListResponse>> {
-        const { "page[after]": pageAfter, "page[size]": pageSize } = request;
+        const {
+            "filter[type]": filterType,
+            "filter[name]": filterName,
+            "page[after]": pageAfter,
+            "page[size]": pageSize,
+        } = request;
         const _queryParams: Record<string, unknown> = {
+            "filter[type]": filterType != null ? filterType : undefined,
+            "filter[name]": filterName,
             "page[after]": pageAfter,
             "page[size]": pageSize,
         };
@@ -220,6 +228,11 @@ export class PlacementsClient {
                     );
                 case 403:
                     throw new KardApi.ForbiddenError(
+                        _response.error.body as KardApi.ErrorResponse,
+                        _response.rawResponse,
+                    );
+                case 400:
+                    throw new KardApi.InvalidRequest(
                         _response.error.body as KardApi.ErrorResponse,
                         _response.rawResponse,
                     );

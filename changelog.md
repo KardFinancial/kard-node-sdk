@@ -1,3 +1,10 @@
+## 14.3.0 - 2026-04-16
+### Added
+* **`PlacementTypeFilter`** — new enum type with values `placementMainPage` and `placementPushNotification` used to filter placements by type.
+* **`ListPlacementsRequest["filter[type]"]`** — new optional filter on `listPlacements` to narrow results to a specific placement type using `PlacementTypeFilter`.
+* **`ListPlacementsRequest["filter[name]"]`** — new optional filter on `listPlacements` to narrow results by exact placement name.
+* **`PlacementsClient`** — now throws `KardApi.InvalidRequest` on HTTP 400 responses from the list placements endpoint.
+
 ## 14.2.0 - 2026-04-16
 ### Added
 * **`RewardsClient.placementOffers()`** — new method to retrieve offers for a placement slot, sorted by highest cash back and limited by the placement's available slots; maps to `GET /v2/issuers/{organizationId}/users/{userId}/placements/{placementId}/offers`.

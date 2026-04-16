@@ -11,6 +11,7 @@ export * from "./MainPagePlacementAttributes.js";
 export * from "./MainPagePlacementData.js";
 export * from "./PlacementFormatUnion.js";
 export * from "./PlacementListResponse.js";
+export * from "./PlacementTypeFilter.js";
 export * from "./PushNotificationPlacementAttributes.js";
 export * from "./PushNotificationPlacementData.js";
 export * from "./UpdateMainPageAttributes.js";

@@ -417,6 +417,35 @@ describe("PlacementsClient", () => {
             .mockEndpoint()
             .get("/v2/issuers/organizationId/placements")
             .respondWith()
+            .statusCode(400)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.organizations.placements.list("organizationId");
+        }).rejects.toThrow(KardApi.InvalidRequest);
+    });
+
+    test("list (5)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new KardApiClient({
+            maxRetries: 0,
+            clientId: "client_id",
+            clientSecret: "client_secret",
+            environment: server.baseUrl,
+        });
+
+        const rawResponseBody = {
+            errors: [
+                { status: "status", title: "title", detail: "detail" },
+                { status: "status", title: "title", detail: "detail" },
+            ],
+        };
+
+        server
+            .mockEndpoint()
+            .get("/v2/issuers/organizationId/placements")
+            .respondWith()
             .statusCode(404)
             .jsonBody(rawResponseBody)
             .build();
@@ -426,7 +455,7 @@ describe("PlacementsClient", () => {
         }).rejects.toThrow(KardApi.DoesNotExistError);
     });
 
-    test("list (5)", async () => {
+    test("list (6)", async () => {
         const server = mockServerPool.createServer();
         const client = new KardApiClient({
             maxRetries: 0,
