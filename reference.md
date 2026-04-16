@@ -849,7 +849,7 @@ Retrieve rewarded transaction history for a specific user. By default this retur
 ```typescript
 await client.transactions.getEarnedRewards("org-123", "user-456", {
     "page[size]": 10,
-    "filter[status]": "APPROVED,SETTLED",
+    "filter[status]": "APPROVED",
     include: "merchant,offer"
 });
 

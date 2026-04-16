@@ -636,7 +636,7 @@ export class TransactionsClient {
      * @example
      *     await client.transactions.getEarnedRewards("org-123", "user-456", {
      *         "page[size]": 10,
-     *         "filter[status]": "APPROVED,SETTLED",
+     *         "filter[status]": "APPROVED",
      *         include: "merchant,offer"
      *     })
      */
@@ -668,7 +668,7 @@ export class TransactionsClient {
             "page[after]": pageAfter,
             "page[before]": pageBefore,
             "page[size]": pageSize,
-            "filter[status]": filterStatus,
+            "filter[status]": filterStatus != null ? filterStatus : undefined,
             include,
         };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();

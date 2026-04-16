@@ -1,3 +1,10 @@
+## 14.0.0 - 2026-04-16
+### Breaking Changes
+* **`GetEarnedRewardsRequest["filter[status]"]`** — type changed from `string` to `KardApi.RewardedTransactionStatus`; callers passing raw strings such as `"APPROVED,SETTLED"` will get a compile error and must switch to a single `RewardedTransactionStatus` enum value (e.g. `RewardedTransactionStatus.Approved` or `RewardedTransactionStatus.Settled`).
+### Changed
+* **`GetEarnedRewardsRequest["filter[status]"]`** — the field now accepts only a single transaction status rather than a comma-separated list; update any usage that passed multiple statuses to use separate filtered requests if needed.
+* **`getEarnedRewards` client** — `filter[status]` is now omitted from the outgoing query string when the value is `null` or `undefined`, preventing a bare `filter[status]=` parameter from being sent to the server.
+
 ## 13.0.0 - 2026-04-15
 ### Breaking Changes
 * **`GetEarnedRewardsResponse`** — now includes a required `meta` field of type `GetEarnedRewardsMeta`; any code that constructs this type (e.g. in tests or mocks) must add `meta: { lifetimeRewardsInCents: number }` to avoid compile errors.

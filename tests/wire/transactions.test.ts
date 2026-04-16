@@ -1978,7 +1978,7 @@ describe("TransactionsClient", () => {
 
         const response = await client.transactions.getEarnedRewards("org-123", "user-456", {
             "page[size]": 10,
-            "filter[status]": "APPROVED,SETTLED",
+            "filter[status]": "APPROVED",
             include: "merchant,offer",
         });
         expect(response).toEqual(rawResponseBody);
