@@ -1,3 +1,9 @@
+## 14.4.0 - 2026-04-16
+### Added
+* **`MerchantAsset`** — new interface representing a signed attribution asset (logo, banner, etc.) for a merchant, with `type`, `url`, and optional `alt` fields.
+* **`MerchantAssetType`** — new enum with values `ImgView` (`"IMG_VIEW"`) and `BannerView` (`"BANNER_VIEW"`) identifying the kind of merchant asset.
+* **`TransactionMerchantAttributes["assets"]`** — new optional field returning an array of `MerchantAsset` objects on merchant data within earned rewards responses.
+
 ## 14.3.0 - 2026-04-16
 ### Added
 * **`PlacementTypeFilter`** — new enum type with values `placementMainPage` and `placementPushNotification` used to filter placements by type.

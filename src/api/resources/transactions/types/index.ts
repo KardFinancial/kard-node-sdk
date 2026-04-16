@@ -29,6 +29,8 @@ export * from "./GetEarnedRewardsResponse.js";
 export * from "./MatchedTransactionsAttributes.js";
 export * from "./MatchedTransactionsRequest.js";
 export * from "./Merchant.js";
+export * from "./MerchantAsset.js";
+export * from "./MerchantAssetType.js";
 export * from "./PaymentStatus.js";
 export * from "./PaymentType.js";
 export * from "./ProcessorMid.js";

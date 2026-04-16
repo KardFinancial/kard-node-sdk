@@ -1961,8 +1961,39 @@ describe("TransactionsClient", () => {
             },
             meta: { lifetimeRewardsInCents: 540 },
             included: [
-                { type: "merchant", id: "633ed2ab30dcb60009dd5699", attributes: { name: "Forever 21" } },
-                { type: "merchant", id: "5f3e2d1c40abc50008cc4821", attributes: { name: "Target" } },
+                {
+                    type: "merchant",
+                    id: "633ed2ab30dcb60009dd5699",
+                    attributes: {
+                        name: "Forever 21",
+                        assets: [
+                            {
+                                type: "IMG_VIEW",
+                                url: "https://attribution.getkard.com/public/logos/forever21.jpg?subtype=IMG_VIEW&offerId=OFF-F21-INSTORE-2024Q4-001&token=signed-token",
+                                alt: "Forever 21 Logo Image",
+                            },
+                            {
+                                type: "BANNER_VIEW",
+                                url: "https://attribution.getkard.com/public/banners/forever21.jpg?subtype=BANNER_VIEW&offerId=OFF-F21-INSTORE-2024Q4-001&token=signed-token",
+                                alt: "Forever 21 Banner Image",
+                            },
+                        ],
+                    },
+                },
+                {
+                    type: "merchant",
+                    id: "5f3e2d1c40abc50008cc4821",
+                    attributes: {
+                        name: "Target",
+                        assets: [
+                            {
+                                type: "IMG_VIEW",
+                                url: "https://attribution.getkard.com/public/logos/target.jpg?subtype=IMG_VIEW&offerId=OFF-TGT-ONLINE-2024Q4-002&token=signed-token",
+                                alt: "Target Logo Image",
+                            },
+                        ],
+                    },
+                },
                 { type: "offer", id: "OFF-F21-INSTORE-2024Q4-001", attributes: { purchaseChannel: ["INSTORE"] } },
                 { type: "offer", id: "OFF-TGT-ONLINE-2024Q4-002", attributes: { purchaseChannel: ["ONLINE"] } },
             ],
