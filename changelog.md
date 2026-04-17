@@ -1,3 +1,13 @@
+## 16.0.0 - 2026-04-17
+### Breaking Changes
+* **`CommissionEarnedDetails["issuer"]`** — the `issuer` property has been removed; only `user` remains. Remove any access to `.commissionEarned.issuer` in your code.
+* **`RewardedTransactionAttributes["status"]`** — type narrowed from `KardApi.RewardedTransactionStatus` enum to the string literal `"SETTLED"`. Update any comparisons that reference `RewardedTransactionStatus` enum values on rewarded transactions.
+* **`RewardedTransactionAttributes["cardBIN"]` and `["cardLastFour"]`** — both optional fields have been removed from `RewardedTransactionAttributes`. Remove any references to these properties.
+* **`RewardedTransactionUnion`** — now a discriminated union of `RewardedTransaction | ApprovedTransaction`; callers using exhaustive type narrowing must handle the new `"approvedTransaction"` variant or a compile error will occur.
+### Added
+* **`ApprovedTransaction`** — new interface representing a pre-settlement approved transaction with `id`, `attributes`, and `relationships`.
+* **`ApprovedTransactionAttributes`** — new interface for approved transaction attributes with a hardcoded `status: "APPROVED"`, `transactionId`, `transactionAmountInCents`, and `transactionTimestamp`.
+
 ## 15.0.0 - 2026-04-17
 * feat!: remove MerchantNetwork types, change organizations.get() signature, and update child org response types
 * Several breaking changes are introduced in this SDK regeneration:

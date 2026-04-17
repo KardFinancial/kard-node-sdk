@@ -1912,21 +1912,13 @@ describe("TransactionsClient", () => {
         const rawResponseBody = {
             data: [
                 {
-                    type: "rewardedTransaction",
+                    type: "approvedTransaction",
                     id: "fcabf024-3870-41f3-9fbd-b43ea85a3d19",
                     attributes: {
                         status: "APPROVED",
                         transactionId: "TXN-20241001-F21-127964",
                         transactionAmountInCents: 12796,
                         transactionTimestamp: "2024-10-01T01:36:57Z",
-                        paidToIssuer: "UNPAID",
-                        payoutTimestamp: "2024-10-01T02:00:00Z",
-                        cardBIN: "123456",
-                        cardLastFour: "4321",
-                        commissionEarned: {
-                            issuer: { type: "cents", value: 102 },
-                            user: { type: "cents", value: 320 },
-                        },
                     },
                     relationships: {
                         user: { data: { type: "user", id: "8c52423a-c319-44ee-8fc7-508e97b43892" } },
@@ -1944,9 +1936,7 @@ describe("TransactionsClient", () => {
                         transactionTimestamp: "2024-09-28T14:11:22Z",
                         paidToIssuer: "PAID_IN_FULL",
                         payoutTimestamp: "2024-09-29T10:15:00Z",
-                        cardBIN: "123456",
-                        cardLastFour: "4321",
-                        commissionEarned: { issuer: { type: "cents", value: 70 }, user: { type: "cents", value: 220 } },
+                        commissionEarned: { user: { type: "cents", value: 220 } },
                     },
                     relationships: {
                         user: { data: { type: "user", id: "8c52423a-c319-44ee-8fc7-508e97b43892" } },

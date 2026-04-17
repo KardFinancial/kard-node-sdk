@@ -3,6 +3,5 @@
 import type * as KardApi from "../../../index.js";
 
 export interface CommissionEarnedDetails {
-    issuer: KardApi.CommissionValue;
     user: KardApi.CommissionValue;
 }

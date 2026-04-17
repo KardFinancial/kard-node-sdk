@@ -2,10 +2,16 @@
 
 import type * as KardApi from "../../../index.js";
 
-export type RewardedTransactionUnion = KardApi.RewardedTransactionUnion.RewardedTransaction;
+export type RewardedTransactionUnion =
+    | KardApi.RewardedTransactionUnion.RewardedTransaction
+    | KardApi.RewardedTransactionUnion.ApprovedTransaction;
 
 export namespace RewardedTransactionUnion {
     export interface RewardedTransaction extends KardApi.RewardedTransaction {
         type: "rewardedTransaction";
+    }
+
+    export interface ApprovedTransaction extends KardApi.ApprovedTransaction {
+        type: "approvedTransaction";
     }
 }

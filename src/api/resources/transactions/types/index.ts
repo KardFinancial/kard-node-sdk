@@ -1,3 +1,5 @@
+export * from "./ApprovedTransaction.js";
+export * from "./ApprovedTransactionAttributes.js";
 export * from "./AuditAttributes.js";
 export * from "./AuditRequestData.js";
 export * from "./AuditResponseAttributes.js";

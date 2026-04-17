@@ -4,7 +4,7 @@ import type * as KardApi from "../../../index.js";
 
 export interface RewardedTransactionAttributes {
     /** Status of the rewarded transaction */
-    status: KardApi.RewardedTransactionStatus;
+    status: "SETTLED";
     /** The transaction identifier */
     transactionId: string;
     /** Transaction amount in cents */
@@ -16,8 +16,4 @@ export interface RewardedTransactionAttributes {
     commissionEarned: KardApi.CommissionEarnedDetails;
     /** Timestamp representing the month when the transaction has been paid out to issuer */
     payoutTimestamp?: string | undefined;
-    /** Bank identification number (BIN). */
-    cardBIN?: string | undefined;
-    /** Card last four digits. */
-    cardLastFour?: string | undefined;
 }
