@@ -19,32 +19,18 @@ describe("OrganizationsClient", () => {
             id: "id",
             attributes: {
                 name: "name",
-                externalId: "externalId",
-                parentOrganizationId: "parentOrganizationId",
                 enrolledRewards: ["CARDLINKED", "CARDLINKED"],
                 cardNetworks: ["VISA", "VISA"],
-                merchantNetworks: [
-                    { name: "EMPYR", priority: 1 },
-                    { name: "EMPYR", priority: 1 },
-                ],
-                nationalOffers: true,
-                localOffers: true,
-                useAttribution: true,
                 bins: ["bins", "bins"],
-                createdAt: "2024-01-15T09:30:00Z",
-                updatedAt: "2024-01-15T09:30:00Z",
+                affiliateCommissionSplit: 1.1,
+                cardlinkedCommissionSplit: 1.1,
+                cardlinkedUserCommissionSplit: 1.1,
             },
         };
 
-        server
-            .mockEndpoint()
-            .get("/v2/issuers/organizationId")
-            .respondWith()
-            .statusCode(200)
-            .jsonBody(rawResponseBody)
-            .build();
+        server.mockEndpoint().get("/v2/issuer").respondWith().statusCode(200).jsonBody(rawResponseBody).build();
 
-        const response = await client.organizations.get("organizationId");
+        const response = await client.organizations.get();
         expect(response).toEqual(rawResponseBody);
     });
 
@@ -64,16 +50,10 @@ describe("OrganizationsClient", () => {
             ],
         };
 
-        server
-            .mockEndpoint()
-            .get("/v2/issuers/organizationId")
-            .respondWith()
-            .statusCode(401)
-            .jsonBody(rawResponseBody)
-            .build();
+        server.mockEndpoint().get("/v2/issuer").respondWith().statusCode(401).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
-            return await client.organizations.get("organizationId");
+            return await client.organizations.get();
         }).rejects.toThrow(KardApi.UnauthorizedError);
     });
 
@@ -93,16 +73,10 @@ describe("OrganizationsClient", () => {
             ],
         };
 
-        server
-            .mockEndpoint()
-            .get("/v2/issuers/organizationId")
-            .respondWith()
-            .statusCode(403)
-            .jsonBody(rawResponseBody)
-            .build();
+        server.mockEndpoint().get("/v2/issuer").respondWith().statusCode(403).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
-            return await client.organizations.get("organizationId");
+            return await client.organizations.get();
         }).rejects.toThrow(KardApi.ForbiddenError);
     });
 
@@ -122,16 +96,10 @@ describe("OrganizationsClient", () => {
             ],
         };
 
-        server
-            .mockEndpoint()
-            .get("/v2/issuers/organizationId")
-            .respondWith()
-            .statusCode(404)
-            .jsonBody(rawResponseBody)
-            .build();
+        server.mockEndpoint().get("/v2/issuer").respondWith().statusCode(404).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
-            return await client.organizations.get("organizationId");
+            return await client.organizations.get();
         }).rejects.toThrow(KardApi.DoesNotExistError);
     });
 
@@ -151,16 +119,10 @@ describe("OrganizationsClient", () => {
             ],
         };
 
-        server
-            .mockEndpoint()
-            .get("/v2/issuers/organizationId")
-            .respondWith()
-            .statusCode(500)
-            .jsonBody(rawResponseBody)
-            .build();
+        server.mockEndpoint().get("/v2/issuer").respondWith().statusCode(500).jsonBody(rawResponseBody).build();
 
         await expect(async () => {
-            return await client.organizations.get("organizationId");
+            return await client.organizations.get();
         }).rejects.toThrow(KardApi.InternalServerError);
     });
 });

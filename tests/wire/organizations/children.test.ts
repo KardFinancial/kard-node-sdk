@@ -19,44 +19,12 @@ describe("ChildrenClient", () => {
                 {
                     type: "organization",
                     id: "id",
-                    attributes: {
-                        name: "name",
-                        externalId: "externalId",
-                        parentOrganizationId: "parentOrganizationId",
-                        enrolledRewards: ["CARDLINKED", "CARDLINKED"],
-                        cardNetworks: ["VISA", "VISA"],
-                        merchantNetworks: [
-                            { name: "EMPYR", priority: 1 },
-                            { name: "EMPYR", priority: 1 },
-                        ],
-                        nationalOffers: true,
-                        localOffers: true,
-                        useAttribution: true,
-                        bins: ["bins", "bins"],
-                        createdAt: "2024-01-15T09:30:00Z",
-                        updatedAt: "2024-01-15T09:30:00Z",
-                    },
+                    attributes: { name: "name", externalId: "externalId", bins: ["bins", "bins"] },
                 },
                 {
                     type: "organization",
                     id: "id",
-                    attributes: {
-                        name: "name",
-                        externalId: "externalId",
-                        parentOrganizationId: "parentOrganizationId",
-                        enrolledRewards: ["CARDLINKED", "CARDLINKED"],
-                        cardNetworks: ["VISA", "VISA"],
-                        merchantNetworks: [
-                            { name: "EMPYR", priority: 1 },
-                            { name: "EMPYR", priority: 1 },
-                        ],
-                        nationalOffers: true,
-                        localOffers: true,
-                        useAttribution: true,
-                        bins: ["bins", "bins"],
-                        createdAt: "2024-01-15T09:30:00Z",
-                        updatedAt: "2024-01-15T09:30:00Z",
-                    },
+                    attributes: { name: "name", externalId: "externalId", bins: ["bins", "bins"] },
                 },
             ],
             links: { self: "self", prev: "prev", next: "next" },
@@ -203,23 +171,7 @@ describe("ChildrenClient", () => {
         const rawResponseBody = {
             type: "organization",
             id: "id",
-            attributes: {
-                name: "name",
-                externalId: "externalId",
-                parentOrganizationId: "parentOrganizationId",
-                enrolledRewards: ["CARDLINKED", "CARDLINKED"],
-                cardNetworks: ["VISA", "VISA"],
-                merchantNetworks: [
-                    { name: "EMPYR", priority: 1 },
-                    { name: "EMPYR", priority: 1 },
-                ],
-                nationalOffers: true,
-                localOffers: true,
-                useAttribution: true,
-                bins: ["bins", "bins"],
-                createdAt: "2024-01-15T09:30:00Z",
-                updatedAt: "2024-01-15T09:30:00Z",
-            },
+            attributes: { name: "name", externalId: "externalId", bins: ["bins", "bins"] },
         };
 
         server
@@ -439,23 +391,7 @@ describe("ChildrenClient", () => {
         const rawResponseBody = {
             type: "organization",
             id: "id",
-            attributes: {
-                name: "name",
-                externalId: "externalId",
-                parentOrganizationId: "parentOrganizationId",
-                enrolledRewards: ["CARDLINKED", "CARDLINKED"],
-                cardNetworks: ["VISA", "VISA"],
-                merchantNetworks: [
-                    { name: "EMPYR", priority: 1 },
-                    { name: "EMPYR", priority: 1 },
-                ],
-                nationalOffers: true,
-                localOffers: true,
-                useAttribution: true,
-                bins: ["bins", "bins"],
-                createdAt: "2024-01-15T09:30:00Z",
-                updatedAt: "2024-01-15T09:30:00Z",
-            },
+            attributes: { name: "name", externalId: "externalId", bins: ["bins", "bins"] },
         };
 
         server
@@ -598,23 +534,7 @@ describe("ChildrenClient", () => {
         const rawResponseBody = {
             type: "organization",
             id: "id",
-            attributes: {
-                name: "name",
-                externalId: "externalId",
-                parentOrganizationId: "parentOrganizationId",
-                enrolledRewards: ["CARDLINKED", "CARDLINKED"],
-                cardNetworks: ["VISA", "VISA"],
-                merchantNetworks: [
-                    { name: "EMPYR", priority: 1 },
-                    { name: "EMPYR", priority: 1 },
-                ],
-                nationalOffers: true,
-                localOffers: true,
-                useAttribution: true,
-                bins: ["bins", "bins"],
-                createdAt: "2024-01-15T09:30:00Z",
-                updatedAt: "2024-01-15T09:30:00Z",
-            },
+            attributes: { name: "name", externalId: "externalId", bins: ["bins", "bins"] },
         };
 
         server

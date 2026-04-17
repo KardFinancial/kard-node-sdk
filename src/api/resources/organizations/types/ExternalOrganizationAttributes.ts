@@ -8,26 +8,16 @@ import type * as KardApi from "../../../index.js";
 export interface ExternalOrganizationAttributes {
     /** Name of the organization (uppercase, no spaces) */
     name: string;
-    /** External identifier for the organization */
-    externalId?: string | undefined;
-    /** ID of the parent organization */
-    parentOrganizationId?: string | undefined;
     /** Rewards programs the organization is enrolled in */
     enrolledRewards: KardApi.EnrolledReward[];
     /** Card networks supported by the organization */
     cardNetworks: KardApi.CardNetwork[];
-    /** Merchant networks with priority for the organization */
-    merchantNetworks?: KardApi.MerchantNetwork[] | undefined;
-    /** Whether national offers are enabled */
-    nationalOffers: boolean;
-    /** Whether local offers are enabled */
-    localOffers: boolean;
-    /** Whether attribution tracking is enabled */
-    useAttribution: boolean;
     /** Bank Identification Numbers for the organization */
     bins: string[];
-    /** When the organization was created (ISO 8601 UTC) */
-    createdAt?: string | undefined;
-    /** When the organization was last updated (ISO 8601 UTC) */
-    updatedAt?: string | undefined;
+    /** Affiliate commission split percentage */
+    affiliateCommissionSplit: number;
+    /** Cardlinked commission split percentage */
+    cardlinkedCommissionSplit: number;
+    /** Cardlinked user commission split percentage */
+    cardlinkedUserCommissionSplit: number;
 }

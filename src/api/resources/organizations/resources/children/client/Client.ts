@@ -150,7 +150,7 @@ export class ChildrenClient {
         organizationId: string,
         request: KardApi.organizations.CreateChildRequestBody,
         requestOptions?: ChildrenClient.RequestOptions,
-    ): core.HttpResponsePromise<KardApi.ExternalOrganizationResponse> {
+    ): core.HttpResponsePromise<KardApi.organizations.ChildOrganizationResponse> {
         return core.HttpResponsePromise.fromPromise(this.__create(organizationId, request, requestOptions));
     }
 
@@ -158,7 +158,7 @@ export class ChildrenClient {
         organizationId: string,
         request: KardApi.organizations.CreateChildRequestBody,
         requestOptions?: ChildrenClient.RequestOptions,
-    ): Promise<core.WithRawResponse<KardApi.ExternalOrganizationResponse>> {
+    ): Promise<core.WithRawResponse<KardApi.organizations.ChildOrganizationResponse>> {
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -185,7 +185,10 @@ export class ChildrenClient {
             logging: this._options.logging,
         });
         if (_response.ok) {
-            return { data: _response.body as KardApi.ExternalOrganizationResponse, rawResponse: _response.rawResponse };
+            return {
+                data: _response.body as KardApi.organizations.ChildOrganizationResponse,
+                rawResponse: _response.rawResponse,
+            };
         }
 
         if (_response.error.reason === "status-code") {
@@ -251,7 +254,7 @@ export class ChildrenClient {
         organizationId: string,
         childId: string,
         requestOptions?: ChildrenClient.RequestOptions,
-    ): core.HttpResponsePromise<KardApi.ExternalOrganizationResponse> {
+    ): core.HttpResponsePromise<KardApi.organizations.ChildOrganizationResponse> {
         return core.HttpResponsePromise.fromPromise(this.__get(organizationId, childId, requestOptions));
     }
 
@@ -259,7 +262,7 @@ export class ChildrenClient {
         organizationId: string,
         childId: string,
         requestOptions?: ChildrenClient.RequestOptions,
-    ): Promise<core.WithRawResponse<KardApi.ExternalOrganizationResponse>> {
+    ): Promise<core.WithRawResponse<KardApi.organizations.ChildOrganizationResponse>> {
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -283,7 +286,10 @@ export class ChildrenClient {
             logging: this._options.logging,
         });
         if (_response.ok) {
-            return { data: _response.body as KardApi.ExternalOrganizationResponse, rawResponse: _response.rawResponse };
+            return {
+                data: _response.body as KardApi.organizations.ChildOrganizationResponse,
+                rawResponse: _response.rawResponse,
+            };
         }
 
         if (_response.error.reason === "status-code") {
@@ -352,7 +358,7 @@ export class ChildrenClient {
         childId: string,
         request: KardApi.organizations.UpdateChildRequestBody,
         requestOptions?: ChildrenClient.RequestOptions,
-    ): core.HttpResponsePromise<KardApi.ExternalOrganizationResponse> {
+    ): core.HttpResponsePromise<KardApi.organizations.ChildOrganizationResponse> {
         return core.HttpResponsePromise.fromPromise(this.__update(organizationId, childId, request, requestOptions));
     }
 
@@ -361,7 +367,7 @@ export class ChildrenClient {
         childId: string,
         request: KardApi.organizations.UpdateChildRequestBody,
         requestOptions?: ChildrenClient.RequestOptions,
-    ): Promise<core.WithRawResponse<KardApi.ExternalOrganizationResponse>> {
+    ): Promise<core.WithRawResponse<KardApi.organizations.ChildOrganizationResponse>> {
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -388,7 +394,10 @@ export class ChildrenClient {
             logging: this._options.logging,
         });
         if (_response.ok) {
-            return { data: _response.body as KardApi.ExternalOrganizationResponse, rawResponse: _response.rawResponse };
+            return {
+                data: _response.body as KardApi.organizations.ChildOrganizationResponse,
+                rawResponse: _response.rawResponse,
+            };
         }
 
         if (_response.error.reason === "status-code") {

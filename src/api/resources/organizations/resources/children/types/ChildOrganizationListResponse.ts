@@ -7,7 +7,7 @@ import type * as KardApi from "../../../../../index.js";
  */
 export interface ChildOrganizationListResponse {
     /** Array of child organization resources */
-    data: KardApi.ExternalOrganizationResponse[];
+    data: KardApi.organizations.ChildOrganizationResponse[];
     links?: KardApi.Links | undefined;
     /** Pagination metadata */
     meta?: KardApi.OrganizationPaginationMetadata | undefined;

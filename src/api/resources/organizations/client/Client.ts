@@ -37,7 +37,6 @@ export class OrganizationsClient {
     /**
      * Retrieve organization details for the authenticated issuer
      *
-     * @param {string} organizationId - Unique identifier of the organization (must match the authenticated issuer)
      * @param {OrganizationsClient.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @throws {@link KardApi.UnauthorizedError}
@@ -46,17 +45,15 @@ export class OrganizationsClient {
      * @throws {@link KardApi.InternalServerError}
      *
      * @example
-     *     await client.organizations.get("organizationId")
+     *     await client.organizations.get()
      */
     public get(
-        organizationId: string,
         requestOptions?: OrganizationsClient.RequestOptions,
     ): core.HttpResponsePromise<KardApi.ExternalOrganizationResponse> {
-        return core.HttpResponsePromise.fromPromise(this.__get(organizationId, requestOptions));
+        return core.HttpResponsePromise.fromPromise(this.__get(requestOptions));
     }
 
     private async __get(
-        organizationId: string,
         requestOptions?: OrganizationsClient.RequestOptions,
     ): Promise<core.WithRawResponse<KardApi.ExternalOrganizationResponse>> {
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
@@ -70,7 +67,7 @@ export class OrganizationsClient {
                 (await core.Supplier.get(this._options.baseUrl)) ??
                     (await core.Supplier.get(this._options.environment)) ??
                     environments.KardApiEnvironment.Production,
-                `v2/issuers/${core.url.encodePathParam(organizationId)}`,
+                "v2/issuer",
             ),
             method: "GET",
             headers: _headers,
@@ -116,6 +113,6 @@ export class OrganizationsClient {
             }
         }
 
-        return handleNonStatusCodeError(_response.error, _response.rawResponse, "GET", "/v2/issuers/{organizationId}");
+        return handleNonStatusCodeError(_response.error, _response.rawResponse, "GET", "/v2/issuer");
     }
 }

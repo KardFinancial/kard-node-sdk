@@ -1,4 +1,6 @@
+export * from "./ChildOrganizationAttributes.js";
 export * from "./ChildOrganizationListResponse.js";
+export * from "./ChildOrganizationResponse.js";
 export * from "./CreateChildAttributes.js";
 export * from "./CreateChildRequestBody.js";
 export * from "./CreateChildRequestData.js";

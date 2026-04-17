@@ -1,3 +1,26 @@
+## 15.0.0 - 2026-04-17
+* feat!: remove MerchantNetwork types, change organizations.get() signature, and update child org response types
+* Several breaking changes are introduced in this SDK regeneration:
+* `organizations.get()` no longer accepts an `organizationId` parameter and now
+* calls `GET /v2/issuer` instead of `GET /v2/issuers/{organizationId}`.
+* `ChildrenClient.create()`, `get()`, and `update()` now return
+* `ChildOrganizationResponse` instead of `ExternalOrganizationResponse`.
+* `ChildOrganizationListResponse.data` now typed as `ChildOrganizationResponse[]`
+* instead of `ExternalOrganizationResponse[]`.
+* `MerchantNetwork` and `MerchantNetworkName` exported types have been removed.
+* `ExternalOrganizationAttributes` has had multiple fields removed
+* (`externalId`, `parentOrganizationId`, `merchantNetworks`, `nationalOffers`,
+* `localOffers`, `useAttribution`, `createdAt`, `updatedAt`) and three new
+* required fields added (`affiliateCommissionSplit`, `cardlinkedCommissionSplit`,
+* `cardlinkedUserCommissionSplit`).
+* Key changes:
+* Remove `MerchantNetwork` and `MerchantNetworkName` exported types
+* Change `OrganizationsClient.get()` to take no `organizationId` parameter, targeting `GET /v2/issuer`
+* Replace `ExternalOrganizationResponse` with new `ChildOrganizationResponse` type on all children client methods
+* Add new `ChildOrganizationResponse` and `ChildOrganizationAttributes` types
+* Slim down `ExternalOrganizationAttributes`, removing 7 fields and adding 3 required commission-split fields
+* 🌿 Generated with Fern
+
 ## 14.4.0 - 2026-04-16
 ### Added
 * **`MerchantAsset`** — new interface representing a signed attribution asset (logo, banner, etc.) for a merchant, with `type`, `url`, and optional `alt` fields.

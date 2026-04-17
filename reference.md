@@ -377,7 +377,7 @@ await client.notifications.subscriptions.update("organization-123", "subscriptio
 </details>
 
 ## Organizations
-<details><summary><code>client.organizations.<a href="/src/api/resources/organizations/client/Client.ts">get</a>(organizationId) -> KardApi.ExternalOrganizationResponse</code></summary>
+<details><summary><code>client.organizations.<a href="/src/api/resources/organizations/client/Client.ts">get</a>() -> KardApi.ExternalOrganizationResponse</code></summary>
 <dl>
 <dd>
 
@@ -404,7 +404,7 @@ Retrieve organization details for the authenticated issuer
 <dd>
 
 ```typescript
-await client.organizations.get("organizationId");
+await client.organizations.get();
 
 ```
 </dd>
@@ -416,14 +416,6 @@ await client.organizations.get("organizationId");
 
 <dl>
 <dd>
-
-<dl>
-<dd>
-
-**organizationId:** `string` — Unique identifier of the organization (must match the authenticated issuer)
-    
-</dd>
-</dl>
 
 <dl>
 <dd>
@@ -512,7 +504,7 @@ await client.organizations.children.list("organizationId");
 </dl>
 </details>
 
-<details><summary><code>client.organizations.children.<a href="/src/api/resources/organizations/resources/children/client/Client.ts">create</a>(organizationId, { ...params }) -> KardApi.ExternalOrganizationResponse</code></summary>
+<details><summary><code>client.organizations.children.<a href="/src/api/resources/organizations/resources/children/client/Client.ts">create</a>(organizationId, { ...params }) -> KardApi.ChildOrganizationResponse</code></summary>
 <dl>
 <dd>
 
@@ -590,7 +582,7 @@ await client.organizations.children.create("organizationId", {
 </dl>
 </details>
 
-<details><summary><code>client.organizations.children.<a href="/src/api/resources/organizations/resources/children/client/Client.ts">get</a>(organizationId, childId) -> KardApi.ExternalOrganizationResponse</code></summary>
+<details><summary><code>client.organizations.children.<a href="/src/api/resources/organizations/resources/children/client/Client.ts">get</a>(organizationId, childId) -> KardApi.ChildOrganizationResponse</code></summary>
 <dl>
 <dd>
 
@@ -661,7 +653,7 @@ await client.organizations.children.get("organizationId", "childId");
 </dl>
 </details>
 
-<details><summary><code>client.organizations.children.<a href="/src/api/resources/organizations/resources/children/client/Client.ts">update</a>(organizationId, childId, { ...params }) -> KardApi.ExternalOrganizationResponse</code></summary>
+<details><summary><code>client.organizations.children.<a href="/src/api/resources/organizations/resources/children/client/Client.ts">update</a>(organizationId, childId, { ...params }) -> KardApi.ChildOrganizationResponse</code></summary>
 <dl>
 <dd>
 
