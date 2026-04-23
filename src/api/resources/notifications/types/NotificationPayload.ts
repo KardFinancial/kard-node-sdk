@@ -17,7 +17,8 @@ import type * as KardApi from "../../../index.js";
  *                 },
  *                 attributionUrl: "www.attribution.com/token",
  *                 surveyUrl: "www.survey.com",
- *                 cardProductId: "card_product_123"
+ *                 cardProductId: "card_product_123",
+ *                 transactionTimestamp: "2024-10-01T14:32:10.000Z"
  *             },
  *             relationships: {
  *                 user: {
@@ -46,7 +47,8 @@ import type * as KardApi from "../../../index.js";
  *                 name: "McDonald's",
  *                 attributionUrl: "www.attribution.com/token",
  *                 surveyUrl: "www.survey.com",
- *                 cardProductId: "card_product_123"
+ *                 cardProductId: "card_product_123",
+ *                 transactionTimestamp: "2024-10-01T14:32:10.000Z"
  *             },
  *             relationships: {
  *                 user: {

@@ -1,3 +1,8 @@
+## 16.1.0 - 2026-04-23
+### Added
+* **`EarnedRewardAttributes["transactionTimestamp"]`** — new optional ISO 8601 string field exposing the originating transaction timestamp on earned reward notification payloads.
+* **`EarnedRewardSettledAttributes["transactionTimestamp"]`** — new optional ISO 8601 string field exposing the originating transaction timestamp on earned reward settled notification payloads.
+
 ## 16.0.0 - 2026-04-17
 ### Breaking Changes
 * **`CommissionEarnedDetails["issuer"]`** — the `issuer` property has been removed; only `user` remains. Remove any access to `.commissionEarned.issuer` in your code.

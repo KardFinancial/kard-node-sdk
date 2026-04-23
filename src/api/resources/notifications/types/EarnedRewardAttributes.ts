@@ -2,4 +2,7 @@
 
 import type * as KardApi from "../../../index.js";
 
-export interface EarnedRewardAttributes extends KardApi.RewardNotificationAttributes {}
+export interface EarnedRewardAttributes extends KardApi.RewardNotificationAttributes {
+    /** The timestamp of the originating transaction in ISO format */
+    transactionTimestamp?: string | undefined;
+}
