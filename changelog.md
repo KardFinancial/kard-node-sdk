@@ -1,3 +1,16 @@
+## 16.1.1 - 2026-04-28
+* chore: update asset URL examples in rewards type JSDoc comments
+* Refresh the inline code example URLs in LocationsResponseObject and
+* OffersResponseObject TSDoc blocks to use the current attribution URL
+* format with proper JWT tokens. The old placeholder asset URLs have been
+* replaced with realistic attribution-service URLs, and example field
+* ordering has been normalised (url → alt → type).
+* Key changes:
+* Replace placeholder asset URLs in LocationsResponseObject TSDoc examples with attribution-service URLs
+* Replace placeholder asset URLs in OffersResponseObject TSDoc examples with attribution-service URLs
+* Reorder asset object properties in examples (url, alt, type)
+* 🌿 Generated with Fern
+
 ## 16.1.0 - 2026-04-23
 ### Added
 * **`EarnedRewardAttributes["transactionTimestamp"]`** — new optional ISO 8601 string field exposing the originating transaction timestamp on earned reward notification payloads.

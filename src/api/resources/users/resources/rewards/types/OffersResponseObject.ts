@@ -37,13 +37,13 @@ import type * as KardApi from "../../../../../index.js";
  *                     maxRedemptions: 1,
  *                     isTargeted: true,
  *                     assets: [{
- *                             type: "IMG_VIEW",
- *                             url: "http://assets.getkard.com/logo/img?attribution-tokens",
- *                             alt: "Worlds Greatest Chicken Logo Image"
+ *                             url: "http://attribution.getkard.com/logos/breakfastbunny_logo.png?subtype=IMG_VIEW&offerId=629fc220b7a4290009a188ec&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZWZlcnJpbmdQYXJ0bmVyVXNlcklkIjoiNDM4MTAzIiwiaXNzdWVySWQiOiIwMDAwNDMyMSIsInR5cGUiOiJPRkZFUiIsInBheWxvYWQiOnsiand0VGltZXN0YW1wIjoiMjAyNi0wNC0yMyJ9fQ.4f9QmoGpgXVIXu9Tq8XFVcx7Rz0jptsYNYpmaIBszyc&state=eyJyYW5rIjoxLCJmaWx0ZXJzIjpbXX0%3D",
+ *                             alt: "",
+ *                             type: "IMG_VIEW"
  *                         }, {
- *                             type: "BANNER_VIEW",
- *                             url: "http://assets.getkard.com/banner/img?attribution-tokens",
- *                             alt: "Worlds Greatest Chicken Banner Image"
+ *                             url: "https://attribution.getkard.com/public/banners/breakfast-bunny-banner.jpg?subtype=BANNER_VIEW&offerId=629fc220b7a4290009a188ec&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZWZlcnJpbmdQYXJ0bmVyVXNlcklkIjoiNDM4MTAzIiwiaXNzdWVySWQiOiIwMDAwNDMyMSIsInR5cGUiOiJPRkZFUiIsInBheWxvYWQiOnsiand0VGltZXN0YW1wIjoiMjAyNi0wNC0yMyJ9fQ.4f9QmoGpgXVIXu9Tq8XFVcx7Rz0jptsYNYpmaIBszyc&state=eyJyYW5rIjoxLCJmaWx0ZXJzIjpbXX0%3D",
+ *                             alt: "",
+ *                             type: "BANNER_VIEW"
  *                         }],
  *                     websiteUrl: "http://worldsgreatestchickent.test.com",
  *                     description: "Worlds Greatest Chicken brings you the tastiest crispy, double fried spicy chicken in the world."
