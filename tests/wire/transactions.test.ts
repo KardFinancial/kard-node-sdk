@@ -1710,6 +1710,54 @@ describe("TransactionsClient", () => {
         });
         const rawRequestBody = {
             data: [
+                {
+                    type: "historicalTransactionsFile",
+                    attributes: { filename: "historical_transactions_2024-10-15.jsonl" },
+                },
+            ],
+        };
+        const rawResponseBody = {
+            data: [
+                {
+                    type: "historicalTransactionsFile",
+                    id: "2Rk3pHqLm9vNwXs1TyBf0Jc4dE",
+                    attributes: { url: "https://s3.amazonaws.com/bucket/key1?X-Amz-Algorithm=...", expiresIn: 900 },
+                },
+            ],
+        };
+
+        server
+            .mockEndpoint()
+            .post("/v2/issuers/organization-123/transactions/uploads")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.transactions.createBulkTransactionsUploadUrl("organization-123", {
+            data: [
+                {
+                    type: "historicalTransactionsFile",
+                    attributes: {
+                        filename: "historical_transactions_2024-10-15.jsonl",
+                    },
+                },
+            ],
+        });
+        expect(response).toEqual(rawResponseBody);
+    });
+
+    test("createBulkTransactionsUploadUrl (3)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new KardApiClient({
+            maxRetries: 0,
+            clientId: "client_id",
+            clientSecret: "client_secret",
+            environment: server.baseUrl,
+        });
+        const rawRequestBody = {
+            data: [
                 { type: "incomingTransactionsFile", attributes: { filename: "filename" } },
                 { type: "incomingTransactionsFile", attributes: { filename: "filename" } },
             ],
@@ -1750,7 +1798,7 @@ describe("TransactionsClient", () => {
         }).rejects.toThrow(KardApi.ForbiddenError);
     });
 
-    test("createBulkTransactionsUploadUrl (3)", async () => {
+    test("createBulkTransactionsUploadUrl (4)", async () => {
         const server = mockServerPool.createServer();
         const client = new KardApiClient({
             maxRetries: 0,
@@ -1800,7 +1848,7 @@ describe("TransactionsClient", () => {
         }).rejects.toThrow(KardApi.UnauthorizedError);
     });
 
-    test("createBulkTransactionsUploadUrl (4)", async () => {
+    test("createBulkTransactionsUploadUrl (5)", async () => {
         const server = mockServerPool.createServer();
         const client = new KardApiClient({
             maxRetries: 0,
@@ -1850,7 +1898,7 @@ describe("TransactionsClient", () => {
         }).rejects.toThrow(KardApi.InvalidRequest);
     });
 
-    test("createBulkTransactionsUploadUrl (5)", async () => {
+    test("createBulkTransactionsUploadUrl (6)", async () => {
         const server = mockServerPool.createServer();
         const client = new KardApiClient({
             maxRetries: 0,

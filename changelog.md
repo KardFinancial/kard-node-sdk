@@ -1,3 +1,16 @@
+## 16.1.2 - 2026-04-30
+* chore: deprecate uploads endpoints and update bulk upload docs
+* Mark the three `UploadsClient` endpoints (create upload, add upload
+* part, update upload) as `@deprecated` in favour of the bulk transactions
+* upload URL flow. Also expand the `createBulkTransactionsUploadUrl` JSDoc
+* to document `historicalTransactionsFile` support and add a second usage
+* example. The `FileUploadType` enum description is tightened for clarity.
+* Key changes:
+* Add `@deprecated` JSDoc tags to `UploadsClient.createUpload`, `createUploadPart`, and `updateUpload`, pointing consumers to `createBulkTransactionsUploadUrl`
+* Expand `createBulkTransactionsUploadUrl` JSDoc to document `historicalTransactionsFile` support and add a second `@example` block
+* Tighten `FileUploadType` enum description for `historicalTransactionsFile`
+* 🌿 Generated with Fern
+
 ## 16.1.1 - 2026-04-28
 * chore: update asset URL examples in rewards type JSDoc comments
 * Refresh the inline code example URLs in LocationsResponseObject and
