@@ -1,3 +1,12 @@
+## 16.1.3 - 2026-05-07
+* chore: correct required scope in createBulkTransactionsUploadUrl JSDoc
+* Update the `<b>Required scopes:</b>` annotation in the
+* `TransactionsClient` JSDoc from `transaction:write` to `files:write`,
+* reflecting the actual OAuth scope required by the endpoint.
+* Key changes:
+* Fix required scope annotation from `transaction:write` to `files:write` in `createBulkTransactionsUploadUrl` JSDoc
+* 🌿 Generated with Fern
+
 ## 16.1.2 - 2026-04-30
 * chore: deprecate uploads endpoints and update bulk upload docs
 * Mark the three `UploadsClient` endpoints (create upload, add upload
