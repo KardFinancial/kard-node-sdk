@@ -1,3 +1,9 @@
+## 16.2.0 - 2026-05-12
+### Added
+* **`LocationPartnerId`** — new interface representing a third-party partner ID (e.g. a Google place ID) associated with a reward location.
+* **`LocationPartnerIdType`** — new const enum with a `Google` value, used as the `type` discriminant on `LocationPartnerId`.
+* **`LocationAttributes.partnerIds`** — new optional field (`LocationPartnerId[] | undefined`) that surfaces third-party partner IDs for LOCAL reward locations.
+
 ## 16.1.3 - 2026-05-07
 * chore: correct required scope in createBulkTransactionsUploadUrl JSDoc
 * Update the `<b>Required scopes:</b>` annotation in the

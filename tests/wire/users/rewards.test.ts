@@ -504,6 +504,7 @@ describe("RewardsClient", () => {
                                 "Sunday: Closed",
                             ],
                         },
+                        partnerIds: [{ type: "google", id: "3pafnweri4" }],
                     },
                     relationships: {
                         offers: { data: [{ type: "standardOffer", id: "5e27318c9b346f00087fbb5b" }] },

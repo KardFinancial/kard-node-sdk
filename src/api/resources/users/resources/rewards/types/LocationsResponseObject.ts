@@ -69,7 +69,11 @@ import type * as KardApi from "../../../../../index.js";
  *                                 }
  *                             }],
  *                         weekdayText: ["Monday: 9:00 AM \u2013 5:00 PM", "Tuesday: 9:00 AM \u2013 5:00 PM", "Wednesday: 9:00 AM \u2013 5:00 PM", "Thursday: 9:00 AM \u2013 5:00 PM", "Friday: 9:00 AM \u2013 5:00 PM", "Saturday: Closed", "Sunday: Closed"]
- *                     }
+ *                     },
+ *                     partnerIds: [{
+ *                             type: KardApi.users.LocationPartnerIdType.Google,
+ *                             id: "3pafnweri4"
+ *                         }]
  *                 },
  *                 relationships: {
  *                     offers: {

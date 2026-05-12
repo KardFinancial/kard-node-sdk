@@ -19,6 +19,8 @@ export * from "./EligibilityOfferIncluded.js";
 export * from "./EligibilityOfferRelationship.js";
 export * from "./LocationAttributes.js";
 export * from "./LocationData.js";
+export * from "./LocationPartnerId.js";
+export * from "./LocationPartnerIdType.js";
 export * from "./LocationRelationships.js";
 export * from "./LocationSortOptions.js";
 export * from "./LocationsResponseObject.js";

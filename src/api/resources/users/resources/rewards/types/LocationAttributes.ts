@@ -8,4 +8,6 @@ export interface LocationAttributes {
     coordinates: KardApi.users.Coordinates;
     phone: string;
     operationHours: KardApi.users.OperationHours;
+    /** List of ids associated with the location from third party partners. Only included on LOCAL locations. */
+    partnerIds?: KardApi.users.LocationPartnerId[] | undefined;
 }
