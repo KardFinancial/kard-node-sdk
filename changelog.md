@@ -1,3 +1,7 @@
+## 18.0.0 - 2026-05-14
+### Breaking Changes
+* **`LocationAttributes.partnerIds`** — field changed from optional (`LocationPartnerId[] | undefined`) to required (`LocationPartnerId[]`); existing code that constructs `LocationAttributes` without `partnerIds` will no longer compile — add `partnerIds: []` (or the appropriate array) to all `LocationAttributes` object literals.
+
 ## 17.0.0 - 2026-05-14
 ### Breaking Changes
 * **`EarnedRewardAttributes`** — interface has been removed; update any references to use `RewardNotificationAttributes` directly.
