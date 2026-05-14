@@ -5,6 +5,6 @@ import type * as KardApi from "../../../index.js";
 export interface EarnedRewardApprovedData {
     /** The internal ID of the notification */
     id: string;
-    attributes: KardApi.EarnedRewardAttributes;
+    attributes: KardApi.RewardNotificationAttributes;
     relationships: KardApi.EarnedRewardRelationships;
 }

@@ -11,4 +11,10 @@ export interface RewardNotificationAttributes {
     surveyUrl?: string | undefined;
     /** The ID of the card product */
     cardProductId?: string | undefined;
+    /** The timestamp of the originating transaction in ISO format */
+    transactionTimestamp?: string | undefined;
+    /** The transaction ID */
+    transactionId: string;
+    /** The amount of the originating transaction in cents */
+    transactionAmountInCents: number;
 }

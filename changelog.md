@@ -1,3 +1,14 @@
+## 17.0.0 - 2026-05-14
+### Breaking Changes
+* **`EarnedRewardAttributes`** — interface has been removed; update any references to use `RewardNotificationAttributes` directly.
+* **`EarnedRewardApprovedData.attributes`** — type changed from `EarnedRewardAttributes` to `RewardNotificationAttributes`; remove any code that relied on the old subtype.
+* **`RewardNotificationAttributes`** — two new required fields added: `transactionId: string` and `transactionAmountInCents: number`; existing object literals that construct this type must be updated to include both fields.
+* **`EarnedRewardSettledAttributes`** — `transactionTimestamp` field removed from this interface (it is now inherited from `RewardNotificationAttributes`); no action needed unless code referenced it specifically on this subtype.
+### Added
+* **`RewardNotificationAttributes.transactionTimestamp`** — optional transaction timestamp (ISO format) is now part of the base `RewardNotificationAttributes` interface, available on all notification attribute types.
+* **`RewardNotificationAttributes.transactionId`** — new required field surfacing the originating transaction ID on all reward notification attribute types.
+* **`RewardNotificationAttributes.transactionAmountInCents`** — new required field surfacing the originating transaction amount (in cents) on all reward notification attribute types.
+
 ## 16.2.0 - 2026-05-12
 ### Added
 * **`LocationPartnerId`** — new interface representing a third-party partner ID (e.g. a Google place ID) associated with a reward location.

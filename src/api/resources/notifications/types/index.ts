@@ -3,7 +3,6 @@ export * from "./AuditUpdateData.js";
 export * from "./AuditUpdateRelationships.js";
 export * from "./ClawbackData.js";
 export * from "./EarnedRewardApprovedData.js";
-export * from "./EarnedRewardAttributes.js";
 export * from "./EarnedRewardRelationships.js";
 export * from "./EarnedRewardSettledAttributes.js";
 export * from "./EarnedRewardSettledData.js";

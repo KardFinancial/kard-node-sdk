@@ -18,7 +18,9 @@ import type * as KardApi from "../../../index.js";
  *                 attributionUrl: "www.attribution.com/token",
  *                 surveyUrl: "www.survey.com",
  *                 cardProductId: "card_product_123",
- *                 transactionTimestamp: "2024-10-01T14:32:10.000Z"
+ *                 transactionTimestamp: "2024-10-01T14:32:10.000Z",
+ *                 transactionId: "019df940-babd-7cd3-acfc-a96de16643e9",
+ *                 transactionAmountInCents: 3000
  *             },
  *             relationships: {
  *                 user: {
@@ -48,7 +50,9 @@ import type * as KardApi from "../../../index.js";
  *                 attributionUrl: "www.attribution.com/token",
  *                 surveyUrl: "www.survey.com",
  *                 cardProductId: "card_product_123",
- *                 transactionTimestamp: "2024-10-01T14:32:10.000Z"
+ *                 transactionTimestamp: "2024-10-01T14:32:10.000Z",
+ *                 transactionId: "019df940-babd-7cd3-acfc-a96de16643e9",
+ *                 transactionAmountInCents: 3000
  *             },
  *             relationships: {
  *                 user: {
@@ -87,7 +91,9 @@ import type * as KardApi from "../../../index.js";
  *                 },
  *                 attributionUrl: "www.attribution.com/token",
  *                 surveyUrl: "www.survey.com",
- *                 cardProductId: "card_product_123"
+ *                 cardProductId: "card_product_123",
+ *                 transactionId: "019df940-babd-7cd3-acfc-a96de16643e9",
+ *                 transactionAmountInCents: 3000
  *             },
  *             relationships: {
  *                 user: {
