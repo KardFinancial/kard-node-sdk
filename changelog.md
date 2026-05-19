@@ -1,3 +1,9 @@
+## 18.2.0 - 2026-05-19
+### Added
+* **`contentStrategyId`** — new optional field on `CreateMainPageAttributes`, `CreatePushNotificationAttributes`, `UpdateMainPageAttributes`, and `UpdatePushNotificationAttributes` to link a placement to a content strategy at creation or update time.
+* **`contentStrategyId`** — new optional field on `MainPagePlacementAttributes` and `PushNotificationPlacementAttributes` response types, surfacing the ID of any content strategy linked to the placement.
+* **`ListPlacementsRequest["filter[contentStrategyId]"]`** — new optional query parameter on the placements list endpoint to filter results by a linked content strategy ID.
+
 ## 18.1.0 - 2026-05-19
 ### Added
 * **`ContentStrategiesClient`** — new sub-client accessible via `client.organizations.contentStrategies` with `create`, `list`, `get`, `update`, and `delete` operations for organization content strategies.

@@ -14,4 +14,6 @@ export interface CreateMainPageAttributes {
     name: string;
     /** Number of available slots (minimum 1) */
     availableSlots: number;
+    /** ID of the content strategy to link this placement to */
+    contentStrategyId?: string | undefined;
 }

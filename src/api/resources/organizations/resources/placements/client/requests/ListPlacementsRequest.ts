@@ -11,6 +11,8 @@ export interface ListPlacementsRequest {
     "filter[type]"?: KardApi.organizations.PlacementTypeFilter;
     /** Filter by exact placement name (unique within an organization per type) */
     "filter[name]"?: string;
+    /** Filter by the ID of the content strategy linked to the placement */
+    "filter[contentStrategyId]"?: string;
     /** Cursor value for the next page of results */
     "page[after]"?: string;
     /** Maximum number of records to return [1 - 200] (default = 200) */

@@ -19,4 +19,6 @@ export interface CreatePushNotificationAttributes {
     name: string;
     /** Delivery cadence for the notification */
     cadence: KardApi.organizations.Cadence;
+    /** ID of the content strategy to link this placement to */
+    contentStrategyId?: string | undefined;
 }

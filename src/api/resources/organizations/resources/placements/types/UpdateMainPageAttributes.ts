@@ -14,4 +14,6 @@ export interface UpdateMainPageAttributes {
     name: string;
     /** Number of available slots (minimum 1) */
     availableSlots: number;
+    /** ID of the content strategy to link this placement to. Omit to clear any existing link (PUT requires the full attribute set, so a missing value unlinks the placement). */
+    contentStrategyId?: string | undefined;
 }

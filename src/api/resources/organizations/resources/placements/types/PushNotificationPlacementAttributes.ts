@@ -12,6 +12,8 @@ export interface PushNotificationPlacementAttributes {
     organizationId: string;
     /** Delivery cadence for the notification */
     cadence: KardApi.organizations.Cadence;
+    /** ID of the content strategy linked to this placement, if any */
+    contentStrategyId?: string | undefined;
     /** When the placement was created (ISO 8601 UTC) */
     createdAt: string;
     /** When the placement was last modified (ISO 8601 UTC) */

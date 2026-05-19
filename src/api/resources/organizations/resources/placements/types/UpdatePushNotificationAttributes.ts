@@ -20,4 +20,6 @@ export interface UpdatePushNotificationAttributes {
     name: string;
     /** Delivery cadence for the notification */
     cadence: KardApi.organizations.Cadence;
+    /** ID of the content strategy to link this placement to. Omit to clear any existing link (PUT requires the full attribute set, so a missing value unlinks the placement). */
+    contentStrategyId?: string | undefined;
 }

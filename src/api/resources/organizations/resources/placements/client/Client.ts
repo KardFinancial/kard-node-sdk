@@ -181,12 +181,14 @@ export class PlacementsClient {
         const {
             "filter[type]": filterType,
             "filter[name]": filterName,
+            "filter[contentStrategyId]": filterContentStrategyId,
             "page[after]": pageAfter,
             "page[size]": pageSize,
         } = request;
         const _queryParams: Record<string, unknown> = {
             "filter[type]": filterType != null ? filterType : undefined,
             "filter[name]": filterName,
+            "filter[contentStrategyId]": filterContentStrategyId,
             "page[after]": pageAfter,
             "page[size]": pageSize,
         };
