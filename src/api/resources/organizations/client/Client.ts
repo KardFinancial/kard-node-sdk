@@ -9,6 +9,7 @@ import { handleNonStatusCodeError } from "../../../../errors/handleNonStatusCode
 import * as errors from "../../../../errors/index.js";
 import * as KardApi from "../../../index.js";
 import { ChildrenClient } from "../resources/children/client/Client.js";
+import { ContentStrategiesClient } from "../resources/contentStrategies/client/Client.js";
 import { PlacementsClient } from "../resources/placements/client/Client.js";
 
 export declare namespace OrganizationsClient {
@@ -20,6 +21,7 @@ export declare namespace OrganizationsClient {
 export class OrganizationsClient {
     protected readonly _options: NormalizedClientOptionsWithAuth<OrganizationsClient.Options>;
     protected _children: ChildrenClient | undefined;
+    protected _contentStrategies: ContentStrategiesClient | undefined;
     protected _placements: PlacementsClient | undefined;
 
     constructor(options: OrganizationsClient.Options = {}) {
@@ -28,6 +30,10 @@ export class OrganizationsClient {
 
     public get children(): ChildrenClient {
         return (this._children ??= new ChildrenClient(this._options));
+    }
+
+    public get contentStrategies(): ContentStrategiesClient {
+        return (this._contentStrategies ??= new ContentStrategiesClient(this._options));
     }
 
     public get placements(): PlacementsClient {

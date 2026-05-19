@@ -808,6 +808,392 @@ await client.organizations.children.delete("organizationId", "childId");
 </dl>
 </details>
 
+## ContentStrategies
+<details><summary><code>client.organizations.contentStrategies.<a href="/src/api/resources/organizations/resources/contentStrategies/client/Client.ts">create</a>(organizationId, { ...params }) -> KardApi.ContentStrategyResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a content strategy for the organization. The strategy name must be unique within the organization.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.organizations.contentStrategies.create("org-123", {
+    data: {
+        type: "contentStrategy",
+        attributes: {
+            name: "Featured Travel",
+            filters: ["HIGHEST_CASHBACK", "NEWLY_LIVE"],
+            categories: ["Travel"],
+            categoryExclusions: ["Gas"],
+            merchantExclusions: ["merchant-abc"]
+        }
+    }
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**organizationId:** `string` — Unique identifier of the organization
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `KardApi.CreateContentStrategyRequestBody` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `ContentStrategiesClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.organizations.contentStrategies.<a href="/src/api/resources/organizations/resources/contentStrategies/client/Client.ts">list</a>(organizationId, { ...params }) -> KardApi.ContentStrategyListResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List content strategies belonging to the authenticated organization
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.organizations.contentStrategies.list("organizationId");
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**organizationId:** `string` — Unique identifier of the organization
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `KardApi.organizations.ListContentStrategiesRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `ContentStrategiesClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.organizations.contentStrategies.<a href="/src/api/resources/organizations/resources/contentStrategies/client/Client.ts">get</a>(organizationId, contentStrategyId) -> KardApi.ContentStrategyResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Retrieve a specific content strategy
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.organizations.contentStrategies.get("organizationId", "contentStrategyId");
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**organizationId:** `string` — Unique identifier of the organization
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**contentStrategyId:** `string` — Unique identifier of the content strategy (UUID v7)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `ContentStrategiesClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.organizations.contentStrategies.<a href="/src/api/resources/organizations/resources/contentStrategies/client/Client.ts">update</a>(organizationId, contentStrategyId, { ...params }) -> KardApi.ContentStrategyResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Replace a content strategy. All fields must be provided; any omitted attribute is treated as cleared.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.organizations.contentStrategies.update("organizationId", "contentStrategyId", {
+    data: {
+        type: "contentStrategy",
+        attributes: {
+            name: "name",
+            filters: ["NEWLY_LIVE", "NEWLY_LIVE"],
+            categories: ["Arts & Entertainment", "Arts & Entertainment"],
+            categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
+            merchantExclusions: ["merchantExclusions", "merchantExclusions"]
+        }
+    }
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**organizationId:** `string` — Unique identifier of the organization
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**contentStrategyId:** `string` — Unique identifier of the content strategy (UUID v7)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `KardApi.UpdateContentStrategyRequestBody` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `ContentStrategiesClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.organizations.contentStrategies.<a href="/src/api/resources/organizations/resources/contentStrategies/client/Client.ts">delete</a>(organizationId, contentStrategyId) -> KardApi.DeleteResourceResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete a content strategy. Returns 409 if the strategy is still referenced by another resource.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.organizations.contentStrategies.delete("organizationId", "contentStrategyId");
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**organizationId:** `string` — Unique identifier of the organization
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**contentStrategyId:** `string` — Unique identifier of the content strategy (UUID v7)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `ContentStrategiesClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 ## Placements
 <details><summary><code>client.organizations.placements.<a href="/src/api/resources/organizations/resources/placements/client/Client.ts">create</a>(organizationId, { ...params }) -> KardApi.PlacementFormatUnion</code></summary>
 <dl>

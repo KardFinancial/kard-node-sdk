@@ -1,3 +1,11 @@
+## 18.1.0 - 2026-05-19
+### Added
+* **`ContentStrategiesClient`** — new sub-client accessible via `client.organizations.contentStrategies` with `create`, `list`, `get`, `update`, and `delete` operations for organization content strategies.
+* **`ContentStrategyFilter`** — new const enum with values for configuring offer selection (`NewlyLive`, `ExpiringSoon`, `HighestCashback`, `Personalized`) used when creating or updating a content strategy.
+* **`ContentStrategyResponse`** and **`ContentStrategyListResponse`** — new response types returned by content strategy endpoints, including full attributes and cursor-based pagination support.
+* **`CreateContentStrategyRequestBody`**, **`UpdateContentStrategyRequestBody`**, and related request interfaces — new request body and data wrapper types for creating and updating content strategies, covering fields such as `name`, `filters`, `categories`, `categoryExclusions`, and `merchantExclusions`.
+* **`ListContentStrategiesRequest`** — new paginated list request type supporting `filter[name]`, `page[after]`, and `page[size]` query parameters.
+
 ## 18.0.0 - 2026-05-14
 ### Breaking Changes
 * **`LocationAttributes.partnerIds`** — field changed from optional (`LocationPartnerId[] | undefined`) to required (`LocationPartnerId[]`); existing code that constructs `LocationAttributes` without `partnerIds` will no longer compile — add `partnerIds: []` (or the appropriate array) to all `LocationAttributes` object literals.
