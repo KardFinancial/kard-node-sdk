@@ -1344,7 +1344,7 @@ await client.organizations.placements.list("organizationId");
 </dl>
 </details>
 
-<details><summary><code>client.organizations.placements.<a href="/src/api/resources/organizations/resources/placements/client/Client.ts">get</a>(organizationId, placementId) -> KardApi.PlacementFormatUnion</code></summary>
+<details><summary><code>client.organizations.placements.<a href="/src/api/resources/organizations/resources/placements/client/Client.ts">get</a>(organizationId, placementId, { ...params }) -> KardApi.PlacementResource</code></summary>
 <dl>
 <dd>
 
@@ -1396,6 +1396,14 @@ await client.organizations.placements.get("organizationId", "placementId");
 <dd>
 
 **placementId:** `string` — Unique identifier of the placement (UUID v7)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `KardApi.organizations.GetPlacementRequest` 
     
 </dd>
 </dl>

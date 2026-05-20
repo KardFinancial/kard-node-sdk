@@ -1,3 +1,12 @@
+## 20.0.0 - 2026-05-20
+### Breaking Changes
+* **`PlacementsClient.get`** — return type changed from `PlacementFormatUnion` to `PlacementResource` (a document envelope with a `data` field); update all callers to access `.data` for the placement and optionally `.included` for related resources.
+### Added
+* **`GetPlacementRequest`** — new optional request parameter on `PlacementsClient.get` supporting an `include` query field (e.g. `include: "contentStrategy"`) to sideload related content strategies in the response.
+* **`PlacementResource`** — new response type returned by `PlacementsClient.get`, wrapping `data: PlacementFormatUnion` with an optional `included: ContentStrategyResponse[]` array.
+* **`ListPlacementsRequest.include`** — new optional field on the placements list request to embed related content strategies in the `included` array of `PlacementListResponse`.
+* **`PlacementListResponse.included`** — new optional `ContentStrategyResponse[]` field populated when `include=contentStrategy` is supplied and placements are linked to a content strategy.
+
 ## 19.0.0 - 2026-05-20
 ### Breaking Changes
 * **`ContentStrategyAttributes.filters`** — the required `filters: ContentStrategyFilter[]` array field has been removed and replaced with `filter?: ContentStrategyFilter | undefined`; update all object literals and property accesses from `filters` (array) to `filter` (single optional value).

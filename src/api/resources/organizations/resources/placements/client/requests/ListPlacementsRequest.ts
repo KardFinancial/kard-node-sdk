@@ -13,6 +13,8 @@ export interface ListPlacementsRequest {
     "filter[name]"?: string;
     /** Filter by the ID of the content strategy linked to the placement */
     "filter[contentStrategyId]"?: string;
+    /** CSV list of related resources to embed in the `included` array (allowed value is `contentStrategy`). */
+    include?: string;
     /** Cursor value for the next page of results */
     "page[after]"?: string;
     /** Maximum number of records to return [1 - 200] (default = 200) */

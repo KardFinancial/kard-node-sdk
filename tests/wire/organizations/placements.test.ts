@@ -325,6 +325,36 @@ describe("PlacementsClient", () => {
                     },
                 },
             ],
+            included: [
+                {
+                    type: "contentStrategy",
+                    id: "id",
+                    attributes: {
+                        name: "name",
+                        organizationId: "organizationId",
+                        filter: "NEWLY_LIVE",
+                        categories: ["Arts & Entertainment", "Arts & Entertainment"],
+                        categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
+                        merchantExclusions: ["merchantExclusions", "merchantExclusions"],
+                        createdAt: "2024-01-15T09:30:00Z",
+                        lastModified: "2024-01-15T09:30:00Z",
+                    },
+                },
+                {
+                    type: "contentStrategy",
+                    id: "id",
+                    attributes: {
+                        name: "name",
+                        organizationId: "organizationId",
+                        filter: "NEWLY_LIVE",
+                        categories: ["Arts & Entertainment", "Arts & Entertainment"],
+                        categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
+                        merchantExclusions: ["merchantExclusions", "merchantExclusions"],
+                        createdAt: "2024-01-15T09:30:00Z",
+                        lastModified: "2024-01-15T09:30:00Z",
+                    },
+                },
+            ],
             links: { self: "self", prev: "prev", next: "next" },
             meta: { pageSize: 1, hasNextPage: true },
         };
@@ -496,16 +526,48 @@ describe("PlacementsClient", () => {
         });
 
         const rawResponseBody = {
-            type: "placementMainPage",
-            id: "id",
-            attributes: {
-                name: "name",
-                organizationId: "organizationId",
-                availableSlots: 1,
-                contentStrategyId: "contentStrategyId",
-                createdAt: "2024-01-15T09:30:00Z",
-                lastModified: "2024-01-15T09:30:00Z",
+            data: {
+                type: "placementMainPage",
+                id: "id",
+                attributes: {
+                    name: "name",
+                    organizationId: "organizationId",
+                    availableSlots: 1,
+                    contentStrategyId: "contentStrategyId",
+                    createdAt: "2024-01-15T09:30:00Z",
+                    lastModified: "2024-01-15T09:30:00Z",
+                },
             },
+            included: [
+                {
+                    type: "contentStrategy",
+                    id: "id",
+                    attributes: {
+                        name: "name",
+                        organizationId: "organizationId",
+                        filter: "NEWLY_LIVE",
+                        categories: ["Arts & Entertainment", "Arts & Entertainment"],
+                        categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
+                        merchantExclusions: ["merchantExclusions", "merchantExclusions"],
+                        createdAt: "2024-01-15T09:30:00Z",
+                        lastModified: "2024-01-15T09:30:00Z",
+                    },
+                },
+                {
+                    type: "contentStrategy",
+                    id: "id",
+                    attributes: {
+                        name: "name",
+                        organizationId: "organizationId",
+                        filter: "NEWLY_LIVE",
+                        categories: ["Arts & Entertainment", "Arts & Entertainment"],
+                        categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
+                        merchantExclusions: ["merchantExclusions", "merchantExclusions"],
+                        createdAt: "2024-01-15T09:30:00Z",
+                        lastModified: "2024-01-15T09:30:00Z",
+                    },
+                },
+            ],
         };
 
         server

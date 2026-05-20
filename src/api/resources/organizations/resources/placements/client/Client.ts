@@ -182,6 +182,7 @@ export class PlacementsClient {
             "filter[type]": filterType,
             "filter[name]": filterName,
             "filter[contentStrategyId]": filterContentStrategyId,
+            include,
             "page[after]": pageAfter,
             "page[size]": pageSize,
         } = request;
@@ -189,6 +190,7 @@ export class PlacementsClient {
             "filter[type]": filterType != null ? filterType : undefined,
             "filter[name]": filterName,
             "filter[contentStrategyId]": filterContentStrategyId,
+            include,
             "page[after]": pageAfter,
             "page[size]": pageSize,
         };
@@ -270,6 +272,7 @@ export class PlacementsClient {
      *
      * @param {string} organizationId - Unique identifier of the organization
      * @param {string} placementId - Unique identifier of the placement (UUID v7)
+     * @param {KardApi.organizations.GetPlacementRequest} request
      * @param {PlacementsClient.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @throws {@link KardApi.UnauthorizedError}
@@ -283,16 +286,22 @@ export class PlacementsClient {
     public get(
         organizationId: string,
         placementId: string,
+        request: KardApi.organizations.GetPlacementRequest = {},
         requestOptions?: PlacementsClient.RequestOptions,
-    ): core.HttpResponsePromise<KardApi.organizations.PlacementFormatUnion> {
-        return core.HttpResponsePromise.fromPromise(this.__get(organizationId, placementId, requestOptions));
+    ): core.HttpResponsePromise<KardApi.organizations.PlacementResource> {
+        return core.HttpResponsePromise.fromPromise(this.__get(organizationId, placementId, request, requestOptions));
     }
 
     private async __get(
         organizationId: string,
         placementId: string,
+        request: KardApi.organizations.GetPlacementRequest = {},
         requestOptions?: PlacementsClient.RequestOptions,
-    ): Promise<core.WithRawResponse<KardApi.organizations.PlacementFormatUnion>> {
+    ): Promise<core.WithRawResponse<KardApi.organizations.PlacementResource>> {
+        const { include } = request;
+        const _queryParams: Record<string, unknown> = {
+            include,
+        };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -308,7 +317,7 @@ export class PlacementsClient {
             ),
             method: "GET",
             headers: _headers,
-            queryParameters: requestOptions?.queryParams,
+            queryParameters: { ..._queryParams, ...requestOptions?.queryParams },
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
             maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
             abortSignal: requestOptions?.abortSignal,
@@ -317,7 +326,7 @@ export class PlacementsClient {
         });
         if (_response.ok) {
             return {
-                data: _response.body as KardApi.organizations.PlacementFormatUnion,
+                data: _response.body as KardApi.organizations.PlacementResource,
                 rawResponse: _response.rawResponse,
             };
         }

@@ -8,6 +8,8 @@ import type * as KardApi from "../../../../../index.js";
 export interface PlacementListResponse {
     /** Array of placement resources */
     data: KardApi.organizations.PlacementFormatUnion[];
+    /** Related resources requested via the `include` query parameter. Only populated when `include=contentStrategy` is supplied and at least one placement in `data` is linked to a content strategy. */
+    included?: KardApi.organizations.ContentStrategyResponse[] | undefined;
     links?: KardApi.Links | undefined;
     /** Pagination metadata */
     meta?: KardApi.OrganizationPaginationMetadata | undefined;
