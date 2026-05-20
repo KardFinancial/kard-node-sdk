@@ -12,9 +12,7 @@ import type * as KardApi from "../../../../../index.js";
  *         attributes: {
  *             name: "Homepage Banner",
  *             organizationId: "org-123",
- *             availableSlots: 5,
- *             createdAt: "2026-04-15T12:00:00Z",
- *             lastModified: "2026-04-15T12:00:00Z"
+ *             availableSlots: 5
  *         }
  *     }
  *
@@ -28,9 +26,7 @@ import type * as KardApi from "../../../../../index.js";
  *             cadence: {
  *                 frequency: KardApi.organizations.CadenceFrequency.Daily,
  *                 timeOfDay: "09:00"
- *             },
- *             createdAt: "2026-04-15T12:00:00Z",
- *             lastModified: "2026-04-15T12:00:00Z"
+ *             }
  *         }
  *     }
  */

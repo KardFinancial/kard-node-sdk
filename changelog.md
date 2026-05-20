@@ -1,3 +1,9 @@
+## 21.0.0 - 2026-05-20
+### Breaking Changes
+* **`ContentStrategyAttributes.createdAt` and `ContentStrategyAttributes.lastModified`** — both required fields have been removed; delete any references to these properties in code that reads or constructs `ContentStrategyAttributes` objects.
+* **`MainPagePlacementAttributes.createdAt` and `MainPagePlacementAttributes.lastModified`** — both required fields have been removed; delete any references to these properties in code that reads or constructs `MainPagePlacementAttributes` objects.
+* **`PushNotificationPlacementAttributes.createdAt` and `PushNotificationPlacementAttributes.lastModified`** — both required fields have been removed; delete any references to these properties in code that reads or constructs `PushNotificationPlacementAttributes` objects.
+
 ## 20.0.0 - 2026-05-20
 ### Breaking Changes
 * **`PlacementsClient.get`** — return type changed from `PlacementFormatUnion` to `PlacementResource` (a document envelope with a `data` field); update all callers to access `.data` for the placement and optionally `.included` for related resources.

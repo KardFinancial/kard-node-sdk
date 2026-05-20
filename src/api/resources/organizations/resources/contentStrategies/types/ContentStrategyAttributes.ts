@@ -18,8 +18,4 @@ export interface ContentStrategyAttributes {
     categoryExclusions: KardApi.CategoryOption[];
     /** Merchant IDs to exclude */
     merchantExclusions: string[];
-    /** When the content strategy was created (ISO 8601 UTC) */
-    createdAt: string;
-    /** When the content strategy was last modified (ISO 8601 UTC) */
-    lastModified: string;
 }

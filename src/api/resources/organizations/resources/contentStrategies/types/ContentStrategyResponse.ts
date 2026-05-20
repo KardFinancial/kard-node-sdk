@@ -15,9 +15,7 @@ import type * as KardApi from "../../../../../index.js";
  *             filter: KardApi.organizations.ContentStrategyFilter.HighestCashback,
  *             categories: [KardApi.CategoryOption.Travel],
  *             categoryExclusions: [KardApi.CategoryOption.Gas],
- *             merchantExclusions: ["merchant-abc"],
- *             createdAt: "2026-04-15T12:00:00Z",
- *             lastModified: "2026-04-15T12:00:00Z"
+ *             merchantExclusions: ["merchant-abc"]
  *         }
  *     }
  */

@@ -12,8 +12,4 @@ export interface MainPagePlacementAttributes {
     availableSlots: number;
     /** ID of the content strategy linked to this placement, if any */
     contentStrategyId?: string | undefined;
-    /** When the placement was created (ISO 8601 UTC) */
-    createdAt: string;
-    /** When the placement was last modified (ISO 8601 UTC) */
-    lastModified: string;
 }

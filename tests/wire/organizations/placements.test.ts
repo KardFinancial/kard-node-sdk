@@ -19,13 +19,7 @@ describe("PlacementsClient", () => {
         const rawResponseBody = {
             type: "placementMainPage",
             id: "01961e5a-b74c-7d42-8456-d3a1f2c90e71",
-            attributes: {
-                name: "Homepage Banner",
-                organizationId: "org-123",
-                availableSlots: 5,
-                createdAt: "2026-04-15T12:00:00Z",
-                lastModified: "2026-04-15T12:00:00Z",
-            },
+            attributes: { name: "Homepage Banner", organizationId: "org-123", availableSlots: 5 },
         };
 
         server
@@ -70,8 +64,6 @@ describe("PlacementsClient", () => {
                 name: "Daily Deal Alert",
                 organizationId: "org-123",
                 cadence: { frequency: "DAILY", timeOfDay: "09:00" },
-                createdAt: "2026-04-15T12:00:00Z",
-                lastModified: "2026-04-15T12:00:00Z",
             },
         };
 
@@ -308,8 +300,6 @@ describe("PlacementsClient", () => {
                         organizationId: "organizationId",
                         availableSlots: 1,
                         contentStrategyId: "contentStrategyId",
-                        createdAt: "2024-01-15T09:30:00Z",
-                        lastModified: "2024-01-15T09:30:00Z",
                     },
                 },
                 {
@@ -320,8 +310,6 @@ describe("PlacementsClient", () => {
                         organizationId: "organizationId",
                         availableSlots: 1,
                         contentStrategyId: "contentStrategyId",
-                        createdAt: "2024-01-15T09:30:00Z",
-                        lastModified: "2024-01-15T09:30:00Z",
                     },
                 },
             ],
@@ -336,8 +324,6 @@ describe("PlacementsClient", () => {
                         categories: ["Arts & Entertainment", "Arts & Entertainment"],
                         categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                         merchantExclusions: ["merchantExclusions", "merchantExclusions"],
-                        createdAt: "2024-01-15T09:30:00Z",
-                        lastModified: "2024-01-15T09:30:00Z",
                     },
                 },
                 {
@@ -350,8 +336,6 @@ describe("PlacementsClient", () => {
                         categories: ["Arts & Entertainment", "Arts & Entertainment"],
                         categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                         merchantExclusions: ["merchantExclusions", "merchantExclusions"],
-                        createdAt: "2024-01-15T09:30:00Z",
-                        lastModified: "2024-01-15T09:30:00Z",
                     },
                 },
             ],
@@ -534,8 +518,6 @@ describe("PlacementsClient", () => {
                     organizationId: "organizationId",
                     availableSlots: 1,
                     contentStrategyId: "contentStrategyId",
-                    createdAt: "2024-01-15T09:30:00Z",
-                    lastModified: "2024-01-15T09:30:00Z",
                 },
             },
             included: [
@@ -549,8 +531,6 @@ describe("PlacementsClient", () => {
                         categories: ["Arts & Entertainment", "Arts & Entertainment"],
                         categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                         merchantExclusions: ["merchantExclusions", "merchantExclusions"],
-                        createdAt: "2024-01-15T09:30:00Z",
-                        lastModified: "2024-01-15T09:30:00Z",
                     },
                 },
                 {
@@ -563,8 +543,6 @@ describe("PlacementsClient", () => {
                         categories: ["Arts & Entertainment", "Arts & Entertainment"],
                         categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                         merchantExclusions: ["merchantExclusions", "merchantExclusions"],
-                        createdAt: "2024-01-15T09:30:00Z",
-                        lastModified: "2024-01-15T09:30:00Z",
                     },
                 },
             ],
@@ -715,8 +693,6 @@ describe("PlacementsClient", () => {
                 organizationId: "organizationId",
                 availableSlots: 1,
                 contentStrategyId: "contentStrategyId",
-                createdAt: "2024-01-15T09:30:00Z",
-                lastModified: "2024-01-15T09:30:00Z",
             },
         };
 

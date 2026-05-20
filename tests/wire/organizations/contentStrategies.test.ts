@@ -35,8 +35,6 @@ describe("ContentStrategiesClient", () => {
                 categories: ["Travel"],
                 categoryExclusions: ["Gas"],
                 merchantExclusions: ["merchant-abc"],
-                createdAt: "2026-04-15T12:00:00Z",
-                lastModified: "2026-04-15T12:00:00Z",
             },
         };
 
@@ -385,8 +383,6 @@ describe("ContentStrategiesClient", () => {
                         categories: ["Arts & Entertainment", "Arts & Entertainment"],
                         categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                         merchantExclusions: ["merchantExclusions", "merchantExclusions"],
-                        createdAt: "2024-01-15T09:30:00Z",
-                        lastModified: "2024-01-15T09:30:00Z",
                     },
                 },
                 {
@@ -399,8 +395,6 @@ describe("ContentStrategiesClient", () => {
                         categories: ["Arts & Entertainment", "Arts & Entertainment"],
                         categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                         merchantExclusions: ["merchantExclusions", "merchantExclusions"],
-                        createdAt: "2024-01-15T09:30:00Z",
-                        lastModified: "2024-01-15T09:30:00Z",
                     },
                 },
             ],
@@ -584,8 +578,6 @@ describe("ContentStrategiesClient", () => {
                 categories: ["Arts & Entertainment", "Arts & Entertainment"],
                 categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                 merchantExclusions: ["merchantExclusions", "merchantExclusions"],
-                createdAt: "2024-01-15T09:30:00Z",
-                lastModified: "2024-01-15T09:30:00Z",
             },
         };
 
@@ -746,8 +738,6 @@ describe("ContentStrategiesClient", () => {
                 categories: ["Arts & Entertainment", "Arts & Entertainment"],
                 categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                 merchantExclusions: ["merchantExclusions", "merchantExclusions"],
-                createdAt: "2024-01-15T09:30:00Z",
-                lastModified: "2024-01-15T09:30:00Z",
             },
         };
 
