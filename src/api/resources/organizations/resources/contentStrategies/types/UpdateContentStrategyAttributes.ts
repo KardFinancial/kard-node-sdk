@@ -8,7 +8,7 @@ import type * as KardApi from "../../../../../index.js";
  * @example
  *     {
  *         name: "Updated Travel Strategy",
- *         filters: [KardApi.organizations.ContentStrategyFilter.ExpiringSoon, KardApi.organizations.ContentStrategyFilter.Personalized],
+ *         filter: KardApi.organizations.ContentStrategyFilter.ExpiringSoon,
  *         categories: [KardApi.CategoryOption.Travel, KardApi.CategoryOption.FoodBeverage],
  *         categoryExclusions: [],
  *         merchantExclusions: ["merchant-xyz"]
@@ -17,8 +17,8 @@ import type * as KardApi from "../../../../../index.js";
 export interface UpdateContentStrategyAttributes {
     /** Name of the content strategy (unique within an organization) */
     name: string;
-    /** Filters applied when selecting offers for the strategy */
-    filters: KardApi.organizations.ContentStrategyFilter[];
+    /** Filter applied when selecting offers for the strategy */
+    filter?: KardApi.organizations.ContentStrategyFilter | undefined;
     /** Merchant categories to include */
     categories: KardApi.CategoryOption[];
     /** Merchant categories to exclude */

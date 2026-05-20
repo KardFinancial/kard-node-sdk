@@ -11,7 +11,7 @@ import type * as KardApi from "../../../../../index.js";
  *             type: "contentStrategy",
  *             attributes: {
  *                 name: "Featured Travel",
- *                 filters: [KardApi.organizations.ContentStrategyFilter.HighestCashback, KardApi.organizations.ContentStrategyFilter.NewlyLive],
+ *                 filter: KardApi.organizations.ContentStrategyFilter.HighestCashback,
  *                 categories: [KardApi.CategoryOption.Travel],
  *                 categoryExclusions: [KardApi.CategoryOption.Gas],
  *                 merchantExclusions: ["merchant-abc"]

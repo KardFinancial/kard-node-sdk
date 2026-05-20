@@ -1,3 +1,9 @@
+## 19.0.0 - 2026-05-20
+### Breaking Changes
+* **`ContentStrategyAttributes.filters`** — the required `filters: ContentStrategyFilter[]` array field has been removed and replaced with `filter?: ContentStrategyFilter | undefined`; update all object literals and property accesses from `filters` (array) to `filter` (single optional value).
+* **`CreateContentStrategyAttributes.filters`** — same breaking rename as above; replace `filters: [...]` with `filter: ContentStrategyFilter.XYZ` (or omit the field entirely if no filter is needed).
+* **`UpdateContentStrategyAttributes.filters`** — same breaking rename as above; replace `filters: [...]` with `filter: ContentStrategyFilter.XYZ` (or omit the field entirely if no filter is needed).
+
 ## 18.2.0 - 2026-05-19
 ### Added
 * **`contentStrategyId`** — new optional field on `CreateMainPageAttributes`, `CreatePushNotificationAttributes`, `UpdateMainPageAttributes`, and `UpdatePushNotificationAttributes` to link a placement to a content strategy at creation or update time.

@@ -18,7 +18,7 @@ describe("ContentStrategiesClient", () => {
                 type: "contentStrategy",
                 attributes: {
                     name: "Featured Travel",
-                    filters: ["HIGHEST_CASHBACK", "NEWLY_LIVE"],
+                    filter: "HIGHEST_CASHBACK",
                     categories: ["Travel"],
                     categoryExclusions: ["Gas"],
                     merchantExclusions: ["merchant-abc"],
@@ -31,7 +31,7 @@ describe("ContentStrategiesClient", () => {
             attributes: {
                 name: "Featured Travel",
                 organizationId: "org-123",
-                filters: ["HIGHEST_CASHBACK", "NEWLY_LIVE"],
+                filter: "HIGHEST_CASHBACK",
                 categories: ["Travel"],
                 categoryExclusions: ["Gas"],
                 merchantExclusions: ["merchant-abc"],
@@ -54,7 +54,7 @@ describe("ContentStrategiesClient", () => {
                 type: "contentStrategy",
                 attributes: {
                     name: "Featured Travel",
-                    filters: ["HIGHEST_CASHBACK", "NEWLY_LIVE"],
+                    filter: "HIGHEST_CASHBACK",
                     categories: ["Travel"],
                     categoryExclusions: ["Gas"],
                     merchantExclusions: ["merchant-abc"],
@@ -77,7 +77,6 @@ describe("ContentStrategiesClient", () => {
                 type: "contentStrategy",
                 attributes: {
                     name: "name",
-                    filters: ["NEWLY_LIVE", "NEWLY_LIVE"],
                     categories: ["Arts & Entertainment", "Arts & Entertainment"],
                     categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                     merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -106,7 +105,6 @@ describe("ContentStrategiesClient", () => {
                     type: "contentStrategy",
                     attributes: {
                         name: "name",
-                        filters: ["NEWLY_LIVE", "NEWLY_LIVE"],
                         categories: ["Arts & Entertainment", "Arts & Entertainment"],
                         categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                         merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -129,7 +127,6 @@ describe("ContentStrategiesClient", () => {
                 type: "contentStrategy",
                 attributes: {
                     name: "name",
-                    filters: ["NEWLY_LIVE", "NEWLY_LIVE"],
                     categories: ["Arts & Entertainment", "Arts & Entertainment"],
                     categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                     merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -158,7 +155,6 @@ describe("ContentStrategiesClient", () => {
                     type: "contentStrategy",
                     attributes: {
                         name: "name",
-                        filters: ["NEWLY_LIVE", "NEWLY_LIVE"],
                         categories: ["Arts & Entertainment", "Arts & Entertainment"],
                         categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                         merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -181,7 +177,6 @@ describe("ContentStrategiesClient", () => {
                 type: "contentStrategy",
                 attributes: {
                     name: "name",
-                    filters: ["NEWLY_LIVE", "NEWLY_LIVE"],
                     categories: ["Arts & Entertainment", "Arts & Entertainment"],
                     categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                     merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -210,7 +205,6 @@ describe("ContentStrategiesClient", () => {
                     type: "contentStrategy",
                     attributes: {
                         name: "name",
-                        filters: ["NEWLY_LIVE", "NEWLY_LIVE"],
                         categories: ["Arts & Entertainment", "Arts & Entertainment"],
                         categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                         merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -233,7 +227,6 @@ describe("ContentStrategiesClient", () => {
                 type: "contentStrategy",
                 attributes: {
                     name: "name",
-                    filters: ["NEWLY_LIVE", "NEWLY_LIVE"],
                     categories: ["Arts & Entertainment", "Arts & Entertainment"],
                     categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                     merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -262,7 +255,6 @@ describe("ContentStrategiesClient", () => {
                     type: "contentStrategy",
                     attributes: {
                         name: "name",
-                        filters: ["NEWLY_LIVE", "NEWLY_LIVE"],
                         categories: ["Arts & Entertainment", "Arts & Entertainment"],
                         categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                         merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -285,7 +277,6 @@ describe("ContentStrategiesClient", () => {
                 type: "contentStrategy",
                 attributes: {
                     name: "name",
-                    filters: ["NEWLY_LIVE", "NEWLY_LIVE"],
                     categories: ["Arts & Entertainment", "Arts & Entertainment"],
                     categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                     merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -314,7 +305,6 @@ describe("ContentStrategiesClient", () => {
                     type: "contentStrategy",
                     attributes: {
                         name: "name",
-                        filters: ["NEWLY_LIVE", "NEWLY_LIVE"],
                         categories: ["Arts & Entertainment", "Arts & Entertainment"],
                         categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                         merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -337,7 +327,6 @@ describe("ContentStrategiesClient", () => {
                 type: "contentStrategy",
                 attributes: {
                     name: "name",
-                    filters: ["NEWLY_LIVE", "NEWLY_LIVE"],
                     categories: ["Arts & Entertainment", "Arts & Entertainment"],
                     categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                     merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -366,7 +355,6 @@ describe("ContentStrategiesClient", () => {
                     type: "contentStrategy",
                     attributes: {
                         name: "name",
-                        filters: ["NEWLY_LIVE", "NEWLY_LIVE"],
                         categories: ["Arts & Entertainment", "Arts & Entertainment"],
                         categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                         merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -393,7 +381,7 @@ describe("ContentStrategiesClient", () => {
                     attributes: {
                         name: "name",
                         organizationId: "organizationId",
-                        filters: ["NEWLY_LIVE", "NEWLY_LIVE"],
+                        filter: "NEWLY_LIVE",
                         categories: ["Arts & Entertainment", "Arts & Entertainment"],
                         categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                         merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -407,7 +395,7 @@ describe("ContentStrategiesClient", () => {
                     attributes: {
                         name: "name",
                         organizationId: "organizationId",
-                        filters: ["NEWLY_LIVE", "NEWLY_LIVE"],
+                        filter: "NEWLY_LIVE",
                         categories: ["Arts & Entertainment", "Arts & Entertainment"],
                         categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                         merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -592,7 +580,7 @@ describe("ContentStrategiesClient", () => {
             attributes: {
                 name: "name",
                 organizationId: "organizationId",
-                filters: ["NEWLY_LIVE", "NEWLY_LIVE"],
+                filter: "NEWLY_LIVE",
                 categories: ["Arts & Entertainment", "Arts & Entertainment"],
                 categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                 merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -742,7 +730,6 @@ describe("ContentStrategiesClient", () => {
                 type: "contentStrategy",
                 attributes: {
                     name: "name",
-                    filters: ["NEWLY_LIVE", "NEWLY_LIVE"],
                     categories: ["Arts & Entertainment", "Arts & Entertainment"],
                     categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                     merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -755,7 +742,7 @@ describe("ContentStrategiesClient", () => {
             attributes: {
                 name: "name",
                 organizationId: "organizationId",
-                filters: ["NEWLY_LIVE", "NEWLY_LIVE"],
+                filter: "NEWLY_LIVE",
                 categories: ["Arts & Entertainment", "Arts & Entertainment"],
                 categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                 merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -778,7 +765,6 @@ describe("ContentStrategiesClient", () => {
                 type: "contentStrategy",
                 attributes: {
                     name: "name",
-                    filters: ["NEWLY_LIVE", "NEWLY_LIVE"],
                     categories: ["Arts & Entertainment", "Arts & Entertainment"],
                     categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                     merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -801,7 +787,6 @@ describe("ContentStrategiesClient", () => {
                 type: "contentStrategy",
                 attributes: {
                     name: "name",
-                    filters: ["NEWLY_LIVE", "NEWLY_LIVE"],
                     categories: ["Arts & Entertainment", "Arts & Entertainment"],
                     categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                     merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -830,7 +815,6 @@ describe("ContentStrategiesClient", () => {
                     type: "contentStrategy",
                     attributes: {
                         name: "name",
-                        filters: ["NEWLY_LIVE", "NEWLY_LIVE"],
                         categories: ["Arts & Entertainment", "Arts & Entertainment"],
                         categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                         merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -853,7 +837,6 @@ describe("ContentStrategiesClient", () => {
                 type: "contentStrategy",
                 attributes: {
                     name: "name",
-                    filters: ["NEWLY_LIVE", "NEWLY_LIVE"],
                     categories: ["Arts & Entertainment", "Arts & Entertainment"],
                     categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                     merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -882,7 +865,6 @@ describe("ContentStrategiesClient", () => {
                     type: "contentStrategy",
                     attributes: {
                         name: "name",
-                        filters: ["NEWLY_LIVE", "NEWLY_LIVE"],
                         categories: ["Arts & Entertainment", "Arts & Entertainment"],
                         categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                         merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -905,7 +887,6 @@ describe("ContentStrategiesClient", () => {
                 type: "contentStrategy",
                 attributes: {
                     name: "name",
-                    filters: ["NEWLY_LIVE", "NEWLY_LIVE"],
                     categories: ["Arts & Entertainment", "Arts & Entertainment"],
                     categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                     merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -934,7 +915,6 @@ describe("ContentStrategiesClient", () => {
                     type: "contentStrategy",
                     attributes: {
                         name: "name",
-                        filters: ["NEWLY_LIVE", "NEWLY_LIVE"],
                         categories: ["Arts & Entertainment", "Arts & Entertainment"],
                         categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                         merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -957,7 +937,6 @@ describe("ContentStrategiesClient", () => {
                 type: "contentStrategy",
                 attributes: {
                     name: "name",
-                    filters: ["NEWLY_LIVE", "NEWLY_LIVE"],
                     categories: ["Arts & Entertainment", "Arts & Entertainment"],
                     categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                     merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -986,7 +965,6 @@ describe("ContentStrategiesClient", () => {
                     type: "contentStrategy",
                     attributes: {
                         name: "name",
-                        filters: ["NEWLY_LIVE", "NEWLY_LIVE"],
                         categories: ["Arts & Entertainment", "Arts & Entertainment"],
                         categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                         merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -1009,7 +987,6 @@ describe("ContentStrategiesClient", () => {
                 type: "contentStrategy",
                 attributes: {
                     name: "name",
-                    filters: ["NEWLY_LIVE", "NEWLY_LIVE"],
                     categories: ["Arts & Entertainment", "Arts & Entertainment"],
                     categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                     merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -1038,7 +1015,6 @@ describe("ContentStrategiesClient", () => {
                     type: "contentStrategy",
                     attributes: {
                         name: "name",
-                        filters: ["NEWLY_LIVE", "NEWLY_LIVE"],
                         categories: ["Arts & Entertainment", "Arts & Entertainment"],
                         categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                         merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -1061,7 +1037,6 @@ describe("ContentStrategiesClient", () => {
                 type: "contentStrategy",
                 attributes: {
                     name: "name",
-                    filters: ["NEWLY_LIVE", "NEWLY_LIVE"],
                     categories: ["Arts & Entertainment", "Arts & Entertainment"],
                     categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                     merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -1090,7 +1065,6 @@ describe("ContentStrategiesClient", () => {
                     type: "contentStrategy",
                     attributes: {
                         name: "name",
-                        filters: ["NEWLY_LIVE", "NEWLY_LIVE"],
                         categories: ["Arts & Entertainment", "Arts & Entertainment"],
                         categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                         merchantExclusions: ["merchantExclusions", "merchantExclusions"],
