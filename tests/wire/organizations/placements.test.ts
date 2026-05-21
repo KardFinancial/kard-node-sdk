@@ -320,7 +320,7 @@ describe("PlacementsClient", () => {
                     attributes: {
                         name: "name",
                         organizationId: "organizationId",
-                        filter: "NEWLY_LIVE",
+                        sort: "NEWLY_LIVE",
                         categories: ["Arts & Entertainment", "Arts & Entertainment"],
                         categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                         merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -332,7 +332,7 @@ describe("PlacementsClient", () => {
                     attributes: {
                         name: "name",
                         organizationId: "organizationId",
-                        filter: "NEWLY_LIVE",
+                        sort: "NEWLY_LIVE",
                         categories: ["Arts & Entertainment", "Arts & Entertainment"],
                         categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                         merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -527,7 +527,7 @@ describe("PlacementsClient", () => {
                     attributes: {
                         name: "name",
                         organizationId: "organizationId",
-                        filter: "NEWLY_LIVE",
+                        sort: "NEWLY_LIVE",
                         categories: ["Arts & Entertainment", "Arts & Entertainment"],
                         categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                         merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -539,7 +539,7 @@ describe("PlacementsClient", () => {
                     attributes: {
                         name: "name",
                         organizationId: "organizationId",
-                        filter: "NEWLY_LIVE",
+                        sort: "NEWLY_LIVE",
                         categories: ["Arts & Entertainment", "Arts & Entertainment"],
                         categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                         merchantExclusions: ["merchantExclusions", "merchantExclusions"],

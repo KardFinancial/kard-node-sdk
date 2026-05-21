@@ -1,3 +1,10 @@
+## 22.0.0 - 2026-05-21
+### Breaking Changes
+* **`ContentStrategyFilter`** — the exported enum and type have been removed; replace all references with the new **`ContentStrategySort`** enum (same values: `NewlyLive`, `ExpiringSoon`, `HighestCashback`, `Personalized`).
+* **`ContentStrategyAttributes.filter`** — the optional `filter` field has been renamed to `sort` (typed as `ContentStrategySort`); update all property reads and object literals accordingly.
+* **`CreateContentStrategyAttributes.filter`** — renamed to `sort`; update all object literals that set this field when creating a content strategy.
+* **`UpdateContentStrategyAttributes.filter`** — renamed to `sort`; update all object literals that set this field when updating a content strategy.
+
 ## 21.0.0 - 2026-05-20
 ### Breaking Changes
 * **`ContentStrategyAttributes.createdAt` and `ContentStrategyAttributes.lastModified`** — both required fields have been removed; delete any references to these properties in code that reads or constructs `ContentStrategyAttributes` objects.

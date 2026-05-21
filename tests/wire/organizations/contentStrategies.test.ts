@@ -18,7 +18,7 @@ describe("ContentStrategiesClient", () => {
                 type: "contentStrategy",
                 attributes: {
                     name: "Featured Travel",
-                    filter: "HIGHEST_CASHBACK",
+                    sort: "HIGHEST_CASHBACK",
                     categories: ["Travel"],
                     categoryExclusions: ["Gas"],
                     merchantExclusions: ["merchant-abc"],
@@ -31,7 +31,7 @@ describe("ContentStrategiesClient", () => {
             attributes: {
                 name: "Featured Travel",
                 organizationId: "org-123",
-                filter: "HIGHEST_CASHBACK",
+                sort: "HIGHEST_CASHBACK",
                 categories: ["Travel"],
                 categoryExclusions: ["Gas"],
                 merchantExclusions: ["merchant-abc"],
@@ -52,7 +52,7 @@ describe("ContentStrategiesClient", () => {
                 type: "contentStrategy",
                 attributes: {
                     name: "Featured Travel",
-                    filter: "HIGHEST_CASHBACK",
+                    sort: "HIGHEST_CASHBACK",
                     categories: ["Travel"],
                     categoryExclusions: ["Gas"],
                     merchantExclusions: ["merchant-abc"],
@@ -379,7 +379,7 @@ describe("ContentStrategiesClient", () => {
                     attributes: {
                         name: "name",
                         organizationId: "organizationId",
-                        filter: "NEWLY_LIVE",
+                        sort: "NEWLY_LIVE",
                         categories: ["Arts & Entertainment", "Arts & Entertainment"],
                         categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                         merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -391,7 +391,7 @@ describe("ContentStrategiesClient", () => {
                     attributes: {
                         name: "name",
                         organizationId: "organizationId",
-                        filter: "NEWLY_LIVE",
+                        sort: "NEWLY_LIVE",
                         categories: ["Arts & Entertainment", "Arts & Entertainment"],
                         categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                         merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -574,7 +574,7 @@ describe("ContentStrategiesClient", () => {
             attributes: {
                 name: "name",
                 organizationId: "organizationId",
-                filter: "NEWLY_LIVE",
+                sort: "NEWLY_LIVE",
                 categories: ["Arts & Entertainment", "Arts & Entertainment"],
                 categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                 merchantExclusions: ["merchantExclusions", "merchantExclusions"],
@@ -734,7 +734,7 @@ describe("ContentStrategiesClient", () => {
             attributes: {
                 name: "name",
                 organizationId: "organizationId",
-                filter: "NEWLY_LIVE",
+                sort: "NEWLY_LIVE",
                 categories: ["Arts & Entertainment", "Arts & Entertainment"],
                 categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
                 merchantExclusions: ["merchantExclusions", "merchantExclusions"],

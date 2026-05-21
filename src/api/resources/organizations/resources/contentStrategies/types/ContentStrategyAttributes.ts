@@ -10,8 +10,8 @@ export interface ContentStrategyAttributes {
     name: string;
     /** ID of the organization this content strategy belongs to */
     organizationId: string;
-    /** Filter applied when selecting offers for the strategy */
-    filter?: KardApi.organizations.ContentStrategyFilter | undefined;
+    /** Sort applied when selecting offers for the strategy */
+    sort?: KardApi.organizations.ContentStrategySort | undefined;
     /** Merchant categories to include */
     categories: KardApi.CategoryOption[];
     /** Merchant categories to exclude */

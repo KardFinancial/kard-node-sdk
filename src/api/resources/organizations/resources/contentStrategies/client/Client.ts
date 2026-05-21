@@ -42,7 +42,7 @@ export class ContentStrategiesClient {
      *             type: "contentStrategy",
      *             attributes: {
      *                 name: "Featured Travel",
-     *                 filter: "HIGHEST_CASHBACK",
+     *                 sort: "HIGHEST_CASHBACK",
      *                 categories: ["Travel"],
      *                 categoryExclusions: ["Gas"],
      *                 merchantExclusions: ["merchant-abc"]
