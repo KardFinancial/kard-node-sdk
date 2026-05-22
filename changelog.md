@@ -1,3 +1,11 @@
+## 22.1.0 - 2026-05-22
+### Added
+* **`ProgressBarSegment.separator`** — new optional field accepting a `ProgressBarSegmentSeparator` value to control the separator style rendered between segment nodes.
+* **`ProgressBarSegment.labels`** — new optional field accepting a `ProgressBarSegmentLabel[]` array to supply per-node title and description text.
+* **`ProgressBarSegment.selection`** — new optional field accepting a `ProgressBarSegmentSelection` value (`Current` or `CurrentAndBelow`) to control which nodes are highlighted based on `currentProgress`.
+* **`ProgressBarSegmentLabel`** — new exported interface with `title` and `description` string fields for labeling individual segment nodes.
+* **`ProgressBarSegmentSeparator`** and **`ProgressBarSegmentSelection`** — new exported enums for the separator style and node-selection strategy options.
+
 ## 22.0.0 - 2026-05-21
 ### Breaking Changes
 * **`ContentStrategyFilter`** — the exported enum and type have been removed; replace all references with the new **`ContentStrategySort`** enum (same values: `NewlyLive`, `ExpiringSoon`, `HighestCashback`, `Personalized`).

@@ -10,4 +10,10 @@ export interface ProgressBarSegment {
     icon?: string | undefined;
     /** Position of the segment within the layout */
     position: KardApi.users.ProgressBarSegmentPosition;
+    /** Separator style to render between segment nodes */
+    separator?: KardApi.users.ProgressBarSegmentSeparator | undefined;
+    /** Label configuration for each node in the segment */
+    labels?: KardApi.users.ProgressBarSegmentLabel[] | undefined;
+    /** Which segment nodes the UI should render as selected based on currentProgress */
+    selection?: KardApi.users.ProgressBarSegmentSelection | undefined;
 }
