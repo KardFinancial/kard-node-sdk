@@ -1,3 +1,10 @@
+## 22.3.0 - 2026-05-26
+### Added
+* **`RewardsClient.placementBatches()`** — new method that retrieves ordered slot data for a batch-activation placement, including per-slot offer sets and freshness fields (`isActive`, `lastActivatedAt`, `expiresAt`).
+* **`GetBatchesByPlacementRequest`** — new request interface with an optional `supportedComponents` field to filter UI component types included in the response.
+* **`BatchesResponseObject`** — new response interface representing the ordered list of `BatchSlotData` entries returned by `placementBatches`.
+* **`BatchSlotData`** — new interface describing a single slot in a batch-activation placement, including `slotId`, `alias`, `isActive`, `lastActivatedAt`, `expiresAt`, and `offers`.
+
 ## 22.2.0 - 2026-05-26
 ### Added
 * **`BatchActivationPlacementAttributes`**, **`BatchActivationPlacementData`**, and **`BatchActivationSlot`** — new interfaces representing a batch-activation placement and its slots as returned by the API.

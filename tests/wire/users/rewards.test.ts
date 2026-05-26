@@ -467,6 +467,306 @@ describe("RewardsClient", () => {
         }).rejects.toThrow(KardApi.UnauthorizedError);
     });
 
+    test("placementBatches (1)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new KardApiClient({
+            maxRetries: 0,
+            clientId: "client_id",
+            clientSecret: "client_secret",
+            environment: server.baseUrl,
+        });
+
+        const rawResponseBody = {
+            data: [
+                {
+                    slotId: "slotId",
+                    alias: "alias",
+                    isActive: true,
+                    lastActivatedAt: "2024-01-15T09:30:00Z",
+                    expiresAt: "2024-01-15T09:30:00Z",
+                    offers: [
+                        {
+                            type: "standardOffer",
+                            relationships: { category: { data: [] } },
+                            id: "id",
+                            attributes: {
+                                terms: "terms",
+                                maxRedemptions: 1,
+                                name: "name",
+                                purchaseChannel: ["INSTORE", "INSTORE"],
+                                userReward: { type: "FLAT", value: 1.1 },
+                                assets: [
+                                    { type: "type", url: "url", alt: "alt" },
+                                    { type: "type", url: "url", alt: "alt" },
+                                ],
+                                startDate: "2024-01-15T09:30:00Z",
+                                expirationDate: "2024-01-15T09:30:00Z",
+                                isTargeted: true,
+                                minTransactionAmount: { type: "CENTS", value: 1 },
+                                maxTransactionAmount: { type: "CENTS", value: 1 },
+                                minRewardAmount: { type: "CENTS", value: 1 },
+                                maxRewardAmount: { type: "CENTS", value: 1 },
+                                websiteUrl: "websiteUrl",
+                                description: "description",
+                                components: {
+                                    shortDescription: "shortDescription",
+                                    longDescription: "longDescription",
+                                    baseReward: "baseReward",
+                                    boostedReward: "boostedReward",
+                                    cta: { buttonText: "buttonText", buttonStyle: "PRIMARY" },
+                                    tags: ["tags", "tags"],
+                                    detailTags: ["detailTags", "detailTags"],
+                                    logoFlare: { borderColor: "PRIMARY" },
+                                },
+                            },
+                        },
+                        {
+                            type: "standardOffer",
+                            relationships: { category: { data: [] } },
+                            id: "id",
+                            attributes: {
+                                terms: "terms",
+                                maxRedemptions: 1,
+                                name: "name",
+                                purchaseChannel: ["INSTORE", "INSTORE"],
+                                userReward: { type: "FLAT", value: 1.1 },
+                                assets: [
+                                    { type: "type", url: "url", alt: "alt" },
+                                    { type: "type", url: "url", alt: "alt" },
+                                ],
+                                startDate: "2024-01-15T09:30:00Z",
+                                expirationDate: "2024-01-15T09:30:00Z",
+                                isTargeted: true,
+                                minTransactionAmount: { type: "CENTS", value: 1 },
+                                maxTransactionAmount: { type: "CENTS", value: 1 },
+                                minRewardAmount: { type: "CENTS", value: 1 },
+                                maxRewardAmount: { type: "CENTS", value: 1 },
+                                websiteUrl: "websiteUrl",
+                                description: "description",
+                                components: {
+                                    shortDescription: "shortDescription",
+                                    longDescription: "longDescription",
+                                    baseReward: "baseReward",
+                                    boostedReward: "boostedReward",
+                                    cta: { buttonText: "buttonText", buttonStyle: "PRIMARY" },
+                                    tags: ["tags", "tags"],
+                                    detailTags: ["detailTags", "detailTags"],
+                                    logoFlare: { borderColor: "PRIMARY" },
+                                },
+                            },
+                        },
+                    ],
+                },
+                {
+                    slotId: "slotId",
+                    alias: "alias",
+                    isActive: true,
+                    lastActivatedAt: "2024-01-15T09:30:00Z",
+                    expiresAt: "2024-01-15T09:30:00Z",
+                    offers: [
+                        {
+                            type: "standardOffer",
+                            relationships: { category: { data: [] } },
+                            id: "id",
+                            attributes: {
+                                terms: "terms",
+                                maxRedemptions: 1,
+                                name: "name",
+                                purchaseChannel: ["INSTORE", "INSTORE"],
+                                userReward: { type: "FLAT", value: 1.1 },
+                                assets: [
+                                    { type: "type", url: "url", alt: "alt" },
+                                    { type: "type", url: "url", alt: "alt" },
+                                ],
+                                startDate: "2024-01-15T09:30:00Z",
+                                expirationDate: "2024-01-15T09:30:00Z",
+                                isTargeted: true,
+                                minTransactionAmount: { type: "CENTS", value: 1 },
+                                maxTransactionAmount: { type: "CENTS", value: 1 },
+                                minRewardAmount: { type: "CENTS", value: 1 },
+                                maxRewardAmount: { type: "CENTS", value: 1 },
+                                websiteUrl: "websiteUrl",
+                                description: "description",
+                                components: {
+                                    shortDescription: "shortDescription",
+                                    longDescription: "longDescription",
+                                    baseReward: "baseReward",
+                                    boostedReward: "boostedReward",
+                                    cta: { buttonText: "buttonText", buttonStyle: "PRIMARY" },
+                                    tags: ["tags", "tags"],
+                                    detailTags: ["detailTags", "detailTags"],
+                                    logoFlare: { borderColor: "PRIMARY" },
+                                },
+                            },
+                        },
+                        {
+                            type: "standardOffer",
+                            relationships: { category: { data: [] } },
+                            id: "id",
+                            attributes: {
+                                terms: "terms",
+                                maxRedemptions: 1,
+                                name: "name",
+                                purchaseChannel: ["INSTORE", "INSTORE"],
+                                userReward: { type: "FLAT", value: 1.1 },
+                                assets: [
+                                    { type: "type", url: "url", alt: "alt" },
+                                    { type: "type", url: "url", alt: "alt" },
+                                ],
+                                startDate: "2024-01-15T09:30:00Z",
+                                expirationDate: "2024-01-15T09:30:00Z",
+                                isTargeted: true,
+                                minTransactionAmount: { type: "CENTS", value: 1 },
+                                maxTransactionAmount: { type: "CENTS", value: 1 },
+                                minRewardAmount: { type: "CENTS", value: 1 },
+                                maxRewardAmount: { type: "CENTS", value: 1 },
+                                websiteUrl: "websiteUrl",
+                                description: "description",
+                                components: {
+                                    shortDescription: "shortDescription",
+                                    longDescription: "longDescription",
+                                    baseReward: "baseReward",
+                                    boostedReward: "boostedReward",
+                                    cta: { buttonText: "buttonText", buttonStyle: "PRIMARY" },
+                                    tags: ["tags", "tags"],
+                                    detailTags: ["detailTags", "detailTags"],
+                                    logoFlare: { borderColor: "PRIMARY" },
+                                },
+                            },
+                        },
+                    ],
+                },
+            ],
+        };
+
+        server
+            .mockEndpoint()
+            .get("/v2/issuers/organizationId/users/userId/placements/placementId/batches")
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.users.rewards.placementBatches("organizationId", "userId", "placementId");
+        expect(response).toEqual(rawResponseBody);
+    });
+
+    test("placementBatches (2)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new KardApiClient({
+            maxRetries: 0,
+            clientId: "client_id",
+            clientSecret: "client_secret",
+            environment: server.baseUrl,
+        });
+
+        const rawResponseBody = {
+            errors: [
+                { status: "status", title: "title", detail: "detail" },
+                { status: "status", title: "title", detail: "detail" },
+            ],
+        };
+
+        server
+            .mockEndpoint()
+            .get("/v2/issuers/organizationId/users/userId/placements/placementId/batches")
+            .respondWith()
+            .statusCode(500)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.users.rewards.placementBatches("organizationId", "userId", "placementId");
+        }).rejects.toThrow(KardApi.InternalServerError);
+    });
+
+    test("placementBatches (3)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new KardApiClient({
+            maxRetries: 0,
+            clientId: "client_id",
+            clientSecret: "client_secret",
+            environment: server.baseUrl,
+        });
+
+        const rawResponseBody = {
+            errors: [
+                { status: "status", title: "title", detail: "detail" },
+                { status: "status", title: "title", detail: "detail" },
+            ],
+        };
+
+        server
+            .mockEndpoint()
+            .get("/v2/issuers/organizationId/users/userId/placements/placementId/batches")
+            .respondWith()
+            .statusCode(400)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.users.rewards.placementBatches("organizationId", "userId", "placementId");
+        }).rejects.toThrow(KardApi.InvalidRequest);
+    });
+
+    test("placementBatches (4)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new KardApiClient({
+            maxRetries: 0,
+            clientId: "client_id",
+            clientSecret: "client_secret",
+            environment: server.baseUrl,
+        });
+
+        const rawResponseBody = {
+            errors: [
+                { status: "status", title: "title", detail: "detail" },
+                { status: "status", title: "title", detail: "detail" },
+            ],
+        };
+
+        server
+            .mockEndpoint()
+            .get("/v2/issuers/organizationId/users/userId/placements/placementId/batches")
+            .respondWith()
+            .statusCode(404)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.users.rewards.placementBatches("organizationId", "userId", "placementId");
+        }).rejects.toThrow(KardApi.DoesNotExistError);
+    });
+
+    test("placementBatches (5)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new KardApiClient({
+            maxRetries: 0,
+            clientId: "client_id",
+            clientSecret: "client_secret",
+            environment: server.baseUrl,
+        });
+
+        const rawResponseBody = {
+            errors: [
+                { status: "status", title: "title", detail: "detail" },
+                { status: "status", title: "title", detail: "detail" },
+            ],
+        };
+
+        server
+            .mockEndpoint()
+            .get("/v2/issuers/organizationId/users/userId/placements/placementId/batches")
+            .respondWith()
+            .statusCode(401)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.users.rewards.placementBatches("organizationId", "userId", "placementId");
+        }).rejects.toThrow(KardApi.UnauthorizedError);
+    });
+
     test("locations (1)", async () => {
         const server = mockServerPool.createServer();
         const client = new KardApiClient({
