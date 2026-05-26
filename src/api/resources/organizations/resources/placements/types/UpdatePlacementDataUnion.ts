@@ -7,7 +7,8 @@ import type * as KardApi from "../../../../../index.js";
  */
 export type UpdatePlacementDataUnion =
     | KardApi.organizations.UpdatePlacementDataUnion.PlacementMainPage
-    | KardApi.organizations.UpdatePlacementDataUnion.PlacementPushNotification;
+    | KardApi.organizations.UpdatePlacementDataUnion.PlacementPushNotification
+    | KardApi.organizations.UpdatePlacementDataUnion.PlacementBatchActivation;
 
 export namespace UpdatePlacementDataUnion {
     export interface PlacementMainPage extends KardApi.organizations.UpdateMainPagePlacementData {
@@ -16,5 +17,9 @@ export namespace UpdatePlacementDataUnion {
 
     export interface PlacementPushNotification extends KardApi.organizations.UpdatePushNotificationPlacementData {
         type: "placementPushNotification";
+    }
+
+    export interface PlacementBatchActivation extends KardApi.organizations.UpdateBatchActivationPlacementData {
+        type: "placementBatchActivation";
     }
 }

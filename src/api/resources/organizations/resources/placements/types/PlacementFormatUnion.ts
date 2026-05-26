@@ -29,10 +29,27 @@ import type * as KardApi from "../../../../../index.js";
  *             }
  *         }
  *     }
+ *
+ * @example
+ *     {
+ *         type: "placementBatchActivation",
+ *         id: "01961e5a-d94e-7c22-ac3f-f8b5a7e92c45",
+ *         attributes: {
+ *             name: "Weekly Cohort",
+ *             organizationId: "org-123",
+ *             refreshInterval: "P7D",
+ *             slots: [{
+ *                     slotId: "01961e5a-e15f-7d33-bd4f-09c6b8fa3d56",
+ *                     contentStrategyId: "01961e5a-f26f-7e44-ce5f-1ad7c9fb4e67",
+ *                     alias: "primary"
+ *                 }]
+ *         }
+ *     }
  */
 export type PlacementFormatUnion =
     | KardApi.organizations.PlacementFormatUnion.PlacementMainPage
-    | KardApi.organizations.PlacementFormatUnion.PlacementPushNotification;
+    | KardApi.organizations.PlacementFormatUnion.PlacementPushNotification
+    | KardApi.organizations.PlacementFormatUnion.PlacementBatchActivation;
 
 export namespace PlacementFormatUnion {
     export interface PlacementMainPage extends KardApi.organizations.MainPagePlacementData {
@@ -41,5 +58,9 @@ export namespace PlacementFormatUnion {
 
     export interface PlacementPushNotification extends KardApi.organizations.PushNotificationPlacementData {
         type: "placementPushNotification";
+    }
+
+    export interface PlacementBatchActivation extends KardApi.organizations.BatchActivationPlacementData {
+        type: "placementBatchActivation";
     }
 }

@@ -4,5 +4,6 @@
 export const PlacementTypeFilter = {
     PlacementMainPage: "placementMainPage",
     PlacementPushNotification: "placementPushNotification",
+    PlacementBatchActivation: "placementBatchActivation",
 } as const;
 export type PlacementTypeFilter = (typeof PlacementTypeFilter)[keyof typeof PlacementTypeFilter];

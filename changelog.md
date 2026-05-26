@@ -1,3 +1,11 @@
+## 22.2.0 - 2026-05-26
+### Added
+* **`BatchActivationPlacementAttributes`**, **`BatchActivationPlacementData`**, and **`BatchActivationSlot`** — new interfaces representing a batch-activation placement and its slots as returned by the API.
+* **`CreateBatchActivationAttributes`**, **`CreateBatchActivationPlacementData`**, and **`CreateBatchActivationSlot`** — new interfaces for constructing a batch-activation placement creation request.
+* **`UpdateBatchActivationAttributes`**, **`UpdateBatchActivationPlacementData`**, and **`UpdateBatchActivationSlot`** — new interfaces for constructing a batch-activation placement update request.
+* **`CreatePlacementDataUnion.PlacementBatchActivation`**, **`UpdatePlacementDataUnion.PlacementBatchActivation`**, and **`PlacementFormatUnion.PlacementBatchActivation`** — new `placementBatchActivation` discriminated-union variants added to all placement union types.
+* **`PlacementTypeFilter.PlacementBatchActivation`** — new `"placementBatchActivation"` value added to the `PlacementTypeFilter` enum for filtering placements by the new type.
+
 ## 22.1.0 - 2026-05-22
 ### Added
 * **`ProgressBarSegment.separator`** — new optional field accepting a `ProgressBarSegmentSeparator` value to control the separator style rendered between segment nodes.
