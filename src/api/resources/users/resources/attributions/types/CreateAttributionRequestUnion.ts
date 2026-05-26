@@ -4,7 +4,8 @@ import type * as KardApi from "../../../../../index.js";
 
 export type CreateAttributionRequestUnion =
     | KardApi.users.CreateAttributionRequestUnion.OfferAttribution
-    | KardApi.users.CreateAttributionRequestUnion.NotificationAttribution;
+    | KardApi.users.CreateAttributionRequestUnion.NotificationAttribution
+    | KardApi.users.CreateAttributionRequestUnion.PlacementSlotAttribution;
 
 export namespace CreateAttributionRequestUnion {
     export interface OfferAttribution extends KardApi.users.OfferAttributionRequest {
@@ -13,5 +14,9 @@ export namespace CreateAttributionRequestUnion {
 
     export interface NotificationAttribution extends KardApi.users.NotificationAttributionRequest {
         type: "notificationAttribution";
+    }
+
+    export interface PlacementSlotAttribution extends KardApi.users.PlacementSlotAttributionRequest {
+        type: "placementSlotAttribution";
     }
 }

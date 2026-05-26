@@ -355,4 +355,109 @@ export class AttributionsClient {
             "/v2/issuers/{organizationId}/users/{userId}/offers/{offerId}/boost",
         );
     }
+
+    /**
+     * Record when a user activates a batch-activation placement slot. Writes a slot-level
+     * `placementSlotAttribution` ACTIVATE event and fans out a per-offer
+     * `offerAttribution` ACTIVATE event for every offer resolved by the slot's content
+     * strategy. The slot-level event id and the resolved `offerIds` are returned so the
+     * partner can render the batch immediately without an extra `getBatchesByPlacement`
+     * round-trip.
+     *
+     * <b>Required scopes:</b> `attributions:write`
+     *
+     * @param {KardApi.OrganizationId} organizationId
+     * @param {KardApi.UserId} userId
+     * @param {string} placementId - Unique identifier of the placement (UUID v7)
+     * @param {string} slotId - Stable identifier for the slot within the placement
+     * @param {AttributionsClient.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @throws {@link KardApi.UnauthorizedError}
+     * @throws {@link KardApi.InternalServerError}
+     * @throws {@link KardApi.InvalidRequest}
+     *
+     * @example
+     *     await client.users.attributions.activatePlacementSlot("organization-123", "user-123", "018f8d6b-1abc-7def-9012-345678901234", "slot-a")
+     */
+    public activatePlacementSlot(
+        organizationId: KardApi.OrganizationId,
+        userId: KardApi.UserId,
+        placementId: string,
+        slotId: string,
+        requestOptions?: AttributionsClient.RequestOptions,
+    ): core.HttpResponsePromise<KardApi.users.ActivatePlacementSlotResponse> {
+        return core.HttpResponsePromise.fromPromise(
+            this.__activatePlacementSlot(organizationId, userId, placementId, slotId, requestOptions),
+        );
+    }
+
+    private async __activatePlacementSlot(
+        organizationId: KardApi.OrganizationId,
+        userId: KardApi.UserId,
+        placementId: string,
+        slotId: string,
+        requestOptions?: AttributionsClient.RequestOptions,
+    ): Promise<core.WithRawResponse<KardApi.users.ActivatePlacementSlotResponse>> {
+        const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
+        const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
+            _authRequest.headers,
+            this._options?.headers,
+            requestOptions?.headers,
+        );
+        const _response = await core.fetcher({
+            url: core.url.join(
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.KardApiEnvironment.Production,
+                `/v2/issuers/${core.url.encodePathParam(organizationId)}/users/${core.url.encodePathParam(userId)}/placements/${core.url.encodePathParam(placementId)}/slot/${core.url.encodePathParam(slotId)}/activate`,
+            ),
+            method: "POST",
+            headers: _headers,
+            queryParameters: requestOptions?.queryParams,
+            timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
+            maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
+            fetchFn: this._options?.fetch,
+            logging: this._options.logging,
+        });
+        if (_response.ok) {
+            return {
+                data: _response.body as KardApi.users.ActivatePlacementSlotResponse,
+                rawResponse: _response.rawResponse,
+            };
+        }
+
+        if (_response.error.reason === "status-code") {
+            switch (_response.error.statusCode) {
+                case 401:
+                    throw new KardApi.UnauthorizedError(
+                        _response.error.body as KardApi.ErrorResponse,
+                        _response.rawResponse,
+                    );
+                case 500:
+                    throw new KardApi.InternalServerError(
+                        _response.error.body as KardApi.ErrorResponse,
+                        _response.rawResponse,
+                    );
+                case 400:
+                    throw new KardApi.InvalidRequest(
+                        _response.error.body as KardApi.ErrorResponse,
+                        _response.rawResponse,
+                    );
+                default:
+                    throw new errors.KardApiError({
+                        statusCode: _response.error.statusCode,
+                        body: _response.error.body,
+                        rawResponse: _response.rawResponse,
+                    });
+            }
+        }
+
+        return handleNonStatusCodeError(
+            _response.error,
+            _response.rawResponse,
+            "POST",
+            "/v2/issuers/{organizationId}/users/{userId}/placements/{placementId}/slot/{slotId}/activate",
+        );
+    }
 }

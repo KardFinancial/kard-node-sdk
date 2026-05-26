@@ -1,3 +1,11 @@
+## 22.4.0 - 2026-05-26
+### Added
+* **`AttributionsClient.activatePlacementSlot()`** — new method that records a slot-level ACTIVATE event for a batch-activation placement and fans out per-offer `offerAttribution` ACTIVATE events for every offer resolved by the slot's content strategy; returns the slot-level event id and resolved `offerIds` to avoid an extra round-trip.
+* **`ActivatePlacementSlotResponse`**, **`ActivatePlacementSlotResponseData`**, and **`ActivatePlacementSlotResponseAttributes`** — new response interfaces describing the ack payload returned by `activatePlacementSlot`.
+* **`PlacementSlotAttributionRequest`**, **`PlacementSlotAttributionAttributes`**, and **`PlacementSlotMedium`** — new interfaces and enum for constructing slot-level attribution events.
+* **`CreateAttributionRequestUnion.PlacementSlotAttribution`** — new `"placementSlotAttribution"` discriminated-union variant added to `CreateAttributionRequestUnion`.
+* **`AttributionState.placementId`** and **`AttributionState.slotId`** — new optional fields for carrying placement and slot context on attribution state objects.
+
 ## 22.3.0 - 2026-05-26
 ### Added
 * **`RewardsClient.placementBatches()`** — new method that retrieves ordered slot data for a batch-activation placement, including per-slot offer sets and freshness fields (`isActive`, `lastActivatedAt`, `expiresAt`).

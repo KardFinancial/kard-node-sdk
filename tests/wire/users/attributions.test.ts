@@ -552,4 +552,149 @@ describe("AttributionsClient", () => {
             return await client.users.attributions.boost("organizationId", "userId", "offerId");
         }).rejects.toThrow(KardApi.InvalidRequest);
     });
+
+    test("activatePlacementSlot (1)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new KardApiClient({
+            maxRetries: 0,
+            clientId: "client_id",
+            clientSecret: "client_secret",
+            environment: server.baseUrl,
+        });
+
+        const rawResponseBody = {
+            data: {
+                type: "placementSlotAttribution",
+                id: "c94a93a7-beb9-4e58-960c-2c812f849398",
+                attributes: {
+                    placementId: "018f8d6b-1abc-7def-9012-345678901234",
+                    slotId: "slot-a",
+                    eventCode: "ACTIVATE",
+                    medium: "CTA",
+                    eventDate: "2025-01-01T00:00:00Z",
+                    offerIds: ["offer-1", "offer-2", "offer-3"],
+                },
+            },
+        };
+
+        server
+            .mockEndpoint()
+            .post(
+                "/v2/issuers/organization-123/users/user-123/placements/018f8d6b-1abc-7def-9012-345678901234/slot/slot-a/activate",
+            )
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.users.attributions.activatePlacementSlot(
+            "organization-123",
+            "user-123",
+            "018f8d6b-1abc-7def-9012-345678901234",
+            "slot-a",
+        );
+        expect(response).toEqual(rawResponseBody);
+    });
+
+    test("activatePlacementSlot (2)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new KardApiClient({
+            maxRetries: 0,
+            clientId: "client_id",
+            clientSecret: "client_secret",
+            environment: server.baseUrl,
+        });
+
+        const rawResponseBody = {
+            errors: [
+                { status: "status", title: "title", detail: "detail" },
+                { status: "status", title: "title", detail: "detail" },
+            ],
+        };
+
+        server
+            .mockEndpoint()
+            .post("/v2/issuers/organizationId/users/userId/placements/placementId/slot/slotId/activate")
+            .respondWith()
+            .statusCode(401)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.users.attributions.activatePlacementSlot(
+                "organizationId",
+                "userId",
+                "placementId",
+                "slotId",
+            );
+        }).rejects.toThrow(KardApi.UnauthorizedError);
+    });
+
+    test("activatePlacementSlot (3)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new KardApiClient({
+            maxRetries: 0,
+            clientId: "client_id",
+            clientSecret: "client_secret",
+            environment: server.baseUrl,
+        });
+
+        const rawResponseBody = {
+            errors: [
+                { status: "status", title: "title", detail: "detail" },
+                { status: "status", title: "title", detail: "detail" },
+            ],
+        };
+
+        server
+            .mockEndpoint()
+            .post("/v2/issuers/organizationId/users/userId/placements/placementId/slot/slotId/activate")
+            .respondWith()
+            .statusCode(500)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.users.attributions.activatePlacementSlot(
+                "organizationId",
+                "userId",
+                "placementId",
+                "slotId",
+            );
+        }).rejects.toThrow(KardApi.InternalServerError);
+    });
+
+    test("activatePlacementSlot (4)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new KardApiClient({
+            maxRetries: 0,
+            clientId: "client_id",
+            clientSecret: "client_secret",
+            environment: server.baseUrl,
+        });
+
+        const rawResponseBody = {
+            errors: [
+                { status: "status", title: "title", detail: "detail" },
+                { status: "status", title: "title", detail: "detail" },
+            ],
+        };
+
+        server
+            .mockEndpoint()
+            .post("/v2/issuers/organizationId/users/userId/placements/placementId/slot/slotId/activate")
+            .respondWith()
+            .statusCode(400)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.users.attributions.activatePlacementSlot(
+                "organizationId",
+                "userId",
+                "placementId",
+                "slotId",
+            );
+        }).rejects.toThrow(KardApi.InvalidRequest);
+    });
 });

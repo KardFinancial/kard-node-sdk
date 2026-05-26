@@ -7,4 +7,8 @@ export interface AttributionState {
     rank?: number | undefined;
     /** The active filters when the user saw the offer */
     filters?: KardApi.users.AttributionFilter[] | undefined;
+    /** Unique identifier of the placement the attribution event originated from */
+    placementId?: string | undefined;
+    /** Stable identifier for the slot within the placement */
+    slotId?: string | undefined;
 }
