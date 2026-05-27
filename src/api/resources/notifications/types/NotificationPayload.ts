@@ -34,6 +34,12 @@ import type * as KardApi from "../../../index.js";
  *                         type: "transaction",
  *                         id: "0987654321"
  *                     }
+ *                 },
+ *                 offer: {
+ *                     data: {
+ *                         type: "offer",
+ *                         id: "12309123879"
+ *                     }
  *                 }
  *             }
  *         }
@@ -65,6 +71,12 @@ import type * as KardApi from "../../../index.js";
  *                     data: {
  *                         type: "transaction",
  *                         id: "0987654321"
+ *                     }
+ *                 },
+ *                 offer: {
+ *                     data: {
+ *                         type: "offer",
+ *                         id: "12309123879"
  *                     }
  *                 }
  *             }

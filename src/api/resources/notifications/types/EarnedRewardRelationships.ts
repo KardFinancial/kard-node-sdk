@@ -4,5 +4,6 @@ import type * as KardApi from "../../../index.js";
 
 export interface EarnedRewardRelationships {
     user: KardApi.RelationshipSingle;
+    offer: KardApi.RelationshipSingle;
     transaction: KardApi.RelationshipSingle;
 }

@@ -1,3 +1,7 @@
+## 23.0.0 - 2026-05-27
+### Breaking Changes
+* **`EarnedRewardRelationships`** — a new required `offer` field (`RelationshipSingle`) has been added to the interface; any code that constructs or assigns `EarnedRewardRelationships` objects without providing `offer` will fail to compile. Add `offer: { data: { type: "offer", id: "<offerId>" } }` to all construction sites.
+
 ## 22.4.1 - 2026-05-27
 * chore: update JSDoc links in UploadsClient to versioned API paths
 * Update deprecated endpoint documentation in UploadsClient to use
