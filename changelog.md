@@ -1,3 +1,14 @@
+## 22.4.1 - 2026-05-27
+* chore: update JSDoc links in UploadsClient to versioned API paths
+* Update deprecated endpoint documentation in UploadsClient to use
+* versioned API URL paths, ensuring links point to the correct 2024-10-01
+* versioned documentation for the Create Upload and Add Upload Part
+* endpoints.
+* Key changes:
+* Update "Add Upload Part" link from `/api/uploads/create-upload-part` to `/2024-10-01/api/transactions/uploads/create-part`
+* Update "Create Upload" link from `/api/uploads/create-upload` to `/2024-10-01/api/transactions/uploads/create`
+* 🌿 Generated with Fern
+
 ## 22.4.0 - 2026-05-26
 ### Added
 * **`AttributionsClient.activatePlacementSlot()`** — new method that records a slot-level ACTIVATE event for a batch-activation placement and fans out per-offer `offerAttribution` ACTIVATE events for every offer resolved by the slot's content strategy; returns the slot-level event id and resolved `offerIds` to avoid an extra round-trip.
