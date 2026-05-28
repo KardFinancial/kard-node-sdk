@@ -1,3 +1,7 @@
+## 23.1.0 - 2026-05-28
+### Added
+* **`GetEarnedRewardsRequest`** — new optional `"filter[includeUnpaid]"` boolean parameter; when `true`, the `getEarnedRewards` endpoint returns all matched transactions regardless of payment status to the issuer, and unpaid transactions are included in `lifetimeRewardsInCents`. Defaults to `false` (only `PAID_IN_FULL` transactions returned).
+
 ## 23.0.1 - 2026-05-28
 * chore: update child organization name validation docs
 * Update JSDoc comments and inline documentation to reflect the relaxed

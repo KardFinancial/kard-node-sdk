@@ -19,6 +19,8 @@ export interface GetEarnedRewardsRequest {
     "page[size]"?: number;
     /** Filter by transaction status. Supported values are `APPROVED` and `SETTLED`. Defaults to `SETTLED` when omitted. When `APPROVED` is specified, only approved transactions that do not yet have a corresponding settled transaction are returned. */
     "filter[status]"?: KardApi.RewardedTransactionStatus;
+    /** When `true`, return any matched transaction regardless of payment status. By default (`false`), only transactions that have been paid in full to the issuer (`paidToIssuer` is `PAID_IN_FULL`) are returned. This also controls whether unpaid transactions contribute to `lifetimeRewardsInCents`. Has no effect on `APPROVED` transactions, which are always returned when requested. */
+    "filter[includeUnpaid]"?: boolean;
     /** Comma-separated list of related resources to include in the response. Supported values are `merchant` and `offer`. */
     include?: string;
 }
