@@ -627,7 +627,7 @@ export class TransactionsClient {
     }
 
     /**
-     * Retrieve rewarded transaction history for a specific user. By default this returns only SETTLED transactions within the last 12 months that have been paid in full to the issuer (`paidToIssuer` is `PAID_IN_FULL`). Pass `filter[includeUnpaid]=true` to also return matched transactions that have not yet been paid in full.
+     * Retrieve rewarded transaction history for a specific user. By default this returns only SETTLED transactions within the last 12 months regardless of payment status. Pass `filter[paidInFullOnly]=true` to restrict the response to matched transactions that have been paid in full to the issuer (`paidToIssuer` is `PAID_IN_FULL`).
      * <br/>
      * <b>Required scopes:</b> `transaction:read`
      * <br/>
@@ -672,7 +672,7 @@ export class TransactionsClient {
             "page[before]": pageBefore,
             "page[size]": pageSize,
             "filter[status]": filterStatus,
-            "filter[includeUnpaid]": filterIncludeUnpaid,
+            "filter[paidInFullOnly]": filterPaidInFullOnly,
             include,
         } = request;
         const _queryParams: Record<string, unknown> = {
@@ -680,7 +680,7 @@ export class TransactionsClient {
             "page[before]": pageBefore,
             "page[size]": pageSize,
             "filter[status]": filterStatus != null ? filterStatus : undefined,
-            "filter[includeUnpaid]": filterIncludeUnpaid,
+            "filter[paidInFullOnly]": filterPaidInFullOnly,
             include,
         };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();

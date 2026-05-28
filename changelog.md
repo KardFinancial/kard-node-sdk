@@ -1,3 +1,8 @@
+## 24.0.0 - 2026-05-28
+### Breaking Changes
+* **`GetEarnedRewardsRequest`** — the `"filter[includeUnpaid]"` parameter has been removed and replaced with `"filter[paidInFullOnly]"`. The default behavior is also inverted: all matched transactions are now returned regardless of payment status by default; pass `filter[paidInFullOnly]=true` to restrict results to transactions paid in full. Migrate by replacing any use of `"filter[includeUnpaid]": true` with `"filter[paidInFullOnly]": false` (or simply omit the parameter), and replace `"filter[includeUnpaid]": false` with `"filter[paidInFullOnly]": true`.
+* **`GetEarnedRewardsMeta.lifetimeRewardsInCents`** — now includes all matched transactions by default regardless of payment status; previously only `PAID_IN_FULL` transactions were counted by default. Pass `filter[paidInFullOnly]=true` to restore the previous behavior.
+
 ## 23.1.0 - 2026-05-28
 ### Added
 * **`GetEarnedRewardsRequest`** — new optional `"filter[includeUnpaid]"` boolean parameter; when `true`, the `getEarnedRewards` endpoint returns all matched transactions regardless of payment status to the issuer, and unpaid transactions are included in `lifetimeRewardsInCents`. Defaults to `false` (only `PAID_IN_FULL` transactions returned).
