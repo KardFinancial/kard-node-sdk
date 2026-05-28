@@ -5,13 +5,13 @@
  *
  * @example
  *     {
- *         name: "ACMECHILDBANK",
+ *         name: "Acme Child Bank",
  *         externalId: "ext-123",
  *         bins: ["123456", "789012"]
  *     }
  */
 export interface CreateChildAttributes {
-    /** Name of the child organization (must be uppercase, no spaces) */
+    /** Name of the child organization (at least one letter; letters and spaces only) */
     name: string;
     /** External identifier for the child organization */
     externalId?: string | undefined;

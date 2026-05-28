@@ -4,7 +4,7 @@
  * Limited set of child organization attributes exposed to external consumers
  */
 export interface ChildOrganizationAttributes {
-    /** Name of the child organization (uppercase, no spaces) */
+    /** Name of the child organization (at least one letter; letters and spaces only) */
     name: string;
     /** External identifier for the child organization */
     externalId?: string | undefined;

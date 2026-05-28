@@ -1,3 +1,16 @@
+## 23.0.1 - 2026-05-28
+* chore: update child organization name validation docs
+* Update JSDoc comments and inline documentation to reflect the relaxed
+* name validation rules for child organizations. The name field no longer
+* requires uppercase-only with no spaces; it now accepts any string
+* containing at least one letter, with letters and spaces allowed.
+* Key changes:
+* Update `ChildOrganizationAttributes.name` JSDoc from "uppercase, no spaces" to "at least one letter; letters and spaces only"
+* Update `CreateChildAttributes.name` JSDoc and example from `"ACMECHILDBANK"` to `"Acme Child Bank"`
+* Update `UpdateChildAttributes.name` JSDoc and example from `"NEWCHILDNAME"` to `"New Child Name"`
+* Update `ChildrenClient.create()` method JSDoc to reflect new name validation rules
+* 🌿 Generated with Fern
+
 ## 23.0.0 - 2026-05-27
 ### Breaking Changes
 * **`EarnedRewardRelationships`** — a new required `offer` field (`RelationshipSingle`) has been added to the interface; any code that constructs or assigns `EarnedRewardRelationships` objects without providing `offer` will fail to compile. Add `offer: { data: { type: "offer", id: "<offerId>" } }` to all construction sites.

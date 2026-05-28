@@ -124,7 +124,7 @@ export class ChildrenClient {
     }
 
     /**
-     * Create a child organization by cloning the parent and overriding specified fields. An 8-digit numeric ID is generated automatically. The name is required, must be uppercase, and must not contain spaces.
+     * Create a child organization by cloning the parent and overriding specified fields. An 8-digit numeric ID is generated automatically. The name is required, must contain at least one letter, and may contain only letters and spaces.
      *
      * @param {string} organizationId - Unique identifier of the parent organization
      * @param {KardApi.organizations.CreateChildRequestBody} request

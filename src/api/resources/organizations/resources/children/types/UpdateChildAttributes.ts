@@ -5,7 +5,7 @@
  *
  * @example
  *     {
- *         name: "NEWCHILDNAME"
+ *         name: "New Child Name"
  *     }
  *
  * @example
@@ -14,7 +14,7 @@
  *     }
  */
 export interface UpdateChildAttributes {
-    /** New name for the child organization (must be uppercase, no spaces) */
+    /** New name for the child organization (at least one letter; letters and spaces only) */
     name?: string | undefined;
     /** External identifier for the child organization */
     externalId?: string | undefined;
