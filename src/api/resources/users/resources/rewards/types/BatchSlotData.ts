@@ -16,6 +16,10 @@ export interface BatchSlotData {
     lastActivatedAt?: string | undefined;
     /** Computed as `lastActivatedAt + placement.refreshInterval`. Absent for cold slots that have never been activated. */
     expiresAt?: string | undefined;
+    /** Slot-level UI components. Carries a `cta` (POST to the slot's activate endpoint) when the slot has no active (non-expired) activation, or a `logoFlare` decoration when it does — mutually exclusive on a single slot. */
+    components?: KardApi.users.OfferComponents | undefined;
+    /** Slot-level visual assets. Currently a single `IMG_VIEW` SVG showing the slot's initials, themed via the `--icon-fill` CSS custom property. */
+    assets?: KardApi.users.Asset[] | undefined;
     /** The set of offers eligible for the user under this slot's content strategy. */
     offers: KardApi.users.OfferDataUnion[];
 }

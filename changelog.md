@@ -1,3 +1,8 @@
+## 24.1.0 - 2026-05-28
+### Added
+* **`BatchSlotData.components`** — new optional field exposing slot-level UI components; carries a `cta` when the slot has no active activation, or a `logoFlare` decoration when it does (mutually exclusive).
+* **`BatchSlotData.assets`** — new optional field exposing slot-level visual assets, currently a single `IMG_VIEW` SVG showing the slot's initials themed via the `--icon-fill` CSS custom property.
+
 ## 24.0.0 - 2026-05-28
 ### Breaking Changes
 * **`GetEarnedRewardsRequest`** — the `"filter[includeUnpaid]"` parameter has been removed and replaced with `"filter[paidInFullOnly]"`. The default behavior is also inverted: all matched transactions are now returned regardless of payment status by default; pass `filter[paidInFullOnly]=true` to restrict results to transactions paid in full. Migrate by replacing any use of `"filter[includeUnpaid]": true` with `"filter[paidInFullOnly]": false` (or simply omit the parameter), and replace `"filter[includeUnpaid]": false` with `"filter[paidInFullOnly]": true`.
