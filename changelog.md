@@ -1,3 +1,12 @@
+## 26.0.0 - 2026-06-01
+### Breaking Changes
+* **`BatchSlotData`** interface has been removed; migrate by using `PlacementBatchData` (the new JSON:API-style resource envelope with `id` and `type` fields) and `PlacementBatchAttributes` (the slot payload, now nested under `attributes`).
+* **`BatchesResponseObject.data`** type changed from `BatchSlotData[]` to `PlacementBatchData[]`; update any code that reads or types this array.
+* **`BatchSlotData.slotId`** and **`BatchSlotData.alias`** are removed; use `PlacementBatchData.id` for the stable slot identifier and `PlacementBatchAttributes.name` for the display name.
+### Added
+* **`PlacementBatchData`** — new JSON:API-style resource type wrapping slot data with `id`, `type`, and `attributes` fields.
+* **`PlacementBatchAttributes`** — new type carrying per-slot attributes including the new `name` field, `isActive`, and offer/freshness data.
+
 ## 25.0.0 - 2026-06-01
 * feat!: restructure batch-activation placement slots as JSON:API relationships
 * Refactor the batch-activation placement model to follow JSON:API conventions.

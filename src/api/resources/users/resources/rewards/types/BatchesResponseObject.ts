@@ -6,5 +6,5 @@ import type * as KardApi from "../../../../../index.js";
  * Ordered list of slots for a batch-activation placement, with freshness fields and per-slot offer sets.
  */
 export interface BatchesResponseObject {
-    data: KardApi.users.BatchSlotData[];
+    data: KardApi.users.PlacementBatchData[];
 }

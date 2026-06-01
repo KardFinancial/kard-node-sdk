@@ -3,13 +3,11 @@
 import type * as KardApi from "../../../../../index.js";
 
 /**
- * One slot in a batch-activation placement, with freshness fields and the offers that resolve under the slot's content strategy.
+ * Attributes of a placement batch slot.
  */
-export interface BatchSlotData {
-    /** Stable identifier for the slot within the placement */
-    slotId: string;
-    /** Customer-defined alias for the slot, unique within the placement */
-    alias: string;
+export interface PlacementBatchAttributes {
+    /** Display name for the slot. Falls back to the slot's customer-defined alias, or — when the alias is absent — the name of the placement referenced by the slot. */
+    name: string;
     /** Whether the slot is still considered "fresh" for the user. Set to false only when the slot's `expiresAt` is in the past AND the slot resolves to a non-empty offer set; an empty offer set keeps the slot active so partner UIs do not promote "tap to refresh" with nothing to show. */
     isActive: boolean;
     /** Timestamp of the most recent placementSlotAttribution ACTIVATE event for this (user, placement, slot). Absent for cold slots that have never been activated. */
