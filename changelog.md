@@ -1,3 +1,8 @@
+## 28.0.0 - 2026-06-01
+### Breaking Changes
+* **`PlacementBatchAttributes.shortDescription`** — required field removed from the interface; existing object literals that set this field will now have an excess-property error, and any code reading it will lose the value. Retrieve activation copy from `components` instead.
+* **`PlacementBatchAttributes.longDescription`** — required field removed from the interface; same migration applies — read this copy from `components` going forward.
+
 ## 27.0.0 - 2026-06-01
 ### Breaking Changes
 * **`PlacementBatchAttributes.shortDescription`** — new required `string` field added to the interface; existing object literals that construct `PlacementBatchAttributes` without this field will fail to compile. Add `shortDescription` to all construction sites.
