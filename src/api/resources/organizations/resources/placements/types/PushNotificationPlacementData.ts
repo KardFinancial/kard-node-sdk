@@ -9,4 +9,6 @@ export interface PushNotificationPlacementData {
     /** Unique identifier of the placement (UUID v7) */
     id: string;
     attributes: KardApi.organizations.PushNotificationPlacementAttributes;
+    /** JSON:API relationships for the placement. Omitted entirely when the placement has no linked resources. */
+    relationships?: KardApi.organizations.PlacementRelationships | undefined;
 }

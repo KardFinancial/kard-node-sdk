@@ -301,6 +301,7 @@ describe("PlacementsClient", () => {
                         availableSlots: 1,
                         contentStrategyId: "contentStrategyId",
                     },
+                    relationships: { contentStrategy: { data: { type: "type", id: "id" } } },
                 },
                 {
                     type: "placementMainPage",
@@ -311,6 +312,7 @@ describe("PlacementsClient", () => {
                         availableSlots: 1,
                         contentStrategyId: "contentStrategyId",
                     },
+                    relationships: { contentStrategy: { data: { type: "type", id: "id" } } },
                 },
             ],
             included: [
@@ -519,6 +521,7 @@ describe("PlacementsClient", () => {
                     availableSlots: 1,
                     contentStrategyId: "contentStrategyId",
                 },
+                relationships: { contentStrategy: { data: { type: "type", id: "id" } } },
             },
             included: [
                 {
@@ -694,6 +697,7 @@ describe("PlacementsClient", () => {
                 availableSlots: 1,
                 contentStrategyId: "contentStrategyId",
             },
+            relationships: { contentStrategy: { data: { type: "type", id: "id" } } },
         };
 
         server

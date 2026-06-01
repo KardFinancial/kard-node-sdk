@@ -9,4 +9,6 @@ export interface BatchActivationPlacementData {
     /** Unique identifier of the placement (UUID v7) */
     id: string;
     attributes: KardApi.organizations.BatchActivationPlacementAttributes;
+    /** JSON:API relationships for the placement. Always present on a batch-activation placement; the `slots` to-many relationship lists the slot resource identifiers. */
+    relationships: KardApi.organizations.BatchActivationPlacementRelationships;
 }

@@ -4,10 +4,12 @@
  * A slot in a batch-activation placement at update time
  */
 export interface UpdateBatchActivationSlot {
-    /** Existing slot identifier. Echo the value from a prior GET to keep the slot stable; omit to mint a fresh slot. If the contentStrategyId changes, the slotId is regenerated regardless of what was echoed. */
+    /** Existing slot identifier. Echo the value from a prior GET to keep the slot stable; omit to mint a fresh slot. If the placementId changes, the slotId is regenerated regardless of what was echoed. */
     slotId?: string | undefined;
-    /** ID of the content strategy that fills this slot */
-    contentStrategyId: string;
+    /** ID of another placement that fills this slot. The referenced placement provides both the content strategy and the limit on the number of offers available to the slot. */
+    placementId: string;
     /** Customer-defined alias for the slot, unique within the placement */
     alias: string;
+    /** Optional short description of the slot, limited to 50 characters */
+    shortDescription?: string | undefined;
 }

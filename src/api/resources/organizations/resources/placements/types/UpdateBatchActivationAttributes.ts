@@ -11,8 +11,9 @@ import type * as KardApi from "../../../../../index.js";
  *         refreshInterval: "P14D",
  *         slots: [{
  *                 slotId: "01961e5a-e15f-7d33-bd4f-09c6b8fa3d56",
- *                 contentStrategyId: "01961e5a-f26f-7e44-ce5f-1ad7c9fb4e67",
- *                 alias: "primary"
+ *                 placementId: "01961e5a-f26f-7e44-ce5f-1ad7c9fb4e67",
+ *                 alias: "primary",
+ *                 shortDescription: "Featured deals refreshed each week"
  *             }]
  *     }
  */

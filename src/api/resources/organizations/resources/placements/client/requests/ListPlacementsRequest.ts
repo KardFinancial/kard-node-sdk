@@ -13,7 +13,7 @@ export interface ListPlacementsRequest {
     "filter[name]"?: string;
     /** Filter by the ID of the content strategy linked to the placement */
     "filter[contentStrategyId]"?: string;
-    /** CSV list of related resources to embed in the `included` array (allowed value is `contentStrategy`). */
+    /** CSV list of related resources to embed in the `included` array. Supported paths: `contentStrategy` (the direct content strategy of a non-batch placement), `slots` (the slot resources of a batch-activation placement), `slots.placement` (and the placement each slot references), and `slots.placement.contentStrategy` (and the content strategy of each referenced placement). Dotted paths implicitly include all intermediate resources. */
     include?: string;
     /** Cursor value for the next page of results */
     "page[after]"?: string;

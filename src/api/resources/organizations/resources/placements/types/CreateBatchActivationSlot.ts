@@ -4,8 +4,10 @@
  * A slot in a batch-activation placement at creation time
  */
 export interface CreateBatchActivationSlot {
-    /** ID of the content strategy that fills this slot */
-    contentStrategyId: string;
+    /** ID of another placement that fills this slot. The referenced placement provides both the content strategy and the limit on the number of offers available to the slot. */
+    placementId: string;
     /** Customer-defined alias for the slot, unique within the placement */
     alias: string;
+    /** Optional short description of the slot, limited to 50 characters */
+    shortDescription?: string | undefined;
 }

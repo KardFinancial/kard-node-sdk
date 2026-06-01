@@ -10,6 +10,6 @@ export interface MainPagePlacementAttributes {
     organizationId: string;
     /** Number of available slots */
     availableSlots: number;
-    /** ID of the content strategy linked to this placement, if any */
+    /** ID of the content strategy linked to this placement, if any. Retained alongside `relationships.contentStrategy` for backward compatibility. */
     contentStrategyId?: string | undefined;
 }

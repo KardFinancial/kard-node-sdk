@@ -1,3 +1,24 @@
+## 25.0.0 - 2026-06-01
+* feat!: restructure batch-activation placement slots as JSON:API relationships
+* Refactor the batch-activation placement model to follow JSON:API conventions.
+* Slots are no longer embedded directly in `BatchActivationPlacementAttributes`;
+* they are now exposed via a `relationships.slots` to-many relationship on
+* `BatchActivationPlacementData`, with full slot detail available in the
+* `included` array when `?include=slots` (or a deeper path) is requested.
+* The `BatchActivationSlot` type is removed and replaced by a richer set of
+* JSON:API resource types (`BatchActivationSlotInclusion`, `BatchActivationSlotAttributes`,
+* `BatchActivationSlotRelationships`). The `included` field on `PlacementResource`
+* and `PlacementListResponse` now carries the new discriminated-union type
+* `IncludedResource` instead of `ContentStrategyResponse[]`. Slot creation and
+* update inputs replace `contentStrategyId` with `placementId`.
+* Key changes:
+* **BREAKING** `BatchActivationPlacementAttributes.slots` field removed; slot data now lives in `relationships.slots` on `BatchActivationPlacementData`
+* **BREAKING** `BatchActivationSlot` interface deleted; replaced by `BatchActivationSlotInclusion`, `BatchActivationSlotAttributes`, and `BatchActivationSlotRelationships`
+* **BREAKING** `PlacementResource.included` and `PlacementListResponse.included` type changed from `ContentStrategyResponse[]` to `IncludedResource[]`
+* **BREAKING** `CreateBatchActivationSlot.contentStrategyId` and `UpdateBatchActivationSlot.contentStrategyId` renamed to `placementId`
+* Added new JSON:API relationship types: `BatchActivationPlacementRelationships`, `PlacementRelationships`, `ToOneRelationship`, `ToManyRelationship`, `ResourceIdentifier`, `ContentStrategyInclusion`, `IncludedResource`
+* 🌿 Generated with Fern
+
 ## 24.1.0 - 2026-05-28
 ### Added
 * **`BatchSlotData.components`** — new optional field exposing slot-level UI components; carries a `cta` when the slot has no active activation, or a `logoFlare` decoration when it does (mutually exclusive).

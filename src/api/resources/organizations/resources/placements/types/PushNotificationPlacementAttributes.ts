@@ -12,6 +12,6 @@ export interface PushNotificationPlacementAttributes {
     organizationId: string;
     /** Delivery cadence for the notification */
     cadence: KardApi.organizations.Cadence;
-    /** ID of the content strategy linked to this placement, if any */
+    /** ID of the content strategy linked to this placement, if any. Retained alongside `relationships.contentStrategy` for backward compatibility. */
     contentStrategyId?: string | undefined;
 }

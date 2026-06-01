@@ -10,8 +10,9 @@ import type * as KardApi from "../../../../../index.js";
  *         name: "Weekly Cohort",
  *         refreshInterval: "P7D",
  *         slots: [{
- *                 contentStrategyId: "01961e5a-f26f-7e44-ce5f-1ad7c9fb4e67",
- *                 alias: "primary"
+ *                 placementId: "01961e5a-f26f-7e44-ce5f-1ad7c9fb4e67",
+ *                 alias: "primary",
+ *                 shortDescription: "Featured deals refreshed each week"
  *             }]
  *     }
  */
