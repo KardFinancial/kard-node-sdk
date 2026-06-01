@@ -483,6 +483,8 @@ describe("RewardsClient", () => {
                     type: "placementBatch",
                     attributes: {
                         name: "name",
+                        shortDescription: "shortDescription",
+                        longDescription: "longDescription",
                         isActive: true,
                         lastActivatedAt: "2024-01-15T09:30:00Z",
                         expiresAt: "2024-01-15T09:30:00Z",
@@ -587,6 +589,8 @@ describe("RewardsClient", () => {
                     type: "placementBatch",
                     attributes: {
                         name: "name",
+                        shortDescription: "shortDescription",
+                        longDescription: "longDescription",
                         isActive: true,
                         lastActivatedAt: "2024-01-15T09:30:00Z",
                         expiresAt: "2024-01-15T09:30:00Z",

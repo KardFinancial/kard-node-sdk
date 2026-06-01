@@ -1,3 +1,8 @@
+## 27.0.0 - 2026-06-01
+### Breaking Changes
+* **`PlacementBatchAttributes.shortDescription`** — new required `string` field added to the interface; existing object literals that construct `PlacementBatchAttributes` without this field will fail to compile. Add `shortDescription` to all construction sites.
+* **`PlacementBatchAttributes.longDescription`** — new required `string` field added to the interface; existing object literals that construct `PlacementBatchAttributes` without this field will fail to compile. Add `longDescription` to all construction sites.
+
 ## 26.0.0 - 2026-06-01
 ### Breaking Changes
 * **`BatchSlotData`** interface has been removed; migrate by using `PlacementBatchData` (the new JSON:API-style resource envelope with `id` and `type` fields) and `PlacementBatchAttributes` (the slot payload, now nested under `attributes`).
