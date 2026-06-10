@@ -1,3 +1,10 @@
+## 28.2.0 - 2026-06-10
+### Added
+* **`NotificationType.PushNotificationPlacementFile`** and **`NotificationType.EmailNotificationPlacementFile`** — two new enum values representing placement file notification types.
+* **`PushNotificationPlacementFileAttributes`**, **`PushNotificationPlacementFileData`**, **`PushNotificationPlacementFileRelationships`** — new interfaces describing push notification placement file payloads, including placement name, available slots, cadence, and a presigned download URL.
+* **`EmailNotificationPlacementFileAttributes`**, **`EmailNotificationPlacementFileData`**, **`EmailNotificationPlacementFileRelationships`** — new interfaces describing email notification placement file payloads, including placement name, organization ID, available slots, cadence, and a presigned download URL.
+* **`NotificationDataUnion`** — extended with `PushNotificationPlacementFile` and `EmailNotificationPlacementFile` discriminated union variants.
+
 ## 28.1.0 - 2026-06-10
 ### Added
 * **`UpdateUserRequestAttributes.historicalTransactionsSent`** — new optional `boolean` field that confirms historical transactions have been sent for a user; note this is a one-way flag and cannot be unset once `true`.

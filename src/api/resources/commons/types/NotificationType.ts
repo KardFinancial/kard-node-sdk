@@ -8,5 +8,7 @@ export const NotificationType = {
     Clawback: "clawback",
     AuditUpdate: "auditUpdate",
     FileProcessingResult: "fileProcessingResult",
+    PushNotificationPlacementFile: "pushNotificationPlacementFile",
+    EmailNotificationPlacementFile: "emailNotificationPlacementFile",
 } as const;
 export type NotificationType = (typeof NotificationType)[keyof typeof NotificationType];

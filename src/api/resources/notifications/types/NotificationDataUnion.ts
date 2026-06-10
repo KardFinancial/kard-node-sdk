@@ -9,7 +9,9 @@ export type NotificationDataUnion =
     | KardApi.NotificationDataUnion.FailedTransaction
     | KardApi.NotificationDataUnion.Clawback
     | KardApi.NotificationDataUnion.AuditUpdate
-    | KardApi.NotificationDataUnion.FileProcessingResult;
+    | KardApi.NotificationDataUnion.FileProcessingResult
+    | KardApi.NotificationDataUnion.PushNotificationPlacementFile
+    | KardApi.NotificationDataUnion.EmailNotificationPlacementFile;
 
 export namespace NotificationDataUnion {
     export interface EarnedRewardApproved extends KardApi.EarnedRewardApprovedData {
@@ -38,5 +40,13 @@ export namespace NotificationDataUnion {
 
     export interface FileProcessingResult extends KardApi.FileResultData {
         type: "fileProcessingResult";
+    }
+
+    export interface PushNotificationPlacementFile extends KardApi.PushNotificationPlacementFileData {
+        type: "pushNotificationPlacementFile";
+    }
+
+    export interface EmailNotificationPlacementFile extends KardApi.EmailNotificationPlacementFileData {
+        type: "emailNotificationPlacementFile";
     }
 }
