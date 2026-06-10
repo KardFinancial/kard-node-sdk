@@ -15,4 +15,6 @@ export interface UpdateUserRequestAttributes {
     phoneNumber?: string | undefined;
     /** Birth year of user */
     birthYear?: string | undefined;
+    /** Set to `true` to confirm that historical transactions have been sent for this user. This is a one-way flag: once `true` it cannot be set back to `false`, and a request attempting to do so is rejected. */
+    historicalTransactionsSent?: boolean | undefined;
 }

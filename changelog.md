@@ -1,3 +1,7 @@
+## 28.1.0 - 2026-06-10
+### Added
+* **`UpdateUserRequestAttributes.historicalTransactionsSent`** — new optional `boolean` field that confirms historical transactions have been sent for a user; note this is a one-way flag and cannot be unset once `true`.
+
 ## 28.0.0 - 2026-06-01
 ### Breaking Changes
 * **`PlacementBatchAttributes.shortDescription`** — required field removed from the interface; existing object literals that set this field will now have an excess-property error, and any code reading it will lose the value. Retrieve activation copy from `components` instead.
