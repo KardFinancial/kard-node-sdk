@@ -6,20 +6,30 @@ import type * as KardApi from "../../../../../index.js";
  * Discriminated union for creating a placement
  */
 export type CreatePlacementDataUnion =
-    | KardApi.organizations.CreatePlacementDataUnion.PlacementMainPage
+    | KardApi.organizations.CreatePlacementDataUnion.Placement
     | KardApi.organizations.CreatePlacementDataUnion.PlacementPushNotification
-    | KardApi.organizations.CreatePlacementDataUnion.PlacementBatchActivation;
+    | KardApi.organizations.CreatePlacementDataUnion.PlacementEmail
+    | KardApi.organizations.CreatePlacementDataUnion.PlacementBatchActivation
+    | KardApi.organizations.CreatePlacementDataUnion.PlacementGroup;
 
 export namespace CreatePlacementDataUnion {
-    export interface PlacementMainPage extends KardApi.organizations.CreateMainPagePlacementData {
-        type: "placementMainPage";
+    export interface Placement extends KardApi.organizations.CreateStandardPlacementData {
+        type: "placement";
     }
 
     export interface PlacementPushNotification extends KardApi.organizations.CreatePushNotificationPlacementData {
         type: "placementPushNotification";
     }
 
+    export interface PlacementEmail extends KardApi.organizations.CreateEmailPlacementData {
+        type: "placementEmail";
+    }
+
     export interface PlacementBatchActivation extends KardApi.organizations.CreateBatchActivationPlacementData {
         type: "placementBatchActivation";
+    }
+
+    export interface PlacementGroup extends KardApi.organizations.CreateGroupPlacementData {
+        type: "placementGroup";
     }
 }

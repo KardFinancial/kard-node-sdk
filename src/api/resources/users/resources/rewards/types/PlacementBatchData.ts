@@ -3,7 +3,7 @@
 import type * as KardApi from "../../../../../index.js";
 
 /**
- * One slot in a batch-activation placement, with freshness fields and the offers that resolve under the slot's content strategy.
+ * One slot in a batch-activation or group placement, with freshness fields and the offers that resolve under the slot's content strategy.
  */
 export interface PlacementBatchData {
     /** Stable identifier for the slot within the placement */

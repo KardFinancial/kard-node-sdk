@@ -8,7 +8,7 @@ import type * as KardApi from "../../../../../index.js";
  * @example
  *     {
  *         data: {
- *             type: "placementMainPage",
+ *             type: "placement",
  *             attributes: {
  *                 name: "Homepage Banner",
  *                 availableSlots: 5
@@ -26,6 +26,53 @@ import type * as KardApi from "../../../../../index.js";
  *                     frequency: KardApi.organizations.CadenceFrequency.Daily,
  *                     timeOfDay: "09:00"
  *                 }
+ *             }
+ *         }
+ *     }
+ *
+ * @example
+ *     {
+ *         data: {
+ *             type: "placementEmail",
+ *             attributes: {
+ *                 name: "Weekly Deals Email",
+ *                 availableSlots: 10,
+ *                 cadence: {
+ *                     frequency: KardApi.organizations.CadenceFrequency.Weekly,
+ *                     timeOfDay: "10:00",
+ *                     dayOfWeek: KardApi.organizations.DayOfWeek.Mon
+ *                 }
+ *             }
+ *         }
+ *     }
+ *
+ * @example
+ *     {
+ *         data: {
+ *             type: "placementBatchActivation",
+ *             attributes: {
+ *                 name: "Weekly Cohort",
+ *                 refreshInterval: "P7D",
+ *                 slots: [{
+ *                         placementId: "01961e5a-f26f-7e44-ce5f-1ad7c9fb4e67",
+ *                         alias: "primary",
+ *                         shortDescription: "Featured deals refreshed each week"
+ *                     }]
+ *             }
+ *         }
+ *     }
+ *
+ * @example
+ *     {
+ *         data: {
+ *             type: "placementGroup",
+ *             attributes: {
+ *                 name: "Seasonal Collection",
+ *                 slots: [{
+ *                         placementId: "01961e5a-f26f-7e44-ce5f-1ad7c9fb4e67",
+ *                         alias: "primary",
+ *                         shortDescription: "Seasonal picks"
+ *                     }]
  *             }
  *         }
  *     }

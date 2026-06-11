@@ -23,7 +23,7 @@ export class PlacementsClient {
     }
 
     /**
-     * Create a placement for the organization. Use type "placementMainPage" for main-page placements (requires name and availableSlots) or "placementPushNotification" for push-notification placements (requires name and cadence; availableSlots is automatically set to 1).
+     * Create a placement for the organization. Use type "placement" for standard placements (requires name and availableSlots), "placementPushNotification" for push-notification placements (requires name and cadence; availableSlots is automatically set to 1), "placementEmail" for email placements (requires name, cadence, and availableSlots), "placementBatchActivation" for batch-activation placements (requires name, refreshInterval, and slots), or "placementGroup" for group placements (requires name and slots).
      *
      * @param {string} organizationId - Unique identifier of the organization
      * @param {KardApi.organizations.CreatePlacementRequestBody} request
@@ -38,7 +38,7 @@ export class PlacementsClient {
      * @example
      *     await client.organizations.placements.create("org-123", {
      *         data: {
-     *             type: "placementMainPage",
+     *             type: "placement",
      *             attributes: {
      *                 name: "Homepage Banner",
      *                 availableSlots: 5
@@ -56,6 +56,53 @@ export class PlacementsClient {
      *                     frequency: "DAILY",
      *                     timeOfDay: "09:00"
      *                 }
+     *             }
+     *         }
+     *     })
+     *
+     * @example
+     *     await client.organizations.placements.create("org-123", {
+     *         data: {
+     *             type: "placementEmail",
+     *             attributes: {
+     *                 name: "Weekly Deals Email",
+     *                 availableSlots: 10,
+     *                 cadence: {
+     *                     frequency: "WEEKLY",
+     *                     timeOfDay: "10:00",
+     *                     dayOfWeek: "MON"
+     *                 }
+     *             }
+     *         }
+     *     })
+     *
+     * @example
+     *     await client.organizations.placements.create("org-123", {
+     *         data: {
+     *             type: "placementBatchActivation",
+     *             attributes: {
+     *                 name: "Weekly Cohort",
+     *                 refreshInterval: "P7D",
+     *                 slots: [{
+     *                         placementId: "01961e5a-f26f-7e44-ce5f-1ad7c9fb4e67",
+     *                         alias: "primary",
+     *                         shortDescription: "Featured deals refreshed each week"
+     *                     }]
+     *             }
+     *         }
+     *     })
+     *
+     * @example
+     *     await client.organizations.placements.create("org-123", {
+     *         data: {
+     *             type: "placementGroup",
+     *             attributes: {
+     *                 name: "Seasonal Collection",
+     *                 slots: [{
+     *                         placementId: "01961e5a-f26f-7e44-ce5f-1ad7c9fb4e67",
+     *                         alias: "primary",
+     *                         shortDescription: "Seasonal picks"
+     *                     }]
      *             }
      *         }
      *     })
@@ -371,7 +418,7 @@ export class PlacementsClient {
     }
 
     /**
-     * Replace a placement. All fields must be provided. Use type "placementMainPage" or "placementPushNotification" to set the placement kind. If the type is "placementPushNotification", availableSlots is automatically set to 1.
+     * Replace a placement. All fields must be provided. Use type "placement", "placementPushNotification", "placementEmail", "placementBatchActivation", or "placementGroup" to set the placement kind. If the type is "placementPushNotification", availableSlots is automatically set to 1.
      *
      * @param {string} organizationId - Unique identifier of the organization
      * @param {string} placementId - Unique identifier of the placement (UUID v7)
@@ -387,7 +434,7 @@ export class PlacementsClient {
      * @example
      *     await client.organizations.placements.update("organizationId", "placementId", {
      *         data: {
-     *             type: "placementMainPage",
+     *             type: "placement",
      *             attributes: {
      *                 name: "name",
      *                 availableSlots: 1

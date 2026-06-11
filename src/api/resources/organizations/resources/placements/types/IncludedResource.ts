@@ -8,8 +8,9 @@ import type * as KardApi from "../../../../../index.js";
 export type IncludedResource =
     | KardApi.organizations.IncludedResource.ContentStrategy
     | KardApi.organizations.IncludedResource.BatchActivationSlot
-    | KardApi.organizations.IncludedResource.PlacementMainPage
-    | KardApi.organizations.IncludedResource.PlacementPushNotification;
+    | KardApi.organizations.IncludedResource.Placement
+    | KardApi.organizations.IncludedResource.PlacementPushNotification
+    | KardApi.organizations.IncludedResource.PlacementEmail;
 
 export namespace IncludedResource {
     export interface ContentStrategy extends KardApi.organizations.ContentStrategyInclusion {
@@ -20,11 +21,15 @@ export namespace IncludedResource {
         type: "batchActivationSlot";
     }
 
-    export interface PlacementMainPage extends KardApi.organizations.MainPagePlacementData {
-        type: "placementMainPage";
+    export interface Placement extends KardApi.organizations.PlacementData {
+        type: "placement";
     }
 
     export interface PlacementPushNotification extends KardApi.organizations.PushNotificationPlacementData {
         type: "placementPushNotification";
+    }
+
+    export interface PlacementEmail extends KardApi.organizations.EmailPlacementData {
+        type: "placementEmail";
     }
 }

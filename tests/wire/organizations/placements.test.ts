@@ -14,10 +14,10 @@ describe("PlacementsClient", () => {
             environment: server.baseUrl,
         });
         const rawRequestBody = {
-            data: { type: "placementMainPage", attributes: { name: "Homepage Banner", availableSlots: 5 } },
+            data: { type: "placement", attributes: { name: "Homepage Banner", availableSlots: 5 } },
         };
         const rawResponseBody = {
-            type: "placementMainPage",
+            type: "placement",
             id: "01961e5a-b74c-7d42-8456-d3a1f2c90e71",
             attributes: { name: "Homepage Banner", organizationId: "org-123", availableSlots: 5 },
         };
@@ -33,7 +33,7 @@ describe("PlacementsClient", () => {
 
         const response = await client.organizations.placements.create("org-123", {
             data: {
-                type: "placementMainPage",
+                type: "placement",
                 attributes: {
                     name: "Homepage Banner",
                     availableSlots: 5,
@@ -99,7 +99,182 @@ describe("PlacementsClient", () => {
             clientSecret: "client_secret",
             environment: server.baseUrl,
         });
-        const rawRequestBody = { data: { type: "placementMainPage", attributes: { name: "name", availableSlots: 1 } } };
+        const rawRequestBody = {
+            data: {
+                type: "placementEmail",
+                attributes: {
+                    name: "Weekly Deals Email",
+                    availableSlots: 10,
+                    cadence: { frequency: "WEEKLY", timeOfDay: "10:00", dayOfWeek: "MON" },
+                },
+            },
+        };
+        const rawResponseBody = {
+            type: "placementEmail",
+            id: "01961e5a-f37a-7b55-9d6a-2be8d1ac5f78",
+            attributes: {
+                name: "Weekly Deals Email",
+                organizationId: "org-123",
+                availableSlots: 10,
+                cadence: { frequency: "WEEKLY", timeOfDay: "10:00", dayOfWeek: "MON" },
+            },
+        };
+
+        server
+            .mockEndpoint()
+            .post("/v2/issuers/org-123/placements")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.organizations.placements.create("org-123", {
+            data: {
+                type: "placementEmail",
+                attributes: {
+                    name: "Weekly Deals Email",
+                    availableSlots: 10,
+                    cadence: {
+                        frequency: "WEEKLY",
+                        timeOfDay: "10:00",
+                        dayOfWeek: "MON",
+                    },
+                },
+            },
+        });
+        expect(response).toEqual(rawResponseBody);
+    });
+
+    test("create (4)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new KardApiClient({
+            maxRetries: 0,
+            clientId: "client_id",
+            clientSecret: "client_secret",
+            environment: server.baseUrl,
+        });
+        const rawRequestBody = {
+            data: {
+                type: "placementBatchActivation",
+                attributes: {
+                    name: "Weekly Cohort",
+                    refreshInterval: "P7D",
+                    slots: [
+                        {
+                            placementId: "01961e5a-f26f-7e44-ce5f-1ad7c9fb4e67",
+                            alias: "primary",
+                            shortDescription: "Featured deals refreshed each week",
+                        },
+                    ],
+                },
+            },
+        };
+        const rawResponseBody = {
+            type: "placementBatchActivation",
+            id: "01961e5a-d94e-7c22-ac3f-f8b5a7e92c45",
+            attributes: { name: "Weekly Cohort", organizationId: "org-123", refreshInterval: "P7D" },
+            relationships: {
+                slots: { data: [{ type: "batchActivationSlot", id: "01961e5a-e15f-7d33-bd4f-09c6b8fa3d56" }] },
+            },
+        };
+
+        server
+            .mockEndpoint()
+            .post("/v2/issuers/org-123/placements")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.organizations.placements.create("org-123", {
+            data: {
+                type: "placementBatchActivation",
+                attributes: {
+                    name: "Weekly Cohort",
+                    refreshInterval: "P7D",
+                    slots: [
+                        {
+                            placementId: "01961e5a-f26f-7e44-ce5f-1ad7c9fb4e67",
+                            alias: "primary",
+                            shortDescription: "Featured deals refreshed each week",
+                        },
+                    ],
+                },
+            },
+        });
+        expect(response).toEqual(rawResponseBody);
+    });
+
+    test("create (5)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new KardApiClient({
+            maxRetries: 0,
+            clientId: "client_id",
+            clientSecret: "client_secret",
+            environment: server.baseUrl,
+        });
+        const rawRequestBody = {
+            data: {
+                type: "placementGroup",
+                attributes: {
+                    name: "Seasonal Collection",
+                    slots: [
+                        {
+                            placementId: "01961e5a-f26f-7e44-ce5f-1ad7c9fb4e67",
+                            alias: "primary",
+                            shortDescription: "Seasonal picks",
+                        },
+                    ],
+                },
+            },
+        };
+        const rawResponseBody = {
+            type: "placementGroup",
+            id: "01961e5a-a48b-7e66-8c7b-3cf9e2bd6a89",
+            attributes: { name: "Seasonal Collection", organizationId: "org-123" },
+            relationships: {
+                slots: { data: [{ type: "batchActivationSlot", id: "01961e5a-b59c-7f77-9d8c-4d0af3ce7b9a" }] },
+            },
+        };
+
+        server
+            .mockEndpoint()
+            .post("/v2/issuers/org-123/placements")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.organizations.placements.create("org-123", {
+            data: {
+                type: "placementGroup",
+                attributes: {
+                    name: "Seasonal Collection",
+                    slots: [
+                        {
+                            placementId: "01961e5a-f26f-7e44-ce5f-1ad7c9fb4e67",
+                            alias: "primary",
+                            shortDescription: "Seasonal picks",
+                        },
+                    ],
+                },
+            },
+        });
+        expect(response).toEqual(rawResponseBody);
+    });
+
+    test("create (6)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new KardApiClient({
+            maxRetries: 0,
+            clientId: "client_id",
+            clientSecret: "client_secret",
+            environment: server.baseUrl,
+        });
+        const rawRequestBody = { data: { type: "placement", attributes: { name: "name", availableSlots: 1 } } };
         const rawResponseBody = {
             errors: [
                 { status: "status", title: "title", detail: "detail" },
@@ -119,7 +294,7 @@ describe("PlacementsClient", () => {
         await expect(async () => {
             return await client.organizations.placements.create("organizationId", {
                 data: {
-                    type: "placementMainPage",
+                    type: "placement",
                     attributes: {
                         name: "name",
                         availableSlots: 1,
@@ -129,7 +304,7 @@ describe("PlacementsClient", () => {
         }).rejects.toThrow(KardApi.UnauthorizedError);
     });
 
-    test("create (4)", async () => {
+    test("create (7)", async () => {
         const server = mockServerPool.createServer();
         const client = new KardApiClient({
             maxRetries: 0,
@@ -137,7 +312,7 @@ describe("PlacementsClient", () => {
             clientSecret: "client_secret",
             environment: server.baseUrl,
         });
-        const rawRequestBody = { data: { type: "placementMainPage", attributes: { name: "name", availableSlots: 1 } } };
+        const rawRequestBody = { data: { type: "placement", attributes: { name: "name", availableSlots: 1 } } };
         const rawResponseBody = {
             errors: [
                 { status: "status", title: "title", detail: "detail" },
@@ -157,7 +332,7 @@ describe("PlacementsClient", () => {
         await expect(async () => {
             return await client.organizations.placements.create("organizationId", {
                 data: {
-                    type: "placementMainPage",
+                    type: "placement",
                     attributes: {
                         name: "name",
                         availableSlots: 1,
@@ -167,7 +342,7 @@ describe("PlacementsClient", () => {
         }).rejects.toThrow(KardApi.ForbiddenError);
     });
 
-    test("create (5)", async () => {
+    test("create (8)", async () => {
         const server = mockServerPool.createServer();
         const client = new KardApiClient({
             maxRetries: 0,
@@ -175,7 +350,7 @@ describe("PlacementsClient", () => {
             clientSecret: "client_secret",
             environment: server.baseUrl,
         });
-        const rawRequestBody = { data: { type: "placementMainPage", attributes: { name: "name", availableSlots: 1 } } };
+        const rawRequestBody = { data: { type: "placement", attributes: { name: "name", availableSlots: 1 } } };
         const rawResponseBody = {
             errors: [
                 { status: "status", title: "title", detail: "detail" },
@@ -195,7 +370,7 @@ describe("PlacementsClient", () => {
         await expect(async () => {
             return await client.organizations.placements.create("organizationId", {
                 data: {
-                    type: "placementMainPage",
+                    type: "placement",
                     attributes: {
                         name: "name",
                         availableSlots: 1,
@@ -205,7 +380,7 @@ describe("PlacementsClient", () => {
         }).rejects.toThrow(KardApi.InvalidRequest);
     });
 
-    test("create (6)", async () => {
+    test("create (9)", async () => {
         const server = mockServerPool.createServer();
         const client = new KardApiClient({
             maxRetries: 0,
@@ -213,7 +388,7 @@ describe("PlacementsClient", () => {
             clientSecret: "client_secret",
             environment: server.baseUrl,
         });
-        const rawRequestBody = { data: { type: "placementMainPage", attributes: { name: "name", availableSlots: 1 } } };
+        const rawRequestBody = { data: { type: "placement", attributes: { name: "name", availableSlots: 1 } } };
         const rawResponseBody = {
             errors: [
                 { status: "status", title: "title", detail: "detail" },
@@ -233,7 +408,7 @@ describe("PlacementsClient", () => {
         await expect(async () => {
             return await client.organizations.placements.create("organizationId", {
                 data: {
-                    type: "placementMainPage",
+                    type: "placement",
                     attributes: {
                         name: "name",
                         availableSlots: 1,
@@ -243,7 +418,7 @@ describe("PlacementsClient", () => {
         }).rejects.toThrow(KardApi.DoesNotExistError);
     });
 
-    test("create (7)", async () => {
+    test("create (10)", async () => {
         const server = mockServerPool.createServer();
         const client = new KardApiClient({
             maxRetries: 0,
@@ -251,7 +426,7 @@ describe("PlacementsClient", () => {
             clientSecret: "client_secret",
             environment: server.baseUrl,
         });
-        const rawRequestBody = { data: { type: "placementMainPage", attributes: { name: "name", availableSlots: 1 } } };
+        const rawRequestBody = { data: { type: "placement", attributes: { name: "name", availableSlots: 1 } } };
         const rawResponseBody = {
             errors: [
                 { status: "status", title: "title", detail: "detail" },
@@ -271,7 +446,7 @@ describe("PlacementsClient", () => {
         await expect(async () => {
             return await client.organizations.placements.create("organizationId", {
                 data: {
-                    type: "placementMainPage",
+                    type: "placement",
                     attributes: {
                         name: "name",
                         availableSlots: 1,
@@ -293,7 +468,7 @@ describe("PlacementsClient", () => {
         const rawResponseBody = {
             data: [
                 {
-                    type: "placementMainPage",
+                    type: "placement",
                     id: "id",
                     attributes: {
                         name: "name",
@@ -304,7 +479,7 @@ describe("PlacementsClient", () => {
                     relationships: { contentStrategy: { data: { type: "type", id: "id" } } },
                 },
                 {
-                    type: "placementMainPage",
+                    type: "placement",
                     id: "id",
                     attributes: {
                         name: "name",
@@ -513,7 +688,7 @@ describe("PlacementsClient", () => {
 
         const rawResponseBody = {
             data: {
-                type: "placementMainPage",
+                type: "placement",
                 id: "id",
                 attributes: {
                     name: "name",
@@ -687,9 +862,9 @@ describe("PlacementsClient", () => {
             clientSecret: "client_secret",
             environment: server.baseUrl,
         });
-        const rawRequestBody = { data: { type: "placementMainPage", attributes: { name: "name", availableSlots: 1 } } };
+        const rawRequestBody = { data: { type: "placement", attributes: { name: "name", availableSlots: 1 } } };
         const rawResponseBody = {
-            type: "placementMainPage",
+            type: "placement",
             id: "id",
             attributes: {
                 name: "name",
@@ -711,7 +886,7 @@ describe("PlacementsClient", () => {
 
         const response = await client.organizations.placements.update("organizationId", "placementId", {
             data: {
-                type: "placementMainPage",
+                type: "placement",
                 attributes: {
                     name: "name",
                     availableSlots: 1,
@@ -729,7 +904,7 @@ describe("PlacementsClient", () => {
             clientSecret: "client_secret",
             environment: server.baseUrl,
         });
-        const rawRequestBody = { data: { type: "placementMainPage", attributes: { name: "name", availableSlots: 1 } } };
+        const rawRequestBody = { data: { type: "placement", attributes: { name: "name", availableSlots: 1 } } };
         const rawResponseBody = {
             errors: [
                 { status: "status", title: "title", detail: "detail" },
@@ -749,7 +924,7 @@ describe("PlacementsClient", () => {
         await expect(async () => {
             return await client.organizations.placements.update("organizationId", "placementId", {
                 data: {
-                    type: "placementMainPage",
+                    type: "placement",
                     attributes: {
                         name: "name",
                         availableSlots: 1,
@@ -767,7 +942,7 @@ describe("PlacementsClient", () => {
             clientSecret: "client_secret",
             environment: server.baseUrl,
         });
-        const rawRequestBody = { data: { type: "placementMainPage", attributes: { name: "name", availableSlots: 1 } } };
+        const rawRequestBody = { data: { type: "placement", attributes: { name: "name", availableSlots: 1 } } };
         const rawResponseBody = {
             errors: [
                 { status: "status", title: "title", detail: "detail" },
@@ -787,7 +962,7 @@ describe("PlacementsClient", () => {
         await expect(async () => {
             return await client.organizations.placements.update("organizationId", "placementId", {
                 data: {
-                    type: "placementMainPage",
+                    type: "placement",
                     attributes: {
                         name: "name",
                         availableSlots: 1,
@@ -805,7 +980,7 @@ describe("PlacementsClient", () => {
             clientSecret: "client_secret",
             environment: server.baseUrl,
         });
-        const rawRequestBody = { data: { type: "placementMainPage", attributes: { name: "name", availableSlots: 1 } } };
+        const rawRequestBody = { data: { type: "placement", attributes: { name: "name", availableSlots: 1 } } };
         const rawResponseBody = {
             errors: [
                 { status: "status", title: "title", detail: "detail" },
@@ -825,7 +1000,7 @@ describe("PlacementsClient", () => {
         await expect(async () => {
             return await client.organizations.placements.update("organizationId", "placementId", {
                 data: {
-                    type: "placementMainPage",
+                    type: "placement",
                     attributes: {
                         name: "name",
                         availableSlots: 1,
@@ -843,7 +1018,7 @@ describe("PlacementsClient", () => {
             clientSecret: "client_secret",
             environment: server.baseUrl,
         });
-        const rawRequestBody = { data: { type: "placementMainPage", attributes: { name: "name", availableSlots: 1 } } };
+        const rawRequestBody = { data: { type: "placement", attributes: { name: "name", availableSlots: 1 } } };
         const rawResponseBody = {
             errors: [
                 { status: "status", title: "title", detail: "detail" },
@@ -863,7 +1038,7 @@ describe("PlacementsClient", () => {
         await expect(async () => {
             return await client.organizations.placements.update("organizationId", "placementId", {
                 data: {
-                    type: "placementMainPage",
+                    type: "placement",
                     attributes: {
                         name: "name",
                         availableSlots: 1,
@@ -881,7 +1056,7 @@ describe("PlacementsClient", () => {
             clientSecret: "client_secret",
             environment: server.baseUrl,
         });
-        const rawRequestBody = { data: { type: "placementMainPage", attributes: { name: "name", availableSlots: 1 } } };
+        const rawRequestBody = { data: { type: "placement", attributes: { name: "name", availableSlots: 1 } } };
         const rawResponseBody = {
             errors: [
                 { status: "status", title: "title", detail: "detail" },
@@ -901,7 +1076,7 @@ describe("PlacementsClient", () => {
         await expect(async () => {
             return await client.organizations.placements.update("organizationId", "placementId", {
                 data: {
-                    type: "placementMainPage",
+                    type: "placement",
                     attributes: {
                         name: "name",
                         availableSlots: 1,

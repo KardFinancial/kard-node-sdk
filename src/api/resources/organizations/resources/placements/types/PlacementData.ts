@@ -3,12 +3,12 @@
 import type * as KardApi from "../../../../../index.js";
 
 /**
- * Main-page placement resource data
+ * Standard placement resource data
  */
-export interface MainPagePlacementData {
+export interface PlacementData {
     /** Unique identifier of the placement (UUID v7) */
     id: string;
-    attributes: KardApi.organizations.MainPagePlacementAttributes;
+    attributes: KardApi.organizations.PlacementAttributes;
     /** JSON:API relationships for the placement. Omitted entirely when the placement has no linked resources. */
     relationships?: KardApi.organizations.PlacementRelationships | undefined;
 }

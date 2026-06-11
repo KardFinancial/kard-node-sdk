@@ -3,7 +3,7 @@
 import type * as KardApi from "../../../../../index.js";
 
 /**
- * Cadence schedule for push notification placements
+ * Cadence schedule for push notification and email placements
  */
 export interface Cadence {
     /** Delivery frequency */

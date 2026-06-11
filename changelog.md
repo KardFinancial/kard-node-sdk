@@ -1,3 +1,15 @@
+## 29.0.0 - 2026-06-11
+### Added
+* **`CreateGroupAttributes`** and **`CreateGroupPlacementData`** — new interfaces for creating a group placement, specifying a name and an array of `CreateBatchActivationSlot` entries.
+* **`UpdateGroupAttributes`** and **`UpdateGroupPlacementData`** — new interfaces for replacing a group placement's name and slot list via PUT.
+* **`GroupPlacementAttributes`**, **`GroupPlacementData`**, and **`SlottedPlacementRelationships`** — new interfaces representing a group placement resource and its `slots` to-many relationship.
+* **`CreateEmailAttributes`**, **`CreateEmailPlacementData`**, **`UpdateEmailAttributes`**, **`UpdateEmailPlacementData`**, and **`EmailPlacementAttributes`** — new interfaces for creating, updating, and reading email placements with name, available slots, and delivery cadence.
+* **`PlacementData`**, **`CreateStandardPlacementData`**, and **`UpdateStandardPlacementData`** — new wrapper data interfaces for standard placement resources, mirroring the pattern used by batch-activation and group placements.
+### Changed
+* **`PlacementBatchAttributes.isActive`** — JSDoc clarified to note that slots belonging to a group placement always report `true` (group placements have no activation cycle).
+* **`PlacementBatchAttributes.components`** — JSDoc clarified to note this field is omitted for group placement slots.
+* **`PlacementBatchData`** — description updated to cover both batch-activation and group placements.
+
 ## 28.2.0 - 2026-06-10
 ### Added
 * **`NotificationType.PushNotificationPlacementFile`** and **`NotificationType.EmailNotificationPlacementFile`** — two new enum values representing placement file notification types.

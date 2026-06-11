@@ -2,8 +2,10 @@
 
 /** Placement type discriminator used as a list filter */
 export const PlacementTypeFilter = {
-    PlacementMainPage: "placementMainPage",
+    Placement: "placement",
     PlacementPushNotification: "placementPushNotification",
+    PlacementEmail: "placementEmail",
     PlacementBatchActivation: "placementBatchActivation",
+    PlacementGroup: "placementGroup",
 } as const;
 export type PlacementTypeFilter = (typeof PlacementTypeFilter)[keyof typeof PlacementTypeFilter];

@@ -7,7 +7,7 @@ import type * as KardApi from "../../../../../index.js";
  *
  * @example
  *     {
- *         type: "placementMainPage",
+ *         type: "placement",
  *         id: "01961e5a-b74c-7d42-8456-d3a1f2c90e71",
  *         attributes: {
  *             name: "Homepage Banner",
@@ -32,6 +32,22 @@ import type * as KardApi from "../../../../../index.js";
  *
  * @example
  *     {
+ *         type: "placementEmail",
+ *         id: "01961e5a-f37a-7b55-9d6a-2be8d1ac5f78",
+ *         attributes: {
+ *             name: "Weekly Deals Email",
+ *             organizationId: "org-123",
+ *             availableSlots: 10,
+ *             cadence: {
+ *                 frequency: KardApi.organizations.CadenceFrequency.Weekly,
+ *                 timeOfDay: "10:00",
+ *                 dayOfWeek: KardApi.organizations.DayOfWeek.Mon
+ *             }
+ *         }
+ *     }
+ *
+ * @example
+ *     {
  *         type: "placementBatchActivation",
  *         id: "01961e5a-d94e-7c22-ac3f-f8b5a7e92c45",
  *         attributes: {
@@ -48,22 +64,50 @@ import type * as KardApi from "../../../../../index.js";
  *             }
  *         }
  *     }
+ *
+ * @example
+ *     {
+ *         type: "placementGroup",
+ *         id: "01961e5a-a48b-7e66-8c7b-3cf9e2bd6a89",
+ *         attributes: {
+ *             name: "Seasonal Collection",
+ *             organizationId: "org-123"
+ *         },
+ *         relationships: {
+ *             slots: {
+ *                 data: [{
+ *                         type: "batchActivationSlot",
+ *                         id: "01961e5a-b59c-7f77-9d8c-4d0af3ce7b9a"
+ *                     }]
+ *             }
+ *         }
+ *     }
  */
 export type PlacementFormatUnion =
-    | KardApi.organizations.PlacementFormatUnion.PlacementMainPage
+    | KardApi.organizations.PlacementFormatUnion.Placement
     | KardApi.organizations.PlacementFormatUnion.PlacementPushNotification
-    | KardApi.organizations.PlacementFormatUnion.PlacementBatchActivation;
+    | KardApi.organizations.PlacementFormatUnion.PlacementEmail
+    | KardApi.organizations.PlacementFormatUnion.PlacementBatchActivation
+    | KardApi.organizations.PlacementFormatUnion.PlacementGroup;
 
 export namespace PlacementFormatUnion {
-    export interface PlacementMainPage extends KardApi.organizations.MainPagePlacementData {
-        type: "placementMainPage";
+    export interface Placement extends KardApi.organizations.PlacementData {
+        type: "placement";
     }
 
     export interface PlacementPushNotification extends KardApi.organizations.PushNotificationPlacementData {
         type: "placementPushNotification";
     }
 
+    export interface PlacementEmail extends KardApi.organizations.EmailPlacementData {
+        type: "placementEmail";
+    }
+
     export interface PlacementBatchActivation extends KardApi.organizations.BatchActivationPlacementData {
         type: "placementBatchActivation";
+    }
+
+    export interface PlacementGroup extends KardApi.organizations.GroupPlacementData {
+        type: "placementGroup";
     }
 }
