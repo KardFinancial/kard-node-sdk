@@ -1,3 +1,7 @@
+## 29.1.0 - 2026-06-17
+### Added
+* **`TransactionsAttributes.accountId`** — new optional `string` field that exposes an account identifier associated with a transaction.
+
 ## 29.0.0 - 2026-06-11
 ### Added
 * **`CreateGroupAttributes`** and **`CreateGroupPlacementData`** — new interfaces for creating a group placement, specifying a name and an array of `CreateBatchActivationSlot` entries.

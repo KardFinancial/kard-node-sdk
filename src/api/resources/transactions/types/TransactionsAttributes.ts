@@ -59,4 +59,6 @@ export interface TransactionsAttributes {
     userZipCode?: string | undefined;
     /** Network specific merchant IDs (MIDs) associated with the transaction */
     processorMids?: KardApi.ProcessorMid | undefined;
+    /** An account identifier associated to transaction */
+    accountId?: string | undefined;
 }
