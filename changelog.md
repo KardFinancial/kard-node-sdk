@@ -1,3 +1,10 @@
+## 29.2.0 - 2026-06-22
+### Added
+* **`RewardsClient.placementContent()`** — new method that retrieves content for any placement type via a single unified endpoint (`GET /v2/issuers/{organizationId}/users/{userId}/placements/{placementId}/content`); the server resolves the placement type so callers no longer need to choose between the offers or batches endpoints.
+* **`GetPlacementContentRequest`** — new request interface with optional `include` and `supportedComponents` parameters for filtering the placement content response.
+* **`PlacementContentResponse`** — new interface representing the unified JSON:API document returned by the placement content endpoint, containing `data`, optional `links`, `included`, and `meta` fields.
+* **`PlacementContentData`** — new type alias (`OfferDataUnion | PlacementBatchData`) used to discriminate between `standardOffer` and `placementBatch` resources in the response.
+
 ## 29.1.0 - 2026-06-17
 ### Added
 * **`TransactionsAttributes.accountId`** — new optional `string` field that exposes an account identifier associated with a transaction.

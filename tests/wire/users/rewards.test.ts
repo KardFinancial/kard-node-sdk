@@ -817,6 +817,250 @@ describe("RewardsClient", () => {
         }).rejects.toThrow(KardApi.UnauthorizedError);
     });
 
+    test("placementContent (1)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new KardApiClient({
+            maxRetries: 0,
+            clientId: "client_id",
+            clientSecret: "client_secret",
+            environment: server.baseUrl,
+        });
+
+        const rawResponseBody = {
+            data: [
+                {
+                    type: "standardOffer",
+                    id: "5e27318c9b346f00087fbb5c",
+                    attributes: {
+                        name: "World's Greatest Chicken",
+                        terms: "Offer valid at US locations only.",
+                        purchaseChannel: ["INSTORE"],
+                        userReward: { type: "PERCENT", value: 5.7 },
+                        startDate: "2024-11-17T05:00:00Z",
+                        expirationDate: "2025-03-17T05:00:00Z",
+                        isTargeted: true,
+                        assets: [
+                            {
+                                type: "IMG_VIEW",
+                                url: "https://attribution.getkard.com/logos/wgc_logo.png?token=example",
+                                alt: "",
+                            },
+                        ],
+                        websiteUrl: "https://worldsgreatestchicken.test.com",
+                        description: "Crispy, double-fried spicy chicken.",
+                    },
+                    relationships: { category: { data: [{ type: "category", id: "65920081b524d126068de24a" }] } },
+                },
+            ],
+            included: [{ type: "category", id: "65920081b524d126068de24a", attributes: { name: "Food & Beverage" } }],
+            links: { self: "/v2/issuers/organization-123/users/user-123/placements/placement-homepage-banner/content" },
+            meta: {
+                availableCategories: [
+                    { type: "category", id: "65920081b524d126068de24a", attributes: { name: "Food & Beverage" } },
+                ],
+            },
+        };
+
+        server
+            .mockEndpoint()
+            .get("/v2/issuers/organization-123/users/user-123/placements/placement-homepage-banner/content")
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.users.rewards.placementContent(
+            "organization-123",
+            "user-123",
+            "placement-homepage-banner",
+            {
+                include: "categories",
+            },
+        );
+        expect(response).toEqual(rawResponseBody);
+    });
+
+    test("placementContent (2)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new KardApiClient({
+            maxRetries: 0,
+            clientId: "client_id",
+            clientSecret: "client_secret",
+            environment: server.baseUrl,
+        });
+
+        const rawResponseBody = {
+            data: [
+                {
+                    type: "placementBatch",
+                    id: "slot-newly-live",
+                    attributes: {
+                        name: "Newly Live",
+                        isActive: true,
+                        lastActivatedAt: "2026-05-20T06:00:00Z",
+                        expiresAt: "2026-05-21T06:00:00Z",
+                        assets: [],
+                        offers: [
+                            {
+                                type: "standardOffer",
+                                id: "5e27318c9b346f00087fbb5c",
+                                attributes: {
+                                    name: "World's Greatest Chicken",
+                                    terms: "Offer valid at US locations only.",
+                                    purchaseChannel: ["INSTORE"],
+                                    userReward: { type: "PERCENT", value: 5.7 },
+                                    startDate: "2024-11-17T05:00:00Z",
+                                    expirationDate: "2025-03-17T05:00:00Z",
+                                    isTargeted: false,
+                                    assets: [],
+                                },
+                            },
+                        ],
+                    },
+                },
+                {
+                    type: "placementBatch",
+                    id: "slot-travel",
+                    attributes: { name: "Travel", isActive: true, assets: [], offers: [] },
+                },
+            ],
+        };
+
+        server
+            .mockEndpoint()
+            .get("/v2/issuers/organization-123/users/user-123/placements/placement-weekly-bundles/content")
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.users.rewards.placementContent(
+            "organization-123",
+            "user-123",
+            "placement-weekly-bundles",
+            {
+                supportedComponents: "baseReward",
+            },
+        );
+        expect(response).toEqual(rawResponseBody);
+    });
+
+    test("placementContent (3)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new KardApiClient({
+            maxRetries: 0,
+            clientId: "client_id",
+            clientSecret: "client_secret",
+            environment: server.baseUrl,
+        });
+
+        const rawResponseBody = {
+            errors: [
+                { status: "status", title: "title", detail: "detail" },
+                { status: "status", title: "title", detail: "detail" },
+            ],
+        };
+
+        server
+            .mockEndpoint()
+            .get("/v2/issuers/organizationId/users/userId/placements/placementId/content")
+            .respondWith()
+            .statusCode(500)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.users.rewards.placementContent("organizationId", "userId", "placementId");
+        }).rejects.toThrow(KardApi.InternalServerError);
+    });
+
+    test("placementContent (4)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new KardApiClient({
+            maxRetries: 0,
+            clientId: "client_id",
+            clientSecret: "client_secret",
+            environment: server.baseUrl,
+        });
+
+        const rawResponseBody = {
+            errors: [
+                { status: "status", title: "title", detail: "detail" },
+                { status: "status", title: "title", detail: "detail" },
+            ],
+        };
+
+        server
+            .mockEndpoint()
+            .get("/v2/issuers/organizationId/users/userId/placements/placementId/content")
+            .respondWith()
+            .statusCode(400)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.users.rewards.placementContent("organizationId", "userId", "placementId");
+        }).rejects.toThrow(KardApi.InvalidRequest);
+    });
+
+    test("placementContent (5)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new KardApiClient({
+            maxRetries: 0,
+            clientId: "client_id",
+            clientSecret: "client_secret",
+            environment: server.baseUrl,
+        });
+
+        const rawResponseBody = {
+            errors: [
+                { status: "status", title: "title", detail: "detail" },
+                { status: "status", title: "title", detail: "detail" },
+            ],
+        };
+
+        server
+            .mockEndpoint()
+            .get("/v2/issuers/organizationId/users/userId/placements/placementId/content")
+            .respondWith()
+            .statusCode(404)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.users.rewards.placementContent("organizationId", "userId", "placementId");
+        }).rejects.toThrow(KardApi.DoesNotExistError);
+    });
+
+    test("placementContent (6)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new KardApiClient({
+            maxRetries: 0,
+            clientId: "client_id",
+            clientSecret: "client_secret",
+            environment: server.baseUrl,
+        });
+
+        const rawResponseBody = {
+            errors: [
+                { status: "status", title: "title", detail: "detail" },
+                { status: "status", title: "title", detail: "detail" },
+            ],
+        };
+
+        server
+            .mockEndpoint()
+            .get("/v2/issuers/organizationId/users/userId/placements/placementId/content")
+            .respondWith()
+            .statusCode(401)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.users.rewards.placementContent("organizationId", "userId", "placementId");
+        }).rejects.toThrow(KardApi.UnauthorizedError);
+    });
+
     test("locations (1)", async () => {
         const server = mockServerPool.createServer();
         const client = new KardApiClient({

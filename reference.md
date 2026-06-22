@@ -3162,6 +3162,105 @@ await client.users.rewards.placementBatches("organizationId", "userId", "placeme
 </dl>
 </details>
 
+<details><summary><code>client.users.rewards.<a href="/src/api/resources/users/resources/rewards/client/Client.ts">placementContent</a>(organizationId, userId, placementId, { ...params }) -> KardApi.PlacementContentResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Retrieve the content for a placement. The placement type is resolved
+server-side so callers no longer pick an endpoint by placement type.
+Returns a JSON:API document whose `data` resources are self-describing
+by `type`: a standard placement returns `standardOffer` resources (the
+same payload as Get Offers By Placement — with `links`, optional
+`included` categories, and `meta`); a batch-activation or group
+placement returns `placementBatch` slot resources (the same payload as
+Get Batches By Placement). Distinguish the two by each resource's
+`type`. Email and push-notification placements are not servable through
+this endpoint and respond with a `400`.<br/>
+<b>Required scopes:</b> `rewards:read`
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.users.rewards.placementContent("organization-123", "user-123", "placement-homepage-banner", {
+    include: "categories"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**organizationId:** `KardApi.OrganizationId` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**userId:** `KardApi.UserId` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**placementId:** `string` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `KardApi.users.GetPlacementContentRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RewardsClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.users.rewards.<a href="/src/api/resources/users/resources/rewards/client/Client.ts">locations</a>(organizationId, userId, { ...params }) -> KardApi.LocationsResponseObject</code></summary>
 <dl>
 <dd>
