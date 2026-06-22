@@ -6,3 +6,4 @@ tests/unit/hem
 scripts/patch-custom-exports.js
 scripts/patch-custom-reference.js
 .githooks
+LICENSE
