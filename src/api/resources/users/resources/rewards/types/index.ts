@@ -41,7 +41,6 @@ export * from "./OperationPeriod.js";
 export * from "./OperationTime.js";
 export * from "./PlacementBatchAttributes.js";
 export * from "./PlacementBatchData.js";
-export * from "./PlacementContentData.js";
 export * from "./PlacementContentResponse.js";
 export * from "./ProgressBar.js";
 export * from "./ProgressBarLabelPair.js";

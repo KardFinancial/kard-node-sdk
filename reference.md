@@ -2737,8 +2737,8 @@ Record when a user activates a batch-activation placement slot. Writes a slot-le
 `placementSlotAttribution` ACTIVATE event and fans out a per-offer
 `offerAttribution` ACTIVATE event for every offer resolved by the slot's content
 strategy. The slot-level event id and the resolved `offerIds` are returned so the
-partner can render the batch immediately without an extra `getBatchesByPlacement`
-round-trip.
+partner can render the batch immediately without an extra round-trip to re-fetch
+the placement content.
 
 <b>Required scopes:</b> `attributions:write`
 </dd>
@@ -2974,194 +2974,6 @@ await client.users.rewards.offers("organization-123", "user-123", {
 </dl>
 </details>
 
-<details><summary><code>client.users.rewards.<a href="/src/api/resources/users/resources/rewards/client/Client.ts">placementOffers</a>(organizationId, userId, placementId, { ...params }) -> KardApi.OffersResponseObject</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Retrieve offers for a placement slot. Returns offers sorted by highest cash back,
-limited by the placement's available slots.<br/>
-<b>Required scopes:</b> `rewards:read`
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.users.rewards.placementOffers("organizationId", "userId", "placementId");
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**organizationId:** `KardApi.OrganizationId` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**userId:** `KardApi.UserId` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**placementId:** `string` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request:** `KardApi.users.GetOffersByPlacementRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `RewardsClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.users.rewards.<a href="/src/api/resources/users/resources/rewards/client/Client.ts">placementBatches</a>(organizationId, userId, placementId, { ...params }) -> KardApi.BatchesResponseObject</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Retrieve batches for a batch-activation or group placement. Returns each
-slot in slot order with its current offer set, alias, and freshness fields
-(`isActive`, `lastActivatedAt`, `expiresAt`). Applies the same per-user
-eligibility and per-slot content-strategy filter as Get Offers By
-Placement, independently per slot. For a batch-activation placement, a
-slot only flips to `isActive: false` when its refresh interval has elapsed
-AND its post-eligibility `offers[]` is non-empty; otherwise the slot is
-still returned and stays active so the partner UI does not promote
-"refresh" with nothing to show. For a group placement, slots are always
-active and each slot returns its offers regardless of activation state,
-hiding only offers that require activation (`requiredInBatch`) and have
-no activation record.<br/>
-<b>Required scopes:</b> `rewards:read`
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.users.rewards.placementBatches("organizationId", "userId", "placementId");
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**organizationId:** `KardApi.OrganizationId` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**userId:** `KardApi.UserId` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**placementId:** `string` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request:** `KardApi.users.GetBatchesByPlacementRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `RewardsClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
 <details><summary><code>client.users.rewards.<a href="/src/api/resources/users/resources/rewards/client/Client.ts">placementContent</a>(organizationId, userId, placementId, { ...params }) -> KardApi.PlacementContentResponse</code></summary>
 <dl>
 <dd>
@@ -3177,13 +2989,12 @@ await client.users.rewards.placementBatches("organizationId", "userId", "placeme
 Retrieve the content for a placement. The placement type is resolved
 server-side so callers no longer pick an endpoint by placement type.
 Returns a JSON:API document whose `data` resources are self-describing
-by `type`: a standard placement returns `standardOffer` resources (the
-same payload as Get Offers By Placement — with `links`, optional
-`included` categories, and `meta`); a batch-activation or group
-placement returns `placementBatch` slot resources (the same payload as
-Get Batches By Placement). Distinguish the two by each resource's
-`type`. Email and push-notification placements are not servable through
-this endpoint and respond with a `400`.<br/>
+by `type`: a standard placement returns `standardOffer` resources (with
+`links`, optional `included` categories, and `meta`); a batch-activation
+or group placement returns `placementBatch` slot resources. Distinguish
+the two by each resource's `type`. Email and push-notification
+placements are not servable through this endpoint and respond with a
+`400`.<br/>
 <b>Required scopes:</b> `rewards:read`
 </dd>
 </dl>

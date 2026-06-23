@@ -1,3 +1,12 @@
+## 30.0.0 - 2026-06-23
+### Breaking Changes
+* **`RewardsClient.placementOffers()`** — method removed; migrate to `RewardsClient.placementContent()`, which resolves the placement type server-side and returns the same offer payload for standard placements.
+* **`RewardsClient.placementBatches()`** — method removed; migrate to `RewardsClient.placementContent()`, which returns the same batch payload for batch-activation and group placements.
+* **`GetOffersByPlacementRequest`** — interface removed; use `GetPlacementContentRequest` with the unified `placementContent()` method instead.
+* **`GetBatchesByPlacementRequest`** — interface removed; use `GetPlacementContentRequest` with the unified `placementContent()` method instead.
+* **`PlacementContentData`** — type alias removed; discriminate on the `type` field of each resource within the `PlacementContentResponse` union directly.
+* **`PlacementContentResponse`** — changed from a structured interface (`{ data, links, included, meta }`) to a union type `OffersResponseObject | BatchesResponseObject`; narrow by the resource `type` field to determine which variant was returned.
+
 ## 29.2.0 - 2026-06-22
 ### Added
 * **`RewardsClient.placementContent()`** — new method that retrieves content for any placement type via a single unified endpoint (`GET /v2/issuers/{organizationId}/users/{userId}/placements/{placementId}/content`); the server resolves the placement type so callers no longer need to choose between the offers or batches endpoints.

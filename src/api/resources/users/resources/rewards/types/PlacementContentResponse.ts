@@ -3,11 +3,6 @@
 import type * as KardApi from "../../../../../index.js";
 
 /**
- * Combined placement-content response, shaped as a JSON:API document. The placement is resolved server-side: a standard placement yields `standardOffer` resources (with `links`, optional `included` categories, and `meta`), while a batch-activation or group placement yields `placementBatch` slot resources. Callers distinguish the two by each resource's `type` rather than a separate discriminator, and the payload mirrors Get Offers By Placement / Get Batches By Placement exactly.
+ * Combined placement-content response. The placement is resolved server-side and the response is returned verbatim as one of two variants: a standard placement yields the offers response (`standardOffer` resources with `links`, optional `included` categories, and `meta`), while a batch-activation or group placement yields the batches response (`placementBatch` slot resources). Callers distinguish the two by each resource's `type` rather than a separate discriminator.
  */
-export interface PlacementContentResponse {
-    data: KardApi.users.PlacementContentData[];
-    links?: KardApi.Links | undefined;
-    included?: KardApi.users.EligibilityOfferIncluded[] | undefined;
-    meta?: KardApi.users.OffersMeta | undefined;
-}
+export type PlacementContentResponse = KardApi.users.OffersResponseObject | KardApi.users.BatchesResponseObject;
