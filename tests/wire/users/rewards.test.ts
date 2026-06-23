@@ -244,6 +244,7 @@ describe("RewardsClient", () => {
             included: [{ type: "category", id: "65920081b524d126068de24a", attributes: { name: "Food & Beverage" } }],
             links: { self: "/v2/issuers/organization-123/users/user-123/placements/placement-homepage-banner/content" },
             meta: {
+                placementName: "Homepage Banner",
                 availableCategories: [
                     { type: "category", id: "65920081b524d126068de24a", attributes: { name: "Food & Beverage" } },
                 ],
@@ -313,6 +314,7 @@ describe("RewardsClient", () => {
                     attributes: { name: "Travel", isActive: true, assets: [], offers: [] },
                 },
             ],
+            meta: { placementName: "Weekly Bundles" },
         };
 
         server

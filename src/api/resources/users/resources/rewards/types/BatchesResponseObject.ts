@@ -7,4 +7,5 @@ import type * as KardApi from "../../../../../index.js";
  */
 export interface BatchesResponseObject {
     data: KardApi.users.PlacementBatchData[];
+    meta?: KardApi.users.BatchesMeta | undefined;
 }

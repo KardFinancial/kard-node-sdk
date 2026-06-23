@@ -1,6 +1,7 @@
 export * from "./Amount.js";
 export * from "./AmountType.js";
 export * from "./Asset.js";
+export * from "./BatchesMeta.js";
 export * from "./BatchesResponseObject.js";
 export * from "./ButtonStyle.js";
 export * from "./CategoryData.js";

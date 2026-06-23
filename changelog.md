@@ -1,3 +1,8 @@
+## 30.1.0 - 2026-06-23
+### Added
+* **`BatchesMeta`** — new type providing metadata about placements in batch responses, including an optional `placementName` field.
+* **`placementName`** field added to `BatchesMeta` and `OffersMeta` to expose the display name of a placement resolved server-side.
+
 ## 30.0.0 - 2026-06-23
 ### Breaking Changes
 * **`RewardsClient.placementOffers()`** — method removed; migrate to `RewardsClient.placementContent()`, which resolves the placement type server-side and returns the same offer payload for standard placements.

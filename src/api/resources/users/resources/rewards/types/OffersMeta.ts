@@ -8,4 +8,6 @@ import type * as KardApi from "../../../../../index.js";
 export interface OffersMeta {
     /** All distinct categories available across the entire filtered result set, not just the current page */
     availableCategories?: KardApi.users.CategoryIncluded[] | undefined;
+    /** Display name of the placement, resolved server-side from its id. Populated only on the Get Placement Content endpoint; absent on the Get Offers By User endpoint. */
+    placementName?: string | undefined;
 }
