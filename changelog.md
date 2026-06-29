@@ -1,3 +1,7 @@
+## 30.2.0 - 2026-06-29
+### Added
+* **`OfferMedium.Push`** — new `"PUSH"` enum value added to `OfferMedium`, representing push notification as an offer delivery channel.
+
 ## 30.1.0 - 2026-06-23
 ### Added
 * **`BatchesMeta`** — new type providing metadata about placements in batch responses, including an optional `placementName` field.

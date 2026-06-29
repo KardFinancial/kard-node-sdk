@@ -7,5 +7,6 @@ export const OfferMedium = {
     Map: "MAP",
     Search: "SEARCH",
     Cta: "CTA",
+    Push: "PUSH",
 } as const;
 export type OfferMedium = (typeof OfferMedium)[keyof typeof OfferMedium];
