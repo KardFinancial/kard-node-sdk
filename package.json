@@ -1,6 +1,6 @@
 {
     "name": "@kard-financial/sdk",
-    "version": "30.2.1",
+    "version": "31.0.0",
     "private": false,
     "repository": {
         "type": "git",

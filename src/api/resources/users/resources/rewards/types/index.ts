@@ -49,6 +49,7 @@ export * from "./ProgressBarLabels.js";
 export * from "./ProgressBarSegment.js";
 export * from "./ProgressBarSegmentLabel.js";
 export * from "./ProgressBarSegmentPosition.js";
+export * from "./ProgressBarSegmentProgress.js";
 export * from "./ProgressBarSegmentSelection.js";
 export * from "./ProgressBarSegmentSeparator.js";
 export * from "./ProgressBarSegments.js";

@@ -10,4 +10,6 @@ export interface ProgressBarSegments {
     details?: KardApi.users.ProgressBarSegment | undefined;
     /** Segment configuration for the default view */
     default: KardApi.users.ProgressBarSegment;
+    /** Per-segment fill state: one entry per segment node, index-aligned with the nodes (length equals the progress bar total). Reached nodes report 1 of 1 and not-yet-reached nodes 0 of 1; for a punch-card offer the in-progress node reports qualifying-purchase progress toward the next reward (Q mod N of N). */
+    progress: KardApi.users.ProgressBarSegmentProgress[];
 }

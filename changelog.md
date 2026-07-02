@@ -1,3 +1,9 @@
+## 31.0.0 - 2026-07-02
+### Breaking Changes
+* **`ProgressBarSegments`** — a new required field `progress: ProgressBarSegmentProgress[]` has been added. Any code that constructs a `ProgressBarSegments` object directly must now supply this field; add `progress: []` (or the appropriate per-segment fill data) to restore compilation.
+### Added
+* **`ProgressBarSegmentProgress`** — new interface representing the fill state of a single progress-bar segment node, with `completed` and `total` number fields. Used by the new `progress` array on `ProgressBarSegments` to expose per-node progress (e.g., punch-card qualifying-purchase counts).
+
 ## 30.2.1 - 2026-07-02
 * chore: clarify filter[search] field documentation in GetOffersByUserRequest
 * Update the JSDoc comment for the `filter[search]` field in
