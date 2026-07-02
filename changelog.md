@@ -1,3 +1,14 @@
+## 30.2.1 - 2026-07-02
+* chore: clarify filter[search] field documentation in GetOffersByUserRequest
+* Update the JSDoc comment for the `filter[search]` field in
+* `GetOffersByUserRequest` to more precisely describe its behavior.
+* The previous description only mentioned merchant name filtering; the
+* updated comment clarifies it performs a case-insensitive substring
+* search across both offer name and category name.
+* Key changes:
+* Updated `filter[search]` JSDoc from "Case-insensitive search string to filter offers by merchant name" to "Case-insensitive substring search. Returns offers whose offer name or category name contains the search string."
+* 🌿 Generated with Fern
+
 ## 30.2.0 - 2026-06-29
 ### Added
 * **`OfferMedium.Push`** — new `"PUSH"` enum value added to `OfferMedium`, representing push notification as an offer delivery channel.

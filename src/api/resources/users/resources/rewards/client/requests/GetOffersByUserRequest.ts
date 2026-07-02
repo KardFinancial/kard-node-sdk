@@ -14,7 +14,7 @@ export interface GetOffersByUserRequest {
     "page[size]"?: number;
     "page[after]"?: string;
     "page[before]"?: string;
-    /** Case-insensitive search string to filter offers by merchant name */
+    /** Case-insensitive substring search. Returns offers whose offer name or category name contains the search string. */
     "filter[search]"?: string;
     "filter[purchaseChannel]"?: KardApi.PurchaseChannel[];
     "filter[category]"?: KardApi.CategoryOption;
