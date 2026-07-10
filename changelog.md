@@ -1,3 +1,7 @@
+## 31.1.0 - 2026-07-10
+### Added
+* **`ContentStrategySort.OffersNearYou`** — new `"OFFERS_NEAR_YOU"` enum value added to `ContentStrategySort`, enabling content strategies to sort and surface geographically nearby offers.
+
 ## 31.0.0 - 2026-07-02
 ### Breaking Changes
 * **`ProgressBarSegments`** — a new required field `progress: ProgressBarSegmentProgress[]` has been added. Any code that constructs a `ProgressBarSegments` object directly must now supply this field; add `progress: []` (or the appropriate per-segment fill data) to restore compilation.
