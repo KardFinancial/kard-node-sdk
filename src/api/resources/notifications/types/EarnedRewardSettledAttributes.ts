@@ -2,6 +2,6 @@
 
 import type * as KardApi from "../../../index.js";
 
-export interface EarnedRewardSettledAttributes extends KardApi.RewardNotificationAttributes {
+export interface EarnedRewardSettledAttributes extends KardApi.EarnedRewardNotificationAttributes {
     commissionEarned: KardApi.CommissionValue;
 }

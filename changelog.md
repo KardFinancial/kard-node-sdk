@@ -1,3 +1,11 @@
+## 31.3.0 - 2026-07-15
+### Added
+* **`EarnedRewardNotificationAttributes`** — new interface extending `RewardNotificationAttributes` with optional `categoryName`, `userReward`, `assets`, and `purchaseChannel` fields, providing richer context on earned reward notifications.
+* **`UserReward`** — new interface representing the commission type (`CommissionType`) and numeric value of a user's reward, used by `EarnedRewardNotificationAttributes`.
+### Changed
+* **`EarnedRewardApprovedData.attributes`** — type updated from `RewardNotificationAttributes` to `EarnedRewardNotificationAttributes`, exposing the new optional enrichment fields on approved reward notifications.
+* **`EarnedRewardSettledAttributes`** — now extends `EarnedRewardNotificationAttributes` instead of `RewardNotificationAttributes`, inheriting the additional optional fields.
+
 ## 31.2.0 - 2026-07-15
 ### Added
 * **`NotificationType.EarnedRewardRejected`** — new `"earnedRewardRejected"` enum value added to `NotificationType`, enabling consumers to handle notifications when a transaction does not result in a reward.

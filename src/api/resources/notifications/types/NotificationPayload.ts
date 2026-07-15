@@ -20,7 +20,17 @@ import type * as KardApi from "../../../index.js";
  *                 cardProductId: "card_product_123",
  *                 transactionTimestamp: "2024-10-01T14:32:10.000Z",
  *                 transactionId: "019df940-babd-7cd3-acfc-a96de16643e9",
- *                 transactionAmountInCents: 3000
+ *                 transactionAmountInCents: 3000,
+ *                 categoryName: "Food & Dining",
+ *                 userReward: {
+ *                     type: KardApi.CommissionType.Percent,
+ *                     value: 5.7
+ *                 },
+ *                 assets: [{
+ *                         type: KardApi.MerchantAssetType.ImgView,
+ *                         url: "https://cdn.getkard.com/merchants/mcdonalds.png"
+ *                     }],
+ *                 purchaseChannel: [KardApi.PurchaseChannel.Online, KardApi.PurchaseChannel.Instore]
  *             },
  *             relationships: {
  *                 user: {
@@ -58,7 +68,17 @@ import type * as KardApi from "../../../index.js";
  *                 cardProductId: "card_product_123",
  *                 transactionTimestamp: "2024-10-01T14:32:10.000Z",
  *                 transactionId: "019df940-babd-7cd3-acfc-a96de16643e9",
- *                 transactionAmountInCents: 3000
+ *                 transactionAmountInCents: 3000,
+ *                 categoryName: "Food & Dining",
+ *                 userReward: {
+ *                     type: KardApi.CommissionType.Percent,
+ *                     value: 5.7
+ *                 },
+ *                 assets: [{
+ *                         type: KardApi.MerchantAssetType.ImgView,
+ *                         url: "https://cdn.getkard.com/merchants/mcdonalds.png"
+ *                     }],
+ *                 purchaseChannel: [KardApi.PurchaseChannel.Online, KardApi.PurchaseChannel.Instore]
  *             },
  *             relationships: {
  *                 user: {
