@@ -1,3 +1,12 @@
+## 32.0.0 - 2026-07-15
+### Breaking Changes
+* **`ContentStrategyAttributes.filters`** — new required field of type `ContentStrategyFilters` added; existing object literals that omit `filters` will no longer compile. Add `filters: {}` (or a populated `ContentStrategyFilters` object) to all construction sites.
+* **`CreateContentStrategyAttributes.filters`** — same required addition as above; update all `createContentStrategy` call sites to include a `filters` property.
+* **`UpdateContentStrategyAttributes.filters`** — same required addition as above; update all `updateContentStrategy` call sites to include a `filters` property.
+### Added
+* **`ContentStrategyFilters`** — new interface representing offer-selection filters for a content strategy, with optional `categories`, `categoryExclusions`, `merchantExclusions`, and `offerFeatures` fields.
+* **`OfferFeatures`** — new exported enum-style constant and type for offer features, currently exposing `Interactive` (`"INTERACTIVE"`).
+
 ## 31.3.0 - 2026-07-15
 ### Added
 * **`EarnedRewardNotificationAttributes`** — new interface extending `RewardNotificationAttributes` with optional `categoryName`, `userReward`, `assets`, and `purchaseChannel` fields, providing richer context on earned reward notifications.

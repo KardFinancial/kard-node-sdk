@@ -842,6 +842,9 @@ await client.organizations.contentStrategies.create("org-123", {
         attributes: {
             name: "Featured Travel",
             sort: "HIGHEST_CASHBACK",
+            filters: {
+                offerFeatures: ["INTERACTIVE"]
+            },
             categories: ["Travel"],
             categoryExclusions: ["Gas"],
             merchantExclusions: ["merchant-abc"]
@@ -1065,6 +1068,7 @@ await client.organizations.contentStrategies.update("organizationId", "contentSt
         type: "contentStrategy",
         attributes: {
             name: "name",
+            filters: {},
             categories: ["Arts & Entertainment", "Arts & Entertainment"],
             categoryExclusions: ["Arts & Entertainment", "Arts & Entertainment"],
             merchantExclusions: ["merchantExclusions", "merchantExclusions"]

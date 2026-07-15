@@ -9,6 +9,9 @@ import type * as KardApi from "../../../../../index.js";
  *     {
  *         name: "Updated Travel Strategy",
  *         sort: KardApi.organizations.ContentStrategySort.ExpiringSoon,
+ *         filters: {
+ *             offerFeatures: [KardApi.organizations.OfferFeatures.Interactive]
+ *         },
  *         categories: [KardApi.CategoryOption.Travel, KardApi.CategoryOption.FoodBeverage],
  *         categoryExclusions: [],
  *         merchantExclusions: ["merchant-xyz"]
@@ -19,6 +22,8 @@ export interface UpdateContentStrategyAttributes {
     name: string;
     /** Sort applied when selecting offers for the strategy */
     sort?: KardApi.organizations.ContentStrategySort | undefined;
+    /** Filters applied when selecting offers for the strategy */
+    filters: KardApi.organizations.ContentStrategyFilters;
     /** Merchant categories to include */
     categories: KardApi.CategoryOption[];
     /** Merchant categories to exclude */

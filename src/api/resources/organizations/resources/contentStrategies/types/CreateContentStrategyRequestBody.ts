@@ -12,6 +12,9 @@ import type * as KardApi from "../../../../../index.js";
  *             attributes: {
  *                 name: "Featured Travel",
  *                 sort: KardApi.organizations.ContentStrategySort.HighestCashback,
+ *                 filters: {
+ *                     offerFeatures: [KardApi.organizations.OfferFeatures.Interactive]
+ *                 },
  *                 categories: [KardApi.CategoryOption.Travel],
  *                 categoryExclusions: [KardApi.CategoryOption.Gas],
  *                 merchantExclusions: ["merchant-abc"]
