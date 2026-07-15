@@ -86,6 +86,35 @@ import type * as KardApi from "../../../index.js";
  * @example
  *     {
  *         data: {
+ *             type: "earnedRewardRejected",
+ *             id: "cdbbf8eb-b3b9-5f96-beb5-6e37d124e776",
+ *             attributes: {
+ *                 reason: "AGGREGATOR_CARD_OVERLAP",
+ *                 message: "Your transaction did not result in a reward.",
+ *                 transactionId: "a9f3d7c1-6b25-4f91-8c0e-2d5a7b3e9f42",
+ *                 transactionAmountInCents: 3000,
+ *                 transactionTimestamp: "2026-06-23T22:15:26.124Z"
+ *             },
+ *             relationships: {
+ *                 user: {
+ *                     data: {
+ *                         type: "user",
+ *                         id: "1234567890"
+ *                     }
+ *                 },
+ *                 transaction: {
+ *                     data: {
+ *                         type: "transaction",
+ *                         id: "6179473f14ef7a000882acbe"
+ *                     }
+ *                 }
+ *             }
+ *         }
+ *     }
+ *
+ * @example
+ *     {
+ *         data: {
  *             type: "validTransaction",
  *             id: "a12b34c56d78e90f1234",
  *             attributes: {

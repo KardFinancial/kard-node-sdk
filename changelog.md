@@ -1,3 +1,11 @@
+## 31.2.0 - 2026-07-15
+### Added
+* **`NotificationType.EarnedRewardRejected`** — new `"earnedRewardRejected"` enum value added to `NotificationType`, enabling consumers to handle notifications when a transaction does not result in a reward.
+* **`EarnedRewardRejectedAttributes`** — new interface describing the payload of a rejected reward notification, including `reason`, `message`, `transactionId`, `transactionAmountInCents`, and optional `transactionTimestamp`.
+* **`EarnedRewardRejectedData`** — new interface representing the full data object for an `earnedRewardRejected` notification, referencing `EarnedRewardRejectedAttributes` and `RejectedTransactionRelationships`.
+* **`RejectedTransactionRelationships`** — new interface capturing the `user` and `transaction` relationship links associated with a rejected reward notification.
+* **`NotificationDataUnion.EarnedRewardRejected`** — new discriminated union variant (discriminant `type: "earnedRewardRejected"`) added to `NotificationDataUnion` for exhaustive notification handling.
+
 ## 31.1.0 - 2026-07-10
 ### Added
 * **`ContentStrategySort.OffersNearYou`** — new `"OFFERS_NEAR_YOU"` enum value added to `ContentStrategySort`, enabling content strategies to sort and surface geographically nearby offers.

@@ -3,6 +3,7 @@
 export const NotificationType = {
     EarnedRewardApproved: "earnedRewardApproved",
     EarnedRewardSettled: "earnedRewardSettled",
+    EarnedRewardRejected: "earnedRewardRejected",
     ValidTransaction: "validTransaction",
     FailedTransaction: "failedTransaction",
     Clawback: "clawback",

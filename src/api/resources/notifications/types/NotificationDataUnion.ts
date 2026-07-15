@@ -5,6 +5,7 @@ import type * as KardApi from "../../../index.js";
 export type NotificationDataUnion =
     | KardApi.NotificationDataUnion.EarnedRewardApproved
     | KardApi.NotificationDataUnion.EarnedRewardSettled
+    | KardApi.NotificationDataUnion.EarnedRewardRejected
     | KardApi.NotificationDataUnion.ValidTransaction
     | KardApi.NotificationDataUnion.FailedTransaction
     | KardApi.NotificationDataUnion.Clawback
@@ -20,6 +21,10 @@ export namespace NotificationDataUnion {
 
     export interface EarnedRewardSettled extends KardApi.EarnedRewardSettledData {
         type: "earnedRewardSettled";
+    }
+
+    export interface EarnedRewardRejected extends KardApi.EarnedRewardRejectedData {
+        type: "earnedRewardRejected";
     }
 
     export interface ValidTransaction extends KardApi.ValidTransactionData {
