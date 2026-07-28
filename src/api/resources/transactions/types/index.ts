@@ -18,6 +18,7 @@ export * from "./CreateFileUploadData.js";
 export * from "./CreateFileUploadRequestBody.js";
 export * from "./CreateFileUploadUrlResponse.js";
 export * from "./DirectionType.js";
+export * from "./EarnedRewardsRange.js";
 export * from "./FileUploadType.js";
 export * from "./FileUploadUrlAttributes.js";
 export * from "./FileUploadUrlData.js";

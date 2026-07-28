@@ -627,7 +627,7 @@ export class TransactionsClient {
     }
 
     /**
-     * Retrieve rewarded transaction history for a specific user. By default this returns only SETTLED transactions within the last 12 months regardless of payment status. Pass `filter[paidInFullOnly]=true` to restrict the response to matched transactions that have been paid in full to the issuer (`paidToIssuer` is `PAID_IN_FULL`).
+     * Retrieve rewarded transaction history for a specific user. By default this returns only SETTLED transactions within the last 12 months regardless of payment status. Pass `filter[range]` to narrow the window to the last 6 months (`6M`), last 3 months (`3M`), or year to date (`YTD`). Pass `filter[paidInFullOnly]=true` to restrict the response to matched transactions that have been paid in full to the issuer (`paidToIssuer` is `PAID_IN_FULL`).
      * <br/>
      * <b>Required scopes:</b> `transaction:read`
      * <br/>
@@ -673,6 +673,7 @@ export class TransactionsClient {
             "page[size]": pageSize,
             "filter[status]": filterStatus,
             "filter[paidInFullOnly]": filterPaidInFullOnly,
+            "filter[range]": filterRange,
             include,
         } = request;
         const _queryParams: Record<string, unknown> = {
@@ -681,6 +682,7 @@ export class TransactionsClient {
             "page[size]": pageSize,
             "filter[status]": filterStatus != null ? filterStatus : undefined,
             "filter[paidInFullOnly]": filterPaidInFullOnly,
+            "filter[range]": filterRange != null ? filterRange : undefined,
             include,
         };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();

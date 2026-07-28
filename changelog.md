@@ -1,3 +1,10 @@
+## 32.1.0 - 2026-07-28
+### Added
+* **`EarnedRewardsRange`** — new exported enum-style constant and type representing the supported time windows for earned rewards queries: `Last12Months` (`"12M"`), `Last6Months` (`"6M"`), `Last3Months` (`"3M"`), and `YearToDate` (`"YTD"`).
+* **`GetEarnedRewardsRequest["filter[range]"]`** — new optional field accepting an `EarnedRewardsRange` value to narrow the transaction window returned by the get-earned-rewards endpoint; defaults to the last 12 months when omitted.
+### Changed
+* **`GetEarnedRewardsMeta.lifetimeRewardsInCents`** — the lifetime rewards total is now scoped to the window selected by `filter[range]`, ensuring the meta aggregate always matches the rows returned in the response.
+
 ## 32.0.0 - 2026-07-15
 ### Breaking Changes
 * **`ContentStrategyAttributes.filters`** — new required field of type `ContentStrategyFilters` added; existing object literals that omit `filters` will no longer compile. Add `filters: {}` (or a populated `ContentStrategyFilters` object) to all construction sites.

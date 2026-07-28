@@ -21,6 +21,8 @@ export interface GetEarnedRewardsRequest {
     "filter[status]"?: KardApi.RewardedTransactionStatus;
     /** When `true`, only return transactions that have been paid in full to the issuer (`paidToIssuer` is `PAID_IN_FULL`). By default (`false`), any matched transaction is returned regardless of payment status. This also controls whether unpaid transactions contribute to `lifetimeRewardsInCents`. Has no effect on `APPROVED` transactions, which are always returned when requested. */
     "filter[paidInFullOnly]"?: boolean;
+    /** Time window for the returned transactions, ending now. Supported values are `12M`, `6M`, `3M`, and `YTD` (since January 1 of the current year). Defaults to `12M` when omitted. Also scopes `lifetimeRewardsInCents`, so the meta total always matches the returned rows. */
+    "filter[range]"?: KardApi.EarnedRewardsRange;
     /** Comma-separated list of related resources to include in the response. Supported values are `merchant` and `offer`. */
     include?: string;
 }
