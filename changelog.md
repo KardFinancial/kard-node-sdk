@@ -1,3 +1,9 @@
+## 33.0.0 - 2026-07-29
+### Breaking Changes
+* **`EarnedRewardRejectedAttributes.reason`** — type narrowed from `string` to `RejectedReason`; callers that assign or compare this field against arbitrary string values will no longer compile. Update usages to reference the new `RejectedReason` constants (e.g. `RejectedReason.AggregatorCardOverlap`).
+### Added
+* **`RejectedReason`** — new exported enum-style constant and type representing the supported rejection codes for transactions that did not result in a reward: `AggregatorCardOverlap` (`"AGGREGATOR_CARD_OVERLAP"`), `SettlementRejected` (`"SETTLEMENT_REJECTED"`), `UserNotEnrolled` (`"USER_NOT_ENROLLED"`), and `UserNotInAudienceSegment` (`"USER_NOT_IN_AUDIENCE_SEGMENT"`).
+
 ## 32.1.0 - 2026-07-28
 ### Added
 * **`EarnedRewardsRange`** — new exported enum-style constant and type representing the supported time windows for earned rewards queries: `Last12Months` (`"12M"`), `Last6Months` (`"6M"`), `Last3Months` (`"3M"`), and `YearToDate` (`"YTD"`).

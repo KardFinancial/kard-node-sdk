@@ -16,6 +16,7 @@ export * from "./MongoId.js";
 export * from "./NotificationType.js";
 export * from "./OrganizationId.js";
 export * from "./PurchaseChannel.js";
+export * from "./RejectedReason.js";
 export * from "./RelationshipData.js";
 export * from "./RelationshipMultiple.js";
 export * from "./RelationshipSingle.js";

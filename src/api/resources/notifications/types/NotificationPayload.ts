@@ -109,7 +109,7 @@ import type * as KardApi from "../../../index.js";
  *             type: "earnedRewardRejected",
  *             id: "cdbbf8eb-b3b9-5f96-beb5-6e37d124e776",
  *             attributes: {
- *                 reason: "AGGREGATOR_CARD_OVERLAP",
+ *                 reason: KardApi.RejectedReason.AggregatorCardOverlap,
  *                 message: "Your transaction did not result in a reward.",
  *                 transactionId: "a9f3d7c1-6b25-4f91-8c0e-2d5a7b3e9f42",
  *                 transactionAmountInCents: 3000,
