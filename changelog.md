@@ -1,3 +1,7 @@
+## 33.1.0 - 2026-08-03
+### Added
+* **`NotificationMedium.Email`** — new `"EMAIL"` variant added to the `NotificationMedium` enum, allowing notification attribution events to be associated with email delivery channels.
+
 ## 33.0.0 - 2026-07-29
 ### Breaking Changes
 * **`EarnedRewardRejectedAttributes.reason`** — type narrowed from `string` to `RejectedReason`; callers that assign or compare this field against arbitrary string values will no longer compile. Update usages to reference the new `RejectedReason` constants (e.g. `RejectedReason.AggregatorCardOverlap`).

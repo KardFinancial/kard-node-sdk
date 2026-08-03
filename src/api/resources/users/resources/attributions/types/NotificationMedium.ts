@@ -3,5 +3,6 @@
 /** Where the notification attribution event is taking place in your rewards experience. */
 export const NotificationMedium = {
     Push: "PUSH",
+    Email: "EMAIL",
 } as const;
 export type NotificationMedium = (typeof NotificationMedium)[keyof typeof NotificationMedium];
