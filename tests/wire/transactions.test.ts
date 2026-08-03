@@ -137,37 +137,20 @@ describe("TransactionsClient", () => {
         const rawRequestBody = {
             data: [
                 {
-                    type: "matchedTransaction",
-                    id: "soduinfwoer82498h248h298heo2eic",
+                    type: "coreTransaction",
+                    id: "core_txn_98765432109876543210",
                     attributes: {
                         userId: "6FHt5b6Fnp0qdomMEy5AN6PXcSJIeX69",
-                        amount: 1000,
-                        subtotal: 800,
-                        description: "ADVANCEAUTO",
-                        authorizationDate: "2021-07-02T17:47:06Z",
-                        paymentType: "CARD",
-                        matchedOfferId: "5eb2d4a39ce24e00081488c4",
-                        matchedLocationId: "5eb2d4a39ce24e00081488d5",
-                        cardBIN: "12345",
+                        transactionId: "CORE-TXN-2024-001234",
+                        amount: 4599,
+                        currency: "USD",
+                        description: "WALMART SUPERCENTER",
                         direction: "DEBIT",
-                        merchant: {
-                            id: "12345678901234567",
-                            name: "ADVANCEAUTO",
-                            addrStreet: "125 Main St",
-                            addrCity: "Philadephia",
-                            addrState: "PA",
-                            addrZipcode: "19147",
-                            addrCountry: "United States",
-                        },
-                        cardLastFour: "4321",
-                        authorizationCode: "1234",
-                        retrievalReferenceNumber: "100804333919",
-                        systemTraceAuditNumber: "333828",
-                        acquirerReferenceNumber: "1234567890123456789012345678",
-                        transactionId: "2467de37-cbdc-416d-a359-75de87bfffb0",
-                        cardProductId: "1234567890123456789012345678",
-                        orderId: "23q49807iklasdf238904",
-                        receiptMedium: "ELECTRONIC",
+                        status: "SETTLED",
+                        settledDate: "2024-10-15T14:30:00Z",
+                        authorizationDate: "2024-10-15T14:25:00Z",
+                        financialInstitutionId: "fin-inst-001",
+                        cardLastFours: ["4321"],
                     },
                 },
             ],
@@ -195,37 +178,20 @@ describe("TransactionsClient", () => {
         const response = await client.transactions.create("organization-123", {
             data: [
                 {
-                    type: "matchedTransaction",
-                    id: "soduinfwoer82498h248h298heo2eic",
+                    type: "coreTransaction",
+                    id: "core_txn_98765432109876543210",
                     attributes: {
                         userId: "6FHt5b6Fnp0qdomMEy5AN6PXcSJIeX69",
-                        amount: 1000,
-                        subtotal: 800,
-                        description: "ADVANCEAUTO",
-                        authorizationDate: "2021-07-02T17:47:06Z",
-                        paymentType: "CARD",
-                        matchedOfferId: "5eb2d4a39ce24e00081488c4",
-                        matchedLocationId: "5eb2d4a39ce24e00081488d5",
-                        cardBIN: "12345",
+                        transactionId: "CORE-TXN-2024-001234",
+                        amount: 4599,
+                        currency: "USD",
+                        description: "WALMART SUPERCENTER",
                         direction: "DEBIT",
-                        merchant: {
-                            id: "12345678901234567",
-                            name: "ADVANCEAUTO",
-                            addrStreet: "125 Main St",
-                            addrCity: "Philadephia",
-                            addrState: "PA",
-                            addrZipcode: "19147",
-                            addrCountry: "United States",
-                        },
-                        cardLastFour: "4321",
-                        authorizationCode: "1234",
-                        retrievalReferenceNumber: "100804333919",
-                        systemTraceAuditNumber: "333828",
-                        acquirerReferenceNumber: "1234567890123456789012345678",
-                        transactionId: "2467de37-cbdc-416d-a359-75de87bfffb0",
-                        cardProductId: "1234567890123456789012345678",
-                        orderId: "23q49807iklasdf238904",
-                        receiptMedium: "ELECTRONIC",
+                        status: "SETTLED",
+                        settledDate: "2024-10-15T14:30:00Z",
+                        authorizationDate: "2024-10-15T14:25:00Z",
+                        financialInstitutionId: "fin-inst-001",
+                        cardLastFours: ["4321"],
                     },
                 },
             ],
@@ -234,180 +200,6 @@ describe("TransactionsClient", () => {
     });
 
     test("create (3)", async () => {
-        const server = mockServerPool.createServer();
-        const client = new KardApiClient({
-            maxRetries: 0,
-            clientId: "client_id",
-            clientSecret: "client_secret",
-            environment: server.baseUrl,
-        });
-        const rawRequestBody = {
-            data: [
-                {
-                    type: "matchedTransaction",
-                    id: "unknown_payment_txn_12345",
-                    attributes: {
-                        userId: "6FHt5b6Fnp0qdomMEy5AN6PXcSJIeX69",
-                        amount: 2500,
-                        subtotal: 2000,
-                        description: "ONLINE STORE PURCHASE",
-                        authorizationDate: "2021-07-02T17:47:06Z",
-                        paymentType: "UNKNOWN",
-                        matchedOfferId: "5eb2d4a39ce24e00081488c4",
-                        direction: "DEBIT",
-                        merchant: {
-                            id: "98765432109876543",
-                            name: "ONLINE STORE",
-                            addrStreet: "456 Web St",
-                            addrCity: "Online City",
-                            addrState: "CA",
-                            addrZipcode: "90210",
-                            addrCountry: "United States",
-                        },
-                        cardLastFour: "7890",
-                        authorizationCode: "5678",
-                        retrievalReferenceNumber: "200804333919",
-                        systemTraceAuditNumber: "444939",
-                        acquirerReferenceNumber: "9876543210987654321098765432",
-                        transactionId: "unknown-txn-4567-efgh-ijkl-mnop-qrstuvwxyz01",
-                        orderId: "online_order_789012",
-                        receiptMedium: "ELECTRONIC",
-                    },
-                },
-            ],
-        };
-        const rawResponseBody = {
-            data: {
-                type: "job",
-                id: "c94a93a7-beb9-4e58-960c-2c812f849398",
-                attributes: {
-                    status: "queued",
-                    message: "Incoming Transactions event successfully queued for processing",
-                },
-            },
-        };
-
-        server
-            .mockEndpoint()
-            .post("/v2/issuers/organization-123/transactions")
-            .jsonBody(rawRequestBody)
-            .respondWith()
-            .statusCode(200)
-            .jsonBody(rawResponseBody)
-            .build();
-
-        const response = await client.transactions.create("organization-123", {
-            data: [
-                {
-                    type: "matchedTransaction",
-                    id: "unknown_payment_txn_12345",
-                    attributes: {
-                        userId: "6FHt5b6Fnp0qdomMEy5AN6PXcSJIeX69",
-                        amount: 2500,
-                        subtotal: 2000,
-                        description: "ONLINE STORE PURCHASE",
-                        authorizationDate: "2021-07-02T17:47:06Z",
-                        paymentType: "UNKNOWN",
-                        matchedOfferId: "5eb2d4a39ce24e00081488c4",
-                        direction: "DEBIT",
-                        merchant: {
-                            id: "98765432109876543",
-                            name: "ONLINE STORE",
-                            addrStreet: "456 Web St",
-                            addrCity: "Online City",
-                            addrState: "CA",
-                            addrZipcode: "90210",
-                            addrCountry: "United States",
-                        },
-                        cardLastFour: "7890",
-                        authorizationCode: "5678",
-                        retrievalReferenceNumber: "200804333919",
-                        systemTraceAuditNumber: "444939",
-                        acquirerReferenceNumber: "9876543210987654321098765432",
-                        transactionId: "unknown-txn-4567-efgh-ijkl-mnop-qrstuvwxyz01",
-                        orderId: "online_order_789012",
-                        receiptMedium: "ELECTRONIC",
-                    },
-                },
-            ],
-        });
-        expect(response).toEqual(rawResponseBody);
-    });
-
-    test("create (4)", async () => {
-        const server = mockServerPool.createServer();
-        const client = new KardApiClient({
-            maxRetries: 0,
-            clientId: "client_id",
-            clientSecret: "client_secret",
-            environment: server.baseUrl,
-        });
-        const rawRequestBody = {
-            data: [
-                {
-                    type: "coreTransaction",
-                    id: "core_txn_98765432109876543210",
-                    attributes: {
-                        userId: "6FHt5b6Fnp0qdomMEy5AN6PXcSJIeX69",
-                        transactionId: "CORE-TXN-2024-001234",
-                        amount: 4599,
-                        currency: "USD",
-                        description: "WALMART SUPERCENTER",
-                        direction: "DEBIT",
-                        status: "SETTLED",
-                        settledDate: "2024-10-15T14:30:00Z",
-                        authorizationDate: "2024-10-15T14:25:00Z",
-                        financialInstitutionId: "fin-inst-001",
-                        cardLastFours: ["4321"],
-                    },
-                },
-            ],
-        };
-        const rawResponseBody = {
-            data: {
-                type: "job",
-                id: "c94a93a7-beb9-4e58-960c-2c812f849398",
-                attributes: {
-                    status: "queued",
-                    message: "Incoming Transactions event successfully queued for processing",
-                },
-            },
-        };
-
-        server
-            .mockEndpoint()
-            .post("/v2/issuers/organization-123/transactions")
-            .jsonBody(rawRequestBody)
-            .respondWith()
-            .statusCode(200)
-            .jsonBody(rawResponseBody)
-            .build();
-
-        const response = await client.transactions.create("organization-123", {
-            data: [
-                {
-                    type: "coreTransaction",
-                    id: "core_txn_98765432109876543210",
-                    attributes: {
-                        userId: "6FHt5b6Fnp0qdomMEy5AN6PXcSJIeX69",
-                        transactionId: "CORE-TXN-2024-001234",
-                        amount: 4599,
-                        currency: "USD",
-                        description: "WALMART SUPERCENTER",
-                        direction: "DEBIT",
-                        status: "SETTLED",
-                        settledDate: "2024-10-15T14:30:00Z",
-                        authorizationDate: "2024-10-15T14:25:00Z",
-                        financialInstitutionId: "fin-inst-001",
-                        cardLastFours: ["4321"],
-                    },
-                },
-            ],
-        });
-        expect(response).toEqual(rawResponseBody);
-    });
-
-    test("create (5)", async () => {
         const server = mockServerPool.createServer();
         const client = new KardApiClient({
             maxRetries: 0,
@@ -507,7 +299,7 @@ describe("TransactionsClient", () => {
         expect(response).toEqual(KardApi.CreateIncomingTransactionsMultiStatus);
     });
 
-    test("create (6)", async () => {
+    test("create (4)", async () => {
         const server = mockServerPool.createServer();
         const client = new KardApiClient({
             maxRetries: 0,
@@ -607,7 +399,7 @@ describe("TransactionsClient", () => {
         }).rejects.toThrow(KardApi.UnauthorizedError);
     });
 
-    test("create (7)", async () => {
+    test("create (5)", async () => {
         const server = mockServerPool.createServer();
         const client = new KardApiClient({
             maxRetries: 0,
@@ -707,7 +499,7 @@ describe("TransactionsClient", () => {
         }).rejects.toThrow(KardApi.InternalServerError);
     });
 
-    test("create (8)", async () => {
+    test("create (6)", async () => {
         const server = mockServerPool.createServer();
         const client = new KardApiClient({
             maxRetries: 0,
@@ -807,7 +599,7 @@ describe("TransactionsClient", () => {
         }).rejects.toThrow(KardApi.InvalidRequest);
     });
 
-    test("create (9)", async () => {
+    test("create (7)", async () => {
         const server = mockServerPool.createServer();
         const client = new KardApiClient({
             maxRetries: 0,

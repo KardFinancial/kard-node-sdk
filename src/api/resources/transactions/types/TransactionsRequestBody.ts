@@ -54,79 +54,6 @@ import type * as KardApi from "../../../index.js";
  * @example
  *     {
  *         data: [{
- *                 type: "matchedTransaction",
- *                 id: "soduinfwoer82498h248h298heo2eic",
- *                 attributes: {
- *                     userId: "6FHt5b6Fnp0qdomMEy5AN6PXcSJIeX69",
- *                     amount: 1000,
- *                     subtotal: 800,
- *                     description: "ADVANCEAUTO",
- *                     authorizationDate: "2021-07-02T17:47:06Z",
- *                     paymentType: KardApi.PaymentType.Card,
- *                     matchedOfferId: "5eb2d4a39ce24e00081488c4",
- *                     matchedLocationId: "5eb2d4a39ce24e00081488d5",
- *                     cardBIN: "12345",
- *                     direction: KardApi.DirectionType.Debit,
- *                     merchant: {
- *                         id: "12345678901234567",
- *                         name: "ADVANCEAUTO",
- *                         addrStreet: "125 Main St",
- *                         addrCity: "Philadephia",
- *                         addrState: KardApi.States.Pa,
- *                         addrZipcode: "19147",
- *                         addrCountry: "United States"
- *                     },
- *                     cardLastFour: "4321",
- *                     authorizationCode: "1234",
- *                     retrievalReferenceNumber: "100804333919",
- *                     systemTraceAuditNumber: "333828",
- *                     acquirerReferenceNumber: "1234567890123456789012345678",
- *                     transactionId: "2467de37-cbdc-416d-a359-75de87bfffb0",
- *                     cardProductId: "1234567890123456789012345678",
- *                     orderId: "23q49807iklasdf238904",
- *                     receiptMedium: KardApi.ReceiptMediumType.Electronic
- *                 }
- *             }]
- *     }
- *
- * @example
- *     {
- *         data: [{
- *                 type: "matchedTransaction",
- *                 id: "unknown_payment_txn_12345",
- *                 attributes: {
- *                     userId: "6FHt5b6Fnp0qdomMEy5AN6PXcSJIeX69",
- *                     amount: 2500,
- *                     subtotal: 2000,
- *                     description: "ONLINE STORE PURCHASE",
- *                     authorizationDate: "2021-07-02T17:47:06Z",
- *                     paymentType: KardApi.PaymentType.Unknown,
- *                     matchedOfferId: "5eb2d4a39ce24e00081488c4",
- *                     direction: KardApi.DirectionType.Debit,
- *                     merchant: {
- *                         id: "98765432109876543",
- *                         name: "ONLINE STORE",
- *                         addrStreet: "456 Web St",
- *                         addrCity: "Online City",
- *                         addrState: KardApi.States.Ca,
- *                         addrZipcode: "90210",
- *                         addrCountry: "United States"
- *                     },
- *                     cardLastFour: "7890",
- *                     authorizationCode: "5678",
- *                     retrievalReferenceNumber: "200804333919",
- *                     systemTraceAuditNumber: "444939",
- *                     acquirerReferenceNumber: "9876543210987654321098765432",
- *                     transactionId: "unknown-txn-4567-efgh-ijkl-mnop-qrstuvwxyz01",
- *                     orderId: "online_order_789012",
- *                     receiptMedium: KardApi.ReceiptMediumType.Electronic
- *                 }
- *             }]
- *     }
- *
- * @example
- *     {
- *         data: [{
  *                 type: "coreTransaction",
  *                 id: "core_txn_98765432109876543210",
  *                 attributes: {
@@ -150,7 +77,6 @@ export interface TransactionsRequestBody {
      * Discriminated union representing the request body for submitting a transaction.
      * Use `type` to distinguish between the two:
      * - `transaction`: For transactions requiring processing and matching by the Kard system.
-     * - `matchedTransaction`: For pre-matched transactions that need validation on match by the Kard system.
      * - `coreTransaction`: For transactions from core banking systems with limited card-level data.
      */
     data: KardApi.Transactions[];

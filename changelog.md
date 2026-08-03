@@ -1,3 +1,8 @@
+## 34.0.0 - 2026-08-03
+### Breaking Changes
+* **`NotificationType.ValidTransaction`**, **`NotificationType.FailedTransaction`**, and **`NotificationType.Clawback`** — these three enum variants have been removed from `NotificationType`; callers referencing them will no longer compile. Replace usages with the remaining supported notification types (e.g. `NotificationType.EarnedRewardApproved`, `NotificationType.AuditUpdate`).
+* **`TransactionsRequestBody.data`** — the `matchedTransaction` transaction type variant has been removed from the discriminated union; callers submitting pre-matched transactions using `type: "matchedTransaction"` must migrate to either `"transaction"` or `"coreTransaction"` depending on their use case.
+
 ## 33.1.0 - 2026-08-03
 ### Added
 * **`NotificationMedium.Email`** — new `"EMAIL"` variant added to the `NotificationMedium` enum, allowing notification attribution events to be associated with email delivery channels.
