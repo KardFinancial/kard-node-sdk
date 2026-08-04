@@ -1,3 +1,10 @@
+## 35.0.0 - 2026-08-04
+### Breaking Changes
+* **`Transactions.MatchedTransaction`** — the `matchedTransaction` variant has been removed from the `Transactions` discriminated union; callers using `type: "matchedTransaction"` must migrate to either `"transaction"` or `"coreTransaction"`.
+* **`MatchedTransactionsAttributes`** and **`MatchedTransactionsRequest`** — these exported interfaces have been deleted; callers referencing them will no longer compile and must remove or replace usages.
+* **`PaymentType`** — this exported enum constant and type has been deleted; callers referencing `PaymentType` values must remove or replace usages.
+* **`ReceiptMediumType`** — this exported enum constant and type has been deleted; callers referencing `ReceiptMediumType` values must remove or replace usages.
+
 ## 34.0.0 - 2026-08-03
 ### Breaking Changes
 * **`NotificationType.ValidTransaction`**, **`NotificationType.FailedTransaction`**, and **`NotificationType.Clawback`** — these three enum variants have been removed from `NotificationType`; callers referencing them will no longer compile. Replace usages with the remaining supported notification types (e.g. `NotificationType.EarnedRewardApproved`, `NotificationType.AuditUpdate`).
