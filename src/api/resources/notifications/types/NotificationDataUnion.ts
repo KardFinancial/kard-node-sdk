@@ -6,9 +6,6 @@ export type NotificationDataUnion =
     | KardApi.NotificationDataUnion.EarnedRewardApproved
     | KardApi.NotificationDataUnion.EarnedRewardSettled
     | KardApi.NotificationDataUnion.EarnedRewardRejected
-    | KardApi.NotificationDataUnion.ValidTransaction
-    | KardApi.NotificationDataUnion.FailedTransaction
-    | KardApi.NotificationDataUnion.Clawback
     | KardApi.NotificationDataUnion.AuditUpdate
     | KardApi.NotificationDataUnion.FileProcessingResult
     | KardApi.NotificationDataUnion.PushNotificationPlacementFile
@@ -25,18 +22,6 @@ export namespace NotificationDataUnion {
 
     export interface EarnedRewardRejected extends KardApi.EarnedRewardRejectedData {
         type: "earnedRewardRejected";
-    }
-
-    export interface ValidTransaction extends KardApi.ValidTransactionData {
-        type: "validTransaction";
-    }
-
-    export interface FailedTransaction extends KardApi.FailedTransactionData {
-        type: "failedTransaction";
-    }
-
-    export interface Clawback extends KardApi.ClawbackData {
-        type: "clawback";
     }
 
     export interface AuditUpdate extends KardApi.AuditUpdateData {

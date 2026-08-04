@@ -1,3 +1,10 @@
+## 36.0.0 - 2026-08-04
+### Breaking Changes
+* **`NotificationDataUnion.ValidTransaction`**, **`NotificationDataUnion.FailedTransaction`**, and **`NotificationDataUnion.Clawback`** — these three variants have been removed from the `NotificationDataUnion` discriminated union; callers narrowing on `type: "validTransaction"`, `type: "failedTransaction"`, or `type: "clawback"` must migrate to the remaining supported notification types.
+* **`ValidTransactionData`**, **`ValidTransactionAttributes`**, and **`ValidTransactionCommissionEarned`** — these exported interfaces have been deleted; callers referencing them will no longer compile and must remove or replace usages.
+* **`FailedTransactionData`**, **`FailedTransactionAttributes`**, and **`FailedTransactionRelationships`** — these exported interfaces have been deleted; callers referencing them will no longer compile and must remove or replace usages.
+* **`ClawbackData`** and **`TransactionRelationships`** — these exported interfaces have been deleted; callers referencing them will no longer compile and must remove or replace usages.
+
 ## 35.0.0 - 2026-08-04
 ### Breaking Changes
 * **`Transactions.MatchedTransaction`** — the `matchedTransaction` variant has been removed from the `Transactions` discriminated union; callers using `type: "matchedTransaction"` must migrate to either `"transaction"` or `"coreTransaction"`.
