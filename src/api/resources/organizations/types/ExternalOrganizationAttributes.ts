@@ -11,7 +11,7 @@ export interface ExternalOrganizationAttributes {
     /** Rewards programs the organization is enrolled in */
     enrolledRewards: KardApi.EnrolledReward[];
     /** Card networks supported by the organization */
-    cardNetworks: KardApi.CardNetwork[];
+    cardNetworks: KardApi.OrganizationCardNetwork[];
     /** Bank Identification Numbers for the organization */
     bins: string[];
     /** Affiliate commission split percentage */

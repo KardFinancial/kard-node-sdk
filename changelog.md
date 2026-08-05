@@ -1,3 +1,9 @@
+## 38.0.0 - 2026-08-05
+### Breaking Changes
+* **`ExternalOrganizationAttributes.cardNetworks`** — type changed from `KardApi.CardNetwork[]` to `KardApi.OrganizationCardNetwork[]`; update any code that assigns or narrows on `CardNetwork` values for this field to use `OrganizationCardNetwork` instead.
+### Added
+* **`OrganizationCardNetwork`** — new exported enum and type in the `internalOrganizations` namespace representing card networks supported by an organization, using `AMERICAN_EXPRESS` (with underscore) rather than the `AMERICANEXPRESS` spelling used by `CardNetwork`.
+
 ## 37.0.0 - 2026-08-05
 ### Breaking Changes
 * **`KardApi.users.ButtonStyle`**, **`KardApi.users.CtaAction`**, **`KardApi.users.CtaComponent`**, **`KardApi.users.LogoFlare`**, **`KardApi.users.LogoFlareBadge`**, **`KardApi.users.LogoFlareBadgePosition`**, and **`KardApi.users.LogoFlareBorderColor`** — removed from the `users` namespace; migrate to the top-level equivalents (e.g. `KardApi.ButtonStyle`, `KardApi.CtaAction`, etc.).
