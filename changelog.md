@@ -1,3 +1,10 @@
+## 37.0.0 - 2026-08-05
+### Breaking Changes
+* **`KardApi.users.ButtonStyle`**, **`KardApi.users.CtaAction`**, **`KardApi.users.CtaComponent`**, **`KardApi.users.LogoFlare`**, **`KardApi.users.LogoFlareBadge`**, **`KardApi.users.LogoFlareBadgePosition`**, and **`KardApi.users.LogoFlareBorderColor`** — removed from the `users` namespace; migrate to the top-level equivalents (e.g. `KardApi.ButtonStyle`, `KardApi.CtaAction`, etc.).
+* **`KardApi.users.OfferComponents`**, **`KardApi.users.ProgressBar`**, **`KardApi.users.ProgressBarLabels`**, **`KardApi.users.ProgressBarSegment`**, **`KardApi.users.ProgressBarSegments`**, and all related `ProgressBar*` types — removed from the `users` namespace; migrate to the top-level equivalents (e.g. `KardApi.OfferComponents`, `KardApi.ProgressBar`, etc.).
+### Added
+* **`RewardedTransactionAttributes.components`** — new optional `OfferComponents` field carrying UI component data (e.g. a progress bar) built from the offer state persisted on the matched transaction.
+
 ## 36.0.0 - 2026-08-04
 ### Breaking Changes
 * **`NotificationDataUnion.ValidTransaction`**, **`NotificationDataUnion.FailedTransaction`**, and **`NotificationDataUnion.Clawback`** — these three variants have been removed from the `NotificationDataUnion` discriminated union; callers narrowing on `type: "validTransaction"`, `type: "failedTransaction"`, or `type: "clawback"` must migrate to the remaining supported notification types.

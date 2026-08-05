@@ -32,5 +32,5 @@ export interface OfferCommonFields {
     /** Description of the offer */
     description?: string | undefined;
     /** UI component data for the offer, returned when supportedComponents query parameter is provided */
-    components?: KardApi.users.OfferComponents | undefined;
+    components?: KardApi.OfferComponents | undefined;
 }

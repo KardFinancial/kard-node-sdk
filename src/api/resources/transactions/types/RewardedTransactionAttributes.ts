@@ -16,4 +16,6 @@ export interface RewardedTransactionAttributes {
     commissionEarned: KardApi.CommissionEarnedDetails;
     /** Timestamp representing the month when the transaction has been paid out to issuer */
     payoutTimestamp?: string | undefined;
+    /** UI component data for the reward, built from the offer state persisted on the matched transaction (e.g. a progress bar for progressive and punch-card offers). Omitted when the reward carries no persisted state. */
+    components?: KardApi.OfferComponents | undefined;
 }
