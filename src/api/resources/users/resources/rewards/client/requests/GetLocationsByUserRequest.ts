@@ -17,12 +17,18 @@ export interface GetLocationsByUserRequest {
     "page[after]"?: string;
     "page[before]"?: string;
     "filter[name]"?: string;
+    /** Case-insensitive substring match on the location's city. Never defines the search area; applied as an additional constraint alongside a radius search when `filter[latitude]`/`filter[longitude]`/`filter[radius]` are also provided. */
     "filter[city]"?: string;
+    /** Exact-match filter on the location's zip code. Never defines the search area; applied as an additional constraint alongside a radius search when `filter[latitude]`/`filter[longitude]`/`filter[radius]` are also provided. */
     "filter[zipCode]"?: string;
+    /** Exact-match filter on the location's state. Never defines the search area; applied as an additional constraint alongside a radius search when `filter[latitude]`/`filter[longitude]`/`filter[radius]` are also provided. */
     "filter[state]"?: KardApi.State;
     "filter[category]"?: KardApi.CategoryOption;
+    /** Longitude of the point to search around. Must be provided together with `filter[latitude]`; combine with `filter[radius]` to run a radius search. */
     "filter[longitude]"?: number;
+    /** Latitude of the point to search around. Must be provided together with `filter[longitude]`; combine with `filter[radius]` to run a radius search. */
     "filter[latitude]"?: number;
+    /** Radius in miles to search around the point given by `filter[latitude]`/`filter[longitude]` (default 10, minimum 1). Has no effect unless both latitude and longitude are also provided — it is ignored when only `filter[zipCode]`, `filter[city]`, or `filter[state]` is used, without lat/long. */
     "filter[radius]"?: number;
     /** If provided, response will be sorted by the specified fields */
     sort?: KardApi.users.LocationSortOptions | KardApi.users.LocationSortOptions[];

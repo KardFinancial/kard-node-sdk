@@ -1,3 +1,17 @@
+## 38.0.1 - 2026-08-07
+* fix: improve JSDoc comments for GetLocationsByUserRequest filter fields
+* Add inline documentation to the `filter[city]`, `filter[zipCode]`,
+* `filter[state]`, `filter[longitude]`, `filter[latitude]`, and
+* `filter[radius]` fields in `GetLocationsByUserRequest`, clarifying
+* how each filter interacts with radius-based searches. Also trim
+* outdated guidance from the `getLocationsByUser` method JSDoc that
+* incorrectly stated longitude/latitude are prioritized over state,
+* city, and zip code.
+* Key changes:
+* Added JSDoc comments to six filter fields in `GetLocationsByUserRequest` explaining their behavior and constraints
+* Removed misleading prioritization note from `RewardsClient.getLocationsByUser` method documentation
+* 🌿 Generated with Fern
+
 ## 38.0.0 - 2026-08-05
 ### Breaking Changes
 * **`ExternalOrganizationAttributes.cardNetworks`** — type changed from `KardApi.CardNetwork[]` to `KardApi.OrganizationCardNetwork[]`; update any code that assigns or narrows on `CardNetwork` values for this field to use `OrganizationCardNetwork` instead.
