@@ -6,6 +6,7 @@ export * from "./CommissionValue.js";
 export * from "./CommissionValueType.js";
 export * from "./CtaAction.js";
 export * from "./CtaComponent.js";
+export * from "./CuisineOption.js";
 export * from "./EmptyObject.js";
 export * from "./EnrolledRewardsType.js";
 export * from "./ErrorObject.js";

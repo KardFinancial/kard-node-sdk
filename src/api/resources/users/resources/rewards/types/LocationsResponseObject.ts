@@ -73,7 +73,13 @@ import type * as KardApi from "../../../../../index.js";
  *                     partnerIds: [{
  *                             type: KardApi.users.LocationPartnerIdType.Google,
  *                             id: "3pafnweri4"
- *                         }]
+ *                         }],
+ *                     cuisine: KardApi.CuisineOption.Pizza,
+ *                     rating: {
+ *                         value: 4.6,
+ *                         count: 812
+ *                     },
+ *                     priceLevel: 2
  *                 },
  *                 relationships: {
  *                     offers: {

@@ -10,4 +10,10 @@ export interface LocationAttributes {
     operationHours: KardApi.users.OperationHours;
     /** List of ids associated with the location from third party partners. Only applicable for LOCAL locations. */
     partnerIds: KardApi.users.LocationPartnerId[];
+    /** The kind of food or venue this location offers, for example "Pizza Restaurant". */
+    cuisine: KardApi.CuisineOption | null;
+    /** Customer rating for this location. */
+    rating: KardApi.users.LocationRating | null;
+    /** Typical price range for this location, from 1 (least expensive) to 4 (most expensive). */
+    priceLevel: number | null;
 }

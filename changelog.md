@@ -1,3 +1,10 @@
+## 39.0.0 - 2026-08-18
+### Breaking Changes
+* **`LocationAttributes`** — three new required fields (`cuisine`, `rating`, and `priceLevel`) have been added to the interface. Any code that constructs or mocks a `LocationAttributes` object directly must now supply `cuisine: KardApi.CuisineOption | null`, `rating: KardApi.users.LocationRating | null`, and `priceLevel: number | null`.
+### Added
+* **`CuisineOption`** — new exported enum in the `KardApi` namespace representing 130+ food and venue categories (e.g. `CuisineOption.Pizza`, `CuisineOption.Sushi`) returned on location responses.
+* **`LocationRating`** — new exported interface in the `KardApi.users` namespace with a `value` (1–5 scale) and nullable `count` representing the number of ratings a location has received.
+
 ## 38.0.1 - 2026-08-07
 * fix: improve JSDoc comments for GetLocationsByUserRequest filter fields
 * Add inline documentation to the `filter[city]`, `filter[zipCode]`,
