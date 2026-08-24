@@ -1,3 +1,10 @@
+## 40.0.0 - 2026-08-24
+### Breaking Changes
+* **`PlacementAttributes`**, **`EmailPlacementAttributes`**, **`PushNotificationPlacementAttributes`**, **`BatchActivationPlacementAttributes`**, and **`GroupPlacementAttributes`** — each now has a new required `status: KardApi.organizations.PlacementStatus` field. Any code that constructs or mocks these response types must now supply `status` (either `PlacementStatus.Active` or `PlacementStatus.Inactive`).
+### Added
+* **`PlacementStatus`** — new exported enum in the `KardApi.organizations` namespace with values `Active` (`"ACTIVE"`) and `Inactive` (`"INACTIVE"`), representing whether a placement serves content and fires scheduled deliveries.
+* **`status`** optional field — added as `status?: KardApi.organizations.PlacementStatus` to all Create* and Update* placement attribute types (`CreateBatchActivationAttributes`, `CreateEmailAttributes`, `CreateGroupAttributes`, `CreatePushNotificationAttributes`, `CreateStandardAttributes`, and their Update* counterparts), defaulting to `ACTIVE` on create and preserving the current value when omitted on update.
+
 ## 39.0.0 - 2026-08-18
 ### Breaking Changes
 * **`LocationAttributes`** — three new required fields (`cuisine`, `rating`, and `priceLevel`) have been added to the interface. Any code that constructs or mocks a `LocationAttributes` object directly must now supply `cuisine: KardApi.CuisineOption | null`, `rating: KardApi.users.LocationRating | null`, and `priceLevel: number | null`.

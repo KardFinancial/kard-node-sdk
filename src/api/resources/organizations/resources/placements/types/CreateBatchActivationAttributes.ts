@@ -19,6 +19,8 @@ import type * as KardApi from "../../../../../index.js";
 export interface CreateBatchActivationAttributes {
     /** Name of the placement */
     name: string;
+    /** Placement status. Defaults to ACTIVE on create; when omitted on update, the current status is preserved. */
+    status?: KardApi.organizations.PlacementStatus | undefined;
     /** ISO-8601 duration controlling how often the activation cohort refreshes */
     refreshInterval: string;
     /** Slots that make up the activation cohort */

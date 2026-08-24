@@ -31,6 +31,7 @@ export * from "./PlacementFormatUnion.js";
 export * from "./PlacementListResponse.js";
 export * from "./PlacementRelationships.js";
 export * from "./PlacementResource.js";
+export * from "./PlacementStatus.js";
 export * from "./PlacementTypeFilter.js";
 export * from "./PushNotificationPlacementAttributes.js";
 export * from "./PushNotificationPlacementData.js";

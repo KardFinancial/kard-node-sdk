@@ -18,6 +18,8 @@ import type * as KardApi from "../../../../../index.js";
 export interface UpdatePushNotificationAttributes {
     /** Name of the placement */
     name: string;
+    /** Placement status. Defaults to ACTIVE on create; when omitted on update, the current status is preserved. */
+    status?: KardApi.organizations.PlacementStatus | undefined;
     /** Delivery cadence for the notification */
     cadence: KardApi.organizations.Cadence;
     /** ID of the content strategy to link this placement to. Omit to clear any existing link (PUT requires the full attribute set, so a missing value unlinks the placement). */

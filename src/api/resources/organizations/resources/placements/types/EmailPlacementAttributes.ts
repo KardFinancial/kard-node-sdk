@@ -8,6 +8,8 @@ import type * as KardApi from "../../../../../index.js";
 export interface EmailPlacementAttributes {
     /** Name of the placement */
     name: string;
+    /** Whether the placement serves content and fires scheduled deliveries. An INACTIVE placement keeps its configuration but serves empty content and skips scheduled deliveries. */
+    status: KardApi.organizations.PlacementStatus;
     /** ID of the organization this placement belongs to */
     organizationId: string;
     /** Number of available slots */

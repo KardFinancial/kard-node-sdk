@@ -19,6 +19,8 @@ import type * as KardApi from "../../../../../index.js";
 export interface CreateEmailAttributes {
     /** Name of the placement */
     name: string;
+    /** Placement status. Defaults to ACTIVE on create; when omitted on update, the current status is preserved. */
+    status?: KardApi.organizations.PlacementStatus | undefined;
     /** Number of available slots (minimum 1) */
     availableSlots: number;
     /** Delivery cadence for the email */

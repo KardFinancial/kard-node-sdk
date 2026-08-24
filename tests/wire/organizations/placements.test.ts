@@ -19,7 +19,7 @@ describe("PlacementsClient", () => {
         const rawResponseBody = {
             type: "placement",
             id: "01961e5a-b74c-7d42-8456-d3a1f2c90e71",
-            attributes: { name: "Homepage Banner", organizationId: "org-123", availableSlots: 5 },
+            attributes: { name: "Homepage Banner", organizationId: "org-123", status: "ACTIVE", availableSlots: 5 },
         };
 
         server
@@ -63,6 +63,7 @@ describe("PlacementsClient", () => {
             attributes: {
                 name: "Daily Deal Alert",
                 organizationId: "org-123",
+                status: "ACTIVE",
                 cadence: { frequency: "DAILY", timeOfDay: "09:00" },
             },
         };
@@ -115,6 +116,7 @@ describe("PlacementsClient", () => {
             attributes: {
                 name: "Weekly Deals Email",
                 organizationId: "org-123",
+                status: "ACTIVE",
                 availableSlots: 10,
                 cadence: { frequency: "WEEKLY", timeOfDay: "10:00", dayOfWeek: "MON" },
             },
@@ -173,7 +175,7 @@ describe("PlacementsClient", () => {
         const rawResponseBody = {
             type: "placementBatchActivation",
             id: "01961e5a-d94e-7c22-ac3f-f8b5a7e92c45",
-            attributes: { name: "Weekly Cohort", organizationId: "org-123", refreshInterval: "P7D" },
+            attributes: { name: "Weekly Cohort", organizationId: "org-123", status: "ACTIVE", refreshInterval: "P7D" },
             relationships: {
                 slots: { data: [{ type: "batchActivationSlot", id: "01961e5a-e15f-7d33-bd4f-09c6b8fa3d56" }] },
             },
@@ -233,7 +235,7 @@ describe("PlacementsClient", () => {
         const rawResponseBody = {
             type: "placementGroup",
             id: "01961e5a-a48b-7e66-8c7b-3cf9e2bd6a89",
-            attributes: { name: "Seasonal Collection", organizationId: "org-123" },
+            attributes: { name: "Seasonal Collection", organizationId: "org-123", status: "ACTIVE" },
             relationships: {
                 slots: { data: [{ type: "batchActivationSlot", id: "01961e5a-b59c-7f77-9d8c-4d0af3ce7b9a" }] },
             },
@@ -472,6 +474,7 @@ describe("PlacementsClient", () => {
                     id: "id",
                     attributes: {
                         name: "name",
+                        status: "ACTIVE",
                         organizationId: "organizationId",
                         availableSlots: 1,
                         contentStrategyId: "contentStrategyId",
@@ -483,6 +486,7 @@ describe("PlacementsClient", () => {
                     id: "id",
                     attributes: {
                         name: "name",
+                        status: "ACTIVE",
                         organizationId: "organizationId",
                         availableSlots: 1,
                         contentStrategyId: "contentStrategyId",
@@ -704,6 +708,7 @@ describe("PlacementsClient", () => {
                 id: "id",
                 attributes: {
                     name: "name",
+                    status: "ACTIVE",
                     organizationId: "organizationId",
                     availableSlots: 1,
                     contentStrategyId: "contentStrategyId",
@@ -892,6 +897,7 @@ describe("PlacementsClient", () => {
             id: "id",
             attributes: {
                 name: "name",
+                status: "ACTIVE",
                 organizationId: "organizationId",
                 availableSlots: 1,
                 contentStrategyId: "contentStrategyId",

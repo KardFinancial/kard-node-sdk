@@ -12,6 +12,7 @@ import type * as KardApi from "../../../../../index.js";
  *         attributes: {
  *             name: "Homepage Banner",
  *             organizationId: "org-123",
+ *             status: KardApi.organizations.PlacementStatus.Active,
  *             availableSlots: 5
  *         }
  *     }
@@ -23,6 +24,7 @@ import type * as KardApi from "../../../../../index.js";
  *         attributes: {
  *             name: "Daily Deal Alert",
  *             organizationId: "org-123",
+ *             status: KardApi.organizations.PlacementStatus.Active,
  *             cadence: {
  *                 frequency: KardApi.organizations.CadenceFrequency.Daily,
  *                 timeOfDay: "09:00"
@@ -37,6 +39,7 @@ import type * as KardApi from "../../../../../index.js";
  *         attributes: {
  *             name: "Weekly Deals Email",
  *             organizationId: "org-123",
+ *             status: KardApi.organizations.PlacementStatus.Active,
  *             availableSlots: 10,
  *             cadence: {
  *                 frequency: KardApi.organizations.CadenceFrequency.Weekly,
@@ -53,6 +56,7 @@ import type * as KardApi from "../../../../../index.js";
  *         attributes: {
  *             name: "Weekly Cohort",
  *             organizationId: "org-123",
+ *             status: KardApi.organizations.PlacementStatus.Active,
  *             refreshInterval: "P7D"
  *         },
  *         relationships: {
@@ -71,7 +75,8 @@ import type * as KardApi from "../../../../../index.js";
  *         id: "01961e5a-a48b-7e66-8c7b-3cf9e2bd6a89",
  *         attributes: {
  *             name: "Seasonal Collection",
- *             organizationId: "org-123"
+ *             organizationId: "org-123",
+ *             status: KardApi.organizations.PlacementStatus.Active
  *         },
  *         relationships: {
  *             slots: {

@@ -18,6 +18,8 @@ import type * as KardApi from "../../../../../index.js";
 export interface CreateGroupAttributes {
     /** Name of the placement */
     name: string;
+    /** Placement status. Defaults to ACTIVE on create; when omitted on update, the current status is preserved. */
+    status?: KardApi.organizations.PlacementStatus | undefined;
     /** Slots that make up the group */
     slots: KardApi.organizations.CreateBatchActivationSlot[];
 }
