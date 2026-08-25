@@ -8,7 +8,7 @@ import type * as KardApi from "../../../../../index.js";
 export interface PushNotificationPlacementAttributes {
     /** Name of the placement */
     name: string;
-    /** Whether the placement serves content and fires scheduled deliveries. An INACTIVE placement keeps its configuration but serves empty content and skips scheduled deliveries. */
+    /** Whether the placement's scheduled deliveries are paused. Has no effect on content serving. */
     status: KardApi.organizations.PlacementStatus;
     /** ID of the organization this placement belongs to */
     organizationId: string;

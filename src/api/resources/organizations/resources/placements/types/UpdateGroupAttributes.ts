@@ -19,8 +19,6 @@ import type * as KardApi from "../../../../../index.js";
 export interface UpdateGroupAttributes {
     /** Name of the placement */
     name: string;
-    /** Placement status. Defaults to ACTIVE on create; when omitted on update, the current status is preserved. */
-    status?: KardApi.organizations.PlacementStatus | undefined;
     /** Slots that make up the group. Slots present in the prior state but absent from this list are removed. */
     slots: KardApi.organizations.UpdateBatchActivationSlot[];
 }

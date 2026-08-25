@@ -1,5 +1,5 @@
 {
-    "cliVersion": "5.103.0",
+    "cliVersion": "5.104.1",
     "generatorName": "fernapi/fern-typescript-sdk",
     "generatorVersion": "3.63.4",
     "generatorConfig": {
@@ -20,10 +20,10 @@
             }
         }
     },
-    "originGitCommit": "add9b9ea7cf4ff6d670faa3d4a8d28b8d1e3b43a",
+    "originGitCommit": "dfe8e029a373d62f31a93457eae4524df4e9c122",
     "originGitCommitIsDirty": true,
     "invokedBy": "ci",
     "requestedVersion": "AUTO",
     "ciProvider": "unknown",
-    "sdkVersion": "40.0.0"
+    "sdkVersion": "41.0.0"
 }

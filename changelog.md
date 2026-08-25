@@ -1,3 +1,12 @@
+## 41.0.0 - 2026-08-25
+### Breaking Changes
+* **`PlacementAttributes`** — the required `status` field has been removed. Any code that reads `attributes.status` on a standard placement response will now get `undefined`; remove references to this field.
+* **`BatchActivationPlacementAttributes`** — the required `status` field has been removed. Update any code that reads or checks `status` on batch-activation placement responses.
+* **`GroupPlacementAttributes`** — the required `status` field has been removed. Update any code that reads or checks `status` on group placement responses.
+* **`CreateBatchActivationAttributes`**, **`CreateGroupAttributes`**, **`CreateStandardAttributes`**, **`UpdateBatchActivationAttributes`**, **`UpdateGroupAttributes`**, and **`UpdateStandardAttributes`** — the optional `status` field has been removed from all Create* and Update* request types. Remove any `status` property passed when constructing these objects.
+### Changed
+* **`PlacementStatus`**, **`EmailPlacementAttributes`**, and **`PushNotificationPlacementAttributes`** — documentation updated to clarify that `status` controls delivery scheduling only (pausing/resuming push or email deliveries) and has no effect on content serving.
+
 ## 40.0.0 - 2026-08-24
 ### Breaking Changes
 * **`PlacementAttributes`**, **`EmailPlacementAttributes`**, **`PushNotificationPlacementAttributes`**, **`BatchActivationPlacementAttributes`**, and **`GroupPlacementAttributes`** — each now has a new required `status: KardApi.organizations.PlacementStatus` field. Any code that constructs or mocks these response types must now supply `status` (either `PlacementStatus.Active` or `PlacementStatus.Inactive`).
