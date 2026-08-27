@@ -3,7 +3,6 @@
 export const FileType = {
     EarnedRewardApprovedDailyReconciliationFile: "earnedRewardApprovedDailyReconciliationFile",
     EarnedRewardSettledDailyReconciliationFile: "earnedRewardSettledDailyReconciliationFile",
-    ValidatedTransactionDailyReconciliationFile: "validatedTransactionDailyReconciliationFile",
     MonthlyReconciliationFile: "monthlyReconciliationFile",
 } as const;
 export type FileType = (typeof FileType)[keyof typeof FileType];

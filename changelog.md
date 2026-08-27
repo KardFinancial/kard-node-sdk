@@ -1,3 +1,7 @@
+## 42.0.0 - 2026-08-27
+### Breaking Changes
+* **`FileType.ValidatedTransactionDailyReconciliationFile`** — this enum value (`"validatedTransactionDailyReconciliationFile"`) has been removed from `FileType`. Remove any references to `FileType.ValidatedTransactionDailyReconciliationFile` or the raw string `"validatedTransactionDailyReconciliationFile"` from your code.
+
 ## 41.0.0 - 2026-08-25
 ### Breaking Changes
 * **`PlacementAttributes`** — the required `status` field has been removed. Any code that reads `attributes.status` on a standard placement response will now get `undefined`; remove references to this field.
