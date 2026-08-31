@@ -1,6 +1,6 @@
 {
     "name": "@kard-financial/sdk",
-    "version": "42.0.0",
+    "version": "43.0.0",
     "private": false,
     "repository": {
         "type": "git",
@@ -175,17 +175,6 @@
                 "default": "./dist/cjs/api/resources/users/resources/rewards/exports.js"
             },
             "default": "./dist/cjs/api/resources/users/resources/rewards/exports.js"
-        },
-        "./users/uploads": {
-            "import": {
-                "types": "./dist/esm/api/resources/users/resources/uploads/exports.d.mts",
-                "default": "./dist/esm/api/resources/users/resources/uploads/exports.mjs"
-            },
-            "require": {
-                "types": "./dist/cjs/api/resources/users/resources/uploads/exports.d.ts",
-                "default": "./dist/cjs/api/resources/users/resources/uploads/exports.js"
-            },
-            "default": "./dist/cjs/api/resources/users/resources/uploads/exports.js"
         },
         "./package.json": "./package.json",
         "./helpers/hem": {

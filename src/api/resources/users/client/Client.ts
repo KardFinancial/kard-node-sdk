@@ -11,7 +11,6 @@ import * as KardApi from "../../../index.js";
 import { AttributionsClient } from "../resources/attributions/client/Client.js";
 import { AuthClient } from "../resources/auth/client/Client.js";
 import { RewardsClient } from "../resources/rewards/client/Client.js";
-import { UploadsClient } from "../resources/uploads/client/Client.js";
 
 export declare namespace UsersClient {
     export type Options = BaseClientOptions;
@@ -24,7 +23,6 @@ export class UsersClient {
     protected _attributions: AttributionsClient | undefined;
     protected _auth: AuthClient | undefined;
     protected _rewards: RewardsClient | undefined;
-    protected _uploads: UploadsClient | undefined;
 
     constructor(options: UsersClient.Options = {}) {
         this._options = normalizeClientOptionsWithAuth(options);
@@ -40,10 +38,6 @@ export class UsersClient {
 
     public get rewards(): RewardsClient {
         return (this._rewards ??= new RewardsClient(this._options));
-    }
-
-    public get uploads(): UploadsClient {
-        return (this._uploads ??= new UploadsClient(this._options));
     }
 
     /**

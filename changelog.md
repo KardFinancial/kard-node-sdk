@@ -1,3 +1,10 @@
+## 43.0.0 - 2026-08-31
+### Breaking Changes
+* **`client.users.uploads`** — the `UploadsClient` sub-client and its accessor have been removed from `UsersClient`; migrate to the bulk historical transaction upload flow via the Create Bulk Transactions Upload URL endpoint.
+* **`UploadsClient`** (`create`, `createPart`, `update`) — all three upload methods have been removed; replace calls with the equivalent bulk transactions API.
+* **`UploadPartMultiStatus`** — the error class has been removed from the `KardApi.users` namespace; remove any `catch` blocks referencing this type.
+* **Upload request/response types** — all `CreateUpload*`, `UpdateUpload*`, `HistoricalTransactionCompleteNoData`, and `StartHistoricalUploadNoData` types have been removed from the `KardApi.users` namespace; remove all imports and references to these symbols.
+
 ## 42.0.0 - 2026-08-27
 ### Breaking Changes
 * **`FileType.ValidatedTransactionDailyReconciliationFile`** — this enum value (`"validatedTransactionDailyReconciliationFile"`) has been removed from `FileType`. Remove any references to `FileType.ValidatedTransactionDailyReconciliationFile` or the raw string `"validatedTransactionDailyReconciliationFile"` from your code.
