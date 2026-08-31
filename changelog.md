@@ -1,3 +1,9 @@
+## 44.0.0 - 2026-08-31
+### Breaking Changes
+* **`LocationAttributes.priceLevel`** — the type has changed from `number | null` to `string | null`; the value is now rendered as dollar signs (`"$"` through `"$$$$"`) instead of a numeric 1–4 scale. Update any code that performs numeric operations or comparisons on this field to handle the new string format.
+### Changed
+* **`LocationRating.value`** — the JSDoc description has been updated to clarify that the value is a restaurant star rating out of 5 (no type change).
+
 ## 43.0.0 - 2026-08-31
 ### Breaking Changes
 * **`client.users.uploads`** — the `UploadsClient` sub-client and its accessor have been removed from `UsersClient`; migrate to the bulk historical transaction upload flow via the Create Bulk Transactions Upload URL endpoint.

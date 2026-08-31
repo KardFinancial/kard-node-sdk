@@ -14,6 +14,6 @@ export interface LocationAttributes {
     cuisine: KardApi.CuisineOption | null;
     /** Customer rating for this location. */
     rating: KardApi.users.LocationRating | null;
-    /** Typical price range for this location, from 1 (least expensive) to 4 (most expensive). */
-    priceLevel: number | null;
+    /** Typical price range for this location, rendered as dollar signs from "$" (least expensive) to "$$$$" (most expensive). */
+    priceLevel: string | null;
 }

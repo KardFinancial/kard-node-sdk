@@ -4,7 +4,7 @@
  * Customer rating for a location.
  */
 export interface LocationRating {
-    /** Rating on a scale of 1 to 5. */
+    /** Restaurant star rating. Rating is out of 5. */
     value: number;
     /** Number of ratings the score is based on. Null when a count is not available. */
     count: number | null;
