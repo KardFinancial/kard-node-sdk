@@ -30,7 +30,7 @@ export interface GetLocationsByUserRequest {
     "filter[latitude]"?: number;
     /** Radius in miles to search around the point given by `filter[latitude]`/`filter[longitude]` (default 10, minimum 1). Has no effect unless both latitude and longitude are also provided — it is ignored when only `filter[zipCode]`, `filter[city]`, or `filter[state]` is used, without lat/long. */
     "filter[radius]"?: number;
-    /** If provided, response will be sorted by the specified fields */
+    /** If provided, response will be sorted by the specified fields. Defaults to newest first, equivalent to descending `createdDate`; when `filter[latitude]`/`filter[longitude]` are provided, locations are ordered by ascending distance from that point first, then newest first. */
     sort?: KardApi.users.LocationSortOptions | KardApi.users.LocationSortOptions[];
     /** CSV list of included resources in the response (e.g "offers,categories"). Allowed values are `offers` and `categories`. */
     include?: string | string[];

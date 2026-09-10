@@ -1,3 +1,13 @@
+## 44.0.1 - 2026-09-10
+* chore: improve JSDoc for `sort` field in GetLocationsByUserRequest
+* Update the documentation comment for the `sort` parameter to clarify
+* default sort behavior and how location ordering changes when
+* latitude/longitude filters are provided.
+* Key changes:
+* Expanded `sort` field JSDoc to document the default sort order (newest first, descending `createdDate`)
+* Clarified that when `filter[latitude]`/`filter[longitude]` are provided, results are ordered by ascending distance first, then newest first
+* 🌿 Generated with Fern
+
 ## 44.0.0 - 2026-08-31
 ### Breaking Changes
 * **`LocationAttributes.priceLevel`** — the type has changed from `number | null` to `string | null`; the value is now rendered as dollar signs (`"$"` through `"$$$$"`) instead of a numeric 1–4 scale. Update any code that performs numeric operations or comparisons on this field to handle the new string format.
