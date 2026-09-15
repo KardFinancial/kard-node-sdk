@@ -474,6 +474,7 @@ describe("PlacementsClient", () => {
                     id: "id",
                     attributes: {
                         name: "name",
+                        displayName: "displayName",
                         organizationId: "organizationId",
                         availableSlots: 1,
                         contentStrategyId: "contentStrategyId",
@@ -485,6 +486,7 @@ describe("PlacementsClient", () => {
                     id: "id",
                     attributes: {
                         name: "name",
+                        displayName: "displayName",
                         organizationId: "organizationId",
                         availableSlots: 1,
                         contentStrategyId: "contentStrategyId",
@@ -706,6 +708,7 @@ describe("PlacementsClient", () => {
                 id: "id",
                 attributes: {
                     name: "name",
+                    displayName: "displayName",
                     organizationId: "organizationId",
                     availableSlots: 1,
                     contentStrategyId: "contentStrategyId",
@@ -894,6 +897,7 @@ describe("PlacementsClient", () => {
             id: "id",
             attributes: {
                 name: "name",
+                displayName: "displayName",
                 organizationId: "organizationId",
                 availableSlots: 1,
                 contentStrategyId: "contentStrategyId",

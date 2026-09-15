@@ -6,6 +6,8 @@
 export interface PlacementAttributes {
     /** Name of the placement */
     name: string;
+    /** Cardholder-facing title for the section, if one was set. When absent, clients fall back to their own default label. */
+    displayName?: string | undefined;
     /** ID of the organization this placement belongs to */
     organizationId: string;
     /** Number of available slots */

@@ -1,3 +1,7 @@
+## 44.1.0 - 2026-09-15
+### Added
+* **`displayName`** — new optional field on `CreateStandardAttributes`, `UpdateStandardAttributes`, and `PlacementAttributes` that sets a cardholder-facing title for a placement section; omit to let clients fall back to their own default label.
+
 ## 44.0.1 - 2026-09-10
 * chore: improve JSDoc for `sort` field in GetLocationsByUserRequest
 * Update the documentation comment for the `sort` parameter to clarify

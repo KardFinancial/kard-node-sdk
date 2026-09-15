@@ -12,6 +12,8 @@
 export interface CreateStandardAttributes {
     /** Name of the placement */
     name: string;
+    /** Cardholder-facing title for the section (minimum 1 character). Omit to let clients use their default label. */
+    displayName?: string | undefined;
     /** Number of available slots (minimum 1) */
     availableSlots: number;
     /** ID of the content strategy to link this placement to */
