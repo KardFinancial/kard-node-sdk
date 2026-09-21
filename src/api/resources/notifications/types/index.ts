@@ -19,5 +19,4 @@ export * from "./PushNotificationPlacementFileAttributes.js";
 export * from "./PushNotificationPlacementFileData.js";
 export * from "./PushNotificationPlacementFileRelationships.js";
 export * from "./RejectedTransactionRelationships.js";
-export * from "./RewardNotificationAttributes.js";
 export * from "./UserReward.js";

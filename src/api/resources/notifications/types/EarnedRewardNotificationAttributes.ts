@@ -2,11 +2,27 @@
 
 import type * as KardApi from "../../../index.js";
 
-export interface EarnedRewardNotificationAttributes extends KardApi.RewardNotificationAttributes {
+export interface EarnedRewardNotificationAttributes {
+    /** The display message associated to the notification */
+    message: string;
+    /** The name of the merchant */
+    name: string;
+    /** The attribution URL to track user's interactions with the notification */
+    attributionUrl: string;
+    /** Post experience survey URL, if available. This will be present for rewards associated with local offers. */
+    surveyUrl?: string | undefined;
+    /** The ID of the card product */
+    cardProductId?: string | undefined;
+    /** The timestamp of the originating transaction in ISO format */
+    transactionTimestamp?: string | undefined;
+    /** The transaction ID */
+    transactionId: string;
+    /** The amount of the originating transaction in cents */
+    transactionAmountInCents: number;
     /** The category of the offer, e.g. "Food & Dining" */
     categoryName?: string | undefined;
     /** Type of commission on offer (% or a flat $) */
-    userReward?: KardApi.UserReward | undefined;
+    userReward: KardApi.UserReward;
     /**
      * Tracked asset images for the merchant. The asset
      * URL is signed for attribution tracking and should be loaded as-is by the

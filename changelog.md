@@ -1,3 +1,9 @@
+## 45.0.0 - 2026-09-21
+### Breaking Changes
+* **`RewardNotificationAttributes`** — this interface has been removed from the SDK. Any code that references `RewardNotificationAttributes` directly will fail to compile; migrate by using `EarnedRewardNotificationAttributes` instead, which now declares all the same fields inline.
+* **`EarnedRewardNotificationAttributes`** — no longer extends `RewardNotificationAttributes`; all previously inherited fields (`message`, `name`, `attributionUrl`, `transactionId`, `transactionAmountInCents`, etc.) are now declared directly on the interface with no behavioral change.
+* **`EarnedRewardNotificationAttributes.userReward`** — changed from optional (`KardApi.UserReward | undefined`) to required (`KardApi.UserReward`); callers that construct this type without providing `userReward` will get a compile error.
+
 ## 44.1.0 - 2026-09-15
 ### Added
 * **`displayName`** — new optional field on `CreateStandardAttributes`, `UpdateStandardAttributes`, and `PlacementAttributes` that sets a cardholder-facing title for a placement section; omit to let clients fall back to their own default label.
