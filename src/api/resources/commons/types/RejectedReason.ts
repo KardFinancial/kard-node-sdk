@@ -3,6 +3,7 @@
 /** The reason a matched transaction was rejected and did not result in a reward */
 export const RejectedReason = {
     AggregatorCardOverlap: "AGGREGATOR_CARD_OVERLAP",
+    MaxRedemptionLimitReached: "MAX_REDEMPTION_LIMIT_REACHED",
     SettlementRejected: "SETTLEMENT_REJECTED",
     UserNotEnrolled: "USER_NOT_ENROLLED",
     UserNotInAudienceSegment: "USER_NOT_IN_AUDIENCE_SEGMENT",

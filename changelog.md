@@ -1,3 +1,7 @@
+## 45.1.0 - 2026-09-25
+### Added
+* **`RejectedReason.MaxRedemptionLimitReached`** — new enum value (`"MAX_REDEMPTION_LIMIT_REACHED"`) representing transactions rejected because the user has reached their maximum redemption limit.
+
 ## 45.0.0 - 2026-09-21
 ### Breaking Changes
 * **`RewardNotificationAttributes`** — this interface has been removed from the SDK. Any code that references `RewardNotificationAttributes` directly will fail to compile; migrate by using `EarnedRewardNotificationAttributes` instead, which now declares all the same fields inline.
