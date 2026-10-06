@@ -14,7 +14,7 @@
  *     }
  */
 export interface UpdateChildAttributes {
-    /** New name for the child organization (at least one letter; letters and spaces only) */
+    /** New name for the child organization (at least two letters or numbers; letters, numbers, and spaces only) */
     name?: string | undefined;
     /** External identifier for the child organization */
     externalId?: string | undefined;

@@ -1,3 +1,16 @@
+## 45.1.1 - 2026-10-06
+* chore: update child organization name validation docs
+* Update JSDoc comments and inline documentation to reflect the revised
+* name validation rules for child organizations. The name field now
+* requires at least two letters or numbers (previously one letter) and
+* permits numbers in addition to letters and spaces.
+* Key changes:
+* Updated JSDoc on `ChildrenClient.create` to reflect new name rules
+* Updated `name` field comment on `ChildOrganizationAttributes`
+* Updated `name` field comment on `CreateChildAttributes`
+* Updated `name` field comment on `UpdateChildAttributes`
+* 🌿 Generated with Fern
+
 ## 45.1.0 - 2026-09-25
 ### Added
 * **`RejectedReason.MaxRedemptionLimitReached`** — new enum value (`"MAX_REDEMPTION_LIMIT_REACHED"`) representing transactions rejected because the user has reached their maximum redemption limit.
