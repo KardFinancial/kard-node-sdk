@@ -1,3 +1,10 @@
+## 45.2.0 - 2026-10-07
+### Added
+* **`PhoneNumber`** — new interface representing a user phone number in E.164 format with an optional `PhoneNumberType` classification (`MOBILE`, `HOME`, `WORK`, `OTHER`).
+* **`PostalCode`** — new interface representing a user postal code with an optional `PostalCodeType` classification (`PHYSICAL`, `BILLING`, `OTHER`).
+* **`UserRequestAttributes.phoneNumbers`** and **`UserRequestAttributes.postalCodes`** — new optional fields (up to 10 entries each) for supplying structured phone numbers and postal codes when creating a user.
+* **`UpdateUserRequestAttributes.phoneNumbers`** and **`UpdateUserRequestAttributes.postalCodes`** — new optional fields for replacing a user's phone numbers and postal codes on update.
+
 ## 45.1.1 - 2026-10-06
 * chore: update child organization name validation docs
 * Update JSDoc comments and inline documentation to reflect the revised

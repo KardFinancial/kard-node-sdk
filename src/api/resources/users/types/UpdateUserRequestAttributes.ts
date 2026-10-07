@@ -17,4 +17,8 @@ export interface UpdateUserRequestAttributes {
     birthYear?: string | undefined;
     /** Set to `true` to confirm that historical transactions have been sent for this user. This is a one-way flag: once `true` it cannot be set back to `false`, and a request attempting to do so is rejected. */
     historicalTransactionsSent?: boolean | undefined;
+    /** Phone numbers of user, up to 10. Sending the list replaces every number on file. */
+    phoneNumbers?: KardApi.PhoneNumber[] | undefined;
+    /** Postal codes of user, up to 10. Sending the list replaces every postal code on file. */
+    postalCodes?: KardApi.PostalCode[] | undefined;
 }

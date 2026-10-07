@@ -370,6 +370,14 @@ describe("UsersClient", () => {
                     phoneNumber: "+14155552671",
                     birthYear: "1990",
                     historicalTransactionsSent: true,
+                    phoneNumbers: [
+                        { number: "+14155552671", type: "MOBILE" },
+                        { number: "+12125550188", type: "HOME" },
+                    ],
+                    postalCodes: [
+                        { code: "11238", type: "PHYSICAL" },
+                        { code: "10028", type: "BILLING" },
+                    ],
                 },
             },
         };
@@ -720,6 +728,14 @@ describe("UsersClient", () => {
                     phoneNumber: "+14155552671",
                     birthYear: "1990",
                     historicalTransactionsSent: true,
+                    phoneNumbers: [
+                        { number: "+14155552671", type: "MOBILE" },
+                        { number: "+12125550188", type: "HOME" },
+                    ],
+                    postalCodes: [
+                        { code: "11238", type: "PHYSICAL" },
+                        { code: "10028", type: "BILLING" },
+                    ],
                 },
             },
         };

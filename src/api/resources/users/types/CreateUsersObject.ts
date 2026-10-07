@@ -19,6 +19,32 @@ import type * as KardApi from "../../../index.js";
  *                 }
  *             }]
  *     }
+ *
+ * @example
+ *     {
+ *         data: [{
+ *                 type: "user",
+ *                 id: "1234567890",
+ *                 attributes: {
+ *                     enrolledRewards: [KardApi.EnrolledRewardsType.Cardlinked],
+ *                     email: "user@example.com",
+ *                     phoneNumbers: [{
+ *                             number: "+14155552671",
+ *                             type: KardApi.PhoneNumberType.Mobile
+ *                         }, {
+ *                             number: "+12125550188",
+ *                             type: KardApi.PhoneNumberType.Home
+ *                         }],
+ *                     postalCodes: [{
+ *                             code: "11238",
+ *                             type: KardApi.PostalCodeType.Physical
+ *                         }, {
+ *                             code: "10028",
+ *                             type: KardApi.PostalCodeType.Billing
+ *                         }]
+ *                 }
+ *             }]
+ *     }
  */
 export interface CreateUsersObject {
     data: KardApi.UserRequestDataUnion[];

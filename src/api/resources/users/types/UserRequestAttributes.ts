@@ -17,4 +17,8 @@ export interface UserRequestAttributes {
     birthYear?: string | undefined;
     /** Indicates whether historical transactions have been sent for this user */
     historicalTransactionsSent?: boolean | undefined;
+    /** Phone numbers of user, up to 10. Sending the list replaces every number on file. */
+    phoneNumbers?: KardApi.PhoneNumber[] | undefined;
+    /** Postal codes of user, up to 10. Sending the list replaces every postal code on file. */
+    postalCodes?: KardApi.PostalCode[] | undefined;
 }
