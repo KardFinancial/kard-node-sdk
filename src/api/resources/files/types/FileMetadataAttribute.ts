@@ -9,4 +9,8 @@ export interface FileMetadataAttribute {
     lastModified: string;
     /** Temporary URL that provides direct access to download the file for 30 minutes. */
     downloadUrl: string;
+    /** Start of the reporting period, inclusive (RFC 3339, UTC). Present only when a period was informed at upload. */
+    periodStart?: string | undefined;
+    /** End of the reporting period, inclusive (RFC 3339, UTC). Present only when a period was informed at upload. */
+    periodEnd?: string | undefined;
 }

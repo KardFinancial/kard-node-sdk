@@ -1,3 +1,7 @@
+## 45.3.0 - 2026-10-14
+### Added
+* **`FileMetadataAttribute.periodStart`** and **`FileMetadataAttribute.periodEnd`** — new optional fields (RFC 3339, UTC) representing the inclusive start and end of the reporting period associated with an uploaded file; present only when a period was supplied at upload time.
+
 ## 45.2.0 - 2026-10-07
 ### Added
 * **`PhoneNumber`** — new interface representing a user phone number in E.164 format with an optional `PhoneNumberType` classification (`MOBILE`, `HOME`, `WORK`, `OTHER`).
