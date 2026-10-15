@@ -8,5 +8,6 @@ export const NotificationType = {
     FileProcessingResult: "fileProcessingResult",
     PushNotificationPlacementFile: "pushNotificationPlacementFile",
     EmailNotificationPlacementFile: "emailNotificationPlacementFile",
+    PayoutReconciliationFile: "payoutReconciliationFile",
 } as const;
 export type NotificationType = (typeof NotificationType)[keyof typeof NotificationType];

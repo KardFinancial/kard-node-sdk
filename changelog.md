@@ -1,3 +1,11 @@
+## 45.4.0 - 2026-10-15
+### Added
+* **`NotificationType.PayoutReconciliationFile`** — new enum value (`"payoutReconciliationFile"`) representing a payout reconciliation file notification.
+* **`NotificationDataUnion.PayoutReconciliationFile`** — new variant added to the `NotificationDataUnion` discriminated union for handling payout reconciliation file notification payloads.
+* **`PayoutReconciliationFileData`** — new interface describing the top-level payout reconciliation file notification data, including `id`, `attributes`, and `relationships`.
+* **`PayoutReconciliationFileAttributes`** — new interface with `fileName`, `periodStart`, `periodEnd`, `downloadUrl`, and `expiresIn` fields for the reconciliation file payload.
+* **`PayoutReconciliationFileRelationships`** — new interface linking the notification to its associated `file` relationship.
+
 ## 45.3.0 - 2026-10-14
 ### Added
 * **`FileMetadataAttribute.periodStart`** and **`FileMetadataAttribute.periodEnd`** — new optional fields (RFC 3339, UTC) representing the inclusive start and end of the reporting period associated with an uploaded file; present only when a period was supplied at upload time.
