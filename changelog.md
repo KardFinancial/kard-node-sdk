@@ -1,3 +1,16 @@
+## 45.4.1 - 2026-10-15
+* chore: update RewardsClient endpoint documentation for email/push placements
+* Update the JSDoc comment on the RewardsClient placement endpoint to
+* reflect that email and push-notification placements now return
+* `standardOffer` resources as a preview of a send (up to `availableSlots`
+* offers for email, up to one offer for push), replacing the previous note
+* that stated these placement types respond with a `400`.
+* Key changes:
+* Revised inline documentation to describe `standardOffer` resource
+* returns for email and push-notification placements
+* Removed the outdated `400` error note for email/push placements
+* 🌿 Generated with Fern
+
 ## 45.4.0 - 2026-10-15
 ### Added
 * **`NotificationType.PayoutReconciliationFile`** — new enum value (`"payoutReconciliationFile"`) representing a payout reconciliation file notification.
