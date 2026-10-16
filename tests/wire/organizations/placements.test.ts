@@ -65,6 +65,7 @@ describe("PlacementsClient", () => {
                 organizationId: "org-123",
                 status: "ACTIVE",
                 cadence: { frequency: "DAILY", timeOfDay: "09:00" },
+                createdAt: "2026-10-01T14:30:00Z",
             },
         };
 
@@ -119,6 +120,7 @@ describe("PlacementsClient", () => {
                 status: "ACTIVE",
                 availableSlots: 10,
                 cadence: { frequency: "WEEKLY", timeOfDay: "10:00", dayOfWeek: "MON" },
+                createdAt: "2026-10-01T14:30:00Z",
             },
         };
 

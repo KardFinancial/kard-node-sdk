@@ -1,3 +1,11 @@
+## 46.0.0 - 2026-10-16
+### Breaking Changes
+* **`EmailPlacementAttributes.createdAt`** — new required `string` field added; existing code that constructs this type without `createdAt` will fail to compile. Add `createdAt` (ISO 8601 timestamp) to all construction sites.
+* **`PushNotificationPlacementAttributes.createdAt`** — same required `createdAt: string` field added; update all construction sites accordingly.
+### Added
+* **`WeekOfMonth`** — new enum (`"FIRST"` | `"LAST"`) representing which occurrence of a weekday in the month to deliver on.
+* **`Cadence.weekOfMonth`** — new optional field accepting a `WeekOfMonth` value; enables monthly cadences scheduled on the first or last occurrence of a given `dayOfWeek`, and cannot be combined with `dayOfMonth`.
+
 ## 45.4.1 - 2026-10-15
 * chore: update RewardsClient endpoint documentation for email/push placements
 * Update the JSDoc comment on the RewardsClient placement endpoint to

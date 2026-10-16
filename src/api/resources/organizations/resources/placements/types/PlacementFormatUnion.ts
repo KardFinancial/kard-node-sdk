@@ -27,7 +27,8 @@ import type * as KardApi from "../../../../../index.js";
  *             cadence: {
  *                 frequency: KardApi.organizations.CadenceFrequency.Daily,
  *                 timeOfDay: "09:00"
- *             }
+ *             },
+ *             createdAt: "2026-10-01T14:30:00Z"
  *         }
  *     }
  *
@@ -44,7 +45,8 @@ import type * as KardApi from "../../../../../index.js";
  *                 frequency: KardApi.organizations.CadenceFrequency.Weekly,
  *                 timeOfDay: "10:00",
  *                 dayOfWeek: KardApi.organizations.DayOfWeek.Mon
- *             }
+ *             },
+ *             createdAt: "2026-10-01T14:30:00Z"
  *         }
  *     }
  *

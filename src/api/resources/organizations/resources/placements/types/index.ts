@@ -52,3 +52,4 @@ export * from "./UpdatePushNotificationAttributes.js";
 export * from "./UpdatePushNotificationPlacementData.js";
 export * from "./UpdateStandardAttributes.js";
 export * from "./UpdateStandardPlacementData.js";
+export * from "./WeekOfMonth.js";

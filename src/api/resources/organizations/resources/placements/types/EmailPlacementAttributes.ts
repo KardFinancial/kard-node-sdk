@@ -18,4 +18,6 @@ export interface EmailPlacementAttributes {
     cadence: KardApi.organizations.Cadence;
     /** ID of the content strategy linked to this placement, if any. Retained alongside `relationships.contentStrategy` for backward compatibility. */
     contentStrategyId?: string | undefined;
+    /** When the placement was created */
+    createdAt: string;
 }
