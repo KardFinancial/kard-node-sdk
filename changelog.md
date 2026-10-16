@@ -1,3 +1,13 @@
+## 46.0.1 - 2026-10-16
+* chore: clarify dayOfMonth behavior for months with fewer days
+* Update the JSDoc comment on `Cadence.dayOfMonth` to document that when
+* a day value of 29–31 is specified and the target month does not have
+* that many days, delivery falls on the last day of that month instead.
+* Key changes:
+* Expanded inline documentation for `Cadence.dayOfMonth` to note the
+* end-of-month fallback behavior for days 29–31
+* 🌿 Generated with Fern
+
 ## 46.0.0 - 2026-10-16
 ### Breaking Changes
 * **`EmailPlacementAttributes.createdAt`** — new required `string` field added; existing code that constructs this type without `createdAt` will fail to compile. Add `createdAt` (ISO 8601 timestamp) to all construction sites.

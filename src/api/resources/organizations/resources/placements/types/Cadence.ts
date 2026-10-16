@@ -12,7 +12,7 @@ export interface Cadence {
     timeOfDay?: string | undefined;
     /** Day of the week to deliver (used when frequency is WEEKLY, defaults to MON) */
     dayOfWeek?: KardApi.organizations.DayOfWeek | undefined;
-    /** Day of the month to deliver, 1-31 (used when frequency is MONTHLY, defaults to 1) */
+    /** Day of the month to deliver, 1-31 (used when frequency is MONTHLY, defaults to 1). For 29-31, months without that day deliver on their last day. */
     dayOfMonth?: number | undefined;
     /** Deliver on the first or last dayOfWeek of the month. Requires frequency MONTHLY and dayOfWeek, and cannot be combined with dayOfMonth. */
     weekOfMonth?: KardApi.organizations.WeekOfMonth | undefined;
